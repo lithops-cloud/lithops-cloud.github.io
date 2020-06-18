@@ -1,0 +1,24 @@
+markdown_extensions:
+  - toc:
+      baselevel: 2
+      permalink: true
+  - codehilite:
+      guess_lang: false
+
+nav:
+  - Home: index.md
+  - Getting started: getting-started.md
+  - Serverless Benchmark: https://cloudbutton.github.io/benchmarks
+  - Examples:
+      - Mandelbrot: examples/example_mandelbrot.md
+      - Pi Montecarlo: examples/example_pi_montecarlo.md
+      - Moments in time: examples/example_mit.md
+
+repo_name: cloudbutton/cloudbutton
+repo_url: https://github.com/cloudbutton/cloudbutton
+
+site_description: "CloudButton is a multicloud library for running serverless jobs in Python that implements the multiprocessing interface."
+site_name: CloudButton
+theme:
+  name: readthedocs
+  custom_dir: custom/

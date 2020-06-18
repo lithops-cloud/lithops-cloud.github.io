@@ -1,0 +1,99 @@
+.carousel-inner {
+    background-image: url("../img/network-4851119.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #6689c2;
+!important;
+    border-color: #6689c2;
+!important;
+}
+
+.logo-size {
+    width: 40%;
+    height: 40%;
+}
+
+a {
+    font-family: 'Montserrat', sans-serif;
+    color: #6689c2;
+}
+
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    color: #2c3e50;
+}
+
+span {
+    color: #6689c2;
+}
+
+.about-text {
+    font-size: 16px;
+}
+
+.pre-code {
+    display: inline;
+    margin: 0;
+}
+
+.my-featurette-divider {
+    margin-top: 0 !important;
+}
+
+.my-featurette-divider-less {
+    margin-top: 0 !important;
+    margin-bottom: 30px !important;
+}
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Navbar */
+
+.my-navbar-bg {
+    background-color: #2c3e50;
+}
+
+.navbar-brand {
+    position: relative;
+    background: url(../img/logo_h_w.png);
+    width: 250px;
+    height: 40px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.nav-item-github {
+    background-color: #6689c2;
+    border-radius: 8px;
+}
+
+nav {
+    font-size: .875rem;
+}
+
+.card-bg {
+    background-color: #6689c2;
+}
