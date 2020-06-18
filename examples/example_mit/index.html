@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Moments in time - CloudButton</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Moments in time";
+    var mkdocs_page_input_path = "examples/example_mit.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> CloudButton</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/">Getting started</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="" href="https://cloudbutton.github.io/benchmarks">Serverless Benchmark</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Examples</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../example_mandelbrot/">Mandelbrot</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../example_pi_montecarlo/">Pi Montecarlo</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Moments in time</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#videoimage-prediction">Video/image prediction</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#backends">Backends</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#download-pretrained-resnet50-model-weights-and-save-them-in-a-directory-accessible-by-all-functions-weights_location">Download pretrained ResNet50 model weights and save them in a directory accessible by all functions (weights_location)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#video-prediction-and-reduce-function-code">Video prediction and reduce function code</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#map-functions">Map functions</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#performance-improvement">Performance improvement</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#clean">Clean</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dockerfiles-and-build-scripts-for-both-runtimes-can-be-found-in-the-docker-folder">Dockerfiles and build scripts for both runtimes can be found in the docker/ folder.</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#source-code-adapted-from-the-demonstration-in-httpsgithubcomzhouboleimoments_models">Source code adapted from the demonstration in https://github.com/zhoubolei/moments_models</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#moments-in-time-article-httpmomentscsailmitedupaper">Moments in Time article: http://moments.csail.mit.edu/#paper</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">CloudButton</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Examples &raquo;</li>
+        
+      
+    
+    <li>Moments in time</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/cloudbutton/cloudbutton/edit/master/docs/examples/example_mit.md"> Edit on cloudbutton/cloudbutton</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="cloudbutton-moments-in-time-dataset-example">Cloudbutton Moments in Time dataset example<a class="headerlink" href="#cloudbutton-moments-in-time-dataset-example" title="Permanent link">&para;</a></h2>
+<h3 id="videoimage-prediction">Video/image prediction<a class="headerlink" href="#videoimage-prediction" title="Permanent link">&para;</a></h3>
+<p>In <a href="https://github.com/cloudbutton/examples/blob/master/momentsintime/example_mit.ipynb">this notebook</a> we will process video clips from the MiT dataset at scale with the Cloudbutton toolkit
+by predicting the actions with a pretrained ResNet50 model and then counting how many
+occurrences of each category have been predicted.</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">builtins</span>
+<span class="kn">import</span> <span class="nn">torch.optim</span>
+<span class="kn">import</span> <span class="nn">torch.nn.parallel</span>
+<span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">save</span><span class="p">,</span> <span class="n">load</span>
+<span class="kn">from</span> <span class="nn">torch.nn</span> <span class="kn">import</span> <span class="n">functional</span> <span class="k">as</span> <span class="n">F</span>
+
+<span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="n">extract_frames</span>
+<span class="kn">from</span> <span class="nn">models</span> <span class="kn">import</span> <span class="n">load_model</span><span class="p">,</span> <span class="n">load_transform</span><span class="p">,</span> <span class="n">load_categories</span>
+
+<span class="kn">from</span> <span class="nn">cloudbutton.multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span><span class="p">,</span> <span class="n">Queue</span>
+<span class="kn">from</span> <span class="nn">cloudbutton.multiprocessing.util</span> <span class="kn">import</span> <span class="n">get_uuid</span>
+</code></pre></div>
+
+
+<h4 id="backends">Backends<a class="headerlink" href="#backends" title="Permanent link">&para;</a></h4>
+<p>The same program can be run in a local environtment with processes or executed by
+functions in the cloud. After we choose a backend, only a few file locations must
+be changed. In this example we will be using the cloud functions backend.</p>
+<p>We will be using a custom runtime for our functions which has torch, torchvision,
+ffmpeg and opencv-python modules already installed.
+We will store the pretrained weights in the cloud so that functions can access it.
+Then, after functions get the models weights they will start preprocessing input
+videos and inferring them one by one.</p>
+<p>Later in this notebook, we will see a little improvement detail to this process.  </p>
+<div class="codehilite"><pre><span></span><code><span class="n">LOCAL_EXEC</span> <span class="o">=</span> <span class="kc">False</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="n">INPUT_DATA_DIR</span> <span class="o">=</span> <span class="s1">&#39;momentsintime/input_data&#39;</span>
+
+<span class="k">if</span> <span class="n">LOCAL_EXEC</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">os</span>
+    <span class="kn">from</span> <span class="nn">builtins</span> <span class="kn">import</span> <span class="nb">open</span>
+    <span class="n">initargs</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;backend&#39;</span><span class="p">:</span> <span class="s1">&#39;localhost&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;storage_backend&#39;</span><span class="p">:</span> <span class="s1">&#39;localhost&#39;</span>
+        <span class="p">}</span>
+    <span class="n">weights_location</span> <span class="o">=</span> <span class="s1">&#39;/dev/shm/model_weights&#39;</span>
+    <span class="n">INPUT_DATA_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">INPUT_DATA_DIR</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">cloudbutton.cloud_proxy</span> <span class="kn">import</span> <span class="n">os</span><span class="p">,</span> <span class="nb">open</span>
+    <span class="n">initargs</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;backend&#39;</span><span class="p">:</span> <span class="s1">&#39;ibm_cf&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;storage_backend&#39;</span><span class="p">:</span> <span class="s1">&#39;ibm_cos&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;runtime&#39;</span><span class="p">:</span> <span class="s1">&#39;dhak/pywren-runtime-pytorch:3.6&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;runtime_memory&#39;</span><span class="p">:</span> <span class="mi">2048</span>
+        <span class="p">}</span>
+    <span class="n">weights_location</span> <span class="o">=</span> <span class="s1">&#39;momentsintime/models/model_weights&#39;</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="n">video_locations</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">INPUT_DATA_DIR</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">INPUT_DATA_DIR</span><span class="p">)]</span>
+</code></pre></div>
+
+
+<p>As you can see, we have masked the <code>open</code> function and <code>os</code> module with a proxy
+to manage files from the cloud transparently.<br />
+We will use <code>builtins.open</code> from now on to explicitly access a local file as some accesses have to occur in the very same machine.</p>
+<h4 id="download-pretrained-resnet50-model-weights-and-save-them-in-a-directory-accessible-by-all-functions-weights_location">Download pretrained ResNet50 model weights and save them in a directory accessible by all functions (<code>weights_location</code>)<a class="headerlink" href="#download-pretrained-resnet50-model-weights-and-save-them-in-a-directory-accessible-by-all-functions-weights_location" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="n">ROOT_URL</span> <span class="o">=</span> <span class="s1">&#39;http://moments.csail.mit.edu/moments_models&#39;</span>
+<span class="n">WEIGHTS_FILE</span> <span class="o">=</span> <span class="s1">&#39;moments_RGB_resnet50_imagenetpretrained.pth.tar&#39;</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">access</span><span class="p">(</span><span class="n">WEIGHTS_FILE</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">R_OK</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;wget &#39;</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">ROOT_URL</span><span class="p">,</span> <span class="n">WEIGHTS_FILE</span><span class="p">]))</span>
+
+<span class="k">with</span> <span class="n">builtins</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">WEIGHTS_FILE</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_in</span><span class="p">:</span>
+    <span class="n">weights</span> <span class="o">=</span> <span class="n">f_in</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">weights_location</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_out</span><span class="p">:</span>
+    <span class="n">f_out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+</code></pre></div>
+
+
+<h4 id="video-prediction-and-reduce-function-code">Video prediction and reduce function code<a class="headerlink" href="#video-prediction-and-reduce-function-code" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="n">NUM_SEGMENTS</span> <span class="o">=</span> <span class="mi">16</span>
+
+<span class="c1"># Get dataset categories</span>
+<span class="n">categories</span> <span class="o">=</span> <span class="n">load_categories</span><span class="p">()</span>
+
+<span class="c1"># Load the video frame transform</span>
+<span class="n">transform</span> <span class="o">=</span> <span class="n">load_transform</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">predict_videos</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="n">video_locations</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">weights_location</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">load_model</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">local_video_loc</span> <span class="o">=</span> <span class="s1">&#39;video_to_predict_</span><span class="si">{}</span><span class="s1">.mp4&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">get_uuid</span><span class="p">())</span>
+
+    <span class="k">for</span> <span class="n">video_loc</span> <span class="ow">in</span> <span class="n">video_locations</span><span class="p">:</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">video_loc</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_in</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">builtins</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">local_video_loc</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_out</span><span class="p">:</span>
+                <span class="n">f_out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">f_in</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+
+        <span class="c1"># Obtain video frames</span>
+        <span class="n">frames</span> <span class="o">=</span> <span class="n">extract_frames</span><span class="p">(</span><span class="n">local_video_loc</span><span class="p">,</span> <span class="n">NUM_SEGMENTS</span><span class="p">)</span>
+
+        <span class="c1"># Prepare input tensor [num_frames, 3, 224, 224]</span>
+        <span class="n">input_v</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">transform</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span> <span class="k">for</span> <span class="n">frame</span> <span class="ow">in</span> <span class="n">frames</span><span class="p">])</span>
+
+        <span class="c1"># Make video prediction</span>
+        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+            <span class="n">logits</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">input_v</span><span class="p">)</span>
+            <span class="n">h_x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">probs</span><span class="p">,</span> <span class="n">idx</span> <span class="o">=</span> <span class="n">h_x</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+
+        <span class="c1"># Output the prediction</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">video_loc</span><span class="p">)</span>
+        <span class="n">result</span><span class="p">[</span><span class="s1">&#39;prediction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">idx</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">probs</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="mi">5</span><span class="p">))</span>
+        <span class="n">result</span><span class="p">[</span><span class="s1">&#39;iter_duration&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+        <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+    <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+
+<span class="c1"># Counts how many predictions of each category have been made</span>
+<span class="k">def</span> <span class="nf">reduce</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">pred_x_categ</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">categ</span> <span class="ow">in</span> <span class="n">categories</span><span class="p">:</span>
+        <span class="n">pred_x_categ</span><span class="p">[</span><span class="n">categ</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="n">checkpoint</span> <span class="o">=</span> <span class="mf">0.2</span>
+    <span class="n">res_count</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+        <span class="n">res_count</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">res</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+            <span class="n">idx</span><span class="p">,</span> <span class="n">prob</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;prediction&#39;</span><span class="p">]</span>
+            <span class="n">pred_x_categ</span><span class="p">[</span><span class="n">categories</span><span class="p">[</span><span class="n">idx</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="c1"># print progress</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="n">N</span> <span class="o">*</span> <span class="n">checkpoint</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Processed </span><span class="si">{}</span><span class="s1"> results.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">res_count</span><span class="p">))</span>
+            <span class="n">checkpoint</span> <span class="o">+=</span> <span class="mf">0.2</span>
+
+    <span class="k">return</span> <span class="n">pred_x_categ</span>
+</code></pre></div>
+
+
+<h4 id="map-functions">Map functions<a class="headerlink" href="#map-functions" title="Permanent link">&para;</a></h4>
+<p>Similar to the <code>multiprocessing</code> module API, we use a Pool to map the video keys
+across n workers (concurrency). However, we do not have to instantiate a Pool of
+n workers <em>specificly</em>, it is the map function that will invoke as many workers according
+to the length of the list.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">CONCURRENCY</span> <span class="o">=</span> <span class="mi">1000</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="n">queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">()</span>
+<span class="n">pool</span> <span class="o">=</span> <span class="n">Pool</span><span class="p">(</span><span class="n">initargs</span><span class="o">=</span><span class="n">initargs</span><span class="p">)</span>
+
+<span class="c1"># Slice data keys</span>
+<span class="n">N</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">CONCURRENCY</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">video_locations</span><span class="p">))</span>
+<span class="n">iterable</span> <span class="o">=</span> <span class="p">[(</span><span class="n">queue</span><span class="p">,</span> <span class="n">video_locations</span><span class="p">[</span><span class="n">n</span><span class="p">::</span><span class="n">CONCURRENCY</span><span class="p">])</span> 
+            <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
+
+<span class="c1"># Map and reduce on the go</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">pool</span><span class="o">.</span><span class="n">map_async</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">predict_videos</span><span class="p">,</span> <span class="n">iterable</span><span class="o">=</span><span class="n">iterable</span><span class="p">)</span>
+<span class="n">pred_x_categ</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Done.&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Videos processed:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">video_locations</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Total duration:&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="s1">&#39;sec</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">categ</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">pred_x_categ</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">count</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">categ</span><span class="p">,</span> <span class="n">count</span><span class="p">))</span>
+</code></pre></div>
+
+
+<hr />
+<h3 id="performance-improvement">Performance improvement<a class="headerlink" href="#performance-improvement" title="Permanent link">&para;</a></h3>
+<p>Now, since we know every function will have to pull the model weights from
+the cloud storage, we can actually pack these weights with the runtime image
+and reduce the start-up cost substantially.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">initargs</span><span class="p">[</span><span class="s1">&#39;runtime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;dhak/pywren-runtime-resnet&#39;</span>
+<span class="n">weights_location</span> <span class="o">=</span> <span class="s1">&#39;/momentsintime/model_weights&#39;</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">predict_videos</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="n">video_locations</span><span class="p">):</span>
+    <span class="c1"># force local file access on new weights_location</span>
+    <span class="k">with</span> <span class="n">builtins</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">weights_location</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">load_model</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">local_video_loc</span> <span class="o">=</span> <span class="s1">&#39;video_to_predict_</span><span class="si">{}</span><span class="s1">.mp4&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">get_uuid</span><span class="p">())</span>
+
+    <span class="k">for</span> <span class="n">video_loc</span> <span class="ow">in</span> <span class="n">video_locations</span><span class="p">:</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">video_loc</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_in</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">builtins</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">local_video_loc</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_out</span><span class="p">:</span>
+                <span class="n">f_out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">f_in</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+
+        <span class="c1"># Obtain video frames</span>
+        <span class="n">frames</span> <span class="o">=</span> <span class="n">extract_frames</span><span class="p">(</span><span class="n">local_video_loc</span><span class="p">,</span> <span class="n">NUM_SEGMENTS</span><span class="p">)</span>
+
+        <span class="c1"># Prepare input tensor [num_frames, 3, 224, 224]</span>
+        <span class="n">input_v</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">transform</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span> <span class="k">for</span> <span class="n">frame</span> <span class="ow">in</span> <span class="n">frames</span><span class="p">])</span>
+
+        <span class="c1"># Make video prediction</span>
+        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+            <span class="n">logits</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">input_v</span><span class="p">)</span>
+            <span class="n">h_x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">probs</span><span class="p">,</span> <span class="n">idx</span> <span class="o">=</span> <span class="n">h_x</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+
+        <span class="c1"># Output the prediction</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">video_loc</span><span class="p">)</span>
+        <span class="n">result</span><span class="p">[</span><span class="s1">&#39;prediction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">idx</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">probs</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="mi">5</span><span class="p">))</span>
+        <span class="n">result</span><span class="p">[</span><span class="s1">&#39;iter_duration&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+        <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+    <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="n">queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">()</span>
+<span class="n">pool</span> <span class="o">=</span> <span class="n">Pool</span><span class="p">(</span><span class="n">initargs</span><span class="o">=</span><span class="n">initargs</span><span class="p">)</span>
+
+<span class="c1"># Slice data keys</span>
+<span class="n">N</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">CONCURRENCY</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">video_locations</span><span class="p">))</span>
+<span class="n">iterable</span> <span class="o">=</span> <span class="p">[(</span><span class="n">queue</span><span class="p">,</span> <span class="n">video_locations</span><span class="p">[</span><span class="n">n</span><span class="p">::</span><span class="n">CONCURRENCY</span><span class="p">])</span> 
+            <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
+
+<span class="c1"># Map and reduce on the go</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">map_async</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">predict_videos</span><span class="p">,</span> <span class="n">iterable</span><span class="o">=</span><span class="n">iterable</span><span class="p">)</span>
+<span class="n">pred_x_categ</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Done.&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Videos processed:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">video_locations</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Total duration:&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="s1">&#39;sec</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">categ</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">pred_x_categ</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">count</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">categ</span><span class="p">,</span> <span class="n">count</span><span class="p">))</span>
+</code></pre></div>
+
+
+<h4 id="clean">Clean<a class="headerlink" href="#clean" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">weights_location</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">WEIGHTS_FILE</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="k">pass</span>
+</code></pre></div>
+
+
+<h4 id="dockerfiles-and-build-scripts-for-both-runtimes-can-be-found-in-the-docker-folder">Dockerfiles and build scripts for both runtimes can be found in the docker/ folder.<a class="headerlink" href="#dockerfiles-and-build-scripts-for-both-runtimes-can-be-found-in-the-docker-folder" title="Permanent link">&para;</a></h4>
+<h4 id="source-code-adapted-from-the-demonstration-in-httpsgithubcomzhouboleimoments_models">Source code adapted from the demonstration in https://github.com/zhoubolei/moments_models<a class="headerlink" href="#source-code-adapted-from-the-demonstration-in-httpsgithubcomzhouboleimoments_models" title="Permanent link">&para;</a></h4>
+<h4 id="moments-in-time-article-httpmomentscsailmitedupaper">Moments in Time article: http://moments.csail.mit.edu/#paper<a class="headerlink" href="#moments-in-time-article-httpmomentscsailmitedupaper" title="Permanent link">&para;</a></h4>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../example_pi_montecarlo/" class="btn btn-neutral" title="Pi Montecarlo"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../example_pi_montecarlo/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
