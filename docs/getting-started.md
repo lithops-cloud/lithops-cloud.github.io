@@ -7,7 +7,7 @@ It currently supports AWS, IBM Cloud, Google Cloud, Microsoft Azure, Alibaba Ali
 Run functions in the cloud using the [multiprocessing](https://docs.python.org/3.6/library/multiprocessing.html) API:
 
    
-    from cloudbutton.multiprocessing import Pool
+    from lithops.multiprocessing import Pool
     
     def incr(x):
         return x + 1
@@ -19,8 +19,8 @@ Run functions in the cloud using the [multiprocessing](https://docs.python.org/3
 Use cloud storage as a filesystem:  
 
    
-    from cloudbutton.multiprocessing import Pool
-    from cloudbutton.cloud_proxy import os, open
+    from lithops.multiprocessing import Pool
+    from lithops.cloud_proxy import os, open
 
     filename = 'bar/foo.txt'
     with open(filename, 'w') as f:
@@ -43,7 +43,7 @@ Use cloud storage as a filesystem:
 Use remote in-memory cache for fast IPC and synchronization  
 
    
-    from cloudbutton.multiprocessing import Pool, Manager, Lock
+    from lithops.multiprocessing import Pool, Manager, Lock
     from random import choice
 
     def count_chars(char, text, record, lock):

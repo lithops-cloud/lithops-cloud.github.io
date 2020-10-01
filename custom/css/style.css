@@ -78,7 +78,7 @@ span {
 
 .navbar-brand {
     position: relative;
-    background: url(../img/logo_h_w.png);
+    /* background: url(../img/logo_h_w.png); */
     width: 250px;
     height: 40px;
     background-size: contain;

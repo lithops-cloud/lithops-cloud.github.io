@@ -1,12 +1,12 @@
-# Cloudbutton Pi number Montecarlo approximation example
-In [this notebook](https://github.com/cloudbutton/examples/blob/master/example_pi_montecarlo.ipynb) we will calculate an approximation to the number Pi by applying the Montecarlo algorithm with the Cloudbutton toolkit. Functions will process a fixed amount of random samples each that will then be averaged to provide the approximation.
+# Lithops Pi number Montecarlo approximation example
+In [this notebook](https://github.com/cloudbutton/examples/blob/master/example_pi_montecarlo.ipynb) we will calculate an approximation to the number Pi by applying the Montecarlo algorithm with Lithops. Functions will process a fixed amount of random samples each that will then be averaged to provide the approximation.
 
 
 
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
-from cloudbutton.multiprocessing import Pool, Queue
+from lithops.multiprocessing import Pool, Queue
 
 %matplotlib notebook
 ```

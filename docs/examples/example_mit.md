@@ -1,6 +1,6 @@
-# Cloudbutton Moments in Time dataset example
+# Lithops Moments in Time dataset example
 ## Video/image prediction
-In [this notebook](https://github.com/cloudbutton/examples/blob/master/momentsintime/example_mit.ipynb) we will process video clips from the MiT dataset at scale with the Cloudbutton toolkit
+In [this notebook](https://github.com/cloudbutton/examples/blob/master/momentsintime/example_mit.ipynb) we will process video clips from the MiT dataset at scale with Lithops
 by predicting the actions with a pretrained ResNet50 model and then counting how many
 occurrences of each category have been predicted.
 
@@ -17,8 +17,8 @@ from torch.nn import functional as F
 from utils import extract_frames
 from models import load_model, load_transform, load_categories
 
-from cloudbutton.multiprocessing import Pool, Queue
-from cloudbutton.multiprocessing.util import get_uuid
+from lithops.multiprocessing import Pool, Queue
+from lithops.multiprocessing.util import get_uuid
 ```
 
 ### Backends
@@ -55,7 +55,7 @@ if LOCAL_EXEC:
     INPUT_DATA_DIR = os.path.abspath(INPUT_DATA_DIR)
 
 else:
-    from cloudbutton.cloud_proxy import os, open
+    from lithops.cloud_proxy import os, open
     initargs = {
         'backend': 'ibm_cf',
         'storage_backend': 'ibm_cos',

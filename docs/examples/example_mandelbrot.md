@@ -1,6 +1,6 @@
-# Cloudbutton Mandelbrot set calculation example
+# Lithops Mandelbrot set calculation example
 ## Serverless matrix multiplication
-In [this notebook](https://github.com/cloudbutton/examples/blob/master/example_mandelbrot.ipynb) we will calculate the Mandelbrot set on a limited space several times using the Cloudbutton toolkit. We will treat a certain region of the linear space as a matrix and we will divide it into chunks in order to
+In [this notebook](https://github.com/cloudbutton/examples/blob/master/example_mandelbrot.ipynb) we will calculate the Mandelbrot set on a limited space several times using Lithops. We will treat a certain region of the linear space as a matrix and we will divide it into chunks in order to
 be able to distribute them among many functions. For each step, we will plot the corresponding image generated from the matrix.
 
 
@@ -9,7 +9,7 @@ import numpy as np
 from math import sqrt
 from matplotlib import colors
 from matplotlib import pyplot as plt
-from cloudbutton.multiprocessing import Pool
+from lithops.multiprocessing import Pool
 
 %matplotlib notebook
 ```
