@@ -1,7 +1,7 @@
-# Cloudbutton Toolkit
+# Lithops
 
-**The Cloudbutton Toolkit is a Python multicloud library for running serverless jobs**   
-It currently supports AWS, IBM Cloud, Google Cloud, Microsoft Azure, Alibaba Aliyun, and more. See [plugins](https://github.com/cloudbutton/cloudbutton/tree/master/docs/backends).
+**Lithops is a Python multicloud library for running serverless jobs**   
+It currently supports AWS, IBM Cloud, Google Cloud, Microsoft Azure, Alibaba Aliyun, and more. See [plugins](https://github.com/lithops-cloud).
 
 ### Quick start
 Run functions in the cloud using the [multiprocessing](https://docs.python.org/3.6/library/multiprocessing.html) API:
@@ -66,11 +66,9 @@ Use remote in-memory cache for fast IPC and synchronization
 
 ## Documentation
 - [Website](https://cloudbutton.github.io)
-- [API Examples](https://github.com/cloudbutton/cloudbutton/tree/master/examples)
-- [Toolkit Examples](https://github.com/cloudbutton/examples)
+- [API Examples](https://github.com/lithops-cloud/lithops/tree/master/examples)
 
-## [Plugins](https://github.com/cloudbutton/cloudbutton/tree/master/docs/backends)
+## [Plugins](https://github.com/lithops-cloud/)
 
 ## Use cases
-- [Serverless benchmarks](https://cloudbutton.github.io/benchmarks)
 - [Moments in Time video prediction](https://cloudbutton.github.io/examples/example_mit)
