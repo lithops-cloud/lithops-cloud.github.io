@@ -67,8 +67,7 @@ Use remote in-memory cache for fast IPC and synchronization
 ## Documentation
 - [Website](https://cloudbutton.github.io)
 - [API Examples](https://github.com/lithops-cloud/lithops/tree/master/examples)
-
-## [Plugins](https://github.com/lithops-cloud/)
+- [Plugins](https://github.com/lithops-cloud/)
 
 ## Use cases
 - [Moments in Time video prediction](https://cloudbutton.github.io/examples/example_mit)
