@@ -117,7 +117,7 @@
 It currently supports AWS, IBM Cloud, Google Cloud, Microsoft Azure, Alibaba Aliyun, and more. See <a href="https://github.com/cloudbutton/cloudbutton/tree/master/docs/backends">plugins</a>.</p>
 <h4 id="quick-start">Quick start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h4>
 <p>Run functions in the cloud using the <a href="https://docs.python.org/3.6/library/multiprocessing.html">multiprocessing</a> API:</p>
-<div class="codehilite"><pre><span></span><code>from cloudbutton.multiprocessing import Pool
+<div class="codehilite"><pre><span></span><code>from lithops.multiprocessing import Pool
 
 def incr(x):
     return x + 1
@@ -129,8 +129,8 @@ print(res)
 
 
 <p>Use cloud storage as a filesystem:  </p>
-<div class="codehilite"><pre><span></span><code>from cloudbutton.multiprocessing import Pool
-from cloudbutton.cloud_proxy import os, open
+<div class="codehilite"><pre><span></span><code>from lithops.multiprocessing import Pool
+from lithops.cloud_proxy import os, open
 
 filename = &#39;bar/foo.txt&#39;
 with open(filename, &#39;w&#39;) as f:
@@ -153,7 +153,7 @@ print(os.listdir(dirname))
 
 
 <p>Use remote in-memory cache for fast IPC and synchronization  </p>
-<div class="codehilite"><pre><span></span><code>from cloudbutton.multiprocessing import Pool, Manager, Lock
+<div class="codehilite"><pre><span></span><code>from lithops.multiprocessing import Pool, Manager, Lock
 from random import choice
 
 def count_chars(char, text, record, lock):

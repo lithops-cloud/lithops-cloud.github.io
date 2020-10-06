@@ -132,9 +132,9 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="cloudbutton-moments-in-time-dataset-example">Cloudbutton Moments in Time dataset example<a class="headerlink" href="#cloudbutton-moments-in-time-dataset-example" title="Permanent link">&para;</a></h2>
+                <h2 id="lithops-moments-in-time-dataset-example">Lithops Moments in Time dataset example<a class="headerlink" href="#lithops-moments-in-time-dataset-example" title="Permanent link">&para;</a></h2>
 <h3 id="videoimage-prediction">Video/image prediction<a class="headerlink" href="#videoimage-prediction" title="Permanent link">&para;</a></h3>
-<p>In <a href="https://github.com/cloudbutton/examples/blob/master/momentsintime/example_mit.ipynb">this notebook</a> we will process video clips from the MiT dataset at scale with the Cloudbutton toolkit
+<p>In <a href="https://github.com/cloudbutton/examples/blob/master/momentsintime/example_mit.ipynb">this notebook</a> we will process video clips from the MiT dataset at scale with Lithops
 by predicting the actions with a pretrained ResNet50 model and then counting how many
 occurrences of each category have been predicted.</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
@@ -147,8 +147,8 @@ occurrences of each category have been predicted.</p>
 <span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="n">extract_frames</span>
 <span class="kn">from</span> <span class="nn">models</span> <span class="kn">import</span> <span class="n">load_model</span><span class="p">,</span> <span class="n">load_transform</span><span class="p">,</span> <span class="n">load_categories</span>
 
-<span class="kn">from</span> <span class="nn">cloudbutton.multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span><span class="p">,</span> <span class="n">Queue</span>
-<span class="kn">from</span> <span class="nn">cloudbutton.multiprocessing.util</span> <span class="kn">import</span> <span class="n">get_uuid</span>
+<span class="kn">from</span> <span class="nn">lithops.multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span><span class="p">,</span> <span class="n">Queue</span>
+<span class="kn">from</span> <span class="nn">lithops.multiprocessing.util</span> <span class="kn">import</span> <span class="n">get_uuid</span>
 </code></pre></div>
 
 
@@ -179,7 +179,7 @@ videos and inferring them one by one.</p>
     <span class="n">INPUT_DATA_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">INPUT_DATA_DIR</span><span class="p">)</span>
 
 <span class="k">else</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">cloudbutton.cloud_proxy</span> <span class="kn">import</span> <span class="n">os</span><span class="p">,</span> <span class="nb">open</span>
+    <span class="kn">from</span> <span class="nn">lithops.cloud_proxy</span> <span class="kn">import</span> <span class="n">os</span><span class="p">,</span> <span class="nb">open</span>
     <span class="n">initargs</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s1">&#39;backend&#39;</span><span class="p">:</span> <span class="s1">&#39;ibm_cf&#39;</span><span class="p">,</span>
         <span class="s1">&#39;storage_backend&#39;</span><span class="p">:</span> <span class="s1">&#39;ibm_cos&#39;</span><span class="p">,</span>

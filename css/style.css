@@ -5,9 +5,9 @@
 }
 
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-    background-color: #6689c2;
+    background-color: #ef8031;
 !important;
-    border-color: #6689c2;
+    border-color: #ef8031;
 !important;
 }
 
@@ -78,7 +78,7 @@ span {
 
 .navbar-brand {
     position: relative;
-    background: url(../img/logo_h_w.png);
+    background: url(../img/lithops_flat_cloud_1.png);
     width: 250px;
     height: 40px;
     background-size: contain;
@@ -86,7 +86,7 @@ span {
 }
 
 .nav-item-github {
-    background-color: #6689c2;
+    background-color: #ef8031;
     border-radius: 8px;
 }
 
