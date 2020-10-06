@@ -118,15 +118,15 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="cloudbutton-mandelbrot-set-calculation-example">Cloudbutton Mandelbrot set calculation example<a class="headerlink" href="#cloudbutton-mandelbrot-set-calculation-example" title="Permanent link">&para;</a></h2>
+                <h2 id="lithops-mandelbrot-set-calculation-example">Lithops Mandelbrot set calculation example<a class="headerlink" href="#lithops-mandelbrot-set-calculation-example" title="Permanent link">&para;</a></h2>
 <h3 id="serverless-matrix-multiplication">Serverless matrix multiplication<a class="headerlink" href="#serverless-matrix-multiplication" title="Permanent link">&para;</a></h3>
-<p>In <a href="https://github.com/cloudbutton/examples/blob/master/example_mandelbrot.ipynb">this notebook</a> we will calculate the Mandelbrot set on a limited space several times using the Cloudbutton toolkit. We will treat a certain region of the linear space as a matrix and we will divide it into chunks in order to
+<p>In <a href="https://github.com/cloudbutton/examples/blob/master/example_mandelbrot.ipynb">this notebook</a> we will calculate the Mandelbrot set on a limited space several times using Lithops. We will treat a certain region of the linear space as a matrix and we will divide it into chunks in order to
 be able to distribute them among many functions. For each step, we will plot the corresponding image generated from the matrix.</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">colors</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">from</span> <span class="nn">cloudbutton.multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span>
+<span class="kn">from</span> <span class="nn">lithops.multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span>
 
 <span class="o">%</span><span class="n">matplotlib</span> <span class="n">notebook</span>
 </code></pre></div>
