@@ -1,17 +1,19 @@
 # Lithops π Estimation with Monte Carlo methods
 We demonstrate how to run Monte Carlo simulations with lithops over IBM Cloud Functions. This notebook contains an example of estimation the number π with Monte Carlo. The goal of this notebook is to demonstrate how IBM Cloud Functions can benefit Monte Carlo simulations and not how it can be done using lithops.<br>
+
 A Monte Carlo algorithm would randomly place points in the square and use the percentage of randomized points inside of the circle to estimate the value of π
 
-![pi](https://upload.wikimedia.org/wikipedia/commons/8/84/Pi_30K.gif)
+<p align="center"> <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Pi_30K.gif" alt="Lithops"
+      width='500' title="pi"/></p>
 
-####Requirements to run this notebook:
+Requirements to run this notebook:
 
 * IBM Cloud account. 
   Register to IBM Cloud Functions, IBM Cloud Object Storage (COS), Watson Studio
 * You will need to have at least one existing object storage bucket. Follow COS UI to create a bucket if needed 
 * IBM Watson Studio Python notebook
 
-# Step 1 - Install dependencies
+## Step 1 - Install dependencies
 Install dependencies
 
 ```python
@@ -30,7 +32,7 @@ except:
 #logging.basicConfig(level=logging.INFO)
 ```
 
-# Step 2 - Write Python code that implements Monte Carlo simulation 
+## Step 2 - Write Python code that implements Monte Carlo simulation 
 Below is an example of Python code to demonstrate Monte Carlo model for estimate PI
 
 'EstimatePI' is a Python class that we use to represent a single PI estimation. You may configure the following parameters:
@@ -79,7 +81,7 @@ class EstimatePI:
         return estimate_PI
 ```
 
-# Step 3 - Configure access to your COS account and Cloud Functions
+## Step 3 - Configure access to your COS account and Cloud Functions
 Configure access details to your IBM COS and IBM Cloud Functions. 'storage_bucket' should point to some pre-existing COS bucket. This bucket will be used by Lithops to store intermediate results. All results will be stored in the folder lithops.jobs. For additional configuration parameters see configuration section
 
 
@@ -92,7 +94,7 @@ config = {'ibm_cf':  {'endpoint': '<IBM Cloud Functions Endpoint>',
            'lithops' : {'storage_bucket' : '<IBM COS BUCKET>'}}
 ```
 
-# Step 4 - Execute simulation with Lithops over IBM Cloud Functions 
+## Step 4 - Execute simulation with Lithops over IBM Cloud Functions 
 
 
 ```python
