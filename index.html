@@ -30,7 +30,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 
-    <!-- Custom styles for this template -->
+    <!-- Custom styles -->
     <link href="css/carousel.css" rel="stylesheet">
 </head>
 <body>
@@ -53,7 +53,7 @@
                             <a class="nav-link" href="getting-started/">Getting started</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="examples/example_mandelbrot/">Examples</a>
+                            <a class="nav-link" href="#examples">Examples</a>
                         </li>
                     </ul>
                 </div>
@@ -128,11 +128,6 @@
         </a>
     </div>
 
-
-    <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
-
     <div class="container marketing" id="about">
 
         <h2 class="text-uppercase">About <b>Lithops</b></h2>
@@ -205,7 +200,7 @@
         <br>
         <h2 class="text-uppercase"><b>Lithops</b> Code examples</h2>
         <hr class="featurette-divider my-featurette-divider">
-        <div class="row justify-content-center">
+        <div id="examples" class="row justify-content-center">
             <div class="col-lg-10">
                 <section id="tabs" class="project-tab">
                     <div class="container">
@@ -238,15 +233,12 @@
     """
     import lithops
 
+    def hello(name):
+        return 'Hello {}!'.format(name)
 
-    def my_function(x):
-        return x + 7
-
-
-    if __name__ == '__main__':
-        pw = lithops.ibm_cf_executor()
-        pw.call_async(my_function, 3)
-        print(pw.get_result())
+    fexec = lithops.FunctionExecutor()
+    fexec.call_async(hello, 'World')
+    print(fexec.get_result())
                                             </code>
                                         </pre>
                                     </div>
@@ -255,26 +247,28 @@
                                         <pre class="pre-code">
                                             <code class="python">
     """
-    Simple Lithops example using the map method.
-    In this example the map() method will launch one
-    map function for each entry in 'iterdata'. Finally
-    it will print the results for each invocation with
-    pw.get_result()
+    Simple Lithops example using the map() call to estimate PI
     """
     import lithops
+    import random
 
+    def is_inside(n):
+        count = 0
+        for i in range(n):
+            x = random.random()
+            y = random.random()
+            if x*x + y*y < 1:
+                count += 1
+        return count
 
-    def my_map_function(id, x):
-        print("I'm activation number {}".format(id))
-        return x + 7
-
-
-    if __name__ == "__main__":
-        iterdata = [1, 2, 3, 4]
-        pw = lithops.ibm_cf_executor()
-        pw.map(my_map_function, iterdata)
-        print(pw.get_result())
-        pw.clean()
+    if __name__ == '__main__':
+        np, n = 10, 15000000
+        part_count = [int(n/np)] * np
+        fexec = lithops.FunctionExecutor()
+        fexec.map(is_inside, part_count)
+        results = fexec.get_result()
+        pi = sum(results)/n*4
+        print("Esitmated Pi: {}".format(pi))
                                             </code>
                                         </pre>
                                     </div>
@@ -305,22 +299,9 @@
         return total
 
 
-    if __name__ == "__main__":
-        """
-        By default the reducer will be launched within a Cloud Function
-        when the local Lithops have all the results from the mappers.
-        """
-        pw = lithops.ibm_cf_executor()
-        pw.map_reduce(my_map_function, iterdata, my_reduce_function)
-        print(pw.get_result())
-
-        """
-        Set 'reducer_wait_local=True' to wait for the results locally.
-        """
-        pw = lithops.ibm_cf_executor()
-        pw.map_reduce(my_map_function, iterdata, my_reduce_function,
-                      reducer_wait_local=True)
-        print(pw.get_result())
+    fexec= lithops.FunctionExecutor()
+    fexec.map_reduce(my_map_function, iterdata, my_reduce_function)
+    print(fexec.get_result())
                                             </code>
                                         </pre>
                                     </div>
@@ -332,13 +313,38 @@
             </div>
         </div>
 
+        <br>
+        <h2 class="text-uppercase"><b>Applications</b></h2>
+        <hr class="featurette-divider my-featurette-divider">
+
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-4">
+                <span class="fa-stack fa-2x">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-cogs fa-stack-1x fa-inverse"></i>
+                </span>
+                <br>
+                <br>
+                <h3>Serverless Benchmark</h3>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-1"></div>
+            <div class="col-lg-4">
+                <span class="fa-stack fa-2x">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-dna fa-stack-1x fa-inverse"></i>
+                </span>
+                <br>
+                <br>
+                <h3>Metabolomics</h3>
+            </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+        <br>
 
         <hr class="my-featurette-divider featurette-divider">
 
     </div><!-- /.container -->
 
-
-    <!-- FOOTER -->
     <footer class="container">
         <p class="float-right"><a href="#">Back to top</a></p>
         <p>&copy; 2020 Lithops &middot; <a href="https://github.com/lithops-cloud">GitHub</a></p>
