@@ -28,10 +28,10 @@ Lithops provides value for a great variety of uses cases like big data analytics
 ## Move to the Cloud
 Lithops provides an extensible backend architecture (compute, storage) that is designed to work with different Cloud providers and on-premise backends. In this sense, you can code in python and run it unmodified in IBM Cloud, AWS, Azure, Google Cloud and Alibaba Aliyun. Moreover, it provides support for some kubernetes serverless frameworks such as Knative.
 
-- [Follow these instructions to configure your compute and storage backends](config/)
+- [Follow these instructions to configure your compute and storage backends](https://github.com/lithops-cloud/lithops/tree/master/config)
 
 <p align="center">
-<a href="config/README.md#compute-and-storage-backends">
+<a href="https://github.com/lithops-cloud/lithops/blob/master/config/README.md#compute-and-storage-backends">
 <img src="https://raw.githubusercontent.com/lithops-cloud/lithops/master/docs/images/multicloud.jpg" alt="Multicloud Lithops" width='100%' title="Multicloud Lithops"/>
 </a>
 </p>
@@ -48,7 +48,7 @@ Lithops is shipped with 2 different high-level Compute APIs, and 2 high-level St
 <img width="441" height="1px">
 <p> 
 <small>
-<a href="docs/api_futures.md">Futures API</a>
+<a href="https://github.com/lithops-cloud/lithops/blob/master/docs/api_futures.md">Futures API</a>
 </small>
 </p>
 </th>
@@ -77,7 +77,7 @@ with FunctionExecutor() as fexec:
 <img width="441" height="1px">
 <p> 
 <small>
-<a href="docs/api_multiprocessing.md">Multiprocessing API</a>
+<a href="https://github.com/lithops-cloud/lithops/blob/master/docs/api_multiprocessing.md">Multiprocessing API</a>
 </small>
 </p>
 </th>
@@ -104,7 +104,7 @@ with Pool() as pool:
 <img width="441" height="1px">
 <p> 
 <small>
-<a href="docs/api_storage.md">Storage API</a>
+<a href="https://github.com/lithops-cloud/lithops/blob/master/docs/api_storage.md">Storage API</a>
 </small>
 </p>
 </th>
@@ -135,7 +135,7 @@ if __name__ == "__main__":
 <img width="441" height="1px">
 <p> 
 <small>
-<a href="docs/api_storage_os.md">Storage OS API</a>
+<a href="https://github.com/lithops-cloud/lithops/blob/master/docs/api_storage_os.md">Storage OS API</a>
 </small>
 </p>
 </th>
@@ -162,7 +162,7 @@ if __name__ == "__main__":
 
 </table>
 
-You can find more usage examples in the [examples](/examples) folder.
+You can find more usage examples in the [examples](https://github.com/lithops-cloud/lithops/blob/master/examples) folder.
 
 ## Execution Modes
 
@@ -174,7 +174,7 @@ Lithops is shipped with 3 different modes of execution. The execution mode allow
 <img width="441" height="1px">
 <p> 
 <small>
-<a href="docs/mode_localhost.md">Localhost Mode</a>
+<a href="https://github.com/lithops-cloud/lithops/blob/master/docs/mode_localhost.md">Localhost Mode</a>
 </small>
 </p>
 </th>
@@ -182,7 +182,7 @@ Lithops is shipped with 3 different modes of execution. The execution mode allow
 <img width="441" height="1px">
 <p> 
 <small>
-<a href="docs/mode_serverless.md">Serverless Mode</a>
+<a href="https://github.com/lithops-cloud/lithops/blob/master/docs/mode_serverless.md">Serverless Mode</a>
 </small>
 </p>
 </th>
@@ -190,7 +190,7 @@ Lithops is shipped with 3 different modes of execution. The execution mode allow
 <img width="441" height="1px">
 <p> 
 <small>
-<a href="docs/mode_standalone.md">Standalone Mode</a>
+<a href="https://github.com/lithops-cloud/lithops/blob/master/docs/mode_standalone.md">Standalone Mode</a>
 </small>
 </p>
 </th>
@@ -219,9 +219,9 @@ This mode allows to run functions by using a Virtual machine (VM). In the VM, fu
 <br>
 ## Documentation
 
-For documentation on using Lithops, see the [User guide](docs/user_guide.md).
+For documentation on using Lithops, see the [User guide](https://github.com/lithops-cloud/lithops/blob/master/docs/user_guide.md).
 
-If you are interested in contributing, see [CONTRIBUTING.md](./CONTRIBUTING.md) and [DEVELOPMENT.md](./DEVELOPMENT.md).
+If you are interested in contributing, see [CONTRIBUTING.md](https://github.com/lithops-cloud/lithops/blob/master/CONTRIBUTING.md) and [DEVELOPMENT.md](https://github.com/lithops-cloud/lithops/blob/master/DEVELOPMENT.md).
 
 ## Additional resources
 
