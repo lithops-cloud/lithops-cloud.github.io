@@ -6,12 +6,38 @@ markdown_extensions:
       guess_lang: false
 
 nav:
-  - Home: index.md
   - Getting started: getting-started.md
-  - Examples:
-      - Pi Montecarlo: examples/example_pi_montecarlo.md
-      - Mandelbrot: examples/example_mandelbrot.md
-      - Moments in time: examples/example_mit.md
+  - 1. Lithops design overview:
+    - Design overview: https://github.com/lithops-cloud/lithops/blob/master/docs/design.md
+  - 2. Supported Clouds:
+    - Supported Clouds: https://github.com/lithops-cloud/lithops/blob/master/docs/supported_clouds.md
+  - 3. High-level Compute and Storage APIs:
+      - Futures API: https://github.com/lithops-cloud/lithops/blob/master/docs/api_futures.md
+      - Multiprocessing API: https://github.com/lithops-cloud/lithops/blob/master/docs/api_multiprocessing.md
+      - Storage API: https://github.com/lithops-cloud/lithops/blob/master/docs/api_storage.md
+      - Storage OS API: https://github.com/lithops-cloud/lithops/blob/master/docs/api_storage_os.md
+  - 4. Execution Modes:
+      - Localhost mode: https://github.com/lithops-cloud/lithops/blob/master/docs/mode_localhost.md
+      - Serverless mode: https://github.com/lithops-cloud/lithops/blob/master/docs/mode_serverless.md
+      - Standalone mode: https://github.com/lithops-cloud/lithops/blob/master/docs/mode_standalone.md
+  - 5. Functions design and parameters:
+      - Functions overview: https://github.com/lithops-cloud/lithops/blob/master/docs/functions.md
+      - Reserved parameters: https://github.com/lithops-cloud/lithops/blob/master/docs/functions.md#reserved-parameters
+      - Parameters format for a single call: https://github.com/lithops-cloud/lithops/blob/master/docs/functions.md#parameters-in-the-call_async-method
+      - Parameters format for a map call: https://github.com/lithops-cloud/lithops/blob/master/docs/functions.md#parameters-in-the-map-and-map_reduce-methods
+      - Common parameters across functions: https://github.com/lithops-cloud/lithops/blob/master/docs/functions.md#common-parameters-across-functions-invocations
+  - 6. Lithops for big data analytics:
+      - Overview: https://github.com/lithops-cloud/lithops/blob/master/docs/data_processing.md
+      - Processing data from a cloud object store: https://github.com/lithops-cloud/lithops/blob/master/docs/data_processing.md#processing-data-from-a-cloud-object-storage-service
+      - Processing data from public URLs: https://github.com/lithops-cloud/lithops/blob/master/docs/data_processing.md#processing-data-from-public-urls
+  - 7. Run Lithops on Jupyter notebooks:
+    - Lithops on Jupyter notebooks: https://github.com/lithops-cloud/lithops/blob/master/examples/hello_world.ipynb
+  - 8. Execute Airflow workflows using Lithops:
+      - Airflow plugin: https://github.com/lithops-cloud/airflow-plugin
+  - 9. Lithops end-to-end Applications:
+      - Lithops applications: https://github.com/lithops-cloud/applications
+  - 10. Build and manage custom runtimes to run the functions:
+    - Custom runtime docs: https://github.com/lithops-cloud/applications
 
 repo_name: lithops-cloud/lithops
 repo_url: https://github.com/lithops-cloud/lithops
