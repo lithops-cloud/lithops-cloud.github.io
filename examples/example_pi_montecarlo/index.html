@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Pi Montecarlo - Lithops</title>
+  <title>Lithops π Estimation with Monte Carlo methods - Lithops</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../css/theme.css" />
@@ -18,7 +18,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Pi Montecarlo";
+    var mkdocs_page_name = "Lithops \u03c0 Estimation with Monte Carlo methods";
     var mkdocs_page_input_path = "examples/example_pi_montecarlo.md";
     var mkdocs_page_url = null;
   </script>
@@ -48,30 +48,79 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
-                    </li>
-                </ul>
-                <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../../getting-started/">Getting started</a>
                     </li>
                 </ul>
-                <p class="caption"><span class="caption-text">Examples</span></p>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Pi Montecarlo</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#step-1-install-dependencies">Step 1 - Install dependencies</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#step-2-write-python-code-that-implements-monte-carlo-simulation">Step 2 - Write Python code that implements Monte Carlo simulation</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#step-3-configure-access-to-your-cos-account-and-cloud-functions">Step 3 - Configure access to your COS account and Cloud Functions</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#step-4-execute-simulation-with-lithops-over-ibm-cloud-functions">Step 4 - Execute simulation with Lithops over IBM Cloud Functions</a>
-    </li>
-    </ul>
+                <p class="caption"><span class="caption-text">1. Lithops design overview</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="" href="https://github.com/lithops-cloud/lithops/blob/master/docs/design.md">Design overview</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../example_mandelbrot/">Mandelbrot</a>
+                </ul>
+                <p class="caption"><span class="caption-text">2. Supported Clouds</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="" href="https://github.com/lithops-cloud/lithops/blob/master/docs/supported_clouds.md">Supported Clouds</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../example_mit/">Moments in time</a>
+                </ul>
+                <p class="caption"><span class="caption-text">3. High-level Compute and Storage APIs</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="" href="https://github.com/lithops-cloud/lithops/blob/master/docs/api_futures.md">Futures API</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="https://github.com/lithops-cloud/lithops/blob/master/docs/api_multiprocessing.md">Multiprocessing API</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="https://github.com/lithops-cloud/lithops/blob/master/docs/api_storage.md">Storage API</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="https://github.com/lithops-cloud/lithops/blob/master/docs/api_storage_os.md">Storage OS API</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">4. Execution Modes</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="" href="https://github.com/lithops-cloud/lithops/blob/master/docs/mode_localhost.md">Localhost mode</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="https://github.com/lithops-cloud/lithops/blob/master/docs/mode_serverless.md">Serverless mode</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="https://github.com/lithops-cloud/lithops/blob/master/docs/mode_standalone.md">Standalone mode</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">5. Functions design and parameters</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="" href="https://github.com/lithops-cloud/lithops/blob/master/docs/functions.md">Functions overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="https://github.com/lithops-cloud/lithops/blob/master/docs/functions.md#reserved-parameters">Reserved parameters</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="https://github.com/lithops-cloud/lithops/blob/master/docs/functions.md#parameters-in-the-call_async-method">Parameters format for a single call</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="https://github.com/lithops-cloud/lithops/blob/master/docs/functions.md#parameters-in-the-map-and-map_reduce-methods">Parameters format for a map call</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="https://github.com/lithops-cloud/lithops/blob/master/docs/functions.md#common-parameters-across-functions-invocations">Common parameters across functions</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">6. Lithops for big data analytics</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="" href="https://github.com/lithops-cloud/lithops/blob/master/docs/data_processing.md">Overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="https://github.com/lithops-cloud/lithops/blob/master/docs/data_processing.md#processing-data-from-a-cloud-object-storage-service">Processing data from a cloud object store</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="https://github.com/lithops-cloud/lithops/blob/master/docs/data_processing.md#processing-data-from-public-urls">Processing data from public URLs</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">7. Run Lithops on Jupyter notebooks</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="" href="https://github.com/lithops-cloud/lithops/blob/master/examples/hello_world.ipynb">Lithops on Jupyter notebooks</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">8. Execute Airflow workflows using Lithops</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="" href="https://github.com/lithops-cloud/airflow-plugin">Airflow plugin</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">9. Lithops end-to-end Applications</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="" href="https://github.com/lithops-cloud/applications">Lithops applications</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">10. Build and manage custom runtimes to run the functions</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="" href="https://github.com/lithops-cloud/applications">Custom runtime docs</a>
                     </li>
                 </ul>
       </div>
@@ -94,12 +143,8 @@
     <li><a href="../..">Docs</a> &raquo;</li>
     
       
-        
-          <li>Examples &raquo;</li>
-        
-      
     
-    <li>Pi Montecarlo</li>
+    <li>Lithops π Estimation with Monte Carlo methods</li>
     <li class="wy-breadcrumbs-aside">
       
         <a href="https://github.com/lithops-cloud/lithops/edit/master/docs/examples/example_pi_montecarlo.md"> Edit on lithops-cloud/lithops</a>
@@ -127,21 +172,20 @@
 </ul>
 <h3 id="step-1-install-dependencies">Step 1 - Install dependencies<a class="headerlink" href="#step-1-install-dependencies" title="Permanent link">&para;</a></h3>
 <p>Install dependencies</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">time</span>
-<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">random</span>
-<span class="kn">import</span> <span class="nn">logging</span>
-<span class="kn">import</span> <span class="nn">sys</span>
+<pre class="codehilite"><code class="language-python">from time import time
+from random import random
+import logging
+import sys
 
-<span class="k">try</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">lithops</span>
-<span class="k">except</span><span class="p">:</span>
-    <span class="err">!</span><span class="p">{</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">}</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">lithops</span>
-    <span class="kn">import</span> <span class="nn">lithops</span>
+try:
+    import lithops
+except:
+    !{sys.executable} -m pip install lithops
+    import lithops
 
-<span class="c1"># you can modify logging level if needed</span>
-<span class="c1">#logging.basicConfig(level=logging.INFO)</span>
-</code></pre></div>
-
+# you can modify logging level if needed
+#logging.basicConfig(level=logging.INFO)
+</code></pre>
 
 <h3 id="step-2-write-python-code-that-implements-monte-carlo-simulation">Step 2 - Write Python code that implements Monte Carlo simulation<a class="headerlink" href="#step-2-write-python-code-that-implements-monte-carlo-simulation" title="Permanent link">&para;</a></h3>
 <p>Below is an example of Python code to demonstrate Monte Carlo model for estimate PI</p>
@@ -153,80 +197,69 @@ randomize_per_map - number of points to random in a single invocation. Default i
     that inside the circle<br>
 def process_in_circle_points(self, results, futures): - summarize results of all randomize_points
   executions (aka "reduce" in map-reduce paradigm)</p>
-<div class="codehilite"><pre><span></span><code><span class="n">MAP_INSTANCES</span> <span class="o">=</span> <span class="mi">100</span>
+<pre class="codehilite"><code class="language-python">MAP_INSTANCES = 100
 
 
-<span class="k">class</span> <span class="nc">EstimatePI</span><span class="p">:</span>
-    <span class="n">randomize_per_map</span> <span class="o">=</span> <span class="mi">10000000</span>
+class EstimatePI:
+    randomize_per_map = 10000000
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">total_randomize_points</span> <span class="o">=</span> <span class="n">MAP_INSTANCES</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">randomize_per_map</span>
+    def __init__(self):
+        self.total_randomize_points = MAP_INSTANCES * self.randomize_per_map
 
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s2">&quot;Total Randomize Points: </span><span class="si">{:,}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">randomize_per_map</span> <span class="o">*</span> <span class="n">MAP_INSTANCES</span><span class="p">)</span>
+    def __str__(self):
+        return &quot;Total Randomize Points: {:,}&quot;.format(self.randomize_per_map * MAP_INSTANCES)
 
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">predicate</span><span class="p">():</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">random</span><span class="p">()</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">random</span><span class="p">()</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span>
+    @staticmethod
+    def predicate():
+        x = random()
+        y = random()
+        return (x ** 2) + (y ** 2) &lt;= 1
 
-    <span class="k">def</span> <span class="nf">randomize_points</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="n">in_circle</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">randomize_per_map</span><span class="p">):</span>
-            <span class="n">in_circle</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predicate</span><span class="p">()</span>
-        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">in_circle</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">randomize_per_map</span><span class="p">)</span>
+    def randomize_points(self, data):
+        in_circle = 0
+        for _ in range(self.randomize_per_map):
+            in_circle += self.predicate()
+        return float(in_circle / self.randomize_per_map)
 
-    <span class="k">def</span> <span class="nf">process_in_circle_points</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results</span><span class="p">):</span>
-        <span class="n">in_circle_percent</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">for</span> <span class="n">map_result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
-            <span class="n">in_circle_percent</span> <span class="o">+=</span> <span class="n">map_result</span>
-        <span class="n">estimate_PI</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="p">(</span><span class="n">in_circle_percent</span> <span class="o">/</span> <span class="n">MAP_INSTANCES</span><span class="p">))</span>
-        <span class="k">return</span> <span class="n">estimate_PI</span>
-</code></pre></div>
-
+    def process_in_circle_points(self, results):
+        in_circle_percent = 0
+        for map_result in results:
+            in_circle_percent += map_result
+        estimate_PI = float(4 * (in_circle_percent / MAP_INSTANCES))
+        return estimate_PI
+</code></pre>
 
 <h3 id="step-3-configure-access-to-your-cos-account-and-cloud-functions">Step 3 - Configure access to your COS account and Cloud Functions<a class="headerlink" href="#step-3-configure-access-to-your-cos-account-and-cloud-functions" title="Permanent link">&para;</a></h3>
 <p>Configure access details to your IBM COS and IBM Cloud Functions. 'storage_bucket' should point to some pre-existing COS bucket. This bucket will be used by Lithops to store intermediate results. All results will be stored in the folder lithops.jobs. For additional configuration parameters see configuration section</p>
-<div class="codehilite"><pre><span></span><code><span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ibm_cf&#39;</span><span class="p">:</span>  <span class="p">{</span><span class="s1">&#39;endpoint&#39;</span><span class="p">:</span> <span class="s1">&#39;&lt;IBM Cloud Functions Endpoint&gt;&#39;</span><span class="p">,</span> 
-                      <span class="s1">&#39;namespace&#39;</span><span class="p">:</span> <span class="s1">&#39;&lt;NAMESPACE&gt;&#39;</span><span class="p">,</span> 
-                      <span class="s1">&#39;api_key&#39;</span><span class="p">:</span> <span class="s1">&#39;&lt;API KEY&gt;&#39;</span><span class="p">},</span> 
-          <span class="s1">&#39;ibm_cos&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;endpoint&#39;</span><span class="p">:</span> <span class="s1">&#39;&lt;IBM Cloud Object Storage Endpoint&gt;&#39;</span><span class="p">,</span> 
-                      <span class="s1">&#39;api_key&#39;</span> <span class="p">:</span> <span class="s1">&#39;&lt;API KEY&gt;&#39;</span><span class="p">},</span>
-           <span class="s1">&#39;lithops&#39;</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;storage_bucket&#39;</span> <span class="p">:</span> <span class="s1">&#39;&lt;IBM COS BUCKET&gt;&#39;</span><span class="p">}}</span>
-</code></pre></div>
-
+<pre class="codehilite"><code class="language-python">config = {'ibm_cf':  {'endpoint': '&lt;IBM Cloud Functions Endpoint&gt;', 
+                      'namespace': '&lt;NAMESPACE&gt;', 
+                      'api_key': '&lt;API KEY&gt;'}, 
+          'ibm_cos': {'endpoint': '&lt;IBM Cloud Object Storage Endpoint&gt;', 
+                      'api_key' : '&lt;API KEY&gt;'},
+           'lithops' : {'storage_bucket' : '&lt;IBM COS BUCKET&gt;'}}
+</code></pre>
 
 <h3 id="step-4-execute-simulation-with-lithops-over-ibm-cloud-functions">Step 4 - Execute simulation with Lithops over IBM Cloud Functions<a class="headerlink" href="#step-4-execute-simulation-with-lithops-over-ibm-cloud-functions" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="n">iterdata</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">MAP_INSTANCES</span>
-<span class="n">est_pi</span> <span class="o">=</span> <span class="n">EstimatePI</span><span class="p">()</span>
+<pre class="codehilite"><code class="language-python">iterdata = [0] * MAP_INSTANCES
+est_pi = EstimatePI()
 
-<span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Monte Carlo simulation for estimating PI spawing over </span><span class="si">{}</span><span class="s2"> IBM Cloud Function invocations&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">MAP_INSTANCES</span><span class="p">))</span>
-<span class="c1"># obtain lithops executor</span>
-<span class="n">pw</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">ibm_cf_executor</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
-<span class="c1"># execute the code</span>
-<span class="n">pw</span><span class="o">.</span><span class="n">map_reduce</span><span class="p">(</span><span class="n">est_pi</span><span class="o">.</span><span class="n">randomize_points</span><span class="p">,</span> <span class="n">iterdata</span><span class="p">,</span> <span class="n">est_pi</span><span class="o">.</span><span class="n">process_in_circle_points</span><span class="p">)</span>
-<span class="c1">#get results</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">pw</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
-<span class="n">elapsed</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">est_pi</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Estimation of Pi: &quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Completed in: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">elapsed</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; seconds&quot;</span><span class="p">)</span>
-</code></pre></div>
+start_time = time()
+print(&quot;Monte Carlo simulation for estimating PI spawing over {} IBM Cloud Function invocations&quot;.format(MAP_INSTANCES))
+# obtain lithops executor
+pw = lithops.ibm_cf_executor(config=config)
+# execute the code
+pw.map_reduce(est_pi.randomize_points, iterdata, est_pi.process_in_circle_points)
+#get results
+result = pw.get_result()
+elapsed = time()
+print(str(est_pi))
+print(&quot;Estimation of Pi: &quot;, result)
+print(&quot;\nCompleted in: &quot; + str(elapsed - start_time) + &quot; seconds&quot;)
+</code></pre>
               
             </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../example_mandelbrot/" class="btn btn-neutral float-right" title="Mandelbrot">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../../getting-started/" class="btn btn-neutral" title="Getting started"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
@@ -250,10 +283,6 @@ def process_in_circle_points(self, results, futures): - summarize results of all
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../../getting-started/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../example_mandelbrot/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
