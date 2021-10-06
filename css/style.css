@@ -86,7 +86,12 @@ span {
 }
 
 .nav-item-github {
-    background-color: #ef8031;
+    background-color: #EB984E;
+    border-radius: 8px;
+}
+
+.nav-item-docs {
+    background-color: #52BE80;
     border-radius: 8px;
 }
 

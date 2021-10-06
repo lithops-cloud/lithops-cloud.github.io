@@ -1,0 +1,631 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Architecture Design &#8212; Lithops v2.5.3.dev0</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Supported Clouds" href="supported_clouds.html" />
+    <link rel="prev" title="What is Lithops?" href="../index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/lithops_logo_readme.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Lithops v2.5.3.dev0</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   What is Lithops?
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Lithops Core
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Architecture Design
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="supported_clouds.html">
+   Supported Clouds
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="comparing_lithops.html">
+   Comparing Lithops with other distributed computing frameworks
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="execution_modes.html">
+   Execution Modes
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="mode_localhost.html">
+     Lithops Localhost Execution Mode
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="mode_serverless.html">
+     Serverless Execution Mode
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="mode_standalone.html">
+     Standalone Execution Mode
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cli.html">
+   Lithops Command Line Tool
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Install and configure Lithops
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="install_lithops.html">
+   Install Lithops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="general_config.html">
+   General Configuration
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="backends_config.html">
+   Backends Configuration
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/aliyun_functions.html">
+     Aliyun Function Compute
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/aws_lambda.html">
+     AWS Lambda
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/azure_batch.html">
+     Azure Batch (under development)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/azure_functions.html">
+     Azure Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/code_engine.html">
+     IBM Cloud Code Engine
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/gcp_cloudrun.html">
+     GCP Cloud Run
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/gcp_functions.html">
+     GCP Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/ibm_cf.html">
+     IBM Cloud Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/ibm_vpc.html">
+     IBM Virtual Private Cloud
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/k8s_job.html">
+     Kubernetes (batch/job)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/knative.html">
+     Knative
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/localhost.html">
+     Localhost
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/openwhisk.html">
+     OpenWhisk
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/vm.html">
+     Virtual Machine
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="storage_config/aliyun_oss.html">
+     Lithops on Aliyun Object Storage Service
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="storage_config/aws_s3.html">
+     Lithops on AWS S3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="storage_config/azure_blob.html">
+     Azure Blob Storage
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="storage_config/ceph.html">
+     Ceph
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="storage_config/gcp_storage.html">
+     GCP Storage
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="storage_config/ibm_cos.html">
+     IBM Cloud Object Storage
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="storage_config/infinispan.html">
+     Infinispan
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="storage_config/minio.html">
+     MinIO
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="storage_config/redis.html">
+     Redis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="storage_config/swift.html">
+     Swift
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Lithops Futures API
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="api_futures.html">
+   Lithops Futures API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks/functions.html">
+   Functions and Parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks/function_chaining.html">
+   Function chaining
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Storage
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="api_storage.html">
+   Lithops Storage API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="api_storage_os.html">
+   Storage OS API Details
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Data Processing
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="data_processing.html">
+   Processing data from a Cloud Object Storage
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="file_chunking.html">
+   File “chunking”
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Experimental Features
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="api_multiprocessing.html">
+   Multiprocessing API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="metrics.html">
+   Prometheus Monitoring
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dso.html">
+   Distributed shared objects across function activations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sklearn_joblib.html">
+   Distributed Scikit-learn / Joblib
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Developer Guide
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="development.html">
+   Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="contributing.html">
+   Contributing to Lithops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="testing.html">
+   Testing Guidelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="changelog.html">
+   Changelog
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/source/design.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/lithops-cloud/lithops"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/lithops-cloud/lithops/issues/new?title=Issue%20on%20page%20%2Fsource/design.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#computation-flow">
+   Computation flow
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#detecting-completion-of-job">
+   Detecting Completion of Job
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#acknowledgements">
+   Acknowledgements
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="architecture-design">
+<h1>Architecture Design<a class="headerlink" href="#architecture-design" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The chart below presents the main components of the architecture of Lithops. The components are largely divided into three sets:</p>
+<ul class="simple">
+<li><p>Components inside the dashed purple frame comprise the client code (running e.g., on your laptop).</p></li>
+<li><p>Components inside the dashed orange frame comprise a Lithops worker. Each worker executes a “call”, one unit of computation (e.g., processing one dataset record, or one object) within a larger map or reduce job of Lithops. Workers execute in the compute backend of choice, such as IBM Cloud Functions, Knative Serving or even your local laptop.</p></li>
+<li><p>Outside both frames are various external facilities or services with which Lithops components interact. These external components are marked in ellipses, each one with its name and logo.</p></li>
+</ul>
+<p>Note that the sets of Lithops components in both dashed frames are partially overlapping. In particular, the storage components are shared since Lithops’s main communication between the client and the workers relies on storage.</p>
+<p><img alt="Lithops Architecture" src="../_images/lithops.png" /></p>
+<p>The Lithops components themselves consist of key classes and modules. Both classes and modules are shown using UML class symbols, but class names start with uppercase letters and have an <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> method, while modules do not.</p>
+<p>The top-level client API module of Lithops, <code class="docutils literal notranslate"><span class="pre">lithops.__init__</span></code>, is shown as a green module. It provides the API functions described in the documentation. Each of its functions creates an instance of <code class="docutils literal notranslate"><span class="pre">FunctionExecutor</span></code>, which is the main class implementing Lithops logic, shown in with a gray background.</p>
+<p>A worker is deployed by the client code, but independently of the client - separate process, container, etc. Therefore, it requires a separate entry point to its logic, defined in the <code class="docutils literal notranslate"><span class="pre">entry_point</span></code> module, with a yellow background. As part of its execution, it eventually creates an instance of <code class="docutils literal notranslate"><span class="pre">JobRunner</span></code>, which is the main class implementing the Lithops worker logic, also shown with a gray background.</p>
+<p>The last components worth special mentioning are <code class="docutils literal notranslate"><span class="pre">ComputeBackend</span></code> and <code class="docutils literal notranslate"><span class="pre">StorageBackend</span></code>. Each of these components has a light blue background and is surrounded by a compute or storage symbol, respectively, in dashed dark blue.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ComputeBackend</span></code> pseudo-interface represents a backend medium in which Lithops workers are deployed for executing computation - such as IBM Cloud Functions, Knative Serving, a Docker cloud, or your local laptop. A specific compute backend is chosen by using the specific API executor function.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">StorageBackend</span></code> pseudo-interface represents a backend medium which Lithops uses for communicating between the client and the workers. When a client invokes a job, which is then passed to multiple workers for execution, the job data and specific call data is stored in this medium. Upon a worker completing a call, results are also stored in this medium. A specific storage backend is selected through Lithops configuration - IBM Cloud Object Storage, OpenStack Swift or local laptop’s file-system. All storage usage in Lithops adheres to object storage semantics, including objects, buckets, writing each object once, etc.</p>
+</div>
+<div class="section" id="computation-flow">
+<h2>Computation flow<a class="headerlink" href="#computation-flow" title="Permalink to this headline">¶</a></h2>
+<p>In Lithops, each map or reduce computation is executed as a separate compute <em>job</em>. This means that calling a <code class="docutils literal notranslate"><span class="pre">FunctionExecutor.map()</span></code> results in one job, and calling <code class="docutils literal notranslate"><span class="pre">FunctionExecutor.map_reduce()</span></code> results in two jobs, one of <code class="docutils literal notranslate"><span class="pre">map()</span></code> and one of <code class="docutils literal notranslate"><span class="pre">reduce()</span></code>, executed one after the other.</p>
+<p>As mentioned above, the <code class="docutils literal notranslate"><span class="pre">FunctionExecutor</span></code> class is responsible for orchestrating the computation in Lithops. One <code class="docutils literal notranslate"><span class="pre">FunctionExecutor</span></code> object is instantiated prior to any use of Lithops. Its initialization includes these important steps:</p>
+<ol class="simple">
+<li><p>It sets up the workers (depending on the specific compute backend), such as constructing docker images, defining IBM Cloud Functions, etc. This step may not include actually creating the workers, as this may be done automatically by the backend on-demand.</p></li>
+<li><p>It defines a bucket in object storage (depending on the storage backend) in which each job will store job and call data (prior to computation) and results (when computation is complete).</p></li>
+<li><p>It creates a <code class="docutils literal notranslate"><span class="pre">FunctionInvoker</span></code> object, which is responsible for executing a job as a set of independent per-worker calls.</p></li>
+</ol>
+<p>Compute jobs are created in the functions of the <code class="docutils literal notranslate"><span class="pre">job</span></code> module (see chart above), invoked from the respective API method of <code class="docutils literal notranslate"><span class="pre">FunctionExecutor</span></code>. Map jobs are created in <code class="docutils literal notranslate"><span class="pre">create_map_job()</span></code> and reduce jobs in <code class="docutils literal notranslate"><span class="pre">create_reduce_job()</span></code>. The flow in both functions is quite similar. First, data is partitioned, with the intention of each partition be processed by one worker. For map jobs, this is done by invoking the <code class="docutils literal notranslate"><span class="pre">create_partitions()</span></code> function of the <code class="docutils literal notranslate"><span class="pre">partitioner</span></code> module, yielding a partition map.</p>
+<p>For reduce jobs, Lithops currently supports two modes: reduce per object, where each object is processed by a reduce function,  and global (default) reduce, where all data is processed by a single reduce function. Respectively, data is partitioned as either one partition per storage object, or one global partition with all data. This process yields a partition map similar to map jobs. Additionally, <code class="docutils literal notranslate"><span class="pre">create_reduce_job()</span></code> wraps the reduce function in a special wrapper function that forces waiting for data before the actual reduce function is invoked. This is because reduce jobs follow map jobs, so the output of the map jobs needs to finish before reduce can run.</p>
+<p>Eventually, both functions of <code class="docutils literal notranslate"><span class="pre">create_map_job()</span></code> and <code class="docutils literal notranslate"><span class="pre">create_reduce_job()</span></code> end up calling <code class="docutils literal notranslate"><span class="pre">_create_job()</span></code> which is the main flow of creating a job, described in high-level below:</p>
+<ol class="simple">
+<li><p>A <code class="docutils literal notranslate"><span class="pre">job_description</span></code> record is defined for the job (and is eventually returned from all job creation functions)</p></li>
+<li><p>The partition map and the data processing function (that processes a single partition in either map or reduce jobs) are each <em>pickled</em> (serialized) into a byte sequence.</p></li>
+<li><p>The pickled partition map is stored in the object storage bucket, under <code class="docutils literal notranslate"><span class="pre">agg_data_key</span></code> object</p></li>
+<li><p>The pickled processing function and its module dependencies are stored in the same bucket under <code class="docutils literal notranslate"><span class="pre">func_key</span></code> object</p></li>
+</ol>
+<p>Once job creation is done and the <code class="docutils literal notranslate"><span class="pre">job_description</span></code> record for the new job is returned to the <code class="docutils literal notranslate"><span class="pre">FunctionExecutor</span></code> object, it proceeds to execute the job by calling <code class="docutils literal notranslate"><span class="pre">run()</span></code> method of its <code class="docutils literal notranslate"><span class="pre">FunctionInvoker</span></code> instance. This triggers the following flow:</p>
+<ol class="simple">
+<li><p>The job is executed as a set of independent <em>calls</em> (invocations) that are submitted to a <code class="docutils literal notranslate"><span class="pre">ThreadPoolExecutor</span></code> object (thread pool size is defined by configuration). This means call invocation is concurrent from the start.</p></li>
+<li><p>Each call executes first a call to an internal <code class="docutils literal notranslate"><span class="pre">invoke()</span></code> function defined inside <code class="docutils literal notranslate"><span class="pre">FunctionInvoker.run()</span></code>, which builds a <code class="docutils literal notranslate"><span class="pre">payload</span></code> (parameter) as a single dictionary with all the data the call needs. The call data includes copy of some of the <code class="docutils literal notranslate"><span class="pre">job_description</span></code> data as well as some specific data for the call such as:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">call_id</span></code> (integer ranging from 0 to <code class="docutils literal notranslate"><span class="pre">total_calls</span> <span class="pre">-</span> <span class="pre">1</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data_byte_range</span></code> - defines the specific partition for this call, as defined by the partitioner during job creation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">output_key</span></code> - specific storage object (in the bucket) for computation output</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">status_key</span></code> - specific storage object (in the bucket) for computation logs</p></li>
+</ul>
+</li>
+<li><p>Invocation proceeds to <code class="docutils literal notranslate"><span class="pre">Compute.invoke()</span></code>, which adds a retry mechanism for the current call, with random delays between retries (all configurable).</p></li>
+<li><p>Invocation proceeds to <code class="docutils literal notranslate"><span class="pre">ComputeBackend.invoke()</span></code>. Further execution depends on the compute backend:</p>
+<ul class="simple">
+<li><p>On IBM Cloud Functions, <code class="docutils literal notranslate"><span class="pre">invoke()</span></code> is performed as a standard non-blocking action invocation, with the payload being included as a single JSON parameter.</p></li>
+<li><p>On Knative Serving, <code class="docutils literal notranslate"><span class="pre">invoke()</span></code> is performed as an HTTP POST request delivered over a connection that lasts for the entire time of the computation.</p></li>
+<li><p>On a localhost (your laptop), <code class="docutils literal notranslate"><span class="pre">invoke()</span></code> is performed as posting the call on a queue. A master process continuously pulls calls from the queue and dispatches them onto processes from a pool of configurable size.</p></li>
+<li><p>On a Docker cloud, <code class="docutils literal notranslate"><span class="pre">invoke()</span></code> is performed similar to localhost above, except the processes in the pool controlled by the master further delegate execution to a Docker container they create.</p></li>
+</ul>
+</li>
+<li><p>When computation completes, each call commits the result to object storage in the configured bucket under <code class="docutils literal notranslate"><span class="pre">output_key</span></code> object</p></li>
+<li><p>Each <code class="docutils literal notranslate"><span class="pre">invoke()</span></code> returns a <code class="docutils literal notranslate"><span class="pre">ResponseFuture</span></code> object, which is a future object to wait on for the computed result of each call</p></li>
+<li><p>A list of <code class="docutils literal notranslate"><span class="pre">ResponseFuture</span></code> objects returned by <code class="docutils literal notranslate"><span class="pre">FunctionInvoker.run()</span></code> is stored in the <code class="docutils literal notranslate"><span class="pre">FunctionExecutor</span></code> object and also returned by its respective method for map [+reduce] job. Later calls to <code class="docutils literal notranslate"><span class="pre">wait()</span></code> or <code class="docutils literal notranslate"><span class="pre">get_result()</span></code> can be used to wait for job completion and retrieve the results, respectively.</p></li>
+</ol>
+</div>
+<div class="section" id="detecting-completion-of-job">
+<h2>Detecting Completion of Job<a class="headerlink" href="#detecting-completion-of-job" title="Permalink to this headline">¶</a></h2>
+<p>Completion of a computation job in Lithops is detected in one of two techniques: using RabbitMQ or polling object storage. The choice of either technique is configurable. A waiting part is implemented in <code class="docutils literal notranslate"><span class="pre">FunctionExecutor.wait()</span></code>. A notification part is implemented in the worker code, depending on the chosen technique. This way, waiting in <code class="docutils literal notranslate"><span class="pre">FunctionExecutor</span></code> completes when all calls have notified completion, or a pre-configured timeout has expired.</p>
+<p><strong>RabbitMQ</strong>: A unique RabbitMQ topic is defined for each job. combining the executor id and job id. Each worker, once completes a call, posts a notification message on that topic (code in <code class="docutils literal notranslate"><span class="pre">function_handler()</span></code> in <code class="docutils literal notranslate"><span class="pre">handler</span></code> module, called from <code class="docutils literal notranslate"><span class="pre">entry_point</span></code> module of the worker). The <code class="docutils literal notranslate"><span class="pre">wait_rabbitmq()</span></code> function from <code class="docutils literal notranslate"><span class="pre">wait_rabbitmq</span></code> module, which is called from <code class="docutils literal notranslate"><span class="pre">FunctionExecutor.wait()</span></code>, consumes a number of messages on that topic equal to <code class="docutils literal notranslate"><span class="pre">total_calls</span></code> and determines completion.</p>
+<p><strong>Object Storage</strong>: As explained above, each call persists its computation results in a specific object. Determining completion of a job is by the <code class="docutils literal notranslate"><span class="pre">FunctionExecutor.wait()</span></code> invoking the <code class="docutils literal notranslate"><span class="pre">wait_storage()</span></code> function from the <code class="docutils literal notranslate"><span class="pre">wait_storage</span></code> module. This function repeatedly, once per fixed period (controllable), polls the executor’s bucket for status objects of a subset of calls that have still not completed. This allows control of resource usage and eventual detection of all calls.</p>
+</div>
+<div class="section" id="acknowledgements">
+<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this headline">¶</a></h2>
+<p>This documentation has been contributed by IBM Research as part of the <a class="reference external" href="https://class-project.eu/">CLASS</a> EU project. CLASS aims to develop latency-sensitive polyglot event-driven big-data analytics platform running on a compute continuum from the cloud to the edge. CLASS is funded by the European Union’s Horizon 2020 Programme grant agreement No. 780622.</p>
+</div>
+</div>
+
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="../index.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">What is Lithops?</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="supported_clouds.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Supported Clouds</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Josep Sampé, Gil Vernik<br/>
+        
+            &copy; Copyright 2021, IBM Corp., Cloudlab URV.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

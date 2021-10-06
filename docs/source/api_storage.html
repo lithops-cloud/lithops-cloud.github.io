@@ -1,0 +1,835 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lithops Storage API &#8212; Lithops v2.5.3.dev0</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Storage OS API Details" href="api_storage_os.html" />
+    <link rel="prev" title="Function chaining" href="notebooks/function_chaining.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/lithops_logo_readme.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Lithops v2.5.3.dev0</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   What is Lithops?
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Lithops Core
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="design.html">
+   Architecture Design
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="supported_clouds.html">
+   Supported Clouds
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="comparing_lithops.html">
+   Comparing Lithops with other distributed computing frameworks
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="execution_modes.html">
+   Execution Modes
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="mode_localhost.html">
+     Lithops Localhost Execution Mode
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="mode_serverless.html">
+     Serverless Execution Mode
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="mode_standalone.html">
+     Standalone Execution Mode
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cli.html">
+   Lithops Command Line Tool
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Install and configure Lithops
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="install_lithops.html">
+   Install Lithops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="general_config.html">
+   General Configuration
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="backends_config.html">
+   Backends Configuration
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/aliyun_functions.html">
+     Aliyun Function Compute
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/aws_lambda.html">
+     AWS Lambda
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/azure_batch.html">
+     Azure Batch (under development)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/azure_functions.html">
+     Azure Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/code_engine.html">
+     IBM Cloud Code Engine
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/gcp_cloudrun.html">
+     GCP Cloud Run
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/gcp_functions.html">
+     GCP Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/ibm_cf.html">
+     IBM Cloud Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/ibm_vpc.html">
+     IBM Virtual Private Cloud
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/k8s_job.html">
+     Kubernetes (batch/job)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/knative.html">
+     Knative
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/localhost.html">
+     Localhost
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/openwhisk.html">
+     OpenWhisk
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/vm.html">
+     Virtual Machine
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="storage_config/aliyun_oss.html">
+     Lithops on Aliyun Object Storage Service
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="storage_config/aws_s3.html">
+     Lithops on AWS S3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="storage_config/azure_blob.html">
+     Azure Blob Storage
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="storage_config/ceph.html">
+     Ceph
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="storage_config/gcp_storage.html">
+     GCP Storage
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="storage_config/ibm_cos.html">
+     IBM Cloud Object Storage
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="storage_config/infinispan.html">
+     Infinispan
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="storage_config/minio.html">
+     MinIO
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="storage_config/redis.html">
+     Redis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="storage_config/swift.html">
+     Swift
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Lithops Futures API
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="api_futures.html">
+   Lithops Futures API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks/functions.html">
+   Functions and Parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks/function_chaining.html">
+   Function chaining
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Storage
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Lithops Storage API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="api_storage_os.html">
+   Storage OS API Details
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Data Processing
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="data_processing.html">
+   Processing data from a Cloud Object Storage
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="file_chunking.html">
+   File “chunking”
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Experimental Features
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="api_multiprocessing.html">
+   Multiprocessing API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="metrics.html">
+   Prometheus Monitoring
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dso.html">
+   Distributed shared objects across function activations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sklearn_joblib.html">
+   Distributed Scikit-learn / Joblib
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Developer Guide
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="development.html">
+   Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="contributing.html">
+   Contributing to Lithops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="testing.html">
+   Testing Guidelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="changelog.html">
+   Changelog
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/source/api_storage.rst.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.rst</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/lithops-cloud/lithops"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/lithops-cloud/lithops/issues/new?title=Issue%20on%20page%20%2Fsource/api_storage.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#storage-api-reference">
+   Storage API Reference
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="lithops-storage-api">
+<h1>Lithops Storage API<a class="headerlink" href="#lithops-storage-api" title="Permalink to this headline">¶</a></h1>
+<p>Lithops allows to create a <strong>Storage</strong> instance and abstract away the backend implementation details.
+The standard way to get a Storage object set up is to import the lithops <code class="docutils literal notranslate"><span class="pre">Storage</span></code> class and create an instance.</p>
+<p>By default, the configuration is loaded from the lithops config file, so there is no need to provide any parameter
+to create a Storage instance:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lithops</span> <span class="kn">import</span> <span class="n">Storage</span>
+
+<span class="n">storage</span> <span class="o">=</span> <span class="n">Storage</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Alternatively, you can pass the lithops configuration through a dictionary. In this case, it will load the storage
+backend set in the <code class="docutils literal notranslate"><span class="pre">storage</span></code> key of the <code class="docutils literal notranslate"><span class="pre">lithops</span></code> section:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lithops</span> <span class="kn">import</span> <span class="n">Storage</span>
+
+<span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;lithops&#39;</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;storage_config&#39;</span> <span class="p">:</span> <span class="s1">&#39;ibm_cos&#39;</span><span class="p">},</span>
+          <span class="s1">&#39;ibm_cos&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;region&#39;</span><span class="p">:</span> <span class="s1">&#39;REGION&#39;</span><span class="p">,</span> <span class="s1">&#39;api_key&#39;</span><span class="p">:</span> <span class="s1">&#39;API_KEY&#39;</span><span class="p">}}</span>
+
+<span class="n">storage</span> <span class="o">=</span> <span class="n">Storage</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In case you have multiple storage set in your configuration, you can force the storage backend by
+using the <code class="docutils literal notranslate"><span class="pre">backend</span></code> parameter:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lithops</span> <span class="kn">import</span> <span class="n">Storage</span>
+
+<span class="n">storage</span> <span class="o">=</span> <span class="n">Storage</span><span class="p">(</span><span class="n">backend</span><span class="o">=</span><span class="s1">&#39;redis&#39;</span><span class="p">)</span> <span class="c1"># this will create a redis Storage instance</span>
+</pre></div>
+</div>
+<p>or:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lithops</span> <span class="kn">import</span> <span class="n">Storage</span>
+
+<span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;lithops&#39;</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;storage_config&#39;</span> <span class="p">:</span> <span class="s1">&#39;ibm_cos&#39;</span><span class="p">},</span>
+          <span class="s1">&#39;ibm_cos&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;region&#39;</span><span class="p">:</span> <span class="s1">&#39;REGION&#39;</span><span class="p">,</span> <span class="s1">&#39;api_key&#39;</span><span class="p">:</span> <span class="s1">&#39;API_KEY&#39;</span><span class="p">},</span>
+          <span class="s1">&#39;redis&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;host&#39;</span><span class="p">:</span> <span class="s1">&#39;HOST&#39;</span><span class="p">,</span> <span class="s1">&#39;port&#39;</span><span class="p">:</span><span class="s1">&#39;PORT&#39;</span><span class="p">}}</span>
+
+
+<span class="n">storage</span> <span class="o">=</span> <span class="n">Storage</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>  <span class="c1"># this will create an ibm_cos Storage instance</span>
+<span class="n">storage</span> <span class="o">=</span> <span class="n">Storage</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="s1">&#39;redis&#39;</span><span class="p">)</span>  <span class="c1"># this will create a redis Storage instance</span>
+</pre></div>
+</div>
+<div class="section" id="storage-api-reference">
+<h2>Storage API Reference<a class="headerlink" href="#storage-api-reference" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="lithops.storage.storage.Storage">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">lithops.storage.storage.</span></code><code class="sig-name descname"><span class="pre">Storage</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storage_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>An Storage object is used by partitioner and other components to access
+underlying storage backend without exposing the the implementation details.</p>
+<dl class="py method">
+<dt id="lithops.storage.storage.Storage.delete_cloudobject">
+<code class="sig-name descname"><span class="pre">delete_cloudobject</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cloudobject</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.delete_cloudobject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a CloudObject from storage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cloudobject</strong> (<em>lithops.storage.utils.CloudObject</em>) – CloudObject instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="lithops.storage.storage.Storage.delete_cloudobjects">
+<code class="sig-name descname"><span class="pre">delete_cloudobjects</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cloudobjects</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.delete_cloudobjects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete multiple CloudObjects from storage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cloudobjects</strong> (<em>List</em><em>[</em><em>lithops.storage.utils.CloudObject</em><em>]</em>) – List of CloudObject instances</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="lithops.storage.storage.Storage.delete_object">
+<code class="sig-name descname"><span class="pre">delete_object</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bucket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.delete_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes objects from the storage backend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bucket</strong> (<em>str</em>) – Name of the bucket</p></li>
+<li><p><strong>key</strong> (<em>str</em>) – Key of the object</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="lithops.storage.storage.Storage.delete_objects">
+<code class="sig-name descname"><span class="pre">delete_objects</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bucket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.delete_objects" title="Permalink to this definition">¶</a></dt>
+<dd><p>This operation enables you to delete multiple objects from a bucket using a single HTTP request.
+If you know the object keys that you want to delete, then this operation provides a suitable alternative
+to sending individual delete requests, reducing per-request overhead.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bucket</strong> (<em>str</em>) – Name of the bucket</p></li>
+<li><p><strong>key_list</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – List of object keys</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="lithops.storage.storage.Storage.get_client">
+<code class="sig-name descname"><span class="pre">get_client</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.get_client" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves the underlying storage client.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Storage backend client</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="lithops.storage.storage.Storage.get_cloudobject">
+<code class="sig-name descname"><span class="pre">get_cloudobject</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cloudobject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.get_cloudobject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a CloudObject’s content from storage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cloudobject</strong> (<em>lithops.storage.utils.CloudObject</em>) – CloudObject instance</p></li>
+<li><p><strong>stream</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – Get the object data or a file-like object</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Cloud object content</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[str, bytes, TextIO, BinaryIO]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="lithops.storage.storage.Storage.get_object">
+<code class="sig-name descname"><span class="pre">get_object</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bucket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_get_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.get_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves objects from the storage backend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bucket</strong> (<em>str</em>) – Name of the bucket</p></li>
+<li><p><strong>key</strong> (<em>str</em>) – Key of the object</p></li>
+<li><p><strong>stream</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – Get the object data or a file-like object</p></li>
+<li><p><strong>extra_get_args</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>]</em>) – Extra get arguments to be passed to the underlying backend implementation (dict). For example, to specify the byte-range to read: <code class="docutils literal notranslate"><span class="pre">extra_get_args={'Range':</span> <span class="pre">'bytes=0-100'}</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Object, as a binary array or as a file-like stream if parameter <cite>stream</cite> is enabled</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[str, bytes, TextIO, BinaryIO]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="lithops.storage.storage.Storage.get_storage_config">
+<code class="sig-name descname"><span class="pre">get_storage_config</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.get_storage_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves the configuration of this storage handler.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Storage configuration</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="lithops.storage.storage.Storage.head_bucket">
+<code class="sig-name descname"><span class="pre">head_bucket</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bucket</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.head_bucket" title="Permalink to this definition">¶</a></dt>
+<dd><p>This operation is useful to determine if a bucket exists and you have permission to access it.
+The operation returns a 200 OK if the bucket exists and you have permission to access it.
+Otherwise, the operation might return responses such as 404 Not Found and 403 Forbidden.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>bucket</strong> (<em>str</em>) – Name of the bucket</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Request response</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="lithops.storage.storage.Storage.head_object">
+<code class="sig-name descname"><span class="pre">head_object</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bucket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.head_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>The HEAD operation retrieves metadata from an object without returning the object itself. This operation is
+useful if you’re only interested in an object’s metadata.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bucket</strong> (<em>str</em>) – Name of the bucket</p></li>
+<li><p><strong>key</strong> (<em>str</em>) – Key of the object</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Object metadata</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="lithops.storage.storage.Storage.list_keys">
+<code class="sig-name descname"><span class="pre">list_keys</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bucket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.list_keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Similar to list_objects(), it returns all of the object keys in a bucket.
+For each object, the list contains only the names of the objects (keys).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bucket</strong> – Name of the bucket</p></li>
+<li><p><strong>prefix</strong> – Key prefix for filtering</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of object keys</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="lithops.storage.storage.Storage.list_objects">
+<code class="sig-name descname"><span class="pre">list_objects</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bucket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.list_objects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all of the object keys in a bucket. For each object, the list contains the name
+of the object (key) and the size.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bucket</strong> (<em>str</em>) – Name of the bucket</p></li>
+<li><p><strong>prefix</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Key prefix for filtering</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of tuples containing the object key and size in bytes</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[Tuple[str, int]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="lithops.storage.storage.Storage.put_cloudobject">
+<code class="sig-name descname"><span class="pre">put_cloudobject</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">body</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bucket</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.put_cloudobject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Put a CloudObject into storage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>body</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>bytes</em><em>, </em><em>TextIO</em><em>, </em><em>BinaryIO</em><em>]</em>) – Data content, can be a string or byte array or a text/bytes file-like object</p></li>
+<li><p><strong>bucket</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Destination bucket</p></li>
+<li><p><strong>key</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Destination key</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>CloudObject instance</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>lithops.storage.utils.CloudObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="lithops.storage.storage.Storage.put_object">
+<code class="sig-name descname"><span class="pre">put_object</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bucket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">body</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.put_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds an object to a bucket of the storage backend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bucket</strong> (<em>str</em>) – Name of the bucket</p></li>
+<li><p><strong>key</strong> (<em>str</em>) – Key of the object</p></li>
+<li><p><strong>body</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>bytes</em><em>, </em><em>TextIO</em><em>, </em><em>BinaryIO</em><em>]</em>) – Object data</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="notebooks/function_chaining.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Function chaining</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="api_storage_os.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Storage OS API Details</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Josep Sampé, Gil Vernik<br/>
+        
+            &copy; Copyright 2021, IBM Corp., Cloudlab URV.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
