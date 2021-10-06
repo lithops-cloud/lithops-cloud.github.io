@@ -1,0 +1,1281 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Functions and Parameters &#8212; Lithops v2.5.3.dev0</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "tex2jax_ignore|mathjax_ignore|document", "processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Function chaining" href="function_chaining.html" />
+    <link rel="prev" title="Lithops Futures API" href="../api_futures.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/lithops_logo_readme.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Lithops v2.5.3.dev0</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../index.html">
+   What is Lithops?
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Lithops Core
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../design.html">
+   Architecture Design
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../supported_clouds.html">
+   Supported Clouds
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../comparing_lithops.html">
+   Comparing Lithops with other distributed computing frameworks
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../execution_modes.html">
+   Execution Modes
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../mode_localhost.html">
+     Lithops Localhost Execution Mode
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../mode_serverless.html">
+     Serverless Execution Mode
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../mode_standalone.html">
+     Standalone Execution Mode
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cli.html">
+   Lithops Command Line Tool
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Install and configure Lithops
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../install_lithops.html">
+   Install Lithops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../general_config.html">
+   General Configuration
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../backends_config.html">
+   Backends Configuration
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../compute_config/aliyun_functions.html">
+     Aliyun Function Compute
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../compute_config/aws_lambda.html">
+     AWS Lambda
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../compute_config/azure_batch.html">
+     Azure Batch (under development)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../compute_config/azure_functions.html">
+     Azure Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../compute_config/code_engine.html">
+     IBM Cloud Code Engine
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../compute_config/gcp_cloudrun.html">
+     GCP Cloud Run
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../compute_config/gcp_functions.html">
+     GCP Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../compute_config/ibm_cf.html">
+     IBM Cloud Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../compute_config/ibm_vpc.html">
+     IBM Virtual Private Cloud
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../compute_config/k8s_job.html">
+     Kubernetes (batch/job)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../compute_config/knative.html">
+     Knative
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../compute_config/localhost.html">
+     Localhost
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../compute_config/openwhisk.html">
+     OpenWhisk
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../compute_config/vm.html">
+     Virtual Machine
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../storage_config/aliyun_oss.html">
+     Lithops on Aliyun Object Storage Service
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../storage_config/aws_s3.html">
+     Lithops on AWS S3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../storage_config/azure_blob.html">
+     Azure Blob Storage
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../storage_config/ceph.html">
+     Ceph
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../storage_config/gcp_storage.html">
+     GCP Storage
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../storage_config/ibm_cos.html">
+     IBM Cloud Object Storage
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../storage_config/infinispan.html">
+     Infinispan
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../storage_config/minio.html">
+     MinIO
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../storage_config/redis.html">
+     Redis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../storage_config/swift.html">
+     Swift
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Lithops Futures API
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../api_futures.html">
+   Lithops Futures API
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Functions and Parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="function_chaining.html">
+   Function chaining
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Storage
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../api_storage.html">
+   Lithops Storage API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../api_storage_os.html">
+   Storage OS API Details
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Data Processing
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data_processing.html">
+   Processing data from a Cloud Object Storage
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../file_chunking.html">
+   File “chunking”
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Experimental Features
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../api_multiprocessing.html">
+   Multiprocessing API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../metrics.html">
+   Prometheus Monitoring
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../dso.html">
+   Distributed shared objects across function activations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sklearn_joblib.html">
+   Distributed Scikit-learn / Joblib
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Developer Guide
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../development.html">
+   Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../contributing.html">
+   Contributing to Lithops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testing.html">
+   Testing Guidelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../changelog.html">
+   Changelog
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/source/notebooks/functions.ipynb.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/lithops-cloud/lithops"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/lithops-cloud/lithops/issues/new?title=Issue%20on%20page%20%2Fsource/notebooks/functions.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#Reserved-parameters">
+   Reserved parameters
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#Parameters-in-the-call_async()-method">
+   Parameters in the call_async() method
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#Parameters-in-the-map()-and-map_reduce()-methods">
+   Parameters in the map() and map_reduce() methods
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#Common-parameters-across-functions-invocations">
+   Common parameters across functions invocations
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<div class="section" id="Functions-and-Parameters">
+<h1>Functions and Parameters<a class="headerlink" href="#Functions-and-Parameters" title="Permalink to this headline">¶</a></h1>
+<p>This document describes how to invoke functions based on the <em>iterdata</em> variable. In this sense, Lithops allows to send either <em>args</em> or <em>kwargs</em> in the function invocation. Take into account that there are some reserved parameter names that activate internal logic, and they cannot be used as regular parameters.</p>
+<div class="section" id="Reserved-parameters">
+<h2>Reserved parameters<a class="headerlink" href="#Reserved-parameters" title="Permalink to this headline">¶</a></h2>
+<p>Reserved parameters are only accessible when using the Futures API.</p>
+<ul class="simple">
+<li><p><strong>id</strong>: To get the call id. For instance, if you spawn 10 activations of a function, you will get here a number from 0 to 9, for example: <a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/examples/map.py">map.py</a></p></li>
+<li><p><strong>obj</strong>: This parameter is used to activate the internal logic that allows to process data objects stored in the object store or public URLs in a transparent way. See Data Processing documentation for more details and instructions on how to use this built-in data-processing logic.</p></li>
+<li><p><strong>storage</strong>: To get a ready-to use lithops.storage.Storage() instance. This allows you to access your storage backend defined in configuration from any function in an easy way, for example: <a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/examples/storage_arg.py">storage_arg.py</a></p></li>
+<li><p><strong>rabbitmq</strong>: To get a ready-to use <a class="reference external" href="https://pika.readthedocs.io/en/latest/modules/adapters/blocking.html">pika.BlockingConnection()</a> instance (AMQP URL must be set in the configuration to make it working). This allows you to access the RabbitMQ service from any function in an easy way, for example: <a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/examples/rabbitmq_arg.py">rabbitmq_arg.py</a></p></li>
+</ul>
+</div>
+<div class="section" id="Parameters-in-the-call_async()-method">
+<h2>Parameters in the call_async() method<a class="headerlink" href="#Parameters-in-the-call_async()-method" title="Permalink to this headline">¶</a></h2>
+<p>You can send multiple parameters to a single call function writing them into a list. The parameters will be mapped in the order you wrote them. In the following example the x parameter will take the value 3 and the y parameter will take the value 6.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">lithops</span>
+
+<span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">my_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+
+<span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">()</span>
+<span class="n">fexec</span><span class="o">.</span><span class="n">call_async</span><span class="p">(</span><span class="n">my_function</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fexec</span><span class="o">.</span><span class="n">get_result</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+9
+</pre></div></div>
+</div>
+<p>The parameters can also be sent into a dictionary. In this case you have to map them to the correct parameter of the function as in the next example.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">lithops</span>
+
+<span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">my_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+
+<span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">()</span>
+<span class="n">fexec</span><span class="o">.</span><span class="n">call_async</span><span class="p">(</span><span class="n">my_function</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fexec</span><span class="o">.</span><span class="n">get_result</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+10
+</pre></div></div>
+</div>
+<p>If you want to send a list or a dict as a parameter of the function, you must enclose them with [] as in the next example.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">lithops</span>
+
+<span class="n">args</span> <span class="o">=</span> <span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],)</span>
+
+<span class="k">def</span> <span class="nf">sum_list</span><span class="p">(</span><span class="n">list_of_numbers</span><span class="p">):</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">list_of_numbers</span><span class="p">:</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="n">total</span><span class="o">+</span><span class="n">num</span>
+    <span class="k">return</span> <span class="n">total</span>
+
+<span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">()</span>
+<span class="n">fexec</span><span class="o">.</span><span class="n">call_async</span><span class="p">(</span><span class="n">sum_list</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fexec</span><span class="o">.</span><span class="n">get_result</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+15
+</pre></div></div>
+</div>
+<p>You can also send multiple parameters which include a list.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">lithops</span>
+
+<span class="n">args</span> <span class="o">=</span> <span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">sum_list_mult</span><span class="p">(</span><span class="n">list_of_numbers</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">list_of_numbers</span><span class="p">:</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="n">total</span><span class="o">+</span><span class="n">num</span>
+    <span class="k">return</span> <span class="n">total</span><span class="o">*</span><span class="n">x</span>
+
+<span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">()</span>
+<span class="n">fexec</span><span class="o">.</span><span class="n">call_async</span><span class="p">(</span><span class="n">sum_list_mult</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">fexec</span><span class="o">.</span><span class="n">get_result</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+75
+</pre></div></div>
+</div>
+<p>Or alternatively using a dict.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">lithops</span>
+
+<span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;list_of_numbers&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+
+<span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">()</span>
+<span class="n">fexec</span><span class="o">.</span><span class="n">call_async</span><span class="p">(</span><span class="n">sum_list_mult</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fexec</span><span class="o">.</span><span class="n">get_result</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+45
+</pre></div></div>
+</div>
+<p>To test all of the previous examples run the <code class="docutils literal notranslate"><span class="pre">multiple_args_call_async.py</span> <span class="pre">&lt;https://github.com/lithops-cloud/lithops/blob/master/examples/multiple_args_call_async.py&gt;</span></code>_ located in the <code class="docutils literal notranslate"><span class="pre">examples</span></code> folder.</p>
+</div>
+<div class="section" id="Parameters-in-the-map()-and-map_reduce()-methods">
+<h2>Parameters in the map() and map_reduce() methods<a class="headerlink" href="#Parameters-in-the-map()-and-map_reduce()-methods" title="Permalink to this headline">¶</a></h2>
+<p>The ‘iterdata’ variable must be always a list []. In this case to send multiple parameters to the function, the parameters of each function must be enclosed within a tuple () as in the next example. The parameters will be mapped in the order you wrote them.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">lithops</span>
+
+<span class="n">args</span> <span class="o">=</span> <span class="p">[</span>  <span class="c1"># Init list of parameters for Lithops</span>
+        <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>  <span class="c1"># Args for function1</span>
+        <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>  <span class="c1"># Args for function2</span>
+        <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>  <span class="c1"># Args for function3</span>
+       <span class="p">]</span>  <span class="c1"># End list of parameters for Lithops</span>
+
+<span class="k">def</span> <span class="nf">my_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+
+<span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">()</span>
+<span class="n">fexec</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">my_function</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fexec</span><span class="o">.</span><span class="n">get_result</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[3, 7, 11]
+</pre></div></div>
+</div>
+<p>The parameters can also be sent into a dictionary. In this case you have to map them to the correct parameter of the function as in the next example.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">lithops</span>
+
+<span class="n">kwargs</span> <span class="o">=</span> <span class="p">[</span>  <span class="c1"># Init list of parameters for Lithops</span>
+          <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>  <span class="c1"># Kwargs for function1</span>
+          <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">},</span>  <span class="c1"># Kwargs for function2</span>
+          <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">},</span>  <span class="c1"># Kwargs for function3</span>
+         <span class="p">]</span>  <span class="c1"># End list of parameters for Lithops</span>
+
+<span class="k">def</span> <span class="nf">my_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+
+<span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">()</span>
+<span class="n">fexec</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">my_function</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fexec</span><span class="o">.</span><span class="n">get_result</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[3, 7, 11]
+</pre></div></div>
+</div>
+<p>If you want to send a list, a tuple or a dict as a parameter of the function, you must enclose them with () as in the next example.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">lithops</span>
+
+<span class="n">args</span> <span class="o">=</span> <span class="p">[</span>  <span class="c1"># Init list of parameters for Lithops</span>
+         <span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],),</span>  <span class="c1"># Args for function1</span>
+         <span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],),</span>  <span class="c1"># Args for function2</span>
+         <span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],),</span>  <span class="c1"># Args for function3</span>
+       <span class="p">]</span>  <span class="c1"># End list of parameters for Lithops</span>
+
+<span class="k">def</span> <span class="nf">sum_list</span><span class="p">(</span><span class="n">list_of_numbers</span><span class="p">):</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">list_of_numbers</span><span class="p">:</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="n">total</span><span class="o">+</span><span class="n">num</span>
+    <span class="k">return</span> <span class="n">total</span>
+
+<span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">()</span>
+<span class="n">fexec</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sum_list</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fexec</span><span class="o">.</span><span class="n">get_result</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[3, 7, 11]
+</pre></div></div>
+</div>
+<p>You can also send multiple parameters which include a list.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">lithops</span>
+
+<span class="n">args</span> <span class="o">=</span> <span class="p">[</span>  <span class="c1"># Init list of parameters for Lithops</span>
+        <span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">2</span><span class="p">),</span>  <span class="c1"># Args for function1</span>
+        <span class="p">([</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="mi">3</span><span class="p">),</span>  <span class="c1"># Args for function2</span>
+        <span class="p">([</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span> <span class="mi">4</span><span class="p">),</span>  <span class="c1"># Args for function3</span>
+       <span class="p">]</span>  <span class="c1"># End list of parameters for Lithops</span>
+
+<span class="k">def</span> <span class="nf">sum_list_mult</span><span class="p">(</span><span class="n">list_of_numbers</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">list_of_numbers</span><span class="p">:</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="n">total</span><span class="o">+</span><span class="n">num</span>
+    <span class="k">return</span> <span class="n">total</span><span class="o">*</span><span class="n">x</span>
+
+<span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">()</span>
+<span class="n">fexec</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sum_list_mult</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fexec</span><span class="o">.</span><span class="n">get_result</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[30, 120, 260]
+</pre></div></div>
+</div>
+<p>Or alternatively using a dict.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">lithops</span>
+
+<span class="n">kwargs</span> <span class="o">=</span> <span class="p">[</span>  <span class="c1"># Init list of parameters for Lithops</span>
+           <span class="p">{</span><span class="s1">&#39;list_of_numbers&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>  <span class="c1"># Kwargs for function1</span>
+           <span class="p">{</span><span class="s1">&#39;list_of_numbers&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span>  <span class="c1"># Kwargs for function2</span>
+           <span class="p">{</span><span class="s1">&#39;list_of_numbers&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span> <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">},</span>  <span class="c1"># Kwargs for function3</span>
+         <span class="p">]</span>  <span class="c1"># End list of parameters for Lithops</span>
+
+<span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">()</span>
+<span class="n">fexec</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sum_list_mult</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fexec</span><span class="o">.</span><span class="n">get_result</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[30, 120, 260]
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Common-parameters-across-functions-invocations">
+<h2>Common parameters across functions invocations<a class="headerlink" href="#Common-parameters-across-functions-invocations" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes, functions have common parameters for all the invocations. In this case you have two options to proceed:</p>
+<ul class="simple">
+<li><p>Setting variables in the global scope: You can define the desired variables in the global scope before defining the function. All of these variables can be catched within the function, for example:</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">lithops</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">def</span> <span class="nf">sum_x_y</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+
+<span class="n">iterdata</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">()</span>
+<span class="n">fexec</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sum_x_y</span><span class="p">,</span> <span class="n">iterdata</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fexec</span><span class="o">.</span><span class="n">get_result</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[10, 11, 12]
+</pre></div></div>
+</div>
+<ul>
+<li><p>Using <code class="docutils literal notranslate"><span class="pre">extra_args</span></code> parameter in the <code class="docutils literal notranslate"><span class="pre">map()</span></code> or <code class="docutils literal notranslate"><span class="pre">map_reduce()</span></code> calls. <code class="docutils literal notranslate"><span class="pre">extra_args</span></code> must be a <strong>set* or a</strong>dict**, depending on whether <code class="docutils literal notranslate"><span class="pre">iteradata</span></code> contains <em>args</em> or <em>kwargs</em>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">iterdata</span></code> is a list of individual values or a list of sets:</p>
+</li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">lithops</span>
+
+<span class="k">def</span> <span class="nf">sum_x_y</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+
+<span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">()</span>
+<span class="n">fexec</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sum_x_y</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">extra_args</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fexec</span><span class="o">.</span><span class="n">get_result</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[10, 11, 12]
+</pre></div></div>
+</div>
+<p>The previous example is equivalent to the next:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">lithops</span>
+
+<span class="k">def</span> <span class="nf">sum_x_y</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+
+<span class="n">args</span> <span class="o">=</span> <span class="p">[</span>  <span class="c1"># Init list of parameters for Lithops</span>
+        <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>  <span class="c1"># Args for function1</span>
+        <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>  <span class="c1"># Args for function2</span>
+        <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>  <span class="c1"># Args for function3</span>
+       <span class="p">]</span>  <span class="c1"># End list of parameters for Lithops</span>
+<span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">()</span>
+<span class="n">fexec</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sum_x_y</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fexec</span><span class="o">.</span><span class="n">get_result</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[10, 11, 12]
+</pre></div></div>
+</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">iterdata</span></code> is a list of dicts:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">lithops</span>
+
+<span class="n">kwargs</span> <span class="o">=</span> <span class="p">[</span>  <span class="c1"># Init list of parameters for Lithops</span>
+          <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>  <span class="c1"># Kwargs for function1</span>
+          <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span>  <span class="c1"># Kwargs for function2</span>
+          <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">},</span>  <span class="c1"># Kwargs for function3</span>
+         <span class="p">]</span>  <span class="c1"># End list of parameters for Lithops</span>
+
+<span class="k">def</span> <span class="nf">my_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+
+<span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">()</span>
+<span class="n">fexec</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">my_function</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">extra_args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fexec</span><span class="o">.</span><span class="n">get_result</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[4, 6, 8]
+</pre></div></div>
+</div>
+<p>The previous example is equivalent to the next:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">lithops</span>
+
+<span class="n">kwargs</span> <span class="o">=</span> <span class="p">[</span>  <span class="c1"># Init list of parameters for Lithops</span>
+          <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span>  <span class="c1"># Kwargs for function1</span>
+          <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span>  <span class="c1"># Kwargs for function2</span>
+          <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span>  <span class="c1"># Kwargs for function3</span>
+         <span class="p">]</span>  <span class="c1"># End list of parameters for Lithops</span>
+
+<span class="k">def</span> <span class="nf">my_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+
+<span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">()</span>
+<span class="n">fexec</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">my_function</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fexec</span><span class="o">.</span><span class="n">get_result</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[4, 6, 8]
+</pre></div></div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="../api_futures.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Lithops Futures API</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="function_chaining.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Function chaining</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Josep Sampé, Gil Vernik<br/>
+        
+            &copy; Copyright 2021, IBM Corp., Cloudlab URV.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

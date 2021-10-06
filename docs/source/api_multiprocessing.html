@@ -1,0 +1,692 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multiprocessing API &#8212; Lithops v2.5.3.dev0</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Prometheus Monitoring" href="metrics.html" />
+    <link rel="prev" title="File “chunking”" href="file_chunking.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/lithops_logo_readme.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Lithops v2.5.3.dev0</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   What is Lithops?
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Lithops Core
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="design.html">
+   Architecture Design
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="supported_clouds.html">
+   Supported Clouds
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="comparing_lithops.html">
+   Comparing Lithops with other distributed computing frameworks
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="execution_modes.html">
+   Execution Modes
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="mode_localhost.html">
+     Lithops Localhost Execution Mode
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="mode_serverless.html">
+     Serverless Execution Mode
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="mode_standalone.html">
+     Standalone Execution Mode
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cli.html">
+   Lithops Command Line Tool
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Install and configure Lithops
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="install_lithops.html">
+   Install Lithops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="general_config.html">
+   General Configuration
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="backends_config.html">
+   Backends Configuration
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/aliyun_functions.html">
+     Aliyun Function Compute
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/aws_lambda.html">
+     AWS Lambda
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/azure_batch.html">
+     Azure Batch (under development)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/azure_functions.html">
+     Azure Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/code_engine.html">
+     IBM Cloud Code Engine
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/gcp_cloudrun.html">
+     GCP Cloud Run
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/gcp_functions.html">
+     GCP Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/ibm_cf.html">
+     IBM Cloud Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/ibm_vpc.html">
+     IBM Virtual Private Cloud
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/k8s_job.html">
+     Kubernetes (batch/job)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/knative.html">
+     Knative
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/localhost.html">
+     Localhost
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/openwhisk.html">
+     OpenWhisk
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/vm.html">
+     Virtual Machine
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="storage_config/aliyun_oss.html">
+     Lithops on Aliyun Object Storage Service
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="storage_config/aws_s3.html">
+     Lithops on AWS S3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="storage_config/azure_blob.html">
+     Azure Blob Storage
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="storage_config/ceph.html">
+     Ceph
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="storage_config/gcp_storage.html">
+     GCP Storage
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="storage_config/ibm_cos.html">
+     IBM Cloud Object Storage
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="storage_config/infinispan.html">
+     Infinispan
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="storage_config/minio.html">
+     MinIO
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="storage_config/redis.html">
+     Redis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="storage_config/swift.html">
+     Swift
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Lithops Futures API
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="api_futures.html">
+   Lithops Futures API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks/functions.html">
+   Functions and Parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks/function_chaining.html">
+   Function chaining
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Storage
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="api_storage.html">
+   Lithops Storage API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="api_storage_os.html">
+   Storage OS API Details
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Data Processing
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="data_processing.html">
+   Processing data from a Cloud Object Storage
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="file_chunking.html">
+   File “chunking”
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Experimental Features
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Multiprocessing API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="metrics.html">
+   Prometheus Monitoring
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dso.html">
+   Distributed shared objects across function activations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sklearn_joblib.html">
+   Distributed Scikit-learn / Joblib
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Developer Guide
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="development.html">
+   Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="contributing.html">
+   Contributing to Lithops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="testing.html">
+   Testing Guidelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="changelog.html">
+   Changelog
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/source/api_multiprocessing.rst.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.rst</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/lithops-cloud/lithops"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/lithops-cloud/lithops/issues/new?title=Issue%20on%20page%20%2Fsource/api_multiprocessing.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#process-and-pool">
+   Process and Pool
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stateful-abstractions">
+   Stateful abstractions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extra-multiprocessing-configuration">
+   Extra multiprocessing configuration
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multiprocessing-configuration-keys">
+     Multiprocessing configuration keys
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="multiprocessing-api">
+<h1>Multiprocessing API<a class="headerlink" href="#multiprocessing-api" title="Permalink to this headline">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This feature is experimental and as such is unstable. Using it in production is discouraged, proceed at your own risk. Expect errors and API/functionality changes in future releases.</p>
+</div>
+<p>Lithops implements Python’s <a class="reference external" href="https://docs.python.org/3/library/multiprocessing.html">multiprocessing API</a> to transparently run local-parallel applications but using serverless functions for Processes and a Redis instance for shared state and Inter-Process Communication (IPC).</p>
+<div class="section" id="process-and-pool">
+<h2>Process and Pool<a class="headerlink" href="#process-and-pool" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://docs.python.org/3/library/multiprocessing.html#the-process-class">Processes</a> and <a class="reference external" href="https://docs.python.org/3/library/multiprocessing.html#using-a-pool-of-workers">Pool</a> are the abstractions used in multiprocessing to parallelize computation. They interact directly with Lithop’s Futures API.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># from multiprocessing import Process</span>
+<span class="kn">from</span> <span class="nn">lithops.multiprocessing</span> <span class="kn">import</span> <span class="n">Process</span>
+
+
+<span class="k">def</span> <span class="nf">my_process_function</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Hello </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">!)</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">my_process_function</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;World&#39;</span><span class="p">,))</span>
+<span class="n">p</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">p</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># from multiprocessing import Pool</span>
+<span class="kn">from</span> <span class="nn">lithops.multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span>
+
+<span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+
+<span class="k">with</span> <span class="n">Pool</span><span class="p">()</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
+    <span class="n">async_result</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">map_async</span><span class="p">(</span><span class="n">square</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">async_result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">TimeoutError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Timed out!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="stateful-abstractions">
+<h2>Stateful abstractions<a class="headerlink" href="#stateful-abstractions" title="Permalink to this headline">¶</a></h2>
+<p>Lithops also implements all stateful abstractions from Python mutliprocessing: Queue, Pipes, Shared memory, Events…</p>
+<p>Since FaaS lacks mechanisms for function-to-function communication, a <a class="reference external" href="https://redis.io/">Redis</a> database instance node is used.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Both the functions and the Lithops orchestrator local process must be able to access the Redis instance – for example, deploying it in your local machine won’t work</p>
+</div>
+<p>The Redis credentials (host, password…) is loaded from the <code class="docutils literal notranslate"><span class="pre">redis</span></code> section of the Lithops configuration.</p>
+<p>The fastest way to deploy a Redis instance is using Docker in a VM located in the cloud of your choice:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ docker run --rm -d --network host --name redis redis:6.2.1 --requirepass redispassword
+</pre></div>
+</div>
+<p>To have lower latency, you can deploy the functions and the VM in the same VPC and use route through internal traffic instead of the internet.
+For example, in AWS, the functions and VM can be deployed in the same VPC: Lambdas go to a private subnet and the VM in a public subnet. This way, the VM has access to the internet and the local Lithops process can also access it.</p>
+</div>
+<div class="section" id="extra-multiprocessing-configuration">
+<h2>Extra multiprocessing configuration<a class="headerlink" href="#extra-multiprocessing-configuration" title="Permalink to this headline">¶</a></h2>
+<p>The Lithops multiprocessing module has extra configuration specific to the multiprocessing functionality.
+To preserve transparency, the functions and method signature has remain completely compatible with the original multiprocessing module.
+For this reason, to set specific configuration in runtime, the <code class="docutils literal notranslate"><span class="pre">Lithops.multiprocessing.config</span></code> module is used:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lithops.multiprocessing</span> <span class="k">as</span> <span class="nn">mp</span>
+<span class="kn">from</span> <span class="nn">lithops.multiprocessing</span> <span class="kn">import</span> <span class="n">config</span> <span class="k">as</span> <span class="n">mp_config</span>
+
+
+<span class="k">def</span> <span class="nf">my_map_function</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">7</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">iterdata</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+    <span class="c1"># To set a config parameter, use the set_parameter</span>
+    <span class="c1"># function and specify the parameter and the desired value</span>
+    <span class="n">mp_config</span><span class="o">.</span><span class="n">set_parameter</span><span class="p">(</span><span class="n">mp_config</span><span class="o">.</span><span class="n">LITHOPS_CONFIG</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;lithops&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;mode&#39;</span><span class="p">:</span> <span class="s1">&#39;localhost&#39;</span><span class="p">}})</span>
+    <span class="n">mp_config</span><span class="o">.</span><span class="n">set_parameter</span><span class="p">(</span><span class="n">mp_config</span><span class="o">.</span><span class="n">STREAM_STDOUT</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="n">mp_config</span><span class="o">.</span><span class="n">set_parameter</span><span class="p">(</span><span class="n">mp_config</span><span class="o">.</span><span class="n">REDIS_EXPIRY_TIME</span><span class="p">,</span> <span class="mi">1800</span><span class="p">)</span>
+    <span class="n">mp_config</span><span class="o">.</span><span class="n">set_parameter</span><span class="p">(</span><span class="n">mp_config</span><span class="o">.</span><span class="n">PIPE_CONNECTION_TYPE</span><span class="p">,</span> <span class="s1">&#39;redislist&#39;</span><span class="p">)</span>
+    <span class="n">mp_config</span><span class="o">.</span><span class="n">set_parameter</span><span class="p">(</span><span class="n">mp_config</span><span class="o">.</span><span class="n">ENV_VARS</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;ENVVAR&#39;</span><span class="p">:</span> <span class="s1">&#39;hello&#39;</span><span class="p">})</span>
+    <span class="n">mp_config</span><span class="o">.</span><span class="n">set_parameter</span><span class="p">(</span><span class="n">mp_config</span><span class="o">.</span><span class="n">EXPORT_EXECUTION_DETAILS</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">mp</span><span class="o">.</span><span class="n">Pool</span><span class="p">()</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">my_map_function</span><span class="p">,</span> <span class="n">iterdata</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="multiprocessing-configuration-keys">
+<h3>Multiprocessing configuration keys<a class="headerlink" href="#multiprocessing-configuration-keys" title="Permalink to this headline">¶</a></h3>
+<table class="table">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Default</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>LITHOPS_CONFIG</p></td>
+<td><p>Lithops configuration, passed directly to Lithop’s FunctionExecutor</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">{}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>STREAM_STDOUT</p></td>
+<td><p>Stream processes STDOUT to the local terminal through Redis pubsub</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>REDIS_EXPIRY_TIME</p></td>
+<td><p>Expiry time for used Redis keys</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">3600</span></code> (1 hour)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PIPE_CONNECTION_TYPE</p></td>
+<td><p>Connection type for the <code class="docutils literal notranslate"><span class="pre">Pipe</span></code> abstraction, can be <code class="docutils literal notranslate"><span class="pre">redislist</span></code> for using Redis or <code class="docutils literal notranslate"><span class="pre">nanomsg</span></code> for function-to-function direct communication using NanoMSG*</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">redislist</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>ENV_VARS</p></td>
+<td><p>Environment variables for the processes, passed directly to Lithops FunctionExecutor <code class="docutils literal notranslate"><span class="pre">extra_env</span></code> argument</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">{}</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>EXPORT_EXECUTION_DETAILS</p></td>
+<td><p>Calls <code class="docutils literal notranslate"><span class="pre">lithops.FunctionExecutor.plot()</span></code>, pass a path to store the plots, <code class="docutils literal notranslate"><span class="pre">None</span></code> to disable it</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>To use nanomsg for Pipes, you must still deploy a Redis instance (used for pipe directory). Note that this feature only works in environments where functions can open a port and communicate with each other.</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="file_chunking.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">File “chunking”</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="metrics.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Prometheus Monitoring</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Josep Sampé, Gil Vernik<br/>
+        
+            &copy; Copyright 2021, IBM Corp., Cloudlab URV.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
