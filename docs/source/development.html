@@ -38,7 +38,7 @@
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Contributing to Lithops" href="contributing.html" />
+    <link rel="next" title="Testing Guidelines" href="testing.html" />
     <link rel="prev" title="Distributed Scikit-learn / Joblib" href="sklearn_joblib.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -109,7 +109,7 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="mode_localhost.html">
-     Lithops Localhost Execution Mode
+     Localhost Execution Mode
     </a>
    </li>
    <li class="toctree-l2">
@@ -228,12 +228,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="storage_config/aliyun_oss.html">
-     Lithops on Aliyun Object Storage Service
+     Aliyun Object Storage Service
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="storage_config/aws_s3.html">
-     Lithops on AWS S3
+     AWS S3
     </a>
    </li>
    <li class="toctree-l2">
@@ -374,18 +374,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="contributing.html">
-   Contributing to Lithops
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="testing.html">
    Testing Guidelines
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="changelog.html">
-   Changelog
   </a>
  </li>
 </ul>
@@ -500,22 +490,27 @@
 <h1>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h1>
 <p>This document explains how to set up a development environment so you can get started contributing to Lithops.</p>
 <p>Clone the repository and run the setup script:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">lithops</span><span class="o">-</span><span class="n">cloud</span><span class="o">/</span><span class="n">lithops</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/lithops-cloud/lithops
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">lithops</span><span class="o">-</span><span class="n">cloud</span><span class="o">/</span><span class="n">lithops</span><span class="o">.</span><span class="n">git</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone git@github.com:lithops-cloud/lithops.git
 </pre></div>
 </div>
 <p>Navigate into <code class="docutils literal notranslate"><span class="pre">lithops</span></code> folder</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">lithops</span><span class="o">/</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd lithops/
 </pre></div>
 </div>
 <p>If you plan to develop code, stay in the master branch. Otherwise obtain the most recent stable release version from the <code class="docutils literal notranslate"><span class="pre">release</span></code> tab. For example, if release is <code class="docutils literal notranslate"><span class="pre">v2.2.5</span></code> then execute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="n">v2</span><span class="mf">.2.5</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout v2.2.5
 </pre></div>
 </div>
-<p>Build and install</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">develop</span>
+<p>It is highly recommended to use a Python virtual environment for development purposes. This way, the lithops development installation is only available when the virtual environment is activated, so the global installation of a lithops stable version is not affected by the changes.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 -m venv venv
+$ source venv/bin/activate
+</pre></div>
+</div>
+<p>Build and install:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(venv) $ python3 setup.py develop
 </pre></div>
 </div>
 <div class="section" id="configuration">
@@ -540,7 +535,7 @@
 </div>
 <div class="section" id="contributing">
 <h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h2>
-<p>Follow <a class="reference internal" href="contributing.html#contributing"><span class="std std-ref">Contributing to Lithops</span></a> instructions if you want to publish your changes to the Lithops master branch.</p>
+<p>Follow <a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/CONTRIBUTING.md">contributing</a> instructions if you want to publish your changes to the Lithops master branch.</p>
 </div>
 </div>
 
@@ -564,10 +559,10 @@
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="contributing.html" title="next page">
+        <a class="right-next" href="testing.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Contributing to Lithops</p>
+                <p class="prevnext-title">Testing Guidelines</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
