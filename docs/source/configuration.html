@@ -485,8 +485,8 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#compute-and-storage-engines">
-   Compute and Storage Engines
+  <a class="reference internal nav-link" href="#compute-and-storage-backends">
+   Compute and Storage backends
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -529,17 +529,14 @@
                 
   <div class="section" id="configuration">
 <h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
-<p>By default, if no configuration is provided, Lithops will use the <a class="reference external" href="compute_config/localhost.html">Localhost</a> backend to run the functions.
-To work with Lithops on the Cloud, you must configure at least one compute engine and one storage engine.
-You have multiple options to choose compute and storage backends based on your needs.
-Lithops can work both with the leading cloud providers and using on-premise or Kubernetes platforms</p>
-<p>Lithops configuration can be provided either in <strong>configuration file</strong> or provided in runtime via a <strong>python dictionary.</strong></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>After you choose your compute and storage engines, you must decide how you want to configure Lithops.</p>
-</div>
-<div class="section" id="compute-and-storage-engines">
-<h2>Compute and Storage Engines<a class="headerlink" href="#compute-and-storage-engines" title="Permalink to this headline">¶</a></h2>
+<p>By default, if no configuration is provided, Lithops will use the <a class="reference external" href="compute_config/localhost.html">Localhost</a> backend to run the functions.</p>
+<p>To work with Lithops on the Cloud, you must configure at least one compute backend and one storage backend.
+Lithops can work both with the leading cloud providers, and using on-premise or Kubernetes platforms.
+You have multiple options to choose compute and storage backends based on your needs.</p>
+<p>Lithops configuration can be provided either using a <strong>configuration file</strong>, or in runtime via a <strong>python dictionary.</strong></p>
+<div class="section" id="compute-and-storage-backends">
+<h2>Compute and Storage backends<a class="headerlink" href="#compute-and-storage-backends" title="Permalink to this headline">¶</a></h2>
+<p>Choose your compute and storage engines from the table below:</p>
 <table class="table">
 <colgroup>
 <col style="width: 50%" />
