@@ -4,8 +4,9 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Redis &#8212; Lithops v2.5.3.dev0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Redis &#8212; Lithops v2.5.4</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -22,13 +23,13 @@
       
 
     
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     
   <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
@@ -58,10 +59,14 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
       <img src="../../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Lithops v2.5.3.dev0</h1>
+      <h1 class="site-logo" id="site-title">Lithops v2.5.4</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
@@ -76,9 +81,9 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Lithops Core
+  Overview of Lithops
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -130,7 +135,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Install and configure Lithops
  </span>
@@ -142,8 +147,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../general_config.html">
-   General Configuration
+  <a class="reference internal" href="../configuration.html">
+   Configuration
   </a>
  </li>
  <li class="toctree-l1 current active has-children">
@@ -279,9 +284,9 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Lithops Futures API
+  Compute API
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -301,9 +306,9 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Storage
+  Storage API
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -318,7 +323,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Data Processing
  </span>
@@ -335,7 +340,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Experimental Features
  </span>
@@ -362,20 +367,25 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Developer Guide
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../development.html">
-   Development
+  <a class="reference internal" href="../contributing.html">
+   Contributing to Lithops
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../testing.html">
    Testing Guidelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../changelog.html">
+   Changelog
   </a>
  </li>
 </ul>
@@ -486,17 +496,17 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="redis">
+  <section class="tex2jax_ignore mathjax_ignore" id="redis">
 <h1>Redis<a class="headerlink" href="#redis" title="Permalink to this headline">¶</a></h1>
 <p>Lithops with Redis as storage backend.</p>
-<div class="section" id="installation">
+<section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>Install Redis &gt;= 5.</p></li>
 <li><p>Secure your installation by setting a password in the redis configuration file.</p></li>
 </ol>
-</div>
-<div class="section" id="configuration">
+</section>
+<section id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>Edit your lithops config file and add the following keys:</p></li>
@@ -510,8 +520,8 @@
         <span class="nt">password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;REDIS_PASSWORD&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="summary-of-configuration-keys-for-redis">
+</section>
+<section id="summary-of-configuration-keys-for-redis">
 <h2>Summary of configuration keys for Redis<a class="headerlink" href="#summary-of-configuration-keys-for-redis" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto table">
 <thead>
@@ -567,8 +577,8 @@
 </tr>
 </tbody>
 </table>
-</div>
-</div>
+</section>
+</section>
 
 
               </div>
@@ -603,7 +613,7 @@
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         

@@ -4,8 +4,9 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AWS Lambda &#8212; Lithops v2.5.3.dev0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>AWS Lambda &#8212; Lithops v2.5.4</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -22,13 +23,13 @@
       
 
     
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     
   <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
@@ -58,10 +59,14 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
       <img src="../../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Lithops v2.5.3.dev0</h1>
+      <h1 class="site-logo" id="site-title">Lithops v2.5.4</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
@@ -76,9 +81,9 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Lithops Core
+  Overview of Lithops
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -130,7 +135,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Install and configure Lithops
  </span>
@@ -142,8 +147,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../general_config.html">
-   General Configuration
+  <a class="reference internal" href="../configuration.html">
+   Configuration
   </a>
  </li>
  <li class="toctree-l1 current active has-children">
@@ -279,9 +284,9 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Lithops Futures API
+  Compute API
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -301,9 +306,9 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Storage
+  Storage API
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -318,7 +323,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Data Processing
  </span>
@@ -335,7 +340,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Experimental Features
  </span>
@@ -362,20 +367,25 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Developer Guide
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../development.html">
-   Development
+  <a class="reference internal" href="../contributing.html">
+   Contributing to Lithops
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../testing.html">
    Testing Guidelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../changelog.html">
+   Changelog
   </a>
  </li>
 </ul>
@@ -515,10 +525,10 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="aws-lambda">
+  <section class="tex2jax_ignore mathjax_ignore" id="aws-lambda">
 <h1>AWS Lambda<a class="headerlink" href="#aws-lambda" title="Permalink to this headline">¶</a></h1>
 <p>Lithops with <em>AWS Lambda</em> as serverless compute backend.</p>
-<div class="section" id="installation">
+<section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>Install Amazon Web Services backend dependencies:</p></li>
@@ -555,8 +565,8 @@
 <li><p>Go back to <strong>IAM</strong> and navigate to <strong>Roles</strong> tab. Click <strong>Create role</strong>.</p></li>
 <li><p>Choose <strong>Lambda</strong> on the use case list and click <strong>Next: Permissions</strong>. Select the policy created before (<code class="docutils literal notranslate"><span class="pre">lithops-policy</span></code>). Click <strong>Next: Tags</strong> and <strong>Next: Review</strong>. Type a role name, for example <code class="docutils literal notranslate"><span class="pre">lithops-execution-role</span></code>. Click on <em>Create Role</em>.</p></li>
 </ol>
-</div>
-<div class="section" id="configuration">
+</section>
+<section id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>Edit your lithops config and add the following keys:</p></li>
@@ -574,10 +584,10 @@
         <span class="nt">region_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="summary-of-configuration-keys-for-aws">
+</section>
+<section id="summary-of-configuration-keys-for-aws">
 <h2>Summary of configuration keys for AWS<a class="headerlink" href="#summary-of-configuration-keys-for-aws" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="aws">
+<section id="aws">
 <h3>AWS<a class="headerlink" href="#aws" title="Permalink to this headline">¶</a></h3>
 <table class="colwidths-auto table">
 <thead>
@@ -609,8 +619,8 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="id1">
+</section>
+<section id="id1">
 <h3>AWS Lambda<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <table class="colwidths-auto table">
 <thead>
@@ -678,11 +688,11 @@
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="section" id="additional-configuration">
+</section>
+</section>
+<section id="additional-configuration">
 <h2>Additional configuration<a class="headerlink" href="#additional-configuration" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="vpc">
+<section id="vpc">
 <h3>VPC<a class="headerlink" href="#vpc" title="Permalink to this headline">¶</a></h3>
 <p>To connect the Lithops lambda to a VPC, add the following configuration to the <code class="docutils literal notranslate"><span class="pre">aws_lambda</span></code> configuration section:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span>    <span class="nt">aws_lambda</span><span class="p">:</span>
@@ -705,8 +715,8 @@
 </ul>
 <p><strong>Note:</strong> To be able to create netwrok interfaces for Lambda functions, the role created in step 3 has to have permissions to do so, for example by adding the permission <em>EC2FullAccess</em>.</p>
 <p>For more information, check out <a class="reference external" href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">AWS documentation on VPCs</a>.</p>
-</div>
-<div class="section" id="efs">
+</section>
+<section id="efs">
 <h3>EFS<a class="headerlink" href="#efs" title="Permalink to this headline">¶</a></h3>
 <p>To attach EFS volumes to the Lithops lambda, add the following configuration to the <code class="docutils literal notranslate"><span class="pre">aws_lambda</span></code> configuration section:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span>    <span class="nt">aws_lambda</span><span class="p">:</span>
@@ -728,9 +738,9 @@
 </ul>
 <p><strong>Note:</strong> to access those volumes, the Lithops lambda has to be connected to the same VPC and subnets as the EFS volumes are mounted to.</p>
 <p>For more information, check out <a class="reference external" href="https://aws.amazon.com/blogs/compute/using-amazon-efs-for-aws-lambda-in-your-serverless-applications/">AWS documentation on attaching EFS volumes to Lambda</a>.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
               </div>
@@ -765,7 +775,7 @@
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         

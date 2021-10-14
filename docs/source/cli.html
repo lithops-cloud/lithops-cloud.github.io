@@ -4,8 +4,9 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lithops Command Line Tool &#8212; Lithops v2.5.3.dev0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Lithops Command Line Tool &#8212; Lithops v2.5.4</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -22,13 +23,13 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -58,10 +59,14 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
       <img src="../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Lithops v2.5.3.dev0</h1>
+      <h1 class="site-logo" id="site-title">Lithops v2.5.4</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -76,9 +81,9 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Lithops Core
+  Overview of Lithops
  </span>
 </p>
 <ul class="current nav bd-sidenav">
@@ -130,7 +135,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Install and configure Lithops
  </span>
@@ -142,8 +147,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="general_config.html">
-   General Configuration
+  <a class="reference internal" href="configuration.html">
+   Configuration
   </a>
  </li>
  <li class="toctree-l1 has-children">
@@ -279,9 +284,9 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Lithops Futures API
+  Compute API
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -301,9 +306,9 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Storage
+  Storage API
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -318,7 +323,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Data Processing
  </span>
@@ -335,7 +340,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Experimental Features
  </span>
@@ -362,20 +367,25 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Developer Guide
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="development.html">
-   Development
+  <a class="reference internal" href="contributing.html">
+   Contributing to Lithops
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="testing.html">
    Testing Guidelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="changelog.html">
+   Changelog
   </a>
  </li>
 </ul>
@@ -736,12 +746,12 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="lithops-command-line-tool">
+  <section class="tex2jax_ignore mathjax_ignore" id="lithops-command-line-tool">
 <h1>Lithops Command Line Tool<a class="headerlink" href="#lithops-command-line-tool" title="Permalink to this headline">¶</a></h1>
 <p>Lithops is shipped with a <em>command line tool</em> (or cli) called <code class="docutils literal notranslate"><span class="pre">lithops</span></code>. It brings <strong>runtime</strong>, <strong>logs</strong>, and <strong>storage</strong> management to the terminal of your computer. Lithops CLI is automatically installed when you install Lithops through <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">lithops</span></code>.</p>
-<div class="section" id="lithops-management">
+<section id="lithops-management">
 <h2>Lithops management<a class="headerlink" href="#lithops-management" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="lithops-clean">
+<section id="lithops-clean">
 <h3><code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">clean</span></code><a class="headerlink" href="#lithops-clean" title="Permalink to this headline">¶</a></h3>
 <p>Deletes all the information related to Lithops except the config file. It includes deployed runtimes and temporary data stored in the storage backend.
 Run this command is like <em>start from scratch</em> with Lithops. In some circumstances, when there is some inconsistency between the local machine and the cloud,  it is convenient to run this command.</p>
@@ -770,8 +780,8 @@ Run this command is like <em>start from scratch</em> with Lithops. In some circu
 <li><p><strong>Usage example</strong>:
 <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">clean</span> <span class="pre">-b</span> <span class="pre">ibm_cf</span> <span class="pre">-s</span> <span class="pre">ibm_cos</span></code></p></li>
 </ul>
-</div>
-<div class="section" id="lithops-test">
+</section>
+<section id="lithops-test">
 <h3><code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">test</span></code><a class="headerlink" href="#lithops-test" title="Permalink to this headline">¶</a></h3>
 <p>Runs a <em>hello-world</em> test function.</p>
 <table class="colwidths-auto table">
@@ -799,8 +809,8 @@ Run this command is like <em>start from scratch</em> with Lithops. In some circu
 <li><p><strong>Usage example</strong>:
 <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">test</span> <span class="pre">-b</span> <span class="pre">ibm_cf</span> <span class="pre">-s</span> <span class="pre">ibm_cos</span></code></p></li>
 </ul>
-</div>
-<div class="section" id="lithops-verify">
+</section>
+<section id="lithops-verify">
 <h3><code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">verify</span></code><a class="headerlink" href="#lithops-verify" title="Permalink to this headline">¶</a></h3>
 <p>Runs the unit testing suite. For more instructions about testing <a class="reference internal" href="testing.html"><span class="doc std std-doc">view this page</span></a>.</p>
 <table class="colwidths-auto table">
@@ -840,12 +850,12 @@ Run this command is like <em>start from scratch</em> with Lithops. In some circu
 <li><p><strong>Usage example</strong>:
 <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">verify</span> <span class="pre">-b</span> <span class="pre">ibm_cf</span> <span class="pre">-s</span> <span class="pre">ibm_cos</span> <span class="pre">-f</span></code></p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="runtime-management">
+</section>
+</section>
+<section id="runtime-management">
 <h2>Runtime management<a class="headerlink" href="#runtime-management" title="Permalink to this headline">¶</a></h2>
 <p>For complete instructions on how to build runtimes for Lithops, please refer to <code class="docutils literal notranslate"><span class="pre">runtime/</span></code> folder and choose your compute backend.</p>
-<div class="section" id="lithops-runtime-build-runtime-name">
+<section id="lithops-runtime-build-runtime-name">
 <h3><code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">runtime</span> <span class="pre">build</span> <span class="pre">&lt;runtime-name&gt;</span></code><a class="headerlink" href="#lithops-runtime-build-runtime-name" title="Permalink to this headline">¶</a></h3>
 <p>Build a new runtime image. Depending of the compute backend, there must be a Dockerfile located in the same folder you run the command, otherwise use <code class="docutils literal notranslate"><span class="pre">-f</span></code> parameter. Note that this command only builds the image and puts it to a container registry. This command do not deploy the runtime to the compute backend.</p>
 <table class="colwidths-auto table">
@@ -876,8 +886,8 @@ Run this command is like <em>start from scratch</em> with Lithops. In some circu
 <li><p><strong>Usage example</strong>:
 <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">runtime</span> <span class="pre">build</span> <span class="pre">-f</span> <span class="pre">Dockefile.pythonv39</span> <span class="pre">-b</span> <span class="pre">ibm_cf</span> <span class="pre">lithopscloud/my-runtime-name-v39:01</span></code></p></li>
 </ul>
-</div>
-<div class="section" id="lithops-runtime-create-runtime-name">
+</section>
+<section id="lithops-runtime-create-runtime-name">
 <h3><code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">runtime</span> <span class="pre">create</span> <span class="pre">&lt;runtime-name&gt;</span></code><a class="headerlink" href="#lithops-runtime-create-runtime-name" title="Permalink to this headline">¶</a></h3>
 <p>Creates/deploy a new Lithops runtime based on a image built with the previous command. When you build a runtime, for example from a Dockerfile, the runtime is uploaded to a docker registry, however it is not deployed to the compute backend. To do so run this command. Note that the runtime is automatically created/deployed in the compute backend the first time you run a function with it, so in most of the cases you can avoid using this command.</p>
 <table class="colwidths-auto table">
@@ -914,8 +924,8 @@ Run this command is like <em>start from scratch</em> with Lithops. In some circu
 <li><p><strong>Usage example</strong>:
 <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">runtime</span> <span class="pre">create</span> <span class="pre">-b</span> <span class="pre">ibm_cf</span> <span class="pre">lithopscloud/my-runtime-name-v39:01</span> <span class="pre">-m</span> <span class="pre">1024</span> <span class="pre">-t</span> <span class="pre">300</span></code></p></li>
 </ul>
-</div>
-<div class="section" id="lithops-runtime-update-runtime-name">
+</section>
+<section id="lithops-runtime-update-runtime-name">
 <h3><code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">runtime</span> <span class="pre">update</span> <span class="pre">&lt;runtime-name&gt;</span></code><a class="headerlink" href="#lithops-runtime-update-runtime-name" title="Permalink to this headline">¶</a></h3>
 <p>Updates an already created/deployed runtime with the local lithops code. This command is useful when developers change the local python Lithops code and want to update the deployed runtimes with it. As an alternative, you can run <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">clean</span> <span class="pre">-b</span> <span class="pre">&lt;backend-name&gt;</span></code> and then let Lithops create the runtime automatically with the new Lithops code.</p>
 <table class="colwidths-auto table">
@@ -946,8 +956,8 @@ Run this command is like <em>start from scratch</em> with Lithops. In some circu
 <li><p><strong>Usage example</strong>:
 <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">runtime</span> <span class="pre">update</span> <span class="pre">-b</span> <span class="pre">ibm_cf</span> <span class="pre">lithopscloud/my-runtime-name-v39:01</span></code></p></li>
 </ul>
-</div>
-<div class="section" id="lithops-runtime-list">
+</section>
+<section id="lithops-runtime-list">
 <h3><code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">runtime</span> <span class="pre">list</span></code><a class="headerlink" href="#lithops-runtime-list" title="Permalink to this headline">¶</a></h3>
 <p>Lists all created/deployed runtimes of an specific compute backend.</p>
 <table class="colwidths-auto table">
@@ -972,8 +982,8 @@ Run this command is like <em>start from scratch</em> with Lithops. In some circu
 <li><p><strong>Usage example</strong>:
 <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">runtime</span> <span class="pre">list</span> <span class="pre">-b</span> <span class="pre">ibm_cf</span></code></p></li>
 </ul>
-</div>
-<div class="section" id="lithops-runtime-delete-runtime-name">
+</section>
+<section id="lithops-runtime-delete-runtime-name">
 <h3><code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">runtime</span> <span class="pre">delete</span> <span class="pre">&lt;runtime-name&gt;</span></code><a class="headerlink" href="#lithops-runtime-delete-runtime-name" title="Permalink to this headline">¶</a></h3>
 <p>Deletes all runtimes created/deployed in the compute backend that matches the provided runtime-name. As an alternative, you can run <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">clean</span> <span class="pre">-b</span> <span class="pre">&lt;backend-name&gt;</span></code> to delete not only the runtimes that match the provided runtime-name, but all them.</p>
 <table class="colwidths-auto table">
@@ -1004,19 +1014,19 @@ Run this command is like <em>start from scratch</em> with Lithops. In some circu
 <li><p><strong>Usage example</strong>:
 <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">runtime</span> <span class="pre">delete</span> <span class="pre">-b</span> <span class="pre">ibm_cf</span> <span class="pre">-s</span> <span class="pre">ibm_cos</span> <span class="pre">lithopscloud/my-runtime-name-v39:01</span></code></p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="logs-management">
+</section>
+</section>
+<section id="logs-management">
 <h2>Logs management<a class="headerlink" href="#logs-management" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="lithops-logs-poll">
+<section id="lithops-logs-poll">
 <h3><code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">logs</span> <span class="pre">poll</span></code><a class="headerlink" href="#lithops-logs-poll" title="Permalink to this headline">¶</a></h3>
 <p>Prints to the screen the Lithops function logs as they are produced.</p>
 <ul class="simple">
 <li><p><strong>Usage example</strong>:
 <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">logs</span> <span class="pre">poll</span></code></p></li>
 </ul>
-</div>
-<div class="section" id="lithops-logs-get-job-key">
+</section>
+<section id="lithops-logs-get-job-key">
 <h3><code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">logs</span> <span class="pre">get</span> <span class="pre">&lt;job-key&gt;</span></code><a class="headerlink" href="#lithops-logs-get-job-key" title="Permalink to this headline">¶</a></h3>
 <p>Prints to the screen the Lithops function of a specific job.</p>
 <table class="colwidths-auto table">
@@ -1035,12 +1045,12 @@ Run this command is like <em>start from scratch</em> with Lithops. In some circu
 <li><p><strong>Usage example</strong>:
 <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">logs</span> <span class="pre">get</span> <span class="pre">fa6071-26-M000</span></code></p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="storage-management">
+</section>
+</section>
+<section id="storage-management">
 <h2>Storage management<a class="headerlink" href="#storage-management" title="Permalink to this headline">¶</a></h2>
 <p>Lithops storage tool can manage all your configured storage backends with the same set of commands.</p>
-<div class="section" id="lithops-storage-put-filename-bucket">
+<section id="lithops-storage-put-filename-bucket">
 <h3><code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">storage</span> <span class="pre">put</span> <span class="pre">&lt;filename&gt;</span> <span class="pre">&lt;bucket&gt;</span></code><a class="headerlink" href="#lithops-storage-put-filename-bucket" title="Permalink to this headline">¶</a></h3>
 <p>Uploads a local file to a bucket.</p>
 <table class="colwidths-auto table">
@@ -1071,8 +1081,8 @@ Run this command is like <em>start from scratch</em> with Lithops. In some circu
 <li><p><strong>Usage example</strong>:
 <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">storage</span> <span class="pre">put</span> <span class="pre">-b</span> <span class="pre">ibm_cos</span> <span class="pre">test.txt</span> <span class="pre">cloudbucket</span></code></p></li>
 </ul>
-</div>
-<div class="section" id="lithops-storage-get-bucket-key">
+</section>
+<section id="lithops-storage-get-bucket-key">
 <h3><code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">storage</span> <span class="pre">get</span> <span class="pre">&lt;bucket&gt;</span> <span class="pre">&lt;key&gt;</span></code><a class="headerlink" href="#lithops-storage-get-bucket-key" title="Permalink to this headline">¶</a></h3>
 <p>Downloads a remote object stored in a bucket to a local file.</p>
 <table class="colwidths-auto table">
@@ -1103,8 +1113,8 @@ Run this command is like <em>start from scratch</em> with Lithops. In some circu
 <li><p><strong>Usage example</strong>:
 <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">storage</span> <span class="pre">get</span> <span class="pre">-b</span> <span class="pre">ibm_cos</span> <span class="pre">cloudbucket</span> <span class="pre">test.txt</span></code></p></li>
 </ul>
-</div>
-<div class="section" id="lithops-storage-delete-bucket-key">
+</section>
+<section id="lithops-storage-delete-bucket-key">
 <h3><code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">storage</span> <span class="pre">delete</span> <span class="pre">&lt;bucket&gt;</span> <span class="pre">&lt;key&gt;</span></code><a class="headerlink" href="#lithops-storage-delete-bucket-key" title="Permalink to this headline">¶</a></h3>
 <p>Deletes objects from a given bucket.</p>
 <table class="colwidths-auto table">
@@ -1143,8 +1153,8 @@ Run this command is like <em>start from scratch</em> with Lithops. In some circu
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="lithops-storage-list-bucket">
+</section>
+<section id="lithops-storage-list-bucket">
 <h3><code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">storage</span> <span class="pre">list</span> <span class="pre">&lt;bucket&gt;</span></code><a class="headerlink" href="#lithops-storage-list-bucket" title="Permalink to this headline">¶</a></h3>
 <p>Deletes objects from a given bucket.</p>
 <table class="colwidths-auto table">
@@ -1179,9 +1189,9 @@ Run this command is like <em>start from scratch</em> with Lithops. In some circu
 </ul>
 </li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
               </div>
@@ -1216,7 +1226,7 @@ Run this command is like <em>start from scratch</em> with Lithops. In some circu
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         

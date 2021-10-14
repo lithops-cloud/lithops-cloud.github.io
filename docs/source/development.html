@@ -4,8 +4,9 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Development &#8212; Lithops v2.5.3.dev0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Development &#8212; Lithops v2.5.4</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -22,13 +23,13 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -38,8 +39,6 @@
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Testing Guidelines" href="testing.html" />
-    <link rel="prev" title="Distributed Scikit-learn / Joblib" href="sklearn_joblib.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -58,10 +57,14 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
       <img src="../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Lithops v2.5.3.dev0</h1>
+      <h1 class="site-logo" id="site-title">Lithops v2.5.4</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -76,9 +79,9 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Lithops Core
+  Overview of Lithops
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -130,7 +133,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Install and configure Lithops
  </span>
@@ -142,8 +145,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="general_config.html">
-   General Configuration
+  <a class="reference internal" href="configuration.html">
+   Configuration
   </a>
  </li>
  <li class="toctree-l1 has-children">
@@ -279,9 +282,9 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Lithops Futures API
+  Compute API
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -301,9 +304,9 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Storage
+  Storage API
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -318,7 +321,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Data Processing
  </span>
@@ -335,7 +338,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Experimental Features
  </span>
@@ -362,20 +365,25 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Developer Guide
  </span>
 </p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Development
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="contributing.html">
+   Contributing to Lithops
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="testing.html">
    Testing Guidelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="changelog.html">
+   Changelog
   </a>
  </li>
 </ul>
@@ -486,7 +494,7 @@
         
               <div>
                 
-  <div class="section" id="development">
+  <section id="development">
 <h1>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h1>
 <p>This document explains how to set up a development environment so you can get started contributing to Lithops.</p>
 <p>Clone the repository and run the setup script:</p>
@@ -513,11 +521,11 @@ $ source venv/bin/activate
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(venv) $ python3 setup.py develop
 </pre></div>
 </div>
-<div class="section" id="configuration">
+<section id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
-<p>Once installed, follow <a class="reference internal" href="general_config.html#config"><span class="std std-ref">General Configuration</span></a> instructions to make Lithops running.</p>
-</div>
-<div class="section" id="runtime">
+<p>Once installed, follow <a class="reference internal" href="configuration.html#config"><span class="std std-ref">Configuration</span></a> instructions to make Lithops running.</p>
+</section>
+<section id="runtime">
 <h2>Runtime<a class="headerlink" href="#runtime" title="Permalink to this headline">¶</a></h2>
 <p>The default runtime is automatically deployed the first time you execute an Lithops job (for more information about runtimes navigate to <code class="docutils literal notranslate"><span class="pre">runtime</span></code> folder). Then, every time you want to test your changes, you need to update the already deployed runtime(s). To do so, you have multiple options.</p>
 <p>To update the default runtime, navigate into <code class="docutils literal notranslate"><span class="pre">runtime</span></code> folder and execute:</p>
@@ -532,12 +540,12 @@ $ source venv/bin/activate
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ lithops runtime update all
 </pre></div>
 </div>
-</div>
-<div class="section" id="contributing">
+</section>
+<section id="contributing">
 <h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h2>
 <p>Follow <a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/CONTRIBUTING.md">contributing</a> instructions if you want to publish your changes to the Lithops master branch.</p>
-</div>
-</div>
+</section>
+</section>
 
 
               </div>
@@ -549,30 +557,12 @@ $ source venv/bin/activate
 
 <div class='prev-next-bottom'>
     
-    <div id="prev">
-        <a class="left-prev" href="sklearn_joblib.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Distributed Scikit-learn / Joblib</p>
-            </div>
-        </a>
-    </div>
-     <div id="next">
-        <a class="right-next" href="testing.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Testing Guidelines</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
 
 </div>
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         

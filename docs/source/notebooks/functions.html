@@ -4,8 +4,9 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Functions and Parameters &#8212; Lithops v2.5.3.dev0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Functions and Parameters &#8212; Lithops v2.5.4</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -22,13 +23,13 @@
       
 
     
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     
   <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
@@ -36,8 +37,8 @@
     <script src="../../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "tex2jax_ignore|mathjax_ignore|document", "processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Function chaining" href="function_chaining.html" />
@@ -60,10 +61,14 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
       <img src="../../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Lithops v2.5.3.dev0</h1>
+      <h1 class="site-logo" id="site-title">Lithops v2.5.4</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
@@ -78,9 +83,9 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Lithops Core
+  Overview of Lithops
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -132,7 +137,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Install and configure Lithops
  </span>
@@ -144,8 +149,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../general_config.html">
-   General Configuration
+  <a class="reference internal" href="../configuration.html">
+   Configuration
   </a>
  </li>
  <li class="toctree-l1 has-children">
@@ -281,9 +286,9 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Lithops Futures API
+  Compute API
  </span>
 </p>
 <ul class="current nav bd-sidenav">
@@ -303,9 +308,9 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Storage
+  Storage API
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -320,7 +325,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Data Processing
  </span>
@@ -337,7 +342,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Experimental Features
  </span>
@@ -364,20 +369,25 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Developer Guide
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../development.html">
-   Development
+  <a class="reference internal" href="../contributing.html">
+   Contributing to Lithops
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../testing.html">
    Testing Guidelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../changelog.html">
+   Changelog
   </a>
  </li>
 </ul>
@@ -741,10 +751,10 @@ div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
 </style>
-<div class="section" id="Functions-and-Parameters">
+<section id="Functions-and-Parameters">
 <h1>Functions and Parameters<a class="headerlink" href="#Functions-and-Parameters" title="Permalink to this headline">¶</a></h1>
 <p>This document describes how to invoke functions based on the <em>iterdata</em> variable. In this sense, Lithops allows to send either <em>args</em> or <em>kwargs</em> in the function invocation. Take into account that there are some reserved parameter names that activate internal logic, and they cannot be used as regular parameters.</p>
-<div class="section" id="Reserved-parameters">
+<section id="Reserved-parameters">
 <h2>Reserved parameters<a class="headerlink" href="#Reserved-parameters" title="Permalink to this headline">¶</a></h2>
 <p>Reserved parameters are only accessible when using the Futures API.</p>
 <ul class="simple">
@@ -753,8 +763,8 @@ div.rendered_html tbody tr:hover {
 <li><p><strong>storage</strong>: To get a ready-to use lithops.storage.Storage() instance. This allows you to access your storage backend defined in configuration from any function in an easy way, for example: <a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/examples/storage_arg.py">storage_arg.py</a></p></li>
 <li><p><strong>rabbitmq</strong>: To get a ready-to use <a class="reference external" href="https://pika.readthedocs.io/en/latest/modules/adapters/blocking.html">pika.BlockingConnection()</a> instance (AMQP URL must be set in the configuration to make it working). This allows you to access the RabbitMQ service from any function in an easy way, for example: <a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/examples/rabbitmq_arg.py">rabbitmq_arg.py</a></p></li>
 </ul>
-</div>
-<div class="section" id="Parameters-in-the-call_async()-method">
+</section>
+<section id="Parameters-in-the-call_async()-method">
 <h2>Parameters in the call_async() method<a class="headerlink" href="#Parameters-in-the-call_async()-method" title="Permalink to this headline">¶</a></h2>
 <p>You can send multiple parameters to a single call function writing them into a list. The parameters will be mapped in the order you wrote them. In the following example the x parameter will take the value 3 and the y parameter will take the value 6.</p>
 <div class="nbinput docutils container">
@@ -895,8 +905,8 @@ div.rendered_html tbody tr:hover {
 </pre></div></div>
 </div>
 <p>To test all of the previous examples run the <code class="docutils literal notranslate"><span class="pre">multiple_args_call_async.py</span> <span class="pre">&lt;https://github.com/lithops-cloud/lithops/blob/master/examples/multiple_args_call_async.py&gt;</span></code>_ located in the <code class="docutils literal notranslate"><span class="pre">examples</span></code> folder.</p>
-</div>
-<div class="section" id="Parameters-in-the-map()-and-map_reduce()-methods">
+</section>
+<section id="Parameters-in-the-map()-and-map_reduce()-methods">
 <h2>Parameters in the map() and map_reduce() methods<a class="headerlink" href="#Parameters-in-the-map()-and-map_reduce()-methods" title="Permalink to this headline">¶</a></h2>
 <p>The ‘iterdata’ variable must be always a list []. In this case to send multiple parameters to the function, the parameters of each function must be enclosed within a tuple () as in the next example. The parameters will be mapped in the order you wrote them.</p>
 <div class="nbinput docutils container">
@@ -1056,8 +1066,8 @@ div.rendered_html tbody tr:hover {
 [30, 120, 260]
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="Common-parameters-across-functions-invocations">
+</section>
+<section id="Common-parameters-across-functions-invocations">
 <h2>Common parameters across functions invocations<a class="headerlink" href="#Common-parameters-across-functions-invocations" title="Permalink to this headline">¶</a></h2>
 <p>Sometimes, functions have common parameters for all the invocations. In this case you have two options to proceed:</p>
 <ul class="simple">
@@ -1212,8 +1222,8 @@ div.rendered_html tbody tr:hover {
 [4, 6, 8]
 </pre></div></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
               </div>
@@ -1248,7 +1258,7 @@ div.rendered_html tbody tr:hover {
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         

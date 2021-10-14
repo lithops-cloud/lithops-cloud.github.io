@@ -4,8 +4,9 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Storage OS API Details &#8212; Lithops v2.5.3.dev0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Storage OS API Details &#8212; Lithops v2.5.4</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -22,13 +23,13 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -58,10 +59,14 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
       <img src="../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Lithops v2.5.3.dev0</h1>
+      <h1 class="site-logo" id="site-title">Lithops v2.5.4</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -76,9 +81,9 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Lithops Core
+  Overview of Lithops
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -130,7 +135,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Install and configure Lithops
  </span>
@@ -142,8 +147,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="general_config.html">
-   General Configuration
+  <a class="reference internal" href="configuration.html">
+   Configuration
   </a>
  </li>
  <li class="toctree-l1 has-children">
@@ -279,9 +284,9 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Lithops Futures API
+  Compute API
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -301,9 +306,9 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Storage
+  Storage API
  </span>
 </p>
 <ul class="current nav bd-sidenav">
@@ -318,7 +323,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Data Processing
  </span>
@@ -335,7 +340,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Experimental Features
  </span>
@@ -362,20 +367,25 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Developer Guide
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="development.html">
-   Development
+  <a class="reference internal" href="contributing.html">
+   Contributing to Lithops
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="testing.html">
    Testing Guidelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="changelog.html">
+   Changelog
   </a>
  </li>
 </ul>
@@ -559,7 +569,7 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="storage-os-api-details">
+  <section class="tex2jax_ignore mathjax_ignore" id="storage-os-api-details">
 <h1>Storage OS API Details<a class="headerlink" href="#storage-os-api-details" title="Permalink to this headline">¶</a></h1>
 <p>Lithops provides a transparent way to interact with the storage backend.</p>
 <p>The module <code class="docutils literal notranslate"><span class="pre">lithops.storage.cloud_proxy</span></code> mimics the <code class="docutils literal notranslate"><span class="pre">os</span></code> and the built-in function <code class="docutils literal notranslate"><span class="pre">open</span></code> to access Cloud Storage as if it were a local file system.</p>
@@ -586,9 +596,9 @@ In this case, it will load the storage backend set in the <code class="docutils 
 
 </pre></div>
 </div>
-<div class="section" id="cloud-proxy-storage-api">
+<section id="cloud-proxy-storage-api">
 <h2>Cloud Proxy Storage API<a class="headerlink" href="#cloud-proxy-storage-api" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="open">
+<section id="open">
 <h3><code class="docutils literal notranslate"><span class="pre">open()</span></code><a class="headerlink" href="#open" title="Permalink to this headline">¶</a></h3>
 <p>Similar to Python’s built-in function <a class="reference external" href="https://docs.python.org/3/library/functions.html#open"><code class="docutils literal notranslate"><span class="pre">open()</span></code></a>.</p>
 <p>Manipulate an object stored in Cloud Object Storage.</p>
@@ -617,11 +627,11 @@ In this case, it will load the storage backend set in the <code class="docutils 
     <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>  <span class="c1"># Prints `Hello world!`</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="os">
+</section>
+<section id="os">
 <h3><code class="docutils literal notranslate"><span class="pre">os</span></code><a class="headerlink" href="#os" title="Permalink to this headline">¶</a></h3>
 <p>Similar to Python’s <a class="reference external" href="https://docs.python.org/3/library/os.html"><code class="docutils literal notranslate"><span class="pre">os</span></code></a> library, except only file-related functionalities are implemented.</p>
-<div class="section" id="os-listdir">
+<section id="os-listdir">
 <h4><code class="docutils literal notranslate"><span class="pre">os.listdir</span></code><a class="headerlink" href="#os-listdir" title="Permalink to this headline">¶</a></h4>
 <p>List all objects located in a directory.</p>
 <table class="colwidths-auto table">
@@ -652,8 +662,8 @@ In this case, it will load the storage backend set in the <code class="docutils 
 <span class="nb">print</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>  <span class="c1"># Prints `[&#39;foo.txt&#39;]`</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="os-walk">
+</section>
+<section id="os-walk">
 <h4><code class="docutils literal notranslate"><span class="pre">os.walk</span></code><a class="headerlink" href="#os-walk" title="Permalink to this headline">¶</a></h4>
 <p>List recursively all files and directories in a root path.</p>
 <table class="colwidths-auto table">
@@ -686,8 +696,8 @@ In this case, it will load the storage backend set in the <code class="docutils 
     <span class="nb">print</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span><span class="p">)</span>  <span class="c1"># Prints &#39;/&#39; [&#39;bar&#39;] [], &#39;/bar&#39; [&#39;subdir&#39;] [&#39;foo.txt&#39;, &#39;image.jpg&#39;], &#39;/bar/subdir&#39; [] [&#39;data.csv&#39;]</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="os-remove">
+</section>
+<section id="os-remove">
 <h4><code class="docutils literal notranslate"><span class="pre">os.remove</span></code><a class="headerlink" href="#os-remove" title="Permalink to this headline">¶</a></h4>
 <p>Delete a file. If the directory where the file is located is empty after the file is deleted, this directory it is also removed.</p>
 <table class="colwidths-auto table">
@@ -715,12 +725,12 @@ In this case, it will load the storage backend set in the <code class="docutils 
 <span class="nb">print</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>  <span class="c1"># Prints `[]`</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="os-path">
+</section>
+</section>
+<section id="os-path">
 <h3>os.path<a class="headerlink" href="#os-path" title="Permalink to this headline">¶</a></h3>
 <p>Similar to Python’s <a class="reference external" href="https://docs.python.org/3/library/os.path.html"><code class="docutils literal notranslate"><span class="pre">os.path</span></code></a>, except only file-realted functionalities are implemented.</p>
-<div class="section" id="os-path-isfile">
+<section id="os-path-isfile">
 <h4><code class="docutils literal notranslate"><span class="pre">os.path.isfile</span></code><a class="headerlink" href="#os-path-isfile" title="Permalink to this headline">¶</a></h4>
 <p>Retrun <code class="docutils literal notranslate"><span class="pre">True</span></code> if a path is a file.</p>
 <table class="colwidths-auto table">
@@ -747,8 +757,8 @@ In this case, it will load the storage backend set in the <code class="docutils 
 <span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="s1">&#39;/bar&#39;</span><span class="p">))</span>  <span class="c1"># Prints `False`</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="os-path-isdir">
+</section>
+<section id="os-path-isdir">
 <h4><code class="docutils literal notranslate"><span class="pre">os.path.isdir</span></code><a class="headerlink" href="#os-path-isdir" title="Permalink to this headline">¶</a></h4>
 <p>Retrun <code class="docutils literal notranslate"><span class="pre">True</span></code> if a path is a directory.</p>
 <table class="colwidths-auto table">
@@ -775,8 +785,8 @@ In this case, it will load the storage backend set in the <code class="docutils 
 <span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="s1">&#39;/bar&#39;</span><span class="p">))</span>  <span class="c1"># Prints `True`</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="os-path-exists">
+</section>
+<section id="os-path-exists">
 <h4><code class="docutils literal notranslate"><span class="pre">os.path.exists</span></code><a class="headerlink" href="#os-path-exists" title="Permalink to this headline">¶</a></h4>
 <p>Retrun <code class="docutils literal notranslate"><span class="pre">True</span></code> if a path corresponds to an existing file or directory in Cloud Object Storage.</p>
 <table class="colwidths-auto table">
@@ -803,10 +813,10 @@ In this case, it will load the storage backend set in the <code class="docutils 
 <span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;/baz/foo.txt&#39;</span><span class="p">))</span>  <span class="c1"># Prints `False`</span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
+</section>
 
 
               </div>
@@ -841,7 +851,7 @@ In this case, it will load the storage backend set in the <code class="docutils 
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         

@@ -4,8 +4,9 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IBM Virtual Private Cloud &#8212; Lithops v2.5.3.dev0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>IBM Virtual Private Cloud &#8212; Lithops v2.5.4</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -22,13 +23,13 @@
       
 
     
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     
   <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
@@ -58,10 +59,14 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
       <img src="../../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Lithops v2.5.3.dev0</h1>
+      <h1 class="site-logo" id="site-title">Lithops v2.5.4</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
@@ -76,9 +81,9 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Lithops Core
+  Overview of Lithops
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -130,7 +135,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Install and configure Lithops
  </span>
@@ -142,8 +147,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../general_config.html">
-   General Configuration
+  <a class="reference internal" href="../configuration.html">
+   Configuration
   </a>
  </li>
  <li class="toctree-l1 current active has-children">
@@ -279,9 +284,9 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Lithops Futures API
+  Compute API
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -301,9 +306,9 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Storage
+  Storage API
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -318,7 +323,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Data Processing
  </span>
@@ -335,7 +340,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Experimental Features
  </span>
@@ -362,20 +367,25 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Developer Guide
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../development.html">
-   Development
+  <a class="reference internal" href="../contributing.html">
+   Contributing to Lithops
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../testing.html">
    Testing Guidelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../changelog.html">
+   Changelog
   </a>
  </li>
 </ul>
@@ -547,14 +557,14 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="ibm-virtual-private-cloud">
+  <section class="tex2jax_ignore mathjax_ignore" id="ibm-virtual-private-cloud">
 <h1>IBM Virtual Private Cloud<a class="headerlink" href="#ibm-virtual-private-cloud" title="Permalink to this headline">¶</a></h1>
 <p>The IBM VPC client of Lithops can provide a truely serverless user experience on top of IBM VPC where Lithops creates new VSIs (Virtual Server Instance)  dynamically in runtime and scale Lithops jobs against generated VSIs. Alternatively Lithops can start and stop existing VSI instances.</p>
-<div class="section" id="ibm-vpc">
+<section id="ibm-vpc">
 <h2>IBM VPC<a class="headerlink" href="#ibm-vpc" title="Permalink to this headline">¶</a></h2>
 <p>The assumption that you already familiar with IBM Cloud, have your IBM IAM API key created (you can create new keys <a class="reference external" href="https://cloud.ibm.com/iam/apikeys">here</a>), have valid IBM COS account, region and resource group.</p>
 <p>Follow <a class="reference external" href="https://cloud.ibm.com/vpc-ext/overview">IBM VPC setup</a> if you need to create IBM Virtual Private Cloud. Decide the region for your VPC. The best practice is to use the same region both for VPC and IBM COS, hoewever there is no requirement to keep them in the same region.</p>
-<div class="section" id="the-following-is-the-minimum-setup-requirements">
+<section id="the-following-is-the-minimum-setup-requirements">
 <h3>The following is the minimum setup requirements<a class="headerlink" href="#the-following-is-the-minimum-setup-requirements" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p>Create new VPC if you don’t have one already. More details <a class="reference external" href="https://cloud.ibm.com/vpc-ext/network/vpcs">here</a></p></li>
@@ -563,24 +573,24 @@
 <li><p>Create security group for your resource group. More details <a class="reference external" href="https://cloud.ibm.com/vpc-ext/network/securityGroups">here</a></p></li>
 <li><p>Create a SSH key in <a class="reference external" href="https://cloud.ibm.com/vpc-ext/compute/sshKeys">IBM VPC SSH keys UI</a></p></li>
 </ol>
-</div>
-<div class="section" id="choose-an-operating-system-image-for-vsi">
+</section>
+<section id="choose-an-operating-system-image-for-vsi">
 <h3>Choose an operating system image for VSI<a class="headerlink" href="#choose-an-operating-system-image-for-vsi" title="Permalink to this headline">¶</a></h3>
 <p>Any Virtual Service Instance (VSI) need to define the instance’s operating system and version. Lithops support both standard operting system choices provided by the VPC or using pre-defined custom images that already contains all dependencies required by Lithops.</p>
-</div>
-<div class="section" id="using-the-standard-operating-system-image">
+</section>
+<section id="using-the-standard-operating-system-image">
 <h3>Using the standard operating system image<a class="headerlink" href="#using-the-standard-operating-system-image" title="Permalink to this headline">¶</a></h3>
 <p>Lithops uses by default the Ubuntu 20.04 image. In this case, no further action are required and you can continue to the next step. Lithops will install all required dependencies in the VSI by itself. Notice this can consume about 3 min to complete all installations.</p>
-</div>
-<div class="section" id="using-a-custom-operating-system-image">
+</section>
+<section id="using-a-custom-operating-system-image">
 <h3>Using a custom operating system image<a class="headerlink" href="#using-a-custom-operating-system-image" title="Permalink to this headline">¶</a></h3>
 <p>This is preferable approach, as using pre-built custom image will greatly improve time that of VSI creation for Lithops jobs. To benefit from this approach, navigate to <a class="reference external" href="https://github.com/lithops-cloud/lithops/tree/master/runtime/ibm_vpc">runtime/ibm_vpc</a>, and follow the instructions.</p>
-</div>
-</div>
-<div class="section" id="lithops-and-the-vsi-auto-create-mode">
+</section>
+</section>
+<section id="lithops-and-the-vsi-auto-create-mode">
 <h2>Lithops and the VSI auto create mode<a class="headerlink" href="#lithops-and-the-vsi-auto-create-mode" title="Permalink to this headline">¶</a></h2>
 <p>In this mode, Lithops will automatically create new worker VM instances in runtime, scale Lithops job against generated VMs, and automatically delete VMs when the job is completed.</p>
-<div class="section" id="lithops-configuration-for-the-auto-create-mode">
+<section id="lithops-configuration-for-the-auto-create-mode">
 <h3>Lithops configuration for the auto create mode<a class="headerlink" href="#lithops-configuration-for-the-auto-create-mode" title="Permalink to this headline">¶</a></h3>
 <p>Edit your lithops config and add the relevant keys:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
@@ -616,8 +626,8 @@
 <li><p>Find <code class="docutils literal notranslate"><span class="pre">resource_group</span></code> section and paste its <code class="docutils literal notranslate"><span class="pre">id</span></code> value to the .lithops_config ibm_vpc section resource_group_id key.</p></li>
 <li><p>Find <code class="docutils literal notranslate"><span class="pre">vpc</span></code> section and paste its <code class="docutils literal notranslate"><span class="pre">id</span></code> value to the .lithops_config ibm_vpc section vpc_id key.</p></li>
 </ol>
-</div>
-<div class="section" id="verify-auto-create-mode-with-lithops">
+</section>
+<section id="verify-auto-create-mode-with-lithops">
 <h3>Verify auto create mode with Lithops<a class="headerlink" href="#verify-auto-create-mode-with-lithops" title="Permalink to this headline">¶</a></h3>
 <p>To verify auto create mode is working, use the following example</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">iterdata</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
@@ -632,8 +642,8 @@
 </pre></div>
 </div>
 <p>This will create 4 different VM instance and execute <code class="docutils literal notranslate"><span class="pre">my_map_function</span></code> in the each of created VM. Upon completion, Lithops will delete the VMs.</p>
-</div>
-<div class="section" id="important-information">
+</section>
+<section id="important-information">
 <h3>Important information<a class="headerlink" href="#important-information" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p>The first time you use Lithops with specific runtime, Lithops will try generate and obtain runtime metadata. For this purpose Lithops will create a VM, extract specific metadata and delete VM. All further executions against same runtime will skip this step as runtime metadata will be cached both locally and in IBM COS.</p></li>
@@ -641,8 +651,8 @@
 <li><p>The first time you deplopy Lithops job in the auto create mode it is advised to navigate to dashboard of IBM VPC and verify that VM is being created and deleted.</p></li>
 <li><p>If running Lithops over Gen2 fails with error message that decode() in pyJWT need <code class="docutils literal notranslate"><span class="pre">algorithms</span></code> then please make sure pyJWT is version <code class="docutils literal notranslate"><span class="pre">1.7.1</span></code> installed. If needed execute <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-U</span> <span class="pre">PyJWT==1.7.1</span></code></p></li>
 </ol>
-</div>
-<div class="section" id="summary-of-the-configuration-keys-for-the-create-mode">
+</section>
+<section id="summary-of-the-configuration-keys-for-the-create-mode">
 <h3>Summary of the configuration keys for the create mode<a class="headerlink" href="#summary-of-the-configuration-keys-for-the-create-mode" title="Permalink to this headline">¶</a></h3>
 <table class="colwidths-auto table">
 <thead>
@@ -758,9 +768,9 @@
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="section" id="lithops-and-the-vsi-consume-mode">
+</section>
+</section>
+<section id="lithops-and-the-vsi-consume-mode">
 <h2>Lithops and the VSI consume mode<a class="headerlink" href="#lithops-and-the-vsi-consume-mode" title="Permalink to this headline">¶</a></h2>
 <p>In this mode, Lithops can start and stop existing VM and deploy an entire job to that VM. The partition logic in this scenario is different from the auto create mode, since entire job executed in the same VM. As example</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">iterdata</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
@@ -774,7 +784,7 @@
     <span class="nb">print</span> <span class="p">(</span><span class="n">fexec</span><span class="o">.</span><span class="n">get_result</span><span class="p">())</span>
 </pre></div>
 </div>
-<div class="section" id="lithops-configuration-for-the-consume-mode">
+<section id="lithops-configuration-for-the-consume-mode">
 <h3>Lithops configuration for the consume mode<a class="headerlink" href="#lithops-configuration-for-the-consume-mode" title="Permalink to this headline">¶</a></h3>
 <p>Edit your lithops config and add the relevant keys:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
@@ -800,8 +810,8 @@
 <li><p>Get the endpoint of your subnet region, endpoint URLs list can be found <a class="reference external" href="https://cloud.ibm.com/apidocs/vpc#endpoint-url">here</a>.</p></li>
 <li><p>Get the virtual server instance ID by selecting on your instance in <a class="reference external" href="https://cloud.ibm.com/vpc-ext/compute/vs">IBM VPC virtual server instances UI</a> and then extracting from the instance’s details.</p></li>
 </ol>
-</div>
-<div class="section" id="summary-of-the-configuration-keys-for-the-consume-mode">
+</section>
+<section id="summary-of-the-configuration-keys-for-the-consume-mode">
 <h3>Summary of the configuration keys for the consume mode<a class="headerlink" href="#summary-of-the-configuration-keys-for-the-consume-mode" title="Permalink to this headline">¶</a></h3>
 <table class="colwidths-auto table">
 <thead>
@@ -845,16 +855,16 @@
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="section" id="viewing-the-execution-logs">
+</section>
+</section>
+<section id="viewing-the-execution-logs">
 <h2>Viewing the execution logs<a class="headerlink" href="#viewing-the-execution-logs" title="Permalink to this headline">¶</a></h2>
 <p>You can view the executions logs in your local machine using the <em>lithops client</em>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ lithops logs poll
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
               </div>
@@ -889,7 +899,7 @@
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         

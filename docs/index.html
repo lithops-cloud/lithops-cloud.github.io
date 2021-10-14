@@ -4,8 +4,9 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>What is Lithops? &#8212; Lithops v2.5.3.dev0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>What is Lithops? &#8212; Lithops v2.5.4</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -22,13 +23,13 @@
       
 
     
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     
   <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
@@ -57,10 +58,14 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="#">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
       <img src="_static/lithops_logo_readme.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Lithops v2.5.3.dev0</h1>
+      <h1 class="site-logo" id="site-title">Lithops v2.5.4</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -75,9 +80,9 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Lithops Core
+  Overview of Lithops
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -129,7 +134,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Install and configure Lithops
  </span>
@@ -141,8 +146,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="source/general_config.html">
-   General Configuration
+  <a class="reference internal" href="source/configuration.html">
+   Configuration
   </a>
  </li>
  <li class="toctree-l1 has-children">
@@ -278,9 +283,9 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Lithops Futures API
+  Compute API
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -300,9 +305,9 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Storage
+  Storage API
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -317,7 +322,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Data Processing
  </span>
@@ -334,7 +339,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Experimental Features
  </span>
@@ -361,20 +366,25 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Developer Guide
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="source/development.html">
-   Development
+  <a class="reference internal" href="source/contributing.html">
+   Contributing to Lithops
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="source/testing.html">
    Testing Guidelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/changelog.html">
+   Changelog
   </a>
  </li>
 </ul>
@@ -498,14 +508,9 @@
     <a class="reference internal nav-link" href="#papers">
      Papers
     </a>
+    <ul class="nav section-nav flex-column">
+    </ul>
    </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#acknowledgements">
-   Acknowledgements
-  </a>
-  <ul class="visible nav section-nav flex-column">
   </ul>
  </li>
 </ul>
@@ -519,10 +524,9 @@
         
               <div>
                 
-  <div class="section" id="what-is-lithops">
+  <section id="what-is-lithops">
 <h1>What is Lithops?<a class="headerlink" href="#what-is-lithops" title="Permalink to this headline">¶</a></h1>
-<a class="reference internal image-reference" href="_images/lithops_flat_cloud_1.png"><img alt="_images/lithops_flat_cloud_1.png" class="align-center" src="_images/lithops_flat_cloud_1.png" style="width: 500px;" /></a>
-<hr class="docutils" />
+<img alt="_images/lithops_logo_readme.png" class="align-center" src="_images/lithops_logo_readme.png" />
 <p><strong>Lithops is a Python multi-cloud serverless computing framework. It allows to run unmodified local python code at massive scale in the main serverless computing platforms.</strong></p>
 <p>Lithops delivers the user’s code into the cloud without requiring knowledge of how it is deployed and run.
 Moreover, its multicloud-agnostic architecture ensures portability across cloud providers, overcoming vendor lock-in.</p>
@@ -534,8 +538,8 @@ analytics, to name a few.</p>
 <hr class="docutils" />
 <p><strong>Lithops facilitates consuming data from object storage (like AWS S3, GCP Storage or IBM Cloud Object Storage) by providing automatic partitioning and data discovery for common data formats like CSV.</strong></p>
 <p>Lithops abstracts away the underlying cloud-specific APIs for accessing storage and provides an intuitive and easy to use interface to process high volumes of data.</p>
-</div>
-<div class="section" id="quick-start">
+</section>
+<section id="quick-start">
 <h1>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h1>
 <p>Lithops is available for Python 3.6 and up. Install it using <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">lithops</span>
@@ -552,14 +556,14 @@ analytics, to name a few.</p>
     <span class="nb">print</span><span class="p">(</span><span class="n">fut</span><span class="o">.</span><span class="n">result</span><span class="p">())</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="use-any-cloud">
+</section>
+<section id="use-any-cloud">
 <h1>Use any Cloud<a class="headerlink" href="#use-any-cloud" title="Permalink to this headline">¶</a></h1>
 <p><strong>Lithops provides an extensible backend architecture that is designed to work with different compute and storage services available on Cloud providers and on-premise backends.</strong></p>
 <p>In this sense, you can code your application in Python and run it unmodified wherever your data is located at: IBM Cloud, AWS, Azure, Google Cloud and Alibaba Aliyun…</p>
 <img alt="_images/multicloud.jpg" class="align-center" src="_images/multicloud.jpg" />
-</div>
-<div class="section" id="execution-modes">
+</section>
+<section id="execution-modes">
 <h1>Execution Modes<a class="headerlink" href="#execution-modes" title="Permalink to this headline">¶</a></h1>
 <p>Lithops ships with 3 different modes of execution. The execution mode allows you to decide where and how the functions are executed.</p>
 <table class="table">
@@ -581,8 +585,8 @@ analytics, to name a few.</p>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="what-is-lithops-used-for">
+</section>
+<section id="what-is-lithops-used-for">
 <h1>What is Lithops used for?<a class="headerlink" href="#what-is-lithops-used-for" title="Permalink to this headline">¶</a></h1>
 <table class="table">
 <colgroup>
@@ -609,12 +613,13 @@ analytics, to name a few.</p>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="additional-resources">
+</section>
+<section id="additional-resources">
 <h1>Additional resources<a class="headerlink" href="#additional-resources" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="blogs-and-talks">
+<section id="blogs-and-talks">
 <h2>Blogs and Talks<a class="headerlink" href="#blogs-and-talks" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
+<li><p><a class="reference external" href="https://medium.com/&#64;gvernik/simplify-the-developer-experience-with-openshift-for-big-data-processing-by-using-lithops-framework-d62a795b5e1c">Simplify the developer experience with OpenShift for Big Data processing by using Lithops framework</a></p></li>
 <li><p><a class="reference external" href="https://itnext.io/lithops-a-multi-cloud-serverless-programming-framework-fd97f0d5e9e4">Lithops, a Multi-cloud Serverless Programming Framework</a></p></li>
 <li><p><a class="reference external" href="https://itnext.io/speed-up-your-python-applications-using-lithops-and-serverless-cloud-resources-a64beb008bb5">Speed-up your Python applications using Lithops and Serverless Cloud resources</a></p></li>
 <li><p><a class="reference external" href="https://www.ibm.com/cloud/blog/serverless-without-constraints">Serverless Without Constraints</a></p></li>
@@ -629,8 +634,8 @@ analytics, to name a few.</p>
 <li><p><a class="reference external" href="https://www.ibm.com/cloud/blog/process-large-data-sets-massive-scale-pywren-ibm-cloud-functions">Process large data sets at massive scale with Lithops over IBM Cloud Functions</a></p></li>
 <li><p><a class="reference external" href="http://www.cs.technion.ac.il/~cs234313/projects_sites/W19/04/site/">Industrial project in Technion on Lithops</a></p></li>
 </ul>
-</div>
-<div class="section" id="papers">
+</section>
+<section id="papers">
 <h2>Papers<a class="headerlink" href="#papers" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.computer.org/csdl/magazine/so/5555/01/09218932/1nMMkpZ8Ko8">Towards Multicloud Access Transparency in Serverless Computing</a> - IEEE Software 2021</p></li>
@@ -638,12 +643,6 @@ analytics, to name a few.</p>
 <li><p><a class="reference external" href="https://dl.acm.org/doi/abs/10.1145/3429880.3430101">Bringing scaling transparency to Proteomics applications with serverless computing</a> - 6th International Workshop on Serverless Computing (WoSC6) 2020. <a class="reference external" href="https://www.serverlesscomputing.org/wosc6/#p10">See Workshop presentation here</a></p></li>
 <li><p><a class="reference external" href="https://dl.acm.org/citation.cfm?id=3284029">Serverless data analytics in the IBM Cloud</a> - ACM/IFIP International Middleware Conference 2018</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="acknowledgements">
-<h1>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this headline">¶</a></h1>
-<img alt="https://user-images.githubusercontent.com/26366936/61350554-d62acf00-a85f-11e9-84b2-36312a35398e.png" src="https://user-images.githubusercontent.com/26366936/61350554-d62acf00-a85f-11e9-84b2-36312a35398e.png" />
-<p>This project has received funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement No 825184.</p>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
@@ -660,7 +659,8 @@ analytics, to name a few.</p>
 </div>
 <div class="toctree-wrapper compound">
 </div>
-</div>
+</section>
+</section>
 
 
               </div>
@@ -686,7 +686,7 @@ analytics, to name a few.</p>
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         

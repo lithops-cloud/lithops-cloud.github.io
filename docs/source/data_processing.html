@@ -4,8 +4,9 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Processing data from a Cloud Object Storage &#8212; Lithops v2.5.3.dev0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Processing data from a Cloud Object Storage &#8212; Lithops v2.5.4</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -22,13 +23,13 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -58,10 +59,14 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
       <img src="../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Lithops v2.5.3.dev0</h1>
+      <h1 class="site-logo" id="site-title">Lithops v2.5.4</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -76,9 +81,9 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Lithops Core
+  Overview of Lithops
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -130,7 +135,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Install and configure Lithops
  </span>
@@ -142,8 +147,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="general_config.html">
-   General Configuration
+  <a class="reference internal" href="configuration.html">
+   Configuration
   </a>
  </li>
  <li class="toctree-l1 has-children">
@@ -279,9 +284,9 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Lithops Futures API
+  Compute API
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -301,9 +306,9 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Storage
+  Storage API
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -318,7 +323,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Data Processing
  </span>
@@ -335,7 +340,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Experimental Features
  </span>
@@ -362,20 +367,25 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Developer Guide
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="development.html">
-   Development
+  <a class="reference internal" href="contributing.html">
+   Contributing to Lithops
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="testing.html">
    Testing Guidelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="changelog.html">
+   Changelog
   </a>
  </li>
 </ul>
@@ -491,11 +501,11 @@
         
               <div>
                 
-  <div class="section" id="processing-data-from-a-cloud-object-storage">
+  <section id="processing-data-from-a-cloud-object-storage">
 <span id="data-processing"></span><h1>Processing data from a Cloud Object Storage<a class="headerlink" href="#processing-data-from-a-cloud-object-storage" title="Permalink to this headline">¶</a></h1>
 <p>Lithops has built-in logic for processing data objects from public URLs and object storage services. This logic is automatically activated with the reseverd parameter named <strong>obj</strong>. When you write in the parameters of a function the parameter name <strong>obj</strong>, you are telling to Lithops that you want to process objects located in an object storage service, public urls, or localhost files.</p>
 <p>Additionally, the built-in data-processing logic integrates a <strong>data partitioner</strong> system that allows to automatically split the dataset in smallest chunks. Splitting a file into smaller chunks permit to leverage the parallelism provided by the compute backends to process the data. We designed the partitioner within the <code class="docutils literal notranslate"><span class="pre">map()</span></code> and <code class="docutils literal notranslate"><span class="pre">map_reduce()</span></code> API calls, an it is configurable by specifying the <em>size of the chunk</em>, or the <em>number of chunks</em> to split each file. The current implementation of the data partitioner supports to split files that contain multiple lines (or rows) ended by ‘n’, for example, a .txt book or a common .csv file among others. More data-types will be supported in future releases.</p>
-<div class="section" id="cloud-object-storage">
+<section id="cloud-object-storage">
 <h2>Cloud Object Storage<a class="headerlink" href="#cloud-object-storage" title="Permalink to this headline">¶</a></h2>
 <p>For processing data from a cloud object storage service, the input data must be either a list of buckets, a list of buckets with object prefix, or a list of data objects. If you set the <em>size of the chunk</em> or the <em>number of chunks</em>, the partitioner is activated inside Lithops and it is responsible to split the objects into smaller chunks, eventually running one function activation for each generated chunk. If <em>size of the chunk</em> and <em>number of chunks</em> are not set, chunk is an entire object, so one function activation is executed for each individual object.</p>
 <p>The <strong>obj</strong> parameter is a python class from where you can access all the information related to the object (or chunk) that the function is processing. For example, consider the following function that shows all the available attributes in <strong>obj</strong> when you are processing objects from an object store:</p>
@@ -543,8 +553,8 @@
 <span class="n">result</span> <span class="o">=</span> <span class="n">fexec</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="processing-data-from-public-urls">
+</section>
+<section id="processing-data-from-public-urls">
 <h2>Processing data from public URLs<a class="headerlink" href="#processing-data-from-public-urls" title="Permalink to this headline">¶</a></h2>
 <p>For processing data from public URLs, the input data must be either a single URL or a list of URLs. As in the previous case, if you set the <em>size of the chunk</em> or the <em>number of chunks</em>, the partitioner is activated inside Lithops and it is responsible to split the objects into smaller chunks, as long as the remote storage server allows requests in chunks (ranges). If range requests are not allowed in the remote storage server, each URL is treated as a single object.</p>
 <p>The <strong>obj</strong> parameter is a python class from where you can access all the information related to the object (or chunk) that the function is processing. For example, consider the following function that shows all the available attributes in <strong>obj</strong> when you are processing URLs:</p>
@@ -577,8 +587,8 @@
 </pre></div>
 </div>
 <p>See a complete example in <a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/examples/map_reduce_url.py">map_reduce_url.py</a></p>
-</div>
-<div class="section" id="processing-data-from-localhost-files">
+</section>
+<section id="processing-data-from-localhost-files">
 <h2>Processing data from localhost files<a class="headerlink" href="#processing-data-from-localhost-files" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -615,16 +625,16 @@
 </pre></div>
 </div>
 <p>See a complete example in <a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/examples/map_reduce_localhost.py">map_reduce_localhost.py</a>.</p>
-</div>
-<div class="section" id="reducer-granularity">
+</section>
+<section id="reducer-granularity">
 <h2>Reducer granularity<a class="headerlink" href="#reducer-granularity" title="Permalink to this headline">¶</a></h2>
 <p>When using the <code class="docutils literal notranslate"><span class="pre">map_reduce()</span></code> API call with <code class="docutils literal notranslate"><span class="pre">obj_chunk_size</span></code> or <code class="docutils literal notranslate"><span class="pre">obj_chunk_number</span></code>, by default there will be only one reducer for all the object chunks from all the objects. Alternatively, you can spawn one reducer for each object by setting the parameter <code class="docutils literal notranslate"><span class="pre">reducer_one_per_object=True</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fexec</span><span class="o">.</span><span class="n">map_reduce</span><span class="p">(</span><span class="n">my_map_function</span><span class="p">,</span> <span class="n">bucket_name</span><span class="p">,</span> <span class="n">my_reduce_function</span><span class="p">,</span>
                  <span class="n">obj_chunk_size</span><span class="o">=</span><span class="n">obj_chunk_size</span><span class="p">,</span> <span class="n">reducer_one_per_object</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
               </div>
@@ -659,7 +669,7 @@
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         

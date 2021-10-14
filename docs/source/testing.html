@@ -4,8 +4,9 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Testing Guidelines &#8212; Lithops v2.5.3.dev0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Testing Guidelines &#8212; Lithops v2.5.4</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -22,13 +23,13 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -38,7 +39,8 @@
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Development" href="development.html" />
+    <link rel="next" title="Changelog" href="changelog.html" />
+    <link rel="prev" title="Contributing to Lithops" href="contributing.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -57,10 +59,14 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
       <img src="../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Lithops v2.5.3.dev0</h1>
+      <h1 class="site-logo" id="site-title">Lithops v2.5.4</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -75,9 +81,9 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Lithops Core
+  Overview of Lithops
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -129,7 +135,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Install and configure Lithops
  </span>
@@ -141,8 +147,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="general_config.html">
-   General Configuration
+  <a class="reference internal" href="configuration.html">
+   Configuration
   </a>
  </li>
  <li class="toctree-l1 has-children">
@@ -278,9 +284,9 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Lithops Futures API
+  Compute API
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -300,9 +306,9 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Storage
+  Storage API
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -317,7 +323,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Data Processing
  </span>
@@ -334,7 +340,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Experimental Features
  </span>
@@ -361,20 +367,25 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Developer Guide
  </span>
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="development.html">
-   Development
+  <a class="reference internal" href="contributing.html">
+   Contributing to Lithops
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Testing Guidelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="changelog.html">
+   Changelog
   </a>
  </li>
 </ul>
@@ -502,9 +513,9 @@
         
               <div>
                 
-  <div class="section" id="testing-guidelines">
+  <section id="testing-guidelines">
 <span id="testing"></span><h1>Testing Guidelines<a class="headerlink" href="#testing-guidelines" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="verify-current-lithops-status">
+<section id="verify-current-lithops-status">
 <h2>Verify current Lithops status<a class="headerlink" href="#verify-current-lithops-status" title="Permalink to this headline">¶</a></h2>
 <p>Run <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">verify</span></code> to run an extensive inspection, which simulates your lithops installation on a variety of tests.</p>
 <ul class="simple">
@@ -523,10 +534,10 @@ WARNING - do not use this flag on a github workflow, due to race condition issue
 <li><p>A summarizing example: <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">verify</span> <span class="pre">-t</span> <span class="pre">test_map,storage.test_cloudobject</span> <span class="pre">-g</span> <span class="pre">call_async</span> <span class="pre">-f</span></code>.</p></li>
 </ul>
 <p>Alternatively, you may run the tests via <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">lithops.tests.tests_main</span></code>, followed by aforementioned flags.</p>
-</div>
-<div class="section" id="contribute">
+</section>
+<section id="contribute">
 <h2>Contribute<a class="headerlink" href="#contribute" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="add-a-test-to-an-existing-test-group">
+<section id="add-a-test-to-an-existing-test-group">
 <h3>Add a test to an existing test group<a class="headerlink" href="#add-a-test-to-an-existing-test-group" title="Permalink to this headline">¶</a></h3>
 <p>Locate the matching test group in <code class="docutils literal notranslate"><span class="pre">lithops/tests</span></code> (indicated by file name) and add your test function appropriately:
 * Add your test function as a method inside the class inheriting from <code class="docutils literal notranslate"><span class="pre">unittest.testcase</span></code>.</p>
@@ -534,8 +545,8 @@ WARNING - do not use this flag on a github workflow, due to race condition issue
 <li><p>Use existing util functions from <code class="docutils literal notranslate"><span class="pre">lithops/tests/util_func</span></code> or add new ones to that package.</p></li>
 <li><p>A test that’s simultaneously testing any two of the following functions: {async, map, map_reduce} will be placed in the proper file by complying with the following hierarchy: map_reduce &gt; map &gt; async.</p></li>
 </ul>
-</div>
-<div class="section" id="add-a-new-test-group">
+</section>
+<section id="add-a-new-test-group">
 <h3>Add a new test group<a class="headerlink" href="#add-a-new-test-group" title="Permalink to this headline">¶</a></h3>
 <p>Before adding a test function that aims to test an untested feature:</p>
 <ul class="simple">
@@ -547,8 +558,8 @@ WARNING - do not use this flag on a github workflow, due to race condition issue
 </li>
 <li><p>Continue to add the function by adhering to the instructions in the clause above.</p></li>
 </ul>
-</div>
-<div class="section" id="additional-information">
+</section>
+<section id="additional-information">
 <h3>Additional information<a class="headerlink" href="#additional-information" title="Permalink to this headline">¶</a></h3>
 <p>Whether you’re adding a new function, or a new test group you’d be better off knowing the available resources at your disposal:</p>
 <ul class="simple">
@@ -557,17 +568,17 @@ WARNING - do not use this flag on a github workflow, due to race condition issue
 <li><p>Many examples utilizing said resources may be found across the “test_*” files of <code class="docutils literal notranslate"><span class="pre">lithops/tests</span></code>.</p></li>
 <li><p>For a variety of evaluation functions (“assert*”) belonging to unittest, browse this [documentation page](<a class="reference external" href="https://docs.python.org/3/library/unittest.html">https://docs.python.org/3/library/unittest.html</a>).</p></li>
 </ul>
-</div>
-<div class="section" id="examples">
+</section>
+<section id="examples">
 <h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Access the functions in your chosen backend storage class via “STORAGE”, e.g. <cite>STORAGE.put_object</cite>.</p></li>
 <li><p>Access your bucket via <cite>STORAGE_CONFIG[‘bucket’]</cite>.</p></li>
 <li><p>Pass on “CONFIG” to your function executor instance, to allow your test function to work with users that provided a path to the config file via a flag, e.g. <cite>fexec = lithops.FunctionExecutor(config=CONFIG)</cite>.</p></li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
               </div>
@@ -580,20 +591,29 @@ WARNING - do not use this flag on a github workflow, due to race condition issue
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="development.html" title="previous page">
+        <a class="left-prev" href="contributing.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Development</p>
+                <p class="prevnext-title">Contributing to Lithops</p>
             </div>
         </a>
     </div>
+     <div id="next">
+        <a class="right-next" href="changelog.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Changelog</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
 
 </div>
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         

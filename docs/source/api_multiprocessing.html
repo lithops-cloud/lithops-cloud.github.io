@@ -4,8 +4,9 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Multiprocessing API &#8212; Lithops v2.5.3.dev0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Multiprocessing API &#8212; Lithops v2.5.4</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -22,13 +23,13 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -58,10 +59,14 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
       <img src="../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Lithops v2.5.3.dev0</h1>
+      <h1 class="site-logo" id="site-title">Lithops v2.5.4</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -76,9 +81,9 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Lithops Core
+  Overview of Lithops
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -130,7 +135,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Install and configure Lithops
  </span>
@@ -142,8 +147,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="general_config.html">
-   General Configuration
+  <a class="reference internal" href="configuration.html">
+   Configuration
   </a>
  </li>
  <li class="toctree-l1 has-children">
@@ -279,9 +284,9 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Lithops Futures API
+  Compute API
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -301,9 +306,9 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Storage
+  Storage API
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -318,7 +323,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Data Processing
  </span>
@@ -335,7 +340,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Experimental Features
  </span>
@@ -362,20 +367,25 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Developer Guide
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="development.html">
-   Development
+  <a class="reference internal" href="contributing.html">
+   Contributing to Lithops
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="testing.html">
    Testing Guidelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="changelog.html">
+   Changelog
   </a>
  </li>
 </ul>
@@ -493,14 +503,14 @@
         
               <div>
                 
-  <div class="section" id="multiprocessing-api">
+  <section id="multiprocessing-api">
 <h1>Multiprocessing API<a class="headerlink" href="#multiprocessing-api" title="Permalink to this headline">¶</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This feature is experimental and as such is unstable. Using it in production is discouraged. Expect errors and API/functionality changes in future releases.</p>
 </div>
 <p>Lithops implements Python’s <a class="reference external" href="https://docs.python.org/3/library/multiprocessing.html">multiprocessing API</a> to transparently run local-parallel applications but using serverless functions for Processes and a Redis instance for shared state and Inter-Process Communication (IPC).</p>
-<div class="section" id="process-and-pool">
+<section id="process-and-pool">
 <h2>Process and Pool<a class="headerlink" href="#process-and-pool" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://docs.python.org/3/library/multiprocessing.html#the-process-class">Processes</a> and <a class="reference external" href="https://docs.python.org/3/library/multiprocessing.html#using-a-pool-of-workers">Pool</a> are the abstractions used in multiprocessing to parallelize computation. They interact directly with Lithop’s Futures API.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># from multiprocessing import Process</span>
@@ -530,8 +540,8 @@
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Timed out!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="stateful-abstractions">
+</section>
+<section id="stateful-abstractions">
 <h2>Stateful abstractions<a class="headerlink" href="#stateful-abstractions" title="Permalink to this headline">¶</a></h2>
 <p>Lithops also implements all stateful abstractions from Python mutliprocessing: Queue, Pipes, Shared memory, Events…</p>
 <p>Since FaaS lacks mechanisms for function-to-function communication, a <a class="reference external" href="https://redis.io/">Redis</a> database instance node is used.</p>
@@ -546,8 +556,8 @@
 </div>
 <p>To have lower latency, you can deploy the functions and the VM in the same VPC and use route through internal traffic instead of the internet.
 For example, in AWS, the functions and VM can be deployed in the same VPC: Lambdas go to a private subnet and the VM in a public subnet. This way, the VM has access to the internet and the local Lithops process can also access it.</p>
-</div>
-<div class="section" id="extra-multiprocessing-configuration">
+</section>
+<section id="extra-multiprocessing-configuration">
 <h2>Extra multiprocessing configuration<a class="headerlink" href="#extra-multiprocessing-configuration" title="Permalink to this headline">¶</a></h2>
 <p>The Lithops multiprocessing module has extra configuration specific to the multiprocessing functionality.
 To preserve transparency, the functions and method signature has remain completely compatible with the original multiprocessing module.
@@ -578,7 +588,7 @@ For this reason, to set specific configuration in runtime, the <code class="docu
     <span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="section" id="multiprocessing-configuration-keys">
+<section id="multiprocessing-configuration-keys">
 <h3>Multiprocessing configuration keys<a class="headerlink" href="#multiprocessing-configuration-keys" title="Permalink to this headline">¶</a></h3>
 <table class="table">
 <colgroup>
@@ -622,9 +632,9 @@ For this reason, to set specific configuration in runtime, the <code class="docu
 <ul class="simple">
 <li><p>To use nanomsg for Pipes, you must still deploy a Redis instance (used for pipe directory). Note that this feature only works in environments where functions can open a port and communicate with each other.</p></li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
               </div>
@@ -659,7 +669,7 @@ For this reason, to set specific configuration in runtime, the <code class="docu
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
