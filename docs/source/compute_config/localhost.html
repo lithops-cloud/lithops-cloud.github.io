@@ -4,8 +4,9 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Localhost &#8212; Lithops v2.5.3.dev0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Localhost</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -22,13 +23,13 @@
       
 
     
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     
   <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
@@ -58,10 +59,12 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
       <img src="../../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
-      
-      <h1 class="site-logo" id="site-title">Lithops v2.5.3.dev0</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
@@ -76,9 +79,9 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Lithops Core
+  Overview of Lithops
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -88,41 +91,19 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../comparing_lithops.html">
+   Comparing Lithops with other distributed computing frameworks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../supported_clouds.html">
    Supported Clouds
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../comparing_lithops.html">
-   Comparing Lithops with other distributed computing frameworks
-  </a>
- </li>
- <li class="toctree-l1 has-children">
   <a class="reference internal" href="../execution_modes.html">
    Execution Modes
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../mode_localhost.html">
-     Lithops Localhost Execution Mode
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../mode_serverless.html">
-     Serverless Execution Mode
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../mode_standalone.html">
-     Standalone Execution Mode
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../cli.html">
@@ -130,28 +111,28 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Install and configure Lithops
+  Install and Configure Lithops
  </span>
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../install_lithops.html">
-   Install Lithops
+   Installing Lithops
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../general_config.html">
-   General Configuration
+  <a class="reference internal" href="../configuration.html">
+   Configuration
   </a>
  </li>
  <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="../backends_config.html">
-   Backends Configuration
+  <a class="reference internal" href="../compute_backends.html">
+   Compute Backends
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -183,12 +164,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="gcp_cloudrun.html">
-     GCP Cloud Run
+     Google Cloud Run
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="gcp_functions.html">
-     GCP Functions
+     Google Cloud Functions
     </a>
    </li>
    <li class="toctree-l2">
@@ -226,14 +207,26 @@
      Virtual Machine
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../storage_backends.html">
+   Storage Backends
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../storage_config/aliyun_oss.html">
-     Lithops on Aliyun Object Storage Service
+     Aliyun Object Storage Service
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../storage_config/aws_s3.html">
-     Lithops on AWS S3
+     AWS S3
     </a>
    </li>
    <li class="toctree-l2">
@@ -279,9 +272,9 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Lithops Futures API
+  Lithops Compute API
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -301,24 +294,19 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Storage
+  Lithops Storage API
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../api_storage.html">
-   Lithops Storage API
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../api_storage_os.html">
-   Storage OS API Details
+   Storage API Deatils
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Data Processing
  </span>
@@ -326,18 +314,18 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../data_processing.html">
-   Processing data from a Cloud Object Storage
+   Processing data from the Cloud
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../file_chunking.html">
-   File “chunking”
+  <a class="reference internal" href="../data_partitioning.html">
+   Data Pertitioning
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Experimental Features
+  Integrations
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -347,13 +335,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../metrics.html">
-   Prometheus Monitoring
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../dso.html">
-   Distributed shared objects across function activations
+  <a class="reference internal" href="../api_storage_os.html">
+   Storage OS API Details
   </a>
  </li>
  <li class="toctree-l1">
@@ -361,21 +344,65 @@
    Distributed Scikit-learn / Joblib
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../airflow.html">
+   Airflow
+  </a>
+ </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Advanced Features
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../worker_granularity.html">
+   Customize Worker Granularity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../monitoring.html">
+   Lithops Monitoring
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../customized_runtime.html">
+   Dynamic Runtime Customization
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Experimental Features
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../metrics.html">
+   Prometheus Monitoring
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../dso.html">
+   Distributed shared objects
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
  <span class="caption-text">
   Developer Guide
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../development.html">
-   Development
+  <a class="reference internal" href="../contributing.html">
+   Contributing to Lithops
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../contributing.html">
-   Contributing to Lithops
+  <a class="reference internal" href="../development.html">
+   Development
   </a>
  </li>
  <li class="toctree-l1">
@@ -476,13 +503,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary-of-configuration-keys-for-localhost">
-   Summary of configuration keys for Localhost:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#execution-environments">
-   Execution environments
+   Execution Environments
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -497,6 +519,11 @@
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary-of-configuration-keys-for-localhost">
+   Summary of configuration keys for Localhost:
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -508,24 +535,60 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="localhost">
+  <section class="tex2jax_ignore mathjax_ignore" id="localhost">
 <h1>Localhost<a class="headerlink" href="#localhost" title="Permalink to this headline">¶</a></h1>
-<p>Lithops uses local processes to run functions by default. In this mode of execution it is not necessary to provide any kind of configuration or create a configuration file.</p>
-<div class="section" id="configuration">
+<p>In localhost, Lithops will use local CPUs to run functions in parallel. In this mode of execution it is not necessary to provide any kind of configuration or create a configuration file.</p>
+<section id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
-<li><p>Edit your lithops config and add the following keys:</p></li>
+<li><p>In case you have a config file, edit it and add these keys:</p></li>
 </ol>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span>    <span class="nt">lithops</span><span class="p">:</span>
-        <span class="nt">backend</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">localhost</span>
-        
-    <span class="nt">localhost</span><span class="p">:</span>
-        <span class="nt">runtime</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;docker_name&gt;</span>
-        <span class="nt">worker_processes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CPU_COUNT</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
+    <span class="nt">backend</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">localhost</span>
+    <span class="nt">storage</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">localhost</span>  <span class="c1"># You can also point it to a public storage backend, such as aws_s3 or ibm_cos</span>
 </pre></div>
 </div>
+</section>
+<section id="execution-environments">
+<h2>Execution Environments<a class="headerlink" href="#execution-environments" title="Permalink to this headline">¶</a></h2>
+<p>The localhost backend can run functions both using the local <code class="docutils literal notranslate"><span class="pre">python3</span></code> interpreter, or using a <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">container</span></code> image. The environment is automatically chosen depending on whether or not you provided a Docker image as a runtime.</p>
+<p>In both cases, you can view the executions logs in your local machine using the <em>lithops client</em>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ lithops logs poll
+</pre></div>
 </div>
-<div class="section" id="summary-of-configuration-keys-for-localhost">
+<section id="default-environment">
+<h3>Default Environment<a class="headerlink" href="#default-environment" title="Permalink to this headline">¶</a></h3>
+<p>By default Lithops uses the local python interpreter to run the functions. That is, if for example you executed the main script with <code class="docutils literal notranslate"><span class="pre">python3.8</span></code>, your functions will run with <code class="docutils literal notranslate"><span class="pre">python3.8</span></code>. in this case, you must ensure that all the dependencies of your script are installed in your machine.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># As we use the default FunctionExecutor(), backend must be set to localhost in config</span>
+<span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>or alternatively, you can force the Localhost executor with:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># As we use/force the LocalhostExecutor(), backend does not need to be set to localhost in config</span>
+<span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">LocalhostExecutor</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="docker-environment">
+<h3>Docker Environment<a class="headerlink" href="#docker-environment" title="Permalink to this headline">¶</a></h3>
+<p>The Docker environment runs the functions within a <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">container</span></code>. In this case you must <a class="reference external" href="https://docs.docker.com/get-docker/">install the Docker CE version</a> in your machine. This environment is automatically activated when you provide a docker image as a runtime. For example, by adding the following keys in the config:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">localhost</span><span class="p">:</span>
+    <span class="nt">runtime</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ibmfunctions/action-python-v3.8</span>
+</pre></div>
+</div>
+<p>or by using the <code class="docutils literal notranslate"><span class="pre">runtime</span></code> param in a function executor:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># As we use the default FunctionExecutor(), backend must be set to localhost in config</span>
+<span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">(</span><span class="n">runtime</span><span class="o">=</span><span class="s1">&#39;jsampe/action-python-v3.8&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># As we use/force the LocalhostExecutor(), backend does not need to be set to localhost in config</span>
+<span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">LocalhostExecutor</span><span class="p">(</span><span class="n">runtime</span><span class="o">=</span><span class="s1">&#39;jsampe/action-python-v3.8&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In this mode of execution, you can use any docker image that contains all the required dependencies. For example, the IBM Cloud Functions and Knative runtimes are compatible with it.</p>
+</section>
+</section>
+<section id="summary-of-configuration-keys-for-localhost">
 <h2>Summary of configuration keys for Localhost:<a class="headerlink" href="#summary-of-configuration-keys-for-localhost" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto table">
 <thead>
@@ -551,62 +614,8 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="execution-environments">
-<h2>Execution environments<a class="headerlink" href="#execution-environments" title="Permalink to this headline">¶</a></h2>
-<p>The localhost executor can run functions in multiple environments. Currently it supports the <em>default python3</em> and the <em>Docker</em> environments. The environment is automatically chosen depending on whether or not you provided a Docker image as a runtime.</p>
-<p>In both cases, you can view the executions logs in your local machine using the <em>lithops client</em>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ lithops logs poll
-</pre></div>
-</div>
-<p>Localhost backend does not require any configuration file to work, so you can directly create a function executor:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>or alternatively, you can force the localhost backend with:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">LocalhostExecutor</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>If in contrast you already have a config file/dict, you must set the next keys in your config to make it working:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
-    <span class="nt">backend</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">localhost</span>
-    <span class="nt">storage</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">localhost</span>  <span class="c1"># You can also point it to a public storage backend, such as aws_s3 or ibm_cos</span>
-</pre></div>
-</div>
-<div class="section" id="default-environment">
-<h3>Default Environment<a class="headerlink" href="#default-environment" title="Permalink to this headline">¶</a></h3>
-<p>The default environment runs the functions in the same <em>python3</em> interpreter that you ran the lithops script.
-It does not require any extra configuration. You must ensure that all the dependencies of your script are installed in your machine and then crate one of the availabe function executors.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="c1"># As we use the default FunctionExecutor(), backend must be set to localhost in config</span>
-    <span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>or alternatively, you can force the Localhost executor with:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="c1"># As we use/force the LocalhostExecutor(), backend does not need to be set to localhost in config</span>
-    <span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">LocalhostExecutor</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="docker-environment">
-<h3>Docker Environment<a class="headerlink" href="#docker-environment" title="Permalink to this headline">¶</a></h3>
-<p>The Docker environment runs the functions within a Docker container. In this case you must <a class="reference external" href="https://docs.docker.com/get-docker/">install the Docker CE version</a> in your machine. This environment is automatically activated when you provide a docker image as a runtime. For example, by adding the following keys in the config:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span>    <span class="nt">localhost</span><span class="p">:</span>
-        <span class="nt">runtime</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ibmfunctions/action-python-v3.8</span>
-</pre></div>
-</div>
-<p>of by using the <em>runtime</em> param in a function executor:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="c1"># As we use the default FunctionExecutor(), backend must be set to localhost in config</span>
-    <span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">(</span><span class="n">runtime</span><span class="o">=</span><span class="s1">&#39;jsampe/action-python-v3.8&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="c1"># As we use/force the LocalhostExecutor(), backend does not need to be set to localhost in config</span>
-    <span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">LocalhostExecutor</span><span class="p">(</span><span class="n">runtime</span><span class="o">=</span><span class="s1">&#39;jsampe/action-python-v3.8&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>In this mode of execution, you can use any docker image that contains all the required dependencies. For example, the IBM Cloud Functions and Knative runtimes are compatible with it.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
 
 
               </div>
@@ -641,13 +650,13 @@ It does not require any extra configuration. You must ensure that all the depend
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
-          By Josep Sampé, Gil Vernik<br/>
+          By The Lithops Team<br/>
         
-            &copy; Copyright 2021, IBM Corp., Cloudlab URV.<br/>
+            &copy; Copyright 2021, The Lithops Team.<br/>
       </p>
     </div>
   </footer>

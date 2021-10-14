@@ -1,11 +1,10 @@
 What is Lithops?
 ****************
 
-.. image:: source/images/lithops_flat_cloud_1.png
+.. image:: source/images/lithops_logo_readme.png
+   :alt: Lithops
    :align: center
-   :width: 500
 
-------------
 
 **Lithops is a Python multi-cloud serverless computing framework. It allows to run unmodified local python code at massive scale in the main serverless computing platforms.**
 
@@ -57,21 +56,9 @@ Use any Cloud
 In this sense, you can code your application in Python and run it unmodified wherever your data is located at: IBM Cloud, AWS, Azure, Google Cloud and Alibaba Aliyun...
 
 .. image:: source/images/multicloud.jpg
+   :alt: Available backends
    :align: center
 
-Execution Modes
-***************
-Lithops ships with 3 different modes of execution. The execution mode allows you to decide where and how the functions are executed.
-
-.. list-table::
-   :header-rows: 1
-
-   * - Localhost Mode
-     - Serverless Mode
-     - Standalone Mode
-   * - Run functions in your local machine, by using processes. This is the default mode of execution if no configuration is provided.
-     - Run functions by using public FaaS services, such as IBM Cloud Functions or Amazon Lambda. In this mode of execution, each function invocation equals to a parallel task running in the cloud in an isolated environment.
-     - Run functions by using one or multiple Virtual machines (VM), either in a private cluster or in the cloud. In each VM, functions run using parallel processes.
 
 What is Lithops used for?
 *************************
@@ -95,6 +82,7 @@ Additional resources
 
 Blogs and Talks
 ---------------
+* `Simplify the developer experience with OpenShift for Big Data processing by using Lithops framework <https://medium.com/@gvernik/simplify-the-developer-experience-with-openshift-for-big-data-processing-by-using-lithops-framework-d62a795b5e1c>`_
 * `Lithops, a Multi-cloud Serverless Programming Framework <https://itnext.io/lithops-a-multi-cloud-serverless-programming-framework-fd97f0d5e9e4>`_
 * `Speed-up your Python applications using Lithops and Serverless Cloud resources <https://itnext.io/speed-up-your-python-applications-using-lithops-and-serverless-cloud-resources-a64beb008bb5>`_
 * `Serverless Without Constraints <https://www.ibm.com/cloud/blog/serverless-without-constraints>`_
@@ -116,42 +104,38 @@ Papers
 * `Bringing scaling transparency to Proteomics applications with serverless computing <https://dl.acm.org/doi/abs/10.1145/3429880.3430101>`_ - 6th International Workshop on Serverless Computing (WoSC6) 2020. `See Workshop presentation here <https://www.serverlesscomputing.org/wosc6/#p10>`_
 * `Serverless data analytics in the IBM Cloud <https://dl.acm.org/citation.cfm?id=3284029>`_ - ACM/IFIP International Middleware Conference 2018
 
-Acknowledgements
-****************
-
-.. image:: https://user-images.githubusercontent.com/26366936/61350554-d62acf00-a85f-11e9-84b2-36312a35398e.png
-
-This project has received funding from the European Union's Horizon 2020 research and innovation programme under grant agreement No 825184.
 
 .. toctree::
    :hidden:
 
    self
 
+
 .. toctree::
    :hidden:
-   :maxdepth: -1
-   :caption: Lithops Core
+   :maxdepth: 0
+   :caption: Overview of Lithops
 
    source/design.md
-   source/supported_clouds.md
    source/comparing_lithops.rst
+   source/supported_clouds.rst
    source/execution_modes.rst
-   source/cli.md
+   source/cli.rst
 
 .. toctree::
    :hidden:
-   :maxdepth: -1
-   :caption: Install and configure Lithops
+   :maxdepth: 0
+   :caption: Install and Configure Lithops
 
    source/install_lithops.rst
-   source/general_config.rst
-   source/backends_config.md
+   source/configuration.rst
+   source/compute_backends.rst
+   source/storage_backends.rst
 
 .. toctree::
    :hidden:
-   :maxdepth: -1
-   :caption: Lithops Futures API
+   :maxdepth: 0
+   :caption: Lithops Compute API
 
    source/api_futures.rst
    source/notebooks/functions.ipynb
@@ -159,36 +143,54 @@ This project has received funding from the European Union's Horizon 2020 researc
 
 .. toctree::
    :hidden:
-   :maxdepth: -1
-   :caption: Storage
+   :maxdepth: 0
+   :caption: Lithops Storage API
 
    source/api_storage.md
-   source/api_storage_os.md
 
 .. toctree::
    :hidden:
-   :maxdepth: -1
+   :maxdepth: 0
    :caption: Data Processing
 
    source/data_processing.md
-   source/file_chunking.md
+   source/data_partitioning.md
 
 .. toctree::
    :hidden:
-   :maxdepth: -1
-   :caption: Experimental Features
+   :maxdepth: 0
+   :caption: Integrations
 
    source/api_multiprocessing.rst
-   source/metrics.rst
-   source/dso.rst
+   source/api_storage_os.md
    source/sklearn_joblib.rst
+   source/airflow.rst
 
 .. toctree::
    :hidden:
-   :maxdepth: -1
+   :maxdepth: 0
+   :caption: Advanced Features
+
+   source/worker_granularity.rst
+   source/monitoring.rst
+   source/customized_runtime.rst
+
+
+.. toctree::
+   :hidden:
+   :maxdepth: 0
+   :caption: Experimental Features
+
+   source/metrics.rst
+   source/dso.rst
+
+
+.. toctree::
+   :hidden:
+   :maxdepth: 0
    :caption: Developer Guide
 
-   source/development.md
-   source/contributing.md
-   source/testing.md
+   source/contributing.rst
+   source/development.rst
+   source/testing.rst
    source/changelog.md

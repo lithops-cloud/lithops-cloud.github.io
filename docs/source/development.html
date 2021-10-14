@@ -4,8 +4,9 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Development &#8212; Lithops v2.5.3.dev0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Development</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -22,13 +23,13 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -38,8 +39,8 @@
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Contributing to Lithops" href="contributing.html" />
-    <link rel="prev" title="Distributed Scikit-learn / Joblib" href="sklearn_joblib.html" />
+    <link rel="next" title="Testing Guidelines" href="testing.html" />
+    <link rel="prev" title="Contributing to Lithops" href="contributing.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -58,10 +59,12 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
       <img src="../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
-      
-      <h1 class="site-logo" id="site-title">Lithops v2.5.3.dev0</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -76,9 +79,9 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Lithops Core
+  Overview of Lithops
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -88,41 +91,19 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="comparing_lithops.html">
+   Comparing Lithops with other distributed computing frameworks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="supported_clouds.html">
    Supported Clouds
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="comparing_lithops.html">
-   Comparing Lithops with other distributed computing frameworks
-  </a>
- </li>
- <li class="toctree-l1 has-children">
   <a class="reference internal" href="execution_modes.html">
    Execution Modes
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="mode_localhost.html">
-     Lithops Localhost Execution Mode
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="mode_serverless.html">
-     Serverless Execution Mode
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="mode_standalone.html">
-     Standalone Execution Mode
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="cli.html">
@@ -130,28 +111,28 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Install and configure Lithops
+  Install and Configure Lithops
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="install_lithops.html">
-   Install Lithops
+   Installing Lithops
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="general_config.html">
-   General Configuration
+  <a class="reference internal" href="configuration.html">
+   Configuration
   </a>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="backends_config.html">
-   Backends Configuration
+  <a class="reference internal" href="compute_backends.html">
+   Compute Backends
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -183,12 +164,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="compute_config/gcp_cloudrun.html">
-     GCP Cloud Run
+     Google Cloud Run
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="compute_config/gcp_functions.html">
-     GCP Functions
+     Google Cloud Functions
     </a>
    </li>
    <li class="toctree-l2">
@@ -226,14 +207,26 @@
      Virtual Machine
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="storage_backends.html">
+   Storage Backends
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="storage_config/aliyun_oss.html">
-     Lithops on Aliyun Object Storage Service
+     Aliyun Object Storage Service
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="storage_config/aws_s3.html">
-     Lithops on AWS S3
+     AWS S3
     </a>
    </li>
    <li class="toctree-l2">
@@ -279,9 +272,9 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Lithops Futures API
+  Lithops Compute API
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -301,24 +294,19 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Storage
+  Lithops Storage API
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="api_storage.html">
-   Lithops Storage API
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="api_storage_os.html">
-   Storage OS API Details
+   Storage API Deatils
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Data Processing
  </span>
@@ -326,18 +314,18 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="data_processing.html">
-   Processing data from a Cloud Object Storage
+   Processing data from the Cloud
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="file_chunking.html">
-   File “chunking”
+  <a class="reference internal" href="data_partitioning.html">
+   Data Pertitioning
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Experimental Features
+  Integrations
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -347,13 +335,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="metrics.html">
-   Prometheus Monitoring
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="dso.html">
-   Distributed shared objects across function activations
+  <a class="reference internal" href="api_storage_os.html">
+   Storage OS API Details
   </a>
  </li>
  <li class="toctree-l1">
@@ -361,21 +344,65 @@
    Distributed Scikit-learn / Joblib
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="airflow.html">
+   Airflow
+  </a>
+ </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Advanced Features
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="worker_granularity.html">
+   Customize Worker Granularity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="monitoring.html">
+   Lithops Monitoring
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="customized_runtime.html">
+   Dynamic Runtime Customization
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Experimental Features
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="metrics.html">
+   Prometheus Monitoring
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dso.html">
+   Distributed shared objects
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
  <span class="caption-text">
   Developer Guide
  </span>
 </p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Development
-  </a>
- </li>
  <li class="toctree-l1">
   <a class="reference internal" href="contributing.html">
    Contributing to Lithops
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Development
   </a>
  </li>
  <li class="toctree-l1">
@@ -496,33 +523,38 @@
         
               <div>
                 
-  <div class="section" id="development">
+  <section id="development">
 <h1>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h1>
 <p>This document explains how to set up a development environment so you can get started contributing to Lithops.</p>
 <p>Clone the repository and run the setup script:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">lithops</span><span class="o">-</span><span class="n">cloud</span><span class="o">/</span><span class="n">lithops</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/lithops-cloud/lithops
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">lithops</span><span class="o">-</span><span class="n">cloud</span><span class="o">/</span><span class="n">lithops</span><span class="o">.</span><span class="n">git</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone git@github.com:lithops-cloud/lithops.git
 </pre></div>
 </div>
 <p>Navigate into <code class="docutils literal notranslate"><span class="pre">lithops</span></code> folder</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">lithops</span><span class="o">/</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd lithops/
 </pre></div>
 </div>
 <p>If you plan to develop code, stay in the master branch. Otherwise obtain the most recent stable release version from the <code class="docutils literal notranslate"><span class="pre">release</span></code> tab. For example, if release is <code class="docutils literal notranslate"><span class="pre">v2.2.5</span></code> then execute</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="n">v2</span><span class="mf">.2.5</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout v2.2.5
 </pre></div>
 </div>
-<p>Build and install</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">develop</span>
+<p>It is highly recommended to use a Python virtual environment for development purposes. This way, the lithops development installation is only available when the virtual environment is activated, so the global installation of a lithops stable version is not affected by the changes.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 -m venv venv
+$ source venv/bin/activate
 </pre></div>
 </div>
-<div class="section" id="configuration">
+<p>Build and install:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(venv) $ python3 setup.py develop
+</pre></div>
+</div>
+<section id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
-<p>Once installed, follow <a class="reference internal" href="general_config.html#config"><span class="std std-ref">General Configuration</span></a> instructions to make Lithops running.</p>
-</div>
-<div class="section" id="runtime">
+<p>Once installed, follow <a class="reference internal" href="configuration.html#config"><span class="std std-ref">Configuration</span></a> instructions to make Lithops running.</p>
+</section>
+<section id="runtime">
 <h2>Runtime<a class="headerlink" href="#runtime" title="Permalink to this headline">¶</a></h2>
 <p>The default runtime is automatically deployed the first time you execute an Lithops job (for more information about runtimes navigate to <code class="docutils literal notranslate"><span class="pre">runtime</span></code> folder). Then, every time you want to test your changes, you need to update the already deployed runtime(s). To do so, you have multiple options.</p>
 <p>To update the default runtime, navigate into <code class="docutils literal notranslate"><span class="pre">runtime</span></code> folder and execute:</p>
@@ -537,12 +569,12 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ lithops runtime update all
 </pre></div>
 </div>
-</div>
-<div class="section" id="contributing">
+</section>
+<section id="contributing">
 <h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h2>
-<p>Follow <a class="reference internal" href="contributing.html#contributing"><span class="std std-ref">Contributing to Lithops</span></a> instructions if you want to publish your changes to the Lithops master branch.</p>
-</div>
-</div>
+<p>Follow <a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/CONTRIBUTING.md">contributing</a> instructions if you want to publish your changes to the Lithops master branch.</p>
+</section>
+</section>
 
 
               </div>
@@ -555,19 +587,19 @@
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="sklearn_joblib.html" title="previous page">
+        <a class="left-prev" href="contributing.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Distributed Scikit-learn / Joblib</p>
+                <p class="prevnext-title">Contributing to Lithops</p>
             </div>
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="contributing.html" title="next page">
+        <a class="right-next" href="testing.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Contributing to Lithops</p>
+                <p class="prevnext-title">Testing Guidelines</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
@@ -577,13 +609,13 @@
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
-          By Josep Sampé, Gil Vernik<br/>
+          By The Lithops Team<br/>
         
-            &copy; Copyright 2021, IBM Corp., Cloudlab URV.<br/>
+            &copy; Copyright 2021, The Lithops Team.<br/>
       </p>
     </div>
   </footer>

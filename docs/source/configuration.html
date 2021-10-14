@@ -4,8 +4,9 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>General Configuration &#8212; Lithops v2.5.3.dev0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Configuration</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -22,13 +23,13 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -38,8 +39,8 @@
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Backends Configuration" href="backends_config.html" />
-    <link rel="prev" title="Install Lithops" href="install_lithops.html" />
+    <link rel="next" title="Compute Backends" href="compute_backends.html" />
+    <link rel="prev" title="Installing Lithops" href="install_lithops.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -58,10 +59,12 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
       <img src="../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
-      
-      <h1 class="site-logo" id="site-title">Lithops v2.5.3.dev0</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -76,9 +79,9 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Lithops Core
+  Overview of Lithops
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -88,41 +91,19 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="comparing_lithops.html">
+   Comparing Lithops with other distributed computing frameworks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="supported_clouds.html">
    Supported Clouds
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="comparing_lithops.html">
-   Comparing Lithops with other distributed computing frameworks
-  </a>
- </li>
- <li class="toctree-l1 has-children">
   <a class="reference internal" href="execution_modes.html">
    Execution Modes
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="mode_localhost.html">
-     Lithops Localhost Execution Mode
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="mode_serverless.html">
-     Serverless Execution Mode
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="mode_standalone.html">
-     Standalone Execution Mode
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="cli.html">
@@ -130,28 +111,28 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Install and configure Lithops
+  Install and Configure Lithops
  </span>
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="install_lithops.html">
-   Install Lithops
+   Installing Lithops
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   General Configuration
+   Configuration
   </a>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="backends_config.html">
-   Backends Configuration
+  <a class="reference internal" href="compute_backends.html">
+   Compute Backends
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -183,12 +164,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="compute_config/gcp_cloudrun.html">
-     GCP Cloud Run
+     Google Cloud Run
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="compute_config/gcp_functions.html">
-     GCP Functions
+     Google Cloud Functions
     </a>
    </li>
    <li class="toctree-l2">
@@ -226,14 +207,26 @@
      Virtual Machine
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="storage_backends.html">
+   Storage Backends
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="storage_config/aliyun_oss.html">
-     Lithops on Aliyun Object Storage Service
+     Aliyun Object Storage Service
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="storage_config/aws_s3.html">
-     Lithops on AWS S3
+     AWS S3
     </a>
    </li>
    <li class="toctree-l2">
@@ -279,9 +272,9 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Lithops Futures API
+  Lithops Compute API
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -301,24 +294,19 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Storage
+  Lithops Storage API
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="api_storage.html">
-   Lithops Storage API
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="api_storage_os.html">
-   Storage OS API Details
+   Storage API Deatils
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Data Processing
  </span>
@@ -326,18 +314,18 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="data_processing.html">
-   Processing data from a Cloud Object Storage
+   Processing data from the Cloud
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="file_chunking.html">
-   File “chunking”
+  <a class="reference internal" href="data_partitioning.html">
+   Data Pertitioning
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Experimental Features
+  Integrations
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -347,13 +335,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="metrics.html">
-   Prometheus Monitoring
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="dso.html">
-   Distributed shared objects across function activations
+  <a class="reference internal" href="api_storage_os.html">
+   Storage OS API Details
   </a>
  </li>
  <li class="toctree-l1">
@@ -361,21 +344,65 @@
    Distributed Scikit-learn / Joblib
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="airflow.html">
+   Airflow
+  </a>
+ </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Advanced Features
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="worker_granularity.html">
+   Customize Worker Granularity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="monitoring.html">
+   Lithops Monitoring
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="customized_runtime.html">
+   Dynamic Runtime Customization
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Experimental Features
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="metrics.html">
+   Prometheus Monitoring
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dso.html">
+   Distributed shared objects
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
  <span class="caption-text">
   Developer Guide
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="development.html">
-   Development
+  <a class="reference internal" href="contributing.html">
+   Contributing to Lithops
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="contributing.html">
-   Contributing to Lithops
+  <a class="reference internal" href="development.html">
+   Development
   </a>
  </li>
  <li class="toctree-l1">
@@ -429,7 +456,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/source/general_config.rst.txt"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/source/configuration.rst.txt"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.rst</button></a>
         <!-- Download PDF via print -->
@@ -449,7 +476,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/lithops-cloud/lithops/issues/new?title=Issue%20on%20page%20%2Fsource/general_config.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/lithops-cloud/lithops/issues/new?title=Issue%20on%20page%20%2Fsource/configuration.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -481,11 +508,6 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#lithops-monitoring">
-   Lithops Monitoring
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#configuration-reference">
    Configuration Reference
   </a>
@@ -493,11 +515,6 @@
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#lithops-config-keys">
      Lithops Config Keys
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#serverless-config-keys">
-     Serverless Config Keys
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -518,8 +535,8 @@
         
               <div>
                 
-  <div class="section" id="general-configuration">
-<span id="config"></span><h1>General Configuration<a class="headerlink" href="#general-configuration" title="Permalink to this headline">¶</a></h1>
+  <section id="configuration">
+<span id="config"></span><h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
 <p>To work with Lithops you must configure both compute and storage backends. Failing to configure them properly will
 prevent Lithops to submit workloads.</p>
 <p>Lithops can work with almost any compute backend and storage any can be used with almost any cloud provider. You have
@@ -527,7 +544,7 @@ multiple options to choose compute backend and storage backend based on your nee
 <p>After you choose your compute and storage engine, you need to configure Lithops so it can use chosen compute and
 storage. Lithops configuration can be provided either in configuration file or provided in runtime via Python
 dictionary.</p>
-<div class="section" id="configuration-file">
+<section id="configuration-file">
 <h2>Configuration file<a class="headerlink" href="#configuration-file" title="Permalink to this headline">¶</a></h2>
 <p>To configure Lithops through a <a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/config/config_template.yaml">configuration file</a>
 you have multiple options:</p>
@@ -541,8 +558,8 @@ indicating the absolute or relative location of the configuration file:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LITHOPS_CONFIG_FILE</span><span class="o">=&lt;</span><span class="n">CONFIG_FILE_LOCATION</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="configuration-keys-in-runtime">
+</section>
+<section id="configuration-keys-in-runtime">
 <h2>Configuration keys in runtime<a class="headerlink" href="#configuration-keys-in-runtime" title="Permalink to this headline">¶</a></h2>
 <p>An alternative mode of configuration is to use a Python dictionary. This option allows to pass all the configuration
 details as part of the Lithops invocation in runtime. You can see an entire list of configuration keys at the
@@ -567,41 +584,10 @@ details as part of the Lithops invocation in runtime. You can see an entire list
     <span class="nb">print</span><span class="p">(</span><span class="n">fexec</span><span class="o">.</span><span class="n">get_result</span><span class="p">())</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="lithops-monitoring">
-<h2>Lithops Monitoring<a class="headerlink" href="#lithops-monitoring" title="Permalink to this headline">¶</a></h2>
-<p>By default, Lithops uses the storage backend to monitor function activations: Each function activation stores a file
-named <em>{id}/status.json</em> to the Object Storage when it finishes its execution. This file contains some statistics about
-the execution, including if the function activation ran successfully or not. Having these files, the default monitoring
-approach is based on listing the Object Store objects (polling) each X seconds to know which function activations have
-finished and which not.</p>
-<p>As this default approach can slow-down the total application execution time, due to the number of requests it has to
-make against the object store, in Lithops we integrated a RabbitMQ service to monitor function activations in real-time.
-With RabbitMQ, the content of the <em>{id}/status.json</em> file is sent trough a queue. This speeds-up total application execution
-time, since Lithops only needs one connection to the messaging service to monitor all function activations. We currently
-support the AMQP protocol.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The RabbitMQ server has to be accessible from both the client and the functions. For example, it could be deployed in a cloud server with a public IP with AMQP port open (5672).</p>
-</div>
-<p>To enable Lithops to use this service, add the <em>AMQP_URL</em> key into the <em>rabbitmq</em> section in
-the configuration, for example:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">rabbitmq</span><span class="p">:</span>
-    <span class="nt">amqp_url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;AMQP_URL&gt;</span>  <span class="c1"># amqp://</span>
-</pre></div>
-</div>
-<p>In addition, activate the monitoring service by setting <code class="docutils literal notranslate"><span class="pre">monitoring:</span> <span class="pre">rabbitmq</span></code> in the configuration (Lithops section):</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
-   <span class="nt">monitoring</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rabbitmq</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">(</span><span class="n">monitoring</span><span class="o">=</span><span class="s1">&#39;rabbitmq&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="configuration-reference">
+</section>
+<section id="configuration-reference">
 <span id="config-reference-label"></span><h2>Configuration Reference<a class="headerlink" href="#configuration-reference" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="lithops-config-keys">
+<section id="lithops-config-keys">
 <h3>Lithops Config Keys<a class="headerlink" href="#lithops-config-keys" title="Permalink to this headline">¶</a></h3>
 <table class="colwidths-given table">
 <colgroup>
@@ -623,131 +609,85 @@ the configuration, for example:</p>
 <tr class="row-even"><td><p>lithops</p></td>
 <td><p>backend</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">ibm_cf</span></code></p></td>
-<td><p>No</p></td>
+<td><p>no</p></td>
 <td><p>Compute backend implementation. IBM Cloud Functions is the default. If not set, Lithops will check the <cite>mode</cite> and use the <cite>backend</cite> set under the <cite>serverless</cite> or <cite>standalone</cite> sections described below.</p></td>
 </tr>
 <tr class="row-odd"><td><p>lithops</p></td>
 <td><p>storage</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">ibm_cos</span></code></p></td>
-<td><p>No</p></td>
+<td><p>no</p></td>
 <td><p>Storage backend implementation. IBM Cloud Object Storage is the default.</p></td>
 </tr>
 <tr class="row-even"><td><p>lithops</p></td>
-<td><p>mode</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">serverless</span></code></p></td>
-<td><p>No</p></td>
-<td><p>Execution mode. One of: <strong>localhost</strong>, <strong>serverless</strong> or <strong>standalone</strong>. <cite>backend</cite> has priority over <cite>mode</cite>, i.e., <cite>mode</cite> is automatically inferred from <cite>backend</cite>, so you can avoid setting it. Alternatively, you can set <cite>mode</cite> here and then set the <cite>backend</cite> under the <cite>serverless</cite> or <cite>standalone</cite> sections described below.</p></td>
-</tr>
-<tr class="row-odd"><td><p>lithops</p></td>
 <td><p>data_cleaner</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
-<td><p>No</p></td>
+<td><p>no</p></td>
 <td><p>If set to True, then the cleaner will automatically delete all the temporary data that was written into <cite>storage_bucket/lithops.jobs</cite>.</p></td>
 </tr>
-<tr class="row-even"><td><p>lithops</p></td>
+<tr class="row-odd"><td><p>lithops</p></td>
 <td><p>monitoring</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">storage</span></code></p></td>
-<td><p>No</p></td>
+<td><p>no</p></td>
 <td><p>Monitoring system implementation. One of: <strong>storage</strong> or <strong>rabbitmq</strong>.</p></td>
-</tr>
-<tr class="row-odd"><td><p>lithops</p></td>
-<td><p>workers</p></td>
-<td><p>Depends on the compute backend</p></td>
-<td><p>No</p></td>
-<td><p>Max number of concurrent workers.</p></td>
 </tr>
 <tr class="row-even"><td><p>lithops</p></td>
 <td><p>data_limit</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">4</span></code></p></td>
-<td><p>No</p></td>
+<td><p>no</p></td>
 <td><p>Max (iter)data size (in MB). Set to False for unlimited size.</p></td>
 </tr>
 <tr class="row-odd"><td><p>lithops</p></td>
 <td><p>execution_timeout</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">1800</span></code></p></td>
-<td><p>No</p></td>
+<td><p>no</p></td>
 <td><p>Functions will be automatically killed if they exceed this execution time (in seconds). Alternatively, it can be set in the <cite>call_async()</cite>, <cite>map()</cite> or <cite>map_reduce()</cite> calls using the <cite>timeout</cite> parameter.</p></td>
 </tr>
 <tr class="row-even"><td><p>lithops</p></td>
 <td><p>include_modules</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">[]</span></code></p></td>
-<td><p>No</p></td>
+<td><p>no</p></td>
 <td><p>Explicitly pickle these dependencies. All required dependencies are pickled if default empty list. No one dependency is pickled if it is explicitly set to None.</p></td>
 </tr>
 <tr class="row-odd"><td><p>lithops</p></td>
 <td><p>exclude_modules</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">[]</span></code></p></td>
-<td><p>No</p></td>
+<td><p>no</p></td>
 <td><p>Explicitly keep these modules from pickled dependencies. It is not taken into account if you set include_modules.</p></td>
 </tr>
 <tr class="row-even"><td><p>lithops</p></td>
 <td><p>log_level</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">INFO</span></code></p></td>
-<td><p>No</p></td>
+<td><p>no</p></td>
 <td><p>Logging level. One of: WARNING, INFO, DEBUG, ERROR, CRITICAL, Set to None to disable logging.</p></td>
 </tr>
 <tr class="row-odd"><td><p>lithops</p></td>
 <td><p>log_format</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">%(asctime)s</span> <span class="pre">[%(levelname)s]</span> <span class="pre">%(name)s</span> <span class="pre">--</span> <span class="pre">%(message)</span></code></p></td>
-<td><p>No</p></td>
+<td><p>no</p></td>
 <td><p>Logging format string.</p></td>
 </tr>
 <tr class="row-even"><td><p>lithops</p></td>
 <td><p>log_stream</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">ext://sys.stderr</span></code></p></td>
-<td><p>No</p></td>
+<td><p>no</p></td>
 <td><p>Logging stream. eg.: ext://sys.stderr,  ext://sys.stdout</p></td>
 </tr>
 <tr class="row-odd"><td><p>lithops</p></td>
 <td><p>log_filename</p></td>
 <td></td>
-<td><p>No</p></td>
+<td><p>no</p></td>
 <td><p>Path to a file. log_filename has preference over log_stream.</p></td>
 </tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="serverless-config-keys">
-<h3>Serverless Config Keys<a class="headerlink" href="#serverless-config-keys" title="Permalink to this headline">¶</a></h3>
-<table class="colwidths-given table">
-<colgroup>
-<col style="width: 5%" />
-<col style="width: 5%" />
-<col style="width: 20%" />
-<col style="width: 10%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Group</p></th>
-<th class="head"><p>Key</p></th>
-<th class="head"><p>Default</p></th>
-<th class="head"><p>Mandatory</p></th>
-<th class="head"><p>Additional info</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>serverless</p></td>
-<td><p>backend</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">ibm_cf</span></code></p></td>
-<td><p>no</p></td>
-<td><p>Serverless compute backend implementation. IBM Cloud Functions is the default. If set it will overwrite the <cite>backend</cite> set in lithops section</p></td>
-</tr>
-<tr class="row-odd"><td><p>serverless</p></td>
-<td><p>remote_invoker</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
-<td><p>no</p></td>
-<td><p>Activate the remote invoker feature that uses one cloud function to spawn all the actual <cite>map()</cite> activations</p></td>
-</tr>
-<tr class="row-even"><td><p>serverless</p></td>
+<tr class="row-even"><td><p>lithops</p></td>
 <td><p>customized_runtime</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td><p>False</p></td>
 <td><p>no</p></td>
-<td><p>Enables early preparation of Lithops workers with the map function and custom Lithops runtime already deployed, and ready to be used in consequent computations</p></td>
+<td><p>Enables to build a new runtime with the map() function and its dependencies integrated. Only docker-based backends support this feature. |</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="standalone-config-keys">
+</section>
+<section id="standalone-config-keys">
 <h3>Standalone Config Keys<a class="headerlink" href="#standalone-config-keys" title="Permalink to this headline">¶</a></h3>
 <table class="colwidths-given table">
 <colgroup>
@@ -810,9 +750,9 @@ the configuration, for example:</p>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
               </div>
@@ -829,15 +769,15 @@ the configuration, for example:</p>
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Install Lithops</p>
+                <p class="prevnext-title">Installing Lithops</p>
             </div>
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="backends_config.html" title="next page">
+        <a class="right-next" href="compute_backends.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Backends Configuration</p>
+                <p class="prevnext-title">Compute Backends</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
@@ -847,13 +787,13 @@ the configuration, for example:</p>
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
-          By Josep Sampé, Gil Vernik<br/>
+          By The Lithops Team<br/>
         
-            &copy; Copyright 2021, IBM Corp., Cloudlab URV.<br/>
+            &copy; Copyright 2021, The Lithops Team.<br/>
       </p>
     </div>
   </footer>

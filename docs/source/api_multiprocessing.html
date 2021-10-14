@@ -4,8 +4,9 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Multiprocessing API &#8212; Lithops v2.5.3.dev0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Multiprocessing API</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -22,13 +23,13 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -38,8 +39,8 @@
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Prometheus Monitoring" href="metrics.html" />
-    <link rel="prev" title="File “chunking”" href="file_chunking.html" />
+    <link rel="next" title="Storage OS API Details" href="api_storage_os.html" />
+    <link rel="prev" title="Data Pertitioning" href="data_partitioning.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -58,10 +59,12 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
       <img src="../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
-      
-      <h1 class="site-logo" id="site-title">Lithops v2.5.3.dev0</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -76,9 +79,9 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Lithops Core
+  Overview of Lithops
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -88,41 +91,19 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="comparing_lithops.html">
+   Comparing Lithops with other distributed computing frameworks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="supported_clouds.html">
    Supported Clouds
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="comparing_lithops.html">
-   Comparing Lithops with other distributed computing frameworks
-  </a>
- </li>
- <li class="toctree-l1 has-children">
   <a class="reference internal" href="execution_modes.html">
    Execution Modes
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="mode_localhost.html">
-     Lithops Localhost Execution Mode
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="mode_serverless.html">
-     Serverless Execution Mode
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="mode_standalone.html">
-     Standalone Execution Mode
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="cli.html">
@@ -130,28 +111,28 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Install and configure Lithops
+  Install and Configure Lithops
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="install_lithops.html">
-   Install Lithops
+   Installing Lithops
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="general_config.html">
-   General Configuration
+  <a class="reference internal" href="configuration.html">
+   Configuration
   </a>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="backends_config.html">
-   Backends Configuration
+  <a class="reference internal" href="compute_backends.html">
+   Compute Backends
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -183,12 +164,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="compute_config/gcp_cloudrun.html">
-     GCP Cloud Run
+     Google Cloud Run
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="compute_config/gcp_functions.html">
-     GCP Functions
+     Google Cloud Functions
     </a>
    </li>
    <li class="toctree-l2">
@@ -226,14 +207,26 @@
      Virtual Machine
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="storage_backends.html">
+   Storage Backends
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="storage_config/aliyun_oss.html">
-     Lithops on Aliyun Object Storage Service
+     Aliyun Object Storage Service
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="storage_config/aws_s3.html">
-     Lithops on AWS S3
+     AWS S3
     </a>
    </li>
    <li class="toctree-l2">
@@ -279,9 +272,9 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Lithops Futures API
+  Lithops Compute API
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -301,24 +294,19 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Storage
+  Lithops Storage API
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="api_storage.html">
-   Lithops Storage API
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="api_storage_os.html">
-   Storage OS API Details
+   Storage API Deatils
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Data Processing
  </span>
@@ -326,18 +314,18 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="data_processing.html">
-   Processing data from a Cloud Object Storage
+   Processing data from the Cloud
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="file_chunking.html">
-   File “chunking”
+  <a class="reference internal" href="data_partitioning.html">
+   Data Pertitioning
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Experimental Features
+  Integrations
  </span>
 </p>
 <ul class="current nav bd-sidenav">
@@ -347,13 +335,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="metrics.html">
-   Prometheus Monitoring
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="dso.html">
-   Distributed shared objects across function activations
+  <a class="reference internal" href="api_storage_os.html">
+   Storage OS API Details
   </a>
  </li>
  <li class="toctree-l1">
@@ -361,21 +344,65 @@
    Distributed Scikit-learn / Joblib
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="airflow.html">
+   Airflow
+  </a>
+ </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Advanced Features
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="worker_granularity.html">
+   Customize Worker Granularity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="monitoring.html">
+   Lithops Monitoring
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="customized_runtime.html">
+   Dynamic Runtime Customization
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Experimental Features
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="metrics.html">
+   Prometheus Monitoring
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dso.html">
+   Distributed shared objects
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
  <span class="caption-text">
   Developer Guide
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="development.html">
-   Development
+  <a class="reference internal" href="contributing.html">
+   Contributing to Lithops
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="contributing.html">
-   Contributing to Lithops
+  <a class="reference internal" href="development.html">
+   Development
   </a>
  </li>
  <li class="toctree-l1">
@@ -503,14 +530,10 @@
         
               <div>
                 
-  <div class="section" id="multiprocessing-api">
+  <section id="multiprocessing-api">
 <h1>Multiprocessing API<a class="headerlink" href="#multiprocessing-api" title="Permalink to this headline">¶</a></h1>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This feature is experimental and as such is unstable. Using it in production is discouraged, proceed at your own risk. Expect errors and API/functionality changes in future releases.</p>
-</div>
 <p>Lithops implements Python’s <a class="reference external" href="https://docs.python.org/3/library/multiprocessing.html">multiprocessing API</a> to transparently run local-parallel applications but using serverless functions for Processes and a Redis instance for shared state and Inter-Process Communication (IPC).</p>
-<div class="section" id="process-and-pool">
+<section id="process-and-pool">
 <h2>Process and Pool<a class="headerlink" href="#process-and-pool" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://docs.python.org/3/library/multiprocessing.html#the-process-class">Processes</a> and <a class="reference external" href="https://docs.python.org/3/library/multiprocessing.html#using-a-pool-of-workers">Pool</a> are the abstractions used in multiprocessing to parallelize computation. They interact directly with Lithop’s Futures API.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># from multiprocessing import Process</span>
@@ -540,8 +563,8 @@
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Timed out!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="stateful-abstractions">
+</section>
+<section id="stateful-abstractions">
 <h2>Stateful abstractions<a class="headerlink" href="#stateful-abstractions" title="Permalink to this headline">¶</a></h2>
 <p>Lithops also implements all stateful abstractions from Python mutliprocessing: Queue, Pipes, Shared memory, Events…</p>
 <p>Since FaaS lacks mechanisms for function-to-function communication, a <a class="reference external" href="https://redis.io/">Redis</a> database instance node is used.</p>
@@ -556,8 +579,8 @@
 </div>
 <p>To have lower latency, you can deploy the functions and the VM in the same VPC and use route through internal traffic instead of the internet.
 For example, in AWS, the functions and VM can be deployed in the same VPC: Lambdas go to a private subnet and the VM in a public subnet. This way, the VM has access to the internet and the local Lithops process can also access it.</p>
-</div>
-<div class="section" id="extra-multiprocessing-configuration">
+</section>
+<section id="extra-multiprocessing-configuration">
 <h2>Extra multiprocessing configuration<a class="headerlink" href="#extra-multiprocessing-configuration" title="Permalink to this headline">¶</a></h2>
 <p>The Lithops multiprocessing module has extra configuration specific to the multiprocessing functionality.
 To preserve transparency, the functions and method signature has remain completely compatible with the original multiprocessing module.
@@ -588,7 +611,7 @@ For this reason, to set specific configuration in runtime, the <code class="docu
     <span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="section" id="multiprocessing-configuration-keys">
+<section id="multiprocessing-configuration-keys">
 <h3>Multiprocessing configuration keys<a class="headerlink" href="#multiprocessing-configuration-keys" title="Permalink to this headline">¶</a></h3>
 <table class="table">
 <colgroup>
@@ -632,9 +655,9 @@ For this reason, to set specific configuration in runtime, the <code class="docu
 <ul class="simple">
 <li><p>To use nanomsg for Pipes, you must still deploy a Redis instance (used for pipe directory). Note that this feature only works in environments where functions can open a port and communicate with each other.</p></li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
               </div>
@@ -647,19 +670,19 @@ For this reason, to set specific configuration in runtime, the <code class="docu
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="file_chunking.html" title="previous page">
+        <a class="left-prev" href="data_partitioning.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">File “chunking”</p>
+                <p class="prevnext-title">Data Pertitioning</p>
             </div>
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="metrics.html" title="next page">
+        <a class="right-next" href="api_storage_os.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Prometheus Monitoring</p>
+                <p class="prevnext-title">Storage OS API Details</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
@@ -669,13 +692,13 @@ For this reason, to set specific configuration in runtime, the <code class="docu
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
-          By Josep Sampé, Gil Vernik<br/>
+          By The Lithops Team<br/>
         
-            &copy; Copyright 2021, IBM Corp., Cloudlab URV.<br/>
+            &copy; Copyright 2021, The Lithops Team.<br/>
       </p>
     </div>
   </footer>

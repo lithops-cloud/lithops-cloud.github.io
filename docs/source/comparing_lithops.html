@@ -4,8 +4,9 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Comparing Lithops with other distributed computing frameworks &#8212; Lithops v2.5.3.dev0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Comparing Lithops with other distributed computing frameworks</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -22,13 +23,13 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -38,8 +39,8 @@
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Execution Modes" href="execution_modes.html" />
-    <link rel="prev" title="Supported Clouds" href="supported_clouds.html" />
+    <link rel="next" title="Supported Clouds" href="supported_clouds.html" />
+    <link rel="prev" title="Architecture Design" href="design.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -58,10 +59,12 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
       <img src="../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
-      
-      <h1 class="site-logo" id="site-title">Lithops v2.5.3.dev0</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -76,9 +79,9 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Lithops Core
+  Overview of Lithops
  </span>
 </p>
 <ul class="current nav bd-sidenav">
@@ -87,42 +90,20 @@
    Architecture Design
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="supported_clouds.html">
-   Supported Clouds
-  </a>
- </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Comparing Lithops with other distributed computing frameworks
   </a>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1">
+  <a class="reference internal" href="supported_clouds.html">
+   Supported Clouds
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="execution_modes.html">
    Execution Modes
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="mode_localhost.html">
-     Lithops Localhost Execution Mode
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="mode_serverless.html">
-     Serverless Execution Mode
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="mode_standalone.html">
-     Standalone Execution Mode
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="cli.html">
@@ -130,28 +111,28 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Install and configure Lithops
+  Install and Configure Lithops
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="install_lithops.html">
-   Install Lithops
+   Installing Lithops
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="general_config.html">
-   General Configuration
+  <a class="reference internal" href="configuration.html">
+   Configuration
   </a>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="backends_config.html">
-   Backends Configuration
+  <a class="reference internal" href="compute_backends.html">
+   Compute Backends
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -183,12 +164,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="compute_config/gcp_cloudrun.html">
-     GCP Cloud Run
+     Google Cloud Run
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="compute_config/gcp_functions.html">
-     GCP Functions
+     Google Cloud Functions
     </a>
    </li>
    <li class="toctree-l2">
@@ -226,14 +207,26 @@
      Virtual Machine
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="storage_backends.html">
+   Storage Backends
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="storage_config/aliyun_oss.html">
-     Lithops on Aliyun Object Storage Service
+     Aliyun Object Storage Service
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="storage_config/aws_s3.html">
-     Lithops on AWS S3
+     AWS S3
     </a>
    </li>
    <li class="toctree-l2">
@@ -279,9 +272,9 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Lithops Futures API
+  Lithops Compute API
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -301,24 +294,19 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Storage
+  Lithops Storage API
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="api_storage.html">
-   Lithops Storage API
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="api_storage_os.html">
-   Storage OS API Details
+   Storage API Deatils
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Data Processing
  </span>
@@ -326,18 +314,18 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="data_processing.html">
-   Processing data from a Cloud Object Storage
+   Processing data from the Cloud
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="file_chunking.html">
-   File “chunking”
+  <a class="reference internal" href="data_partitioning.html">
+   Data Pertitioning
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Experimental Features
+  Integrations
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -347,13 +335,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="metrics.html">
-   Prometheus Monitoring
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="dso.html">
-   Distributed shared objects across function activations
+  <a class="reference internal" href="api_storage_os.html">
+   Storage OS API Details
   </a>
  </li>
  <li class="toctree-l1">
@@ -361,21 +344,65 @@
    Distributed Scikit-learn / Joblib
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="airflow.html">
+   Airflow
+  </a>
+ </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Advanced Features
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="worker_granularity.html">
+   Customize Worker Granularity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="monitoring.html">
+   Lithops Monitoring
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="customized_runtime.html">
+   Dynamic Runtime Customization
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Experimental Features
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="metrics.html">
+   Prometheus Monitoring
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dso.html">
+   Distributed shared objects
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
  <span class="caption-text">
   Developer Guide
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="development.html">
-   Development
+  <a class="reference internal" href="contributing.html">
+   Contributing to Lithops
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="contributing.html">
-   Contributing to Lithops
+  <a class="reference internal" href="development.html">
+   Development
   </a>
  </li>
  <li class="toctree-l1">
@@ -490,11 +517,6 @@
    Serverless Framework
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#nuclio">
-   Nuclio
-  </a>
- </li>
 </ul>
 
             </nav>
@@ -506,19 +528,15 @@
         
               <div>
                 
-  <div class="section" id="comparing-lithops-with-other-distributed-computing-frameworks">
+  <section id="comparing-lithops-with-other-distributed-computing-frameworks">
 <h1>Comparing Lithops with other distributed computing frameworks<a class="headerlink" href="#comparing-lithops-with-other-distributed-computing-frameworks" title="Permalink to this headline">¶</a></h1>
-<div class="admonition-todo admonition" id="id1">
-<p class="admonition-title">Todo</p>
-<p>Extend explanations</p>
-</div>
 <p>In a nutshell, Lithops differs from other distributed computing frameworks in that Lithops leverages serverless
 functions to compute massively parallel computations.</p>
 <p>In addition, Lithops provides a simple and easy-to-use interface to access and process data stored in Object Storage
 from your serverless functions.</p>
 <p>Moreover, Lithops abstract design allows seamlessly portability between clouds and FaaS services, avoiding vendor
 lock-in.</p>
-<div class="section" id="pywren">
+<section id="pywren">
 <h2>PyWren<a class="headerlink" href="#pywren" title="Permalink to this headline">¶</a></h2>
 <a class="reference internal image-reference" href="https://www.faasification.com/assets/img/tools/pywren-logo-big.png"><img alt="https://www.faasification.com/assets/img/tools/pywren-logo-big.png" class="align-center" src="https://www.faasification.com/assets/img/tools/pywren-logo-big.png" style="width: 250px;" /></a>
 <p><a class="reference external" href="http://pywren.io/">PyWren</a>  is Lithops’ “father” project. PyWren was only designed to run in AWS Lambda with a
@@ -529,8 +547,8 @@ considered a simple fork of PyWren for IBM cloud and became Lithops. With this c
 tied to the old PyWren model and could move to more modern features such as mulit-cloud support or the transparent
 multiprocessing interface.</p>
 <p>You can read more about PyWren IBM Cloud at the Middleware’18 industry paper <a class="reference external" href="https://dl.acm.org/doi/10.1145/3284028.3284029">Serverless Data Analytics in the IBM Cloud</a>.</p>
-</div>
-<div class="section" id="ray-and-dask">
+</section>
+<section id="ray-and-dask">
 <h2>Ray and Dask<a class="headerlink" href="#ray-and-dask" title="Permalink to this headline">¶</a></h2>
 <a class="reference internal image-reference" href="https://warehouse-camo.ingress.cmh1.psfhosted.org/98ae79911b7a91517ba16ef2dc7dc3b972214820/68747470733a2f2f6769746875622e636f6d2f7261792d70726f6a6563742f7261792f7261772f6d61737465722f646f632f736f757263652f696d616765732f7261795f6865616465725f6c6f676f2e706e67"><img alt="https://warehouse-camo.ingress.cmh1.psfhosted.org/98ae79911b7a91517ba16ef2dc7dc3b972214820/68747470733a2f2f6769746875622e636f6d2f7261792d70726f6a6563742f7261792f7261772f6d61737465722f646f632f736f757263652f696d616765732f7261795f6865616465725f6c6f676f2e706e67" class="align-center" src="https://warehouse-camo.ingress.cmh1.psfhosted.org/98ae79911b7a91517ba16ef2dc7dc3b972214820/68747470733a2f2f6769746875622e636f6d2f7261792d70726f6a6563742f7261792f7261772f6d61737465722f646f632f736f757263652f696d616765732f7261795f6865616465725f6c6f676f2e706e67" style="width: 250px;" /></a>
 <a class="reference internal image-reference" href="https://thepythonlab.com/wp-content/uploads/2019/05/dask-1.png"><img alt="https://thepythonlab.com/wp-content/uploads/2019/05/dask-1.png" class="align-center" src="https://thepythonlab.com/wp-content/uploads/2019/05/dask-1.png" style="width: 250px;" /></a>
@@ -539,15 +557,15 @@ mainly leverages serverless functions. This restraint makes Ray much less flexib
 <p>Although Dask and Ray can scale and adapt the resources to the amount of computation needed, they don’t scale to zero since
 they must keep a “head node” or “master” that controls the cluster and must be kept up.</p>
 <p>In any case, the capacity and scalability of Ray or Dask in IaaS using virtual machines is not comparable to that of serverless functions.</p>
-</div>
-<div class="section" id="pyspark">
+</section>
+<section id="pyspark">
 <h2>PySpark<a class="headerlink" href="#pyspark" title="Permalink to this headline">¶</a></h2>
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Apache_Spark_logo.svg/2560px-Apache_Spark_logo.svg.png"><img alt="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Apache_Spark_logo.svg/2560px-Apache_Spark_logo.svg.png" class="align-center" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Apache_Spark_logo.svg/2560px-Apache_Spark_logo.svg.png" style="width: 250px;" /></a>
 <p>Much like Ray or Dask, PySpark is a distributed computing framework that uses cluster technologies. PySpark provides Python bindings for Spark.
 Spark is designed to work with a fixed-size node cluster, and it is typically used to process data from on-prem HDFS
 and analyze it using SparkSQL and Spark DataFrame.</p>
-</div>
-<div class="section" id="serverless-framework">
+</section>
+<section id="serverless-framework">
 <h2>Serverless Framework<a class="headerlink" href="#serverless-framework" title="Permalink to this headline">¶</a></h2>
 <a class="reference internal image-reference" href="https://cdn.diegooo.com/media/20210606183353/serverless-framework-icon.png"><img alt="https://cdn.diegooo.com/media/20210606183353/serverless-framework-icon.png" class="align-center" src="https://cdn.diegooo.com/media/20210606183353/serverless-framework-icon.png" style="width: 250px;" /></a>
 <p>Serverless Framework is a tool to develop serverless applications (mainly NodeJS) and deploy them seemlessly on AWS, GCP
@@ -555,16 +573,8 @@ or Azure.</p>
 <p>Although both Serverless Framework and Lithops use serverless functions, their objective is completely different:
 Serverless Framework aims to provide an easy-to-use tool to develop applications related to web services, like HTTP APIs,
 while Lithops aims to develop applications related to highly parallel scientific computation and Big Data processing.</p>
-</div>
-<div class="section" id="nuclio">
-<h2>Nuclio<a class="headerlink" href="#nuclio" title="Permalink to this headline">¶</a></h2>
-<a class="reference internal image-reference" href="https://2s1gag2bo3i2drxim2czewz1-wpengine.netdna-ssl.com/wp-content/uploads/2018/05/nuclio-og.jpg"><img alt="https://2s1gag2bo3i2drxim2czewz1-wpengine.netdna-ssl.com/wp-content/uploads/2018/05/nuclio-og.jpg" class="align-center" src="https://2s1gag2bo3i2drxim2czewz1-wpengine.netdna-ssl.com/wp-content/uploads/2018/05/nuclio-og.jpg" style="width: 250px;" /></a>
-<p>Nuclio is a high-performance “serverless” framework focused on data, I/O, and compute intensive workloads.
-Nuclio is a platform for running serverless applications, in that sense, it is more similar to other platforms such as
-Kubeless or OpenFaaS than to Lithops, which is a serverless computing framework. In fact, Lithops could run on top of
-Nuclio, so they are not opposing projects but they could complement each other.</p>
-</div>
-</div>
+</section>
+</section>
 
 
               </div>
@@ -577,19 +587,19 @@ Nuclio, so they are not opposing projects but they could complement each other.<
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="supported_clouds.html" title="previous page">
+        <a class="left-prev" href="design.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Supported Clouds</p>
+                <p class="prevnext-title">Architecture Design</p>
             </div>
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="execution_modes.html" title="next page">
+        <a class="right-next" href="supported_clouds.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Execution Modes</p>
+                <p class="prevnext-title">Supported Clouds</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
@@ -599,13 +609,13 @@ Nuclio, so they are not opposing projects but they could complement each other.<
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
-          By Josep Sampé, Gil Vernik<br/>
+          By The Lithops Team<br/>
         
-            &copy; Copyright 2021, IBM Corp., Cloudlab URV.<br/>
+            &copy; Copyright 2021, The Lithops Team.<br/>
       </p>
     </div>
   </footer>
