@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Configuration</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
@@ -37,6 +36,7 @@
     <script src="../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Compute Backends" href="compute_backends.html" />
@@ -69,7 +69,7 @@
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar los documentos ..." aria-label="Buscar los documentos ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
@@ -145,11 +145,6 @@
    <li class="toctree-l2">
     <a class="reference internal" href="compute_config/aws_lambda.html">
      AWS Lambda
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/azure_batch.html">
-     Azure Batch (under development)
     </a>
    </li>
    <li class="toctree-l2">
@@ -319,7 +314,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="data_partitioning.html">
-   Data Pertitioning
+   Data Partitioning
   </a>
  </li>
 </ul>
@@ -336,7 +331,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="api_storage_os.html">
-   Storage OS API Details
+   Storage OS API
   </a>
  </li>
  <li class="toctree-l1">
@@ -401,11 +396,6 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="development.html">
-   Development
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="testing.html">
    Testing Guidelines
   </a>
@@ -440,8 +430,8 @@
             
             <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
                 data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
                 <i class="fas fa-bars"></i>
                 <i class="fas fa-arrow-left"></i>
                 <i class="fas fa-arrow-up"></i>
@@ -449,7 +439,7 @@
             
             
 <div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
             class="fas fa-download"></i></button>
 
     <div class="dropdown-buttons">
@@ -457,10 +447,10 @@
         
         <!-- Download raw file -->
         <a class="dropdown-buttons" href="../_sources/source/configuration.rst.txt"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
                 data-placement="left">.rst</button></a>
         <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
@@ -473,12 +463,9 @@
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
             href="https://github.com/lithops-cloud/lithops"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/lithops-cloud/lithops/issues/new?title=Issue%20on%20page%20%2Fsource/configuration.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        
         
     </div>
 </div>
@@ -493,13 +480,18 @@
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
             <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+                <i class="fas fa-list"></i> Contenido
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compute-and-storage-engines">
+   Compute and Storage Engines
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#configuration-file">
-   Configuration file
+   Configuration File
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -535,17 +527,68 @@
         
               <div>
                 
-  <section id="configuration">
-<span id="config"></span><h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
-<p>To work with Lithops you must configure both compute and storage backends. Failing to configure them properly will
-prevent Lithops to submit workloads.</p>
-<p>Lithops can work with almost any compute backend and storage any can be used with almost any cloud provider. You have
-multiple options to choose compute backend and storage backend based on your needs.</p>
-<p>After you choose your compute and storage engine, you need to configure Lithops so it can use chosen compute and
-storage. Lithops configuration can be provided either in configuration file or provided in runtime via Python
-dictionary.</p>
-<section id="configuration-file">
-<h2>Configuration file<a class="headerlink" href="#configuration-file" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="configuration">
+<h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
+<p>By default, if no configuration is provided, Lithops will use the <a class="reference external" href="compute_config/localhost.html">Localhost</a> backend to run the functions.
+To work with Lithops on the Cloud, you must configure at least one compute engine and one storage engine.
+You have multiple options to choose compute and storage backends based on your needs.
+Lithops can work both with the leading cloud providers and using on-premise or Kubernetes platforms</p>
+<p>Lithops configuration can be provided either in <strong>configuration file</strong> or provided in runtime via a <strong>python dictionary.</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>After you choose your compute and storage engines, you must decide how you want to configure Lithops.</p>
+</div>
+<div class="section" id="compute-and-storage-engines">
+<h2>Compute and Storage Engines<a class="headerlink" href="#compute-and-storage-engines" title="Permalink to this headline">¶</a></h2>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Compute backends</p></th>
+<th class="head"><p>Storage Backends</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="line-block">
+<div class="line"><a class="reference external" href="compute_config/localhost.html">Localhost</a></div>
+<div class="line"><a class="reference external" href="compute_config/ibm_cf.html">IBM Cloud Functions</a></div>
+<div class="line"><a class="reference external" href="compute_config/code_engine.html">IBM Code Engine</a></div>
+<div class="line"><a class="reference external" href="compute_config/aws_lambda.html">AWS Lambda</a></div>
+<div class="line"><a class="reference external" href="compute_config/gcp_functions.html">Google Cloud Functions</a></div>
+<div class="line"><a class="reference external" href="compute_config/gcp_cloudrun.html">Google Cloud Run</a></div>
+<div class="line"><a class="reference external" href="compute_config/azure_functions.html">Azure Functions</a></div>
+<div class="line"><a class="reference external" href="compute_config/aliyun_functions.html">Aliyun Function Compute</a></div>
+<div class="line"><a class="reference external" href="compute_config/k8s_job.html">Kubernetes Jobs</a></div>
+<div class="line"><a class="reference external" href="compute_config/knative.html">Knative</a></div>
+<div class="line"><a class="reference external" href="compute_config/openwhisk.html">OpenWhisk</a></div>
+<div class="line"><a class="reference external" href="compute_config/vm.html">Remote Host / Virtual Machine</a></div>
+<div class="line"><a class="reference external" href="compute_config/ibm_vpc.html">IBM Virtual Private Cloud</a></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><a class="reference external" href="storage_config/ibm_cos.html">IBM Cloud Object Storage</a></div>
+<div class="line"><a class="reference external" href="storage_config/aws_s3.html">AWS S3</a></div>
+<div class="line"><a class="reference external" href="storage_config/gcp_storage.html">Google Cloud Storage</a></div>
+<div class="line"><a class="reference external" href="storage_config/azure_blob.html">Azure Blob Storage</a></div>
+<div class="line"><a class="reference external" href="storage_config/aliyun_oss.html">Aliyun Object Storage Service</a></div>
+<div class="line"><a class="reference external" href="storage_config/infinispan.html">Infinispan</a></div>
+<div class="line"><a class="reference external" href="storage_config/ceph.html">Ceph</a></div>
+<div class="line"><a class="reference external" href="storage_config/minio.html">MinIO</a></div>
+<div class="line"><a class="reference external" href="storage_config/redis.html">Redis</a></div>
+<div class="line"><a class="reference external" href="storage_config/swift.html">OpenStack Swift</a></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="configuration-file">
+<h2>Configuration File<a class="headerlink" href="#configuration-file" title="Permalink to this headline">¶</a></h2>
 <p>To configure Lithops through a <a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/config/config_template.yaml">configuration file</a>
 you have multiple options:</p>
 <ol class="arabic simple">
@@ -558,8 +601,8 @@ indicating the absolute or relative location of the configuration file:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LITHOPS_CONFIG_FILE</span><span class="o">=&lt;</span><span class="n">CONFIG_FILE_LOCATION</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-</section>
-<section id="configuration-keys-in-runtime">
+</div>
+<div class="section" id="configuration-keys-in-runtime">
 <h2>Configuration keys in runtime<a class="headerlink" href="#configuration-keys-in-runtime" title="Permalink to this headline">¶</a></h2>
 <p>An alternative mode of configuration is to use a Python dictionary. This option allows to pass all the configuration
 details as part of the Lithops invocation in runtime. You can see an entire list of configuration keys at the
@@ -584,10 +627,10 @@ details as part of the Lithops invocation in runtime. You can see an entire list
     <span class="nb">print</span><span class="p">(</span><span class="n">fexec</span><span class="o">.</span><span class="n">get_result</span><span class="p">())</span>
 </pre></div>
 </div>
-</section>
-<section id="configuration-reference">
+</div>
+<div class="section" id="configuration-reference">
 <span id="config-reference-label"></span><h2>Configuration Reference<a class="headerlink" href="#configuration-reference" title="Permalink to this headline">¶</a></h2>
-<section id="lithops-config-keys">
+<div class="section" id="lithops-config-keys">
 <h3>Lithops Config Keys<a class="headerlink" href="#lithops-config-keys" title="Permalink to this headline">¶</a></h3>
 <table class="colwidths-given table">
 <colgroup>
@@ -686,8 +729,8 @@ details as part of the Lithops invocation in runtime. You can see an entire list
 </tr>
 </tbody>
 </table>
-</section>
-<section id="standalone-config-keys">
+</div>
+<div class="section" id="standalone-config-keys">
 <h3>Standalone Config Keys<a class="headerlink" href="#standalone-config-keys" title="Permalink to this headline">¶</a></h3>
 <table class="colwidths-given table">
 <colgroup>
@@ -750,9 +793,9 @@ details as part of the Lithops invocation in runtime. You can see an entire list
 </tr>
 </tbody>
 </table>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
               </div>
@@ -791,9 +834,9 @@ details as part of the Lithops invocation in runtime. You can see an entire list
     <div class="container">
       <p>
         
-          By The Lithops Team<br/>
+          Por The Lithops Team<br/>
         
-            &copy; Copyright 2021, The Lithops Team.<br/>
+            &copy; Derechos de autor 2021, The Lithops Team.<br/>
       </p>
     </div>
   </footer>

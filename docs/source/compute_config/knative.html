@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Knative</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
@@ -37,6 +36,7 @@
     <script src="../../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Localhost" href="localhost.html" />
@@ -69,7 +69,7 @@
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar los documentos ..." aria-label="Buscar los documentos ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
@@ -145,11 +145,6 @@
    <li class="toctree-l2">
     <a class="reference internal" href="aws_lambda.html">
      AWS Lambda
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="azure_batch.html">
-     Azure Batch (under development)
     </a>
    </li>
    <li class="toctree-l2">
@@ -319,7 +314,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../data_partitioning.html">
-   Data Pertitioning
+   Data Partitioning
   </a>
  </li>
 </ul>
@@ -336,7 +331,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../api_storage_os.html">
-   Storage OS API Details
+   Storage OS API
   </a>
  </li>
  <li class="toctree-l1">
@@ -401,11 +396,6 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../development.html">
-   Development
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../testing.html">
    Testing Guidelines
   </a>
@@ -440,8 +430,8 @@
             
             <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
                 data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
                 <i class="fas fa-bars"></i>
                 <i class="fas fa-arrow-left"></i>
                 <i class="fas fa-arrow-up"></i>
@@ -449,7 +439,7 @@
             
             
 <div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
             class="fas fa-download"></i></button>
 
     <div class="dropdown-buttons">
@@ -457,10 +447,10 @@
         
         <!-- Download raw file -->
         <a class="dropdown-buttons" href="../../_sources/source/compute_config/knative.md.txt"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
@@ -473,12 +463,9 @@
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
             href="https://github.com/lithops-cloud/lithops"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/lithops-cloud/lithops/issues/new?title=Issue%20on%20page%20%2Fsource/compute_config/knative.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        
         
     </div>
 </div>
@@ -493,7 +480,7 @@
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
             <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+                <i class="fas fa-list"></i> Contenido
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
@@ -561,10 +548,10 @@
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="knative">
+  <div class="tex2jax_ignore mathjax_ignore section" id="knative">
 <h1>Knative<a class="headerlink" href="#knative" title="Permalink to this headline">¶</a></h1>
 <p>Lithops with <em>Knative</em> as serverless compute backend. Lithops also supports vanilla Knative for running applications. The easiest way to make it working is to create an IBM Kubernetes (IKS) cluster through the <a class="reference external" href="https://cloud.ibm.com/kubernetes/landing">IBM dashboard</a>. Alternatively you can use your own kubernetes cluster or a minikube installation.</p>
-<section id="installation">
+<div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>Note that Lithops automatically builds the default runtime the first time you run a script. For this task it uses the <strong>docker</strong> command installed locally in your machine. If for some reason you can’t install the Docker CE package locally, you must provide the <strong>docker_token</strong> parameter in the configuration. This way lithops will use Tekton of your k8s cluster to build the default runtime to your docker hub account. In this case, omit steps 1 and 2.</p>
 <ol>
@@ -576,7 +563,7 @@
 </li>
 <li><p>Choose one of these 2 installation options:</p></li>
 </ol>
-<section id="option-1-ibm-iks">
+<div class="section" id="option-1-ibm-iks">
 <h3>Option 1 (IBM IKS):<a class="headerlink" href="#option-1-ibm-iks" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p>Access to the <a class="reference external" href="https://cloud.ibm.com/kubernetes/landing">IBM dashboard</a> and create a new Kubernetes cluster. For testing purposes, it is preferable to use this setup:</p>
@@ -591,8 +578,8 @@
 <li><p>Once the cluster is running, follow the instructions of the “Access” tab of the dashboard to configure the <em>kubectl</em> client in your local machine.</p></li>
 <li><p>In the dashboard of your cluster, go to the “Add-ons” tab and install Knative. It automatically installs Istio and Tekton.</p></li>
 </ol>
-</section>
-<section id="option-2-ibm-iks-or-any-other-kubernetes-cluster">
+</div>
+<div class="section" id="option-2-ibm-iks-or-any-other-kubernetes-cluster">
 <h3>Option 2 (IBM IKS or any other Kubernetes Cluster):<a class="headerlink" href="#option-2-ibm-iks-or-any-other-kubernetes-cluster" title="Permalink to this headline">¶</a></h3>
 <ol>
 <li><p>Install Kubernetes &gt;= v1.16 and make sure the <em>kubectl</em> client is running.</p></li>
@@ -603,9 +590,9 @@
 </div>
 </li>
 </ol>
-</section>
-</section>
-<section id="configuration">
+</div>
+</div>
+<div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <ol>
 <li><p>Make sure you have the ~/.kube/config file. Alternatively, you can set KUBECONFIG environment variable:</p>
@@ -620,9 +607,9 @@
 </div>
 </li>
 </ol>
-<section id="configure-a-private-container-registry-for-your-runtime">
+<div class="section" id="configure-a-private-container-registry-for-your-runtime">
 <h3>Configure a private container registry for your runtime<a class="headerlink" href="#configure-a-private-container-registry-for-your-runtime" title="Permalink to this headline">¶</a></h3>
-<section id="configure-docker-hub">
+<div class="section" id="configure-docker-hub">
 <h4>Configure Docker hub<a class="headerlink" href="#configure-docker-hub" title="Permalink to this headline">¶</a></h4>
 <p>To configure Lithops to access a private repository in your docker hub account, you need to extend the Knative config and add the following keys:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">knative</span><span class="p">:</span>
@@ -631,8 +618,8 @@
     <span class="nt">docker_password  </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;DOcker hub access TOEKN&gt;</span>
 </pre></div>
 </div>
-</section>
-<section id="configure-ibm-container-registry">
+</div>
+<div class="section" id="configure-ibm-container-registry">
 <h4>Configure IBM Container Registry<a class="headerlink" href="#configure-ibm-container-registry" title="Permalink to this headline">¶</a></h4>
 <p>To configure Lithops to access to a private repository in your IBM Container Registry, you need to extend the Knative config and add the following keys:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">knative</span><span class="p">:</span>
@@ -642,10 +629,10 @@
     <span class="nt">docker_password  </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;IBM IAM API KEY&gt;</span>
 </pre></div>
 </div>
-</section>
-</section>
-</section>
-<section id="summary-of-configuration-keys-for-knative">
+</div>
+</div>
+</div>
+<div class="section" id="summary-of-configuration-keys-for-knative">
 <h2>Summary of configuration keys for Knative:<a class="headerlink" href="#summary-of-configuration-keys-for-knative" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto table">
 <thead>
@@ -743,7 +730,7 @@
 </tr>
 </tbody>
 </table>
-<section id="verify">
+<div class="section" id="verify">
 <h3>Verify<a class="headerlink" href="#verify" title="Permalink to this headline">¶</a></h3>
 <ol>
 <li><p>Verify that all the pods from the following namespaces are in <em>Running</em> status:</p>
@@ -760,9 +747,9 @@ kubectl get pods --namespace tekton-pipelines
 </div>
 </li>
 </ol>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
               </div>
@@ -801,9 +788,9 @@ kubectl get pods --namespace tekton-pipelines
     <div class="container">
       <p>
         
-          By The Lithops Team<br/>
+          Por The Lithops Team<br/>
         
-            &copy; Copyright 2021, The Lithops Team.<br/>
+            &copy; Derechos de autor 2021, The Lithops Team.<br/>
       </p>
     </div>
   </footer>

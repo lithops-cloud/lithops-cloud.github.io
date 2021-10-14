@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IBM Cloud Code Engine</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
@@ -37,6 +36,7 @@
     <script src="../../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Google Cloud Run" href="gcp_cloudrun.html" />
@@ -69,7 +69,7 @@
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar los documentos ..." aria-label="Buscar los documentos ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
@@ -145,11 +145,6 @@
    <li class="toctree-l2">
     <a class="reference internal" href="aws_lambda.html">
      AWS Lambda
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="azure_batch.html">
-     Azure Batch (under development)
     </a>
    </li>
    <li class="toctree-l2">
@@ -319,7 +314,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../data_partitioning.html">
-   Data Pertitioning
+   Data Partitioning
   </a>
  </li>
 </ul>
@@ -336,7 +331,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../api_storage_os.html">
-   Storage OS API Details
+   Storage OS API
   </a>
  </li>
  <li class="toctree-l1">
@@ -401,11 +396,6 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../development.html">
-   Development
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../testing.html">
    Testing Guidelines
   </a>
@@ -440,8 +430,8 @@
             
             <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
                 data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
                 <i class="fas fa-bars"></i>
                 <i class="fas fa-arrow-left"></i>
                 <i class="fas fa-arrow-up"></i>
@@ -449,7 +439,7 @@
             
             
 <div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
             class="fas fa-download"></i></button>
 
     <div class="dropdown-buttons">
@@ -457,10 +447,10 @@
         
         <!-- Download raw file -->
         <a class="dropdown-buttons" href="../../_sources/source/compute_config/code_engine.md.txt"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
@@ -473,12 +463,9 @@
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
             href="https://github.com/lithops-cloud/lithops"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/lithops-cloud/lithops/issues/new?title=Issue%20on%20page%20%2Fsource/compute_config/code_engine.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        
         
     </div>
 </div>
@@ -493,7 +480,7 @@
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
             <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+                <i class="fas fa-list"></i> Contenido
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
@@ -619,20 +606,20 @@
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="ibm-cloud-code-engine">
+  <div class="tex2jax_ignore mathjax_ignore section" id="ibm-cloud-code-engine">
 <h1>IBM Cloud Code Engine<a class="headerlink" href="#ibm-cloud-code-engine" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="https://cloud.ibm.com/codeengine/overview">IBM Code Engine</a> allows you to run your application, job or container on a managed serverless platform. Auto-scale workloads and only pay for the resources you consume.</p>
 <p>IBM Code Engine exposes both Knative and Kubernetes Job Descriptor API. Lithops supports both of them. Follow IBM Code Engine documentation to get more details on the difference between those APIs.</p>
-<section id="installation">
+<div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>Choose one option:</p>
-<section id="option-1-ibm-cloud-dashboard">
+<div class="section" id="option-1-ibm-cloud-dashboard">
 <h3>Option 1 (IBM CLoud Dashboard):<a class="headerlink" href="#option-1-ibm-cloud-dashboard" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p>Navigate to the <a class="reference external" href="https://cloud.ibm.com/codeengine/landing">IBM Cloud Code Engine dashboard</a> and create a new project in your preferred region.</p></li>
 </ol>
-</section>
-<section id="option-2-ibm-cloud-cli-tool">
+</div>
+<div class="section" id="option-2-ibm-cloud-cli-tool">
 <h3>Option 2 (IBM CLoud CLI tool):<a class="headerlink" href="#option-2-ibm-cloud-cli-tool" title="Permalink to this headline">¶</a></h3>
 <p>In this step you are required to install IBM Cloud CLI tool, Code Engine plugin and create new Code Engine project</p>
 <ol>
@@ -662,12 +649,12 @@
 </div>
 </li>
 </ol>
-</section>
-</section>
-<section id="configuration">
+</div>
+</div>
+<div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <p>Choose one option:</p>
-<section id="option-1-ibm-iam">
+<div class="section" id="option-1-ibm-iam">
 <h3>Option 1 (IBM IAM):<a class="headerlink" href="#option-1-ibm-iam" title="Permalink to this headline">¶</a></h3>
 <ol>
 <li><p>If you don’t have an IAM API key created, navigate to the <a class="reference external" href="https://cloud.ibm.com/iam/apikeys">IBM IAM dashboard</a>.</p></li>
@@ -693,8 +680,8 @@
 </div>
 </li>
 </ol>
-</section>
-<section id="option-2-kubeconfig-file">
+</div>
+<div class="section" id="option-2-kubeconfig-file">
 <h3>Option 2 (KUBECONFIG file):<a class="headerlink" href="#option-2-kubeconfig-file" title="Permalink to this headline">¶</a></h3>
 <ol>
 <li><p>Locate the kubernetes config file using the IBM CLoud CLI:</p>
@@ -717,11 +704,11 @@
 </div>
 </li>
 </ol>
-</section>
-</section>
-<section id="runtime">
+</div>
+</div>
+<div class="section" id="runtime">
 <h2>Runtime<a class="headerlink" href="#runtime" title="Permalink to this headline">¶</a></h2>
-<section id="use-a-pre-built-runtime">
+<div class="section" id="use-a-pre-built-runtime">
 <h3>Use a pre-built runtime<a class="headerlink" href="#use-a-pre-built-runtime" title="Permalink to this headline">¶</a></h3>
 <p>To work with Code Engine there is need to use dedicated runtime. You can use a pre-built runtime listed below</p>
 <table class="colwidths-auto table">
@@ -760,8 +747,8 @@
 </tr>
 </tbody>
 </table>
-</section>
-<section id="use-your-own-runtime">
+</div>
+<div class="section" id="use-your-own-runtime">
 <h3>Use your own runtime<a class="headerlink" href="#use-your-own-runtime" title="Permalink to this headline">¶</a></h3>
 <p>If a pre-built runtime is not provided, Lithops automatically builds the default runtime the first time you run a script. For this task it uses the <strong>docker</strong> command installed locally in your machine. To make this working, you need:</p>
 <ol>
@@ -772,15 +759,15 @@
 </div>
 </li>
 </ol>
-</section>
-<section id="custom-runtime">
+</div>
+<div class="section" id="custom-runtime">
 <h3>Custom runtime<a class="headerlink" href="#custom-runtime" title="Permalink to this headline">¶</a></h3>
 <p>If you need to create a runtime with custom system packages and libraries, please follow <a class="reference external" href="https://github.com/lithops-cloud/lithops/tree/master/runtime/code_engine">Building and managing Lithops runtimes to run the functions</a></p>
-</section>
-</section>
-<section id="configure-a-private-container-registry-for-your-runtime">
+</div>
+</div>
+<div class="section" id="configure-a-private-container-registry-for-your-runtime">
 <h2>Configure a private container registry for your runtime<a class="headerlink" href="#configure-a-private-container-registry-for-your-runtime" title="Permalink to this headline">¶</a></h2>
-<section id="configure-docker-hub">
+<div class="section" id="configure-docker-hub">
 <h3>Configure Docker hub<a class="headerlink" href="#configure-docker-hub" title="Permalink to this headline">¶</a></h3>
 <p>To configure Lithops to access a private repository in your docker hub account, you need to extend the Code Engine config and add the following keys:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">code_engine</span><span class="p">:</span>
@@ -789,7 +776,7 @@
     <span class="nt">docker_password  </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;DOcker hub access TOEKN&gt;</span>
 </pre></div>
 </div>
-<section id="configure-ibm-container-registry">
+<div class="section" id="configure-ibm-container-registry">
 <h4>Configure IBM Container Registry<a class="headerlink" href="#configure-ibm-container-registry" title="Permalink to this headline">¶</a></h4>
 <p>To configure Lithops to access to a private repository in your IBM Container Registry, you need to extend the Code Engine config and add the following keys:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">code_engine</span><span class="p">:</span>
@@ -799,10 +786,10 @@
     <span class="nt">docker_password  </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;IBM IAM API KEY&gt;</span>
 </pre></div>
 </div>
-</section>
-</section>
-</section>
-<section id="summary-of-configuration-keys-for-job-api">
+</div>
+</div>
+</div>
+<div class="section" id="summary-of-configuration-keys-for-job-api">
 <h2>Summary of configuration keys for Job API:<a class="headerlink" href="#summary-of-configuration-keys-for-job-api" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto table">
 <thead>
@@ -888,11 +875,11 @@
 </tr>
 </tbody>
 </table>
-</section>
-<section id="lithops-using-knative-api-of-code-engine">
+</div>
+<div class="section" id="lithops-using-knative-api-of-code-engine">
 <h2>Lithops using Knative API of Code Engine<a class="headerlink" href="#lithops-using-knative-api-of-code-engine" title="Permalink to this headline">¶</a></h2>
 <p>The preferable way to run Lithops in Code Engine is by using the JOB API. However, Lithops can be also executed in Code Engine using the Knative API. To configure this mode of execution refer to the <a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/config/compute/knative.md#configuration">Knative documentation</a> and follow the steps to configure Knative.</p>
-<section id="usage-example">
+<div class="section" id="usage-example">
 <h3>Usage Example<a class="headerlink" href="#usage-example" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lithops</span>
 
@@ -907,13 +894,13 @@
     <span class="nb">print</span><span class="p">(</span><span class="n">lt</span><span class="o">.</span><span class="n">get_result</span><span class="p">())</span>
 </pre></div>
 </div>
-</section>
-<section id="troubleshooting">
+</div>
+<div class="section" id="troubleshooting">
 <h3>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h3>
-<section id="fault">
+<div class="section" id="fault">
 <h4>Fault<a class="headerlink" href="#fault" title="Permalink to this headline">¶</a></h4>
 <p>Lithops throws exception with ‘Missing access token parameter’</p>
-<section id="cause-remedy">
+<div class="section" id="cause-remedy">
 <h5>Cause / Remedy<a class="headerlink" href="#cause-remedy" title="Permalink to this headline">¶</a></h5>
 <p>This likely occurs when you were logout from ibmcloud or the kubectl token can’t re-generate new authentication token. To resolve this login into ibmcloud and re-create kubectl file</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ibmcloud login -r &lt;CE Project Region&gt;
@@ -921,11 +908,11 @@ ibmcloud target -g &lt;GROUP&gt; -o &lt;ORG&gt;
 ibmcloud ce project select --name &lt;CPROJECT NAME&gt; --kubecfg
 </pre></div>
 </div>
-</section>
-</section>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
               </div>
@@ -964,9 +951,9 @@ ibmcloud ce project select --name &lt;CPROJECT NAME&gt; --kubecfg
     <div class="container">
       <p>
         
-          By The Lithops Team<br/>
+          Por The Lithops Team<br/>
         
-            &copy; Copyright 2021, The Lithops Team.<br/>
+            &copy; Derechos de autor 2021, The Lithops Team.<br/>
       </p>
     </div>
   </footer>

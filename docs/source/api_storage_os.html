@@ -4,9 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>Storage OS API Details</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Storage OS API</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -37,6 +36,7 @@
     <script src="../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Distributed Scikit-learn / Joblib" href="sklearn_joblib.html" />
@@ -69,7 +69,7 @@
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar los documentos ..." aria-label="Buscar los documentos ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
@@ -145,11 +145,6 @@
    <li class="toctree-l2">
     <a class="reference internal" href="compute_config/aws_lambda.html">
      AWS Lambda
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/azure_batch.html">
-     Azure Batch (under development)
     </a>
    </li>
    <li class="toctree-l2">
@@ -319,7 +314,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="data_partitioning.html">
-   Data Pertitioning
+   Data Partitioning
   </a>
  </li>
 </ul>
@@ -336,7 +331,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Storage OS API Details
+   Storage OS API
   </a>
  </li>
  <li class="toctree-l1">
@@ -401,11 +396,6 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="development.html">
-   Development
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="testing.html">
    Testing Guidelines
   </a>
@@ -440,8 +430,8 @@
             
             <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
                 data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
                 <i class="fas fa-bars"></i>
                 <i class="fas fa-arrow-left"></i>
                 <i class="fas fa-arrow-up"></i>
@@ -449,7 +439,7 @@
             
             
 <div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
             class="fas fa-download"></i></button>
 
     <div class="dropdown-buttons">
@@ -457,10 +447,10 @@
         
         <!-- Download raw file -->
         <a class="dropdown-buttons" href="../_sources/source/api_storage_os.rst.txt"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
                 data-placement="left">.rst</button></a>
         <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
@@ -473,12 +463,9 @@
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
             href="https://github.com/lithops-cloud/lithops"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/lithops-cloud/lithops/issues/new?title=Issue%20on%20page%20%2Fsource/api_storage_os.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        
         
     </div>
 </div>
@@ -493,7 +480,7 @@
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
             <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+                <i class="fas fa-list"></i> Contenido
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
@@ -551,7 +538,11 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#os-path">
-     os.path
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       os.path
+      </span>
+     </code>
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
@@ -596,8 +587,8 @@
         
               <div>
                 
-  <section id="storage-os-api-details">
-<h1>Storage OS API Details<a class="headerlink" href="#storage-os-api-details" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="storage-os-api">
+<h1>Storage OS API<a class="headerlink" href="#storage-os-api" title="Permalink to this headline">¶</a></h1>
 <p>Lithops provides a transparent way to interact with the storage backend.</p>
 <p>The module <code class="docutils literal notranslate"><span class="pre">lithops.storage.cloud_proxy</span></code> mimics the <code class="docutils literal notranslate"><span class="pre">os</span></code> and the
 built-in function <code class="docutils literal notranslate"><span class="pre">open</span></code> to access Cloud Storage as if it were a local
@@ -626,12 +617,11 @@ section:</p>
     <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 </pre></div>
 </div>
-<section id="cloud-proxy-storage-api">
+<div class="section" id="cloud-proxy-storage-api">
 <h2>Cloud Proxy Storage API<a class="headerlink" href="#cloud-proxy-storage-api" title="Permalink to this headline">¶</a></h2>
-<section id="open">
+<div class="section" id="open">
 <h3><code class="docutils literal notranslate"><span class="pre">open()</span></code><a class="headerlink" href="#open" title="Permalink to this headline">¶</a></h3>
-<p>Similar to Python’s built-in function
-<code class="docutils literal notranslate"><span class="pre">`open()</span></code> &lt;<a class="reference external" href="https://docs.python.org/3/library/functions.html#open">https://docs.python.org/3/library/functions.html#open</a>&gt;`__.</p>
+<p>Similar to Python’s built-in function <a class="reference external" href="https://docs.python.org/3/library/functions.html#open">open()</a>.</p>
 <p>Manipulate an object stored in Cloud Object Storage.</p>
 <table class="table">
 <colgroup>
@@ -652,26 +642,22 @@ section:</p>
 </tr>
 </tbody>
 </table>
-<ul class="simple">
-<li><p><em>Example</em> ```python with open(‘bar/foo.txt’, ‘w’) as f:
-f.write(‘Hello world!’)</p></li>
-</ul>
-<p>with open(‘bar/foo.txt’, ‘r’) as f: print(f.read()) # Prints
-<code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">world!</span></code> ```</p>
-</section>
-<section id="os">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;bar/foo.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Hello world!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="os">
 <h3><code class="docutils literal notranslate"><span class="pre">os</span></code><a class="headerlink" href="#os" title="Permalink to this headline">¶</a></h3>
-<p>Similar to Python’s
-<code class="docutils literal notranslate"><span class="pre">`os</span></code> &lt;<a class="reference external" href="https://docs.python.org/3/library/os.html">https://docs.python.org/3/library/os.html</a>&gt;`__ library, except
-only file-related functionalities are implemented.</p>
-<section id="os-listdir">
+<p>Similar to Python’s <a class="reference external" href="https://docs.python.org/3/library/os.html">os</a> library, except only file-related functionalities are implemented.</p>
+<div class="section" id="os-listdir">
 <h4><code class="docutils literal notranslate"><span class="pre">os.listdir</span></code><a class="headerlink" href="#os-listdir" title="Permalink to this headline">¶</a></h4>
 <p>List all objects located in a directory.</p>
 <table class="table">
 <colgroup>
-<col style="width: 24%" />
-<col style="width: 60%" />
-<col style="width: 16%" />
+<col style="width: 23%" />
+<col style="width: 62%" />
+<col style="width: 15%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter</p></th>
@@ -682,10 +668,7 @@ only file-related functionalities are implemented.</p>
 <tbody>
 <tr class="row-even"><td><p>path</p></td>
 <td><p>File path. Must be an absolute path.</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>suffix_dirs</p></td>
 <td><p>Append a slash to directories listes</p></td>
@@ -693,20 +676,22 @@ only file-related functionalities are implemented.</p>
 </tr>
 </tbody>
 </table>
-<ul class="simple">
-<li><p><em>Example</em> ```python with open(‘bar/foo.txt’, ‘w’) as f:
-f.write(‘Hello world!’)</p></li>
-</ul>
-<p>files = os.listdir(‘/bar’) print(files) # Prints <code class="docutils literal notranslate"><span class="pre">['foo.txt']</span></code> ```</p>
-</section>
-<section id="os-walk">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;bar/foo.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Hello world!&#39;</span><span class="p">)</span>
+
+<span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;/bar&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>  <span class="c1"># Prints [&#39;foo.txt&#39;]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="os-walk">
 <h4><code class="docutils literal notranslate"><span class="pre">os.walk</span></code><a class="headerlink" href="#os-walk" title="Permalink to this headline">¶</a></h4>
 <p>List recursively all files and directories in a root path.</p>
 <table class="table">
 <colgroup>
-<col style="width: 17%" />
-<col style="width: 69%" />
-<col style="width: 14%" />
+<col style="width: 15%" />
+<col style="width: 72%" />
+<col style="width: 13%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter</p></th>
@@ -717,10 +702,7 @@ f.write(‘Hello world!’)</p></li>
 <tbody>
 <tr class="row-even"><td><p>path</p></td>
 <td><p>Root path. Must be an absolute path.</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>topdown</p></td>
 <td><p>List directory tree top-down instead of bottom-up</p></td>
@@ -728,93 +710,24 @@ f.write(‘Hello world!’)</p></li>
 </tr>
 </tbody>
 </table>
-<ul class="simple">
-<li><p><em>Example</em> ```python files = [‘/bar/foo.txt’, ‘/bar/image.jpg’,
-‘/bar/subdir/data.csv’] for file in files: with open(file, ‘w’) as f:
-f.write(‘Hello world!’)</p></li>
-</ul>
-<p>for root, dirs, files in os.walk(‘/’): print(root, dirs, files) # Prints
-‘/’ [‘bar’] [], ‘/bar’ [‘subdir’] [‘foo.txt’, ‘image.jpg’],
-‘/bar/subdir’ [] [‘data.csv’] ```</p>
-</section>
-<section id="os-remove">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;/bar/foo.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;/bar/image.jpg&#39;</span><span class="p">,</span> <span class="s1">&#39;/bar/subdir/data.csv&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Hello world!&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span><span class="p">)</span>  <span class="c1"># Prints &#39;/&#39; [&#39;bar&#39;] [], &#39;/bar&#39; [&#39;subdir&#39;] [&#39;foo.txt&#39;, &#39;image.jpg&#39;], &#39;/bar/subdir&#39; [] [&#39;data.csv&#39;]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="os-remove">
 <h4><code class="docutils literal notranslate"><span class="pre">os.remove</span></code><a class="headerlink" href="#os-remove" title="Permalink to this headline">¶</a></h4>
 <p>Delete a file. If the directory where the file is located is empty after
 the file is deleted, this directory it is also removed.</p>
 <table class="table">
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 63%" />
-<col style="width: 17%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Parameter</p></th>
-<th class="head"><p>Description</p></th>
-<th class="head"><p>Default</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>path</p></td>
-<td><p>File path. Must be an absolute path.</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<ul class="simple">
-<li><p><em>Example</em> ```python with open(‘bar/foo.txt’, ‘w’) as f:
-f.write(‘Hello world!’)</p></li>
-</ul>
-<p>os.remove(‘/bar/foo.txt’) files = os.listdir(‘/’) print(files) # Prints
-<code class="docutils literal notranslate"><span class="pre">[]</span></code> ```</p>
-</section>
-</section>
-<section id="os-path">
-<h3>os.path<a class="headerlink" href="#os-path" title="Permalink to this headline">¶</a></h3>
-<p>Similar to Python’s
-<code class="docutils literal notranslate"><span class="pre">`os.path</span></code> &lt;<a class="reference external" href="https://docs.python.org/3/library/os.path.html">https://docs.python.org/3/library/os.path.html</a>&gt;`__, except
-only file-realted functionalities are implemented.</p>
-<section id="os-path-isfile">
-<h4><code class="docutils literal notranslate"><span class="pre">os.path.isfile</span></code><a class="headerlink" href="#os-path-isfile" title="Permalink to this headline">¶</a></h4>
-<p>Retrun <code class="docutils literal notranslate"><span class="pre">True</span></code> if a path is a file.</p>
-<table class="table">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 63%" />
-<col style="width: 17%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Parameter</p></th>
-<th class="head"><p>Description</p></th>
-<th class="head"><p>Default</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>path</p></td>
-<td><p>File path. Must be an absolute path.</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<ul class="simple">
-<li><p><em>Example</em> ```python with open(‘bar/foo.txt’, ‘w’) as f:
-f.write(‘Hello world!’)</p></li>
-</ul>
-<p>print(os.path.isfile(‘/bar/foo.txt’)) # Prints <code class="docutils literal notranslate"><span class="pre">True</span></code>
-print(os.path.isfile(‘/bar’)) # Prints <code class="docutils literal notranslate"><span class="pre">False</span></code> ```</p>
-</section>
-<section id="os-path-isdir">
-<h4><code class="docutils literal notranslate"><span class="pre">os.path.isdir</span></code><a class="headerlink" href="#os-path-isdir" title="Permalink to this headline">¶</a></h4>
-<p>Retrun <code class="docutils literal notranslate"><span class="pre">True</span></code> if a path is a directory.</p>
-<table class="table">
-<colgroup>
 <col style="width: 19%" />
-<col style="width: 65%" />
+<col style="width: 66%" />
 <col style="width: 16%" />
 </colgroup>
 <thead>
@@ -825,30 +738,93 @@ print(os.path.isfile(‘/bar’)) # Prints <code class="docutils literal notrans
 </thead>
 <tbody>
 <tr class="row-even"><td><p>path</p></td>
-<td><p>Directory path. Must be an absolute path.</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
+<td><p>File path. Must be an absolute path.</p></td>
+<td></td>
 </tr>
 </tbody>
 </table>
-<ul class="simple">
-<li><p><em>Example</em> ```python with open(‘bar/foo.txt’, ‘w’) as f:
-f.write(‘Hello world!’)</p></li>
-</ul>
-<p>print(os.path.isdir(‘/bar/foo.txt’)) # Prints <code class="docutils literal notranslate"><span class="pre">False</span></code>
-print(os.path.isdir(‘/bar’)) # Prints <code class="docutils literal notranslate"><span class="pre">True</span></code> ```</p>
-</section>
-<section id="os-path-exists">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;bar/foo.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Hello world!&#39;</span><span class="p">)</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;/bar/foo.txt&#39;</span><span class="p">)</span>
+<span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>  <span class="c1"># Prints []</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="os-path">
+<h3><code class="docutils literal notranslate"><span class="pre">os.path</span></code><a class="headerlink" href="#os-path" title="Permalink to this headline">¶</a></h3>
+<p>Similar to Python’s <a class="reference external" href="https://docs.python.org/3/library/os.path.html">os.path</a>, except only file-realted functionalities are implemented.</p>
+<div class="section" id="os-path-isfile">
+<h4><code class="docutils literal notranslate"><span class="pre">os.path.isfile</span></code><a class="headerlink" href="#os-path-isfile" title="Permalink to this headline">¶</a></h4>
+<p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if a path is a file.</p>
+<table class="table">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 66%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Default</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>path</p></td>
+<td><p>File path. Must be an absolute path.</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;bar/foo.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Hello world!&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="s1">&#39;/bar/foo.txt&#39;</span><span class="p">))</span>  <span class="c1"># Prints ``True``</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="s1">&#39;/bar&#39;</span><span class="p">))</span>  <span class="c1"># Prints ``False``</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="os-path-isdir">
+<h4><code class="docutils literal notranslate"><span class="pre">os.path.isdir</span></code><a class="headerlink" href="#os-path-isdir" title="Permalink to this headline">¶</a></h4>
+<p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if a path is a directory.</p>
+<table class="table">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 68%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Default</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>path</p></td>
+<td><p>Directory path. Must be an absolute path.</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;bar/foo.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Hello world!&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="s1">&#39;/bar/foo.txt&#39;</span><span class="p">))</span>  <span class="c1"># Prints False</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="s1">&#39;/bar&#39;</span><span class="p">))</span>  <span class="c1"># Prints True</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="os-path-exists">
 <h4><code class="docutils literal notranslate"><span class="pre">os.path.exists</span></code><a class="headerlink" href="#os-path-exists" title="Permalink to this headline">¶</a></h4>
 <p>Retrun <code class="docutils literal notranslate"><span class="pre">True</span></code> if a path corresponds to an existing file or directory
 in Cloud Object Storage.</p>
 <table class="table">
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 64%" />
-<col style="width: 17%" />
+<col style="width: 18%" />
+<col style="width: 67%" />
+<col style="width: 15%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter</p></th>
@@ -859,23 +835,21 @@ in Cloud Object Storage.</p>
 <tbody>
 <tr class="row-even"><td><p>path</p></td>
 <td><p>Target path. Must be an absolute path.</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
+<td></td>
 </tr>
 </tbody>
 </table>
-<ul class="simple">
-<li><p><em>Example</em> ```python with open(‘bar/foo.txt’, ‘w’) as f:
-f.write(‘Hello world!’)</p></li>
-</ul>
-<p>print(os.path.exists(‘/bar/foo.txt’)) # Prints <code class="docutils literal notranslate"><span class="pre">True</span></code>
-print(os.path.exists(‘/baz/foo.txt’)) # Prints <code class="docutils literal notranslate"><span class="pre">False</span></code> ```</p>
-</section>
-</section>
-</section>
-</section>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;bar/foo.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Hello world!&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;/bar/foo.txt&#39;</span><span class="p">))</span>  <span class="c1"># Prints True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;/baz/foo.txt&#39;</span><span class="p">))</span>  <span class="c1"># Prints False</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
               </div>
@@ -914,9 +888,9 @@ print(os.path.exists(‘/baz/foo.txt’)) # Prints <code class="docutils literal
     <div class="container">
       <p>
         
-          By The Lithops Team<br/>
+          Por The Lithops Team<br/>
         
-            &copy; Copyright 2021, The Lithops Team.<br/>
+            &copy; Derechos de autor 2021, The Lithops Team.<br/>
       </p>
     </div>
   </footer>
