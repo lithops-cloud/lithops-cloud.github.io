@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; Lithops v2.5.4</title>
+    <title>Index</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -63,8 +63,6 @@
       <img src="_static/lithops_logo_readme.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Lithops v2.5.4</h1>
-      
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
@@ -90,41 +88,19 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="source/comparing_lithops.html">
+   Comparing Lithops with other distributed computing frameworks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="source/supported_clouds.html">
    Supported Clouds
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="source/comparing_lithops.html">
-   Comparing Lithops with other distributed computing frameworks
-  </a>
- </li>
- <li class="toctree-l1 has-children">
   <a class="reference internal" href="source/execution_modes.html">
    Execution Modes
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="source/mode_localhost.html">
-     Localhost Execution Mode
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="source/mode_serverless.html">
-     Serverless Execution Mode
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="source/mode_standalone.html">
-     Standalone Execution Mode
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="source/cli.html">
@@ -134,13 +110,13 @@
 </ul>
 <p class="caption" role="heading">
  <span class="caption-text">
-  Install and configure Lithops
+  Install and Configure Lithops
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="source/install_lithops.html">
-   Install Lithops
+   Installing Lithops
   </a>
  </li>
  <li class="toctree-l1">
@@ -149,11 +125,11 @@
   </a>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="source/backends_config.html">
-   Backends Configuration
+  <a class="reference internal" href="source/compute_backends.html">
+   Compute Backends
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -185,12 +161,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="source/compute_config/gcp_cloudrun.html">
-     GCP Cloud Run
+     Google Cloud Run
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="source/compute_config/gcp_functions.html">
-     GCP Functions
+     Google Cloud Functions
     </a>
    </li>
    <li class="toctree-l2">
@@ -228,6 +204,18 @@
      Virtual Machine
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="source/storage_backends.html">
+   Storage Backends
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="source/storage_config/aliyun_oss.html">
      Aliyun Object Storage Service
@@ -283,7 +271,7 @@
 </ul>
 <p class="caption" role="heading">
  <span class="caption-text">
-  Compute API
+  Lithops Compute API
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -305,18 +293,13 @@
 </ul>
 <p class="caption" role="heading">
  <span class="caption-text">
-  Storage API
+  Lithops Storage API
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="source/api_storage.html">
-   Lithops Storage API
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="source/api_storage_os.html">
-   Storage OS API Details
+   Storage API Deatils
   </a>
  </li>
 </ul>
@@ -328,12 +311,61 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="source/data_processing.html">
-   Processing data from a Cloud Object Storage
+   Processing data from the Cloud
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="source/file_chunking.html">
-   File “chunking”
+  <a class="reference internal" href="source/data_partitioning.html">
+   Data Pertitioning
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Integrations
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/api_multiprocessing.html">
+   Multiprocessing API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/api_storage_os.html">
+   Storage OS API Details
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/sklearn_joblib.html">
+   Distributed Scikit-learn / Joblib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/airflow.html">
+   Airflow
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Advanced Features
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/worker_granularity.html">
+   Customize Worker Granularity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/monitoring.html">
+   Lithops Monitoring
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/customized_runtime.html">
+   Dynamic Runtime Customization
   </a>
  </li>
 </ul>
@@ -344,23 +376,13 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="source/api_multiprocessing.html">
-   Multiprocessing API
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="source/metrics.html">
    Prometheus Monitoring
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="source/dso.html">
-   Distributed shared objects across function activations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="source/sklearn_joblib.html">
-   Distributed Scikit-learn / Joblib
+   Distributed shared objects
   </a>
  </li>
 </ul>
@@ -373,6 +395,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="source/contributing.html">
    Contributing to Lithops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/development.html">
+   Development
   </a>
  </li>
  <li class="toctree-l1">
@@ -640,9 +667,9 @@
     <div class="container">
       <p>
         
-          By Josep Sampé, Gil Vernik<br/>
+          By The Lithops Team<br/>
         
-            &copy; Copyright 2021, IBM Corp., Cloudlab URV.<br/>
+            &copy; Copyright 2021, The Lithops Team.<br/>
       </p>
     </div>
   </footer>

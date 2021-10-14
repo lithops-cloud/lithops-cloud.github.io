@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>What is Lithops? &#8212; Lithops v2.5.4</title>
+    <title>What is Lithops?</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -65,8 +65,6 @@
       <img src="_static/lithops_logo_readme.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Lithops v2.5.4</h1>
-      
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
@@ -92,41 +90,19 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="source/comparing_lithops.html">
+   Comparing Lithops with other distributed computing frameworks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="source/supported_clouds.html">
    Supported Clouds
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="source/comparing_lithops.html">
-   Comparing Lithops with other distributed computing frameworks
-  </a>
- </li>
- <li class="toctree-l1 has-children">
   <a class="reference internal" href="source/execution_modes.html">
    Execution Modes
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="source/mode_localhost.html">
-     Localhost Execution Mode
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="source/mode_serverless.html">
-     Serverless Execution Mode
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="source/mode_standalone.html">
-     Standalone Execution Mode
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="source/cli.html">
@@ -136,13 +112,13 @@
 </ul>
 <p class="caption" role="heading">
  <span class="caption-text">
-  Install and configure Lithops
+  Install and Configure Lithops
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="source/install_lithops.html">
-   Install Lithops
+   Installing Lithops
   </a>
  </li>
  <li class="toctree-l1">
@@ -151,11 +127,11 @@
   </a>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="source/backends_config.html">
-   Backends Configuration
+  <a class="reference internal" href="source/compute_backends.html">
+   Compute Backends
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -187,12 +163,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="source/compute_config/gcp_cloudrun.html">
-     GCP Cloud Run
+     Google Cloud Run
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="source/compute_config/gcp_functions.html">
-     GCP Functions
+     Google Cloud Functions
     </a>
    </li>
    <li class="toctree-l2">
@@ -230,6 +206,18 @@
      Virtual Machine
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="source/storage_backends.html">
+   Storage Backends
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="source/storage_config/aliyun_oss.html">
      Aliyun Object Storage Service
@@ -285,7 +273,7 @@
 </ul>
 <p class="caption" role="heading">
  <span class="caption-text">
-  Compute API
+  Lithops Compute API
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -307,18 +295,13 @@
 </ul>
 <p class="caption" role="heading">
  <span class="caption-text">
-  Storage API
+  Lithops Storage API
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="source/api_storage.html">
-   Lithops Storage API
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="source/api_storage_os.html">
-   Storage OS API Details
+   Storage API Deatils
   </a>
  </li>
 </ul>
@@ -330,12 +313,61 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="source/data_processing.html">
-   Processing data from a Cloud Object Storage
+   Processing data from the Cloud
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="source/file_chunking.html">
-   File “chunking”
+  <a class="reference internal" href="source/data_partitioning.html">
+   Data Pertitioning
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Integrations
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/api_multiprocessing.html">
+   Multiprocessing API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/api_storage_os.html">
+   Storage OS API Details
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/sklearn_joblib.html">
+   Distributed Scikit-learn / Joblib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/airflow.html">
+   Airflow
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Advanced Features
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/worker_granularity.html">
+   Customize Worker Granularity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/monitoring.html">
+   Lithops Monitoring
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/customized_runtime.html">
+   Dynamic Runtime Customization
   </a>
  </li>
 </ul>
@@ -346,23 +378,13 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="source/api_multiprocessing.html">
-   Multiprocessing API
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="source/metrics.html">
    Prometheus Monitoring
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="source/dso.html">
-   Distributed shared objects across function activations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="source/sklearn_joblib.html">
-   Distributed Scikit-learn / Joblib
+   Distributed shared objects
   </a>
  </li>
 </ul>
@@ -375,6 +397,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="source/contributing.html">
    Contributing to Lithops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/development.html">
+   Development
   </a>
  </li>
  <li class="toctree-l1">
@@ -485,11 +512,6 @@
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#execution-modes">
-   Execution Modes
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#what-is-lithops-used-for">
    What is Lithops used for?
   </a>
@@ -526,7 +548,7 @@
                 
   <section id="what-is-lithops">
 <h1>What is Lithops?<a class="headerlink" href="#what-is-lithops" title="Permalink to this headline">¶</a></h1>
-<img alt="_images/lithops_logo_readme.png" class="align-center" src="_images/lithops_logo_readme.png" />
+<img alt="Lithops" class="align-center" src="_images/lithops_logo_readme.png" />
 <p><strong>Lithops is a Python multi-cloud serverless computing framework. It allows to run unmodified local python code at massive scale in the main serverless computing platforms.</strong></p>
 <p>Lithops delivers the user’s code into the cloud without requiring knowledge of how it is deployed and run.
 Moreover, its multicloud-agnostic architecture ensures portability across cloud providers, overcoming vendor lock-in.</p>
@@ -561,30 +583,7 @@ analytics, to name a few.</p>
 <h1>Use any Cloud<a class="headerlink" href="#use-any-cloud" title="Permalink to this headline">¶</a></h1>
 <p><strong>Lithops provides an extensible backend architecture that is designed to work with different compute and storage services available on Cloud providers and on-premise backends.</strong></p>
 <p>In this sense, you can code your application in Python and run it unmodified wherever your data is located at: IBM Cloud, AWS, Azure, Google Cloud and Alibaba Aliyun…</p>
-<img alt="_images/multicloud.jpg" class="align-center" src="_images/multicloud.jpg" />
-</section>
-<section id="execution-modes">
-<h1>Execution Modes<a class="headerlink" href="#execution-modes" title="Permalink to this headline">¶</a></h1>
-<p>Lithops ships with 3 different modes of execution. The execution mode allows you to decide where and how the functions are executed.</p>
-<table class="table">
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Localhost Mode</p></th>
-<th class="head"><p>Serverless Mode</p></th>
-<th class="head"><p>Standalone Mode</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Run functions in your local machine, by using processes. This is the default mode of execution if no configuration is provided.</p></td>
-<td><p>Run functions by using public FaaS services, such as IBM Cloud Functions or Amazon Lambda. In this mode of execution, each function invocation equals to a parallel task running in the cloud in an isolated environment.</p></td>
-<td><p>Run functions by using one or multiple Virtual machines (VM), either in a private cluster or in the cloud. In each VM, functions run using parallel processes.</p></td>
-</tr>
-</tbody>
-</table>
+<img alt="Available backends" class="align-center" src="_images/multicloud.jpg" />
 </section>
 <section id="what-is-lithops-used-for">
 <h1>What is Lithops used for?<a class="headerlink" href="#what-is-lithops-used-for" title="Permalink to this headline">¶</a></h1>
@@ -659,6 +658,10 @@ analytics, to name a few.</p>
 </div>
 <div class="toctree-wrapper compound">
 </div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 </section>
 
@@ -690,9 +693,9 @@ analytics, to name a few.</p>
     <div class="container">
       <p>
         
-          By Josep Sampé, Gil Vernik<br/>
+          By The Lithops Team<br/>
         
-            &copy; Copyright 2021, IBM Corp., Cloudlab URV.<br/>
+            &copy; Copyright 2021, The Lithops Team.<br/>
       </p>
     </div>
   </footer>

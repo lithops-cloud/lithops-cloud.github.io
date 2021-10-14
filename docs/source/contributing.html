@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Contributing to Lithops &#8212; Lithops v2.5.4</title>
+    <title>Contributing to Lithops</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -39,8 +39,8 @@
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Testing Guidelines" href="testing.html" />
-    <link rel="prev" title="Distributed Scikit-learn / Joblib" href="sklearn_joblib.html" />
+    <link rel="next" title="Development" href="development.html" />
+    <link rel="prev" title="Distributed shared objects" href="dso.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -65,8 +65,6 @@
       
       <img src="../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
-      
-      <h1 class="site-logo" id="site-title">Lithops v2.5.4</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -93,41 +91,19 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="comparing_lithops.html">
+   Comparing Lithops with other distributed computing frameworks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="supported_clouds.html">
    Supported Clouds
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="comparing_lithops.html">
-   Comparing Lithops with other distributed computing frameworks
-  </a>
- </li>
- <li class="toctree-l1 has-children">
   <a class="reference internal" href="execution_modes.html">
    Execution Modes
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="mode_localhost.html">
-     Localhost Execution Mode
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="mode_serverless.html">
-     Serverless Execution Mode
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="mode_standalone.html">
-     Standalone Execution Mode
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="cli.html">
@@ -137,13 +113,13 @@
 </ul>
 <p class="caption" role="heading">
  <span class="caption-text">
-  Install and configure Lithops
+  Install and Configure Lithops
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="install_lithops.html">
-   Install Lithops
+   Installing Lithops
   </a>
  </li>
  <li class="toctree-l1">
@@ -152,11 +128,11 @@
   </a>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="backends_config.html">
-   Backends Configuration
+  <a class="reference internal" href="compute_backends.html">
+   Compute Backends
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -188,12 +164,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="compute_config/gcp_cloudrun.html">
-     GCP Cloud Run
+     Google Cloud Run
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="compute_config/gcp_functions.html">
-     GCP Functions
+     Google Cloud Functions
     </a>
    </li>
    <li class="toctree-l2">
@@ -231,6 +207,18 @@
      Virtual Machine
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="storage_backends.html">
+   Storage Backends
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="storage_config/aliyun_oss.html">
      Aliyun Object Storage Service
@@ -286,7 +274,7 @@
 </ul>
 <p class="caption" role="heading">
  <span class="caption-text">
-  Compute API
+  Lithops Compute API
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -308,18 +296,13 @@
 </ul>
 <p class="caption" role="heading">
  <span class="caption-text">
-  Storage API
+  Lithops Storage API
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="api_storage.html">
-   Lithops Storage API
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="api_storage_os.html">
-   Storage OS API Details
+   Storage API Deatils
   </a>
  </li>
 </ul>
@@ -331,12 +314,61 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="data_processing.html">
-   Processing data from a Cloud Object Storage
+   Processing data from the Cloud
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="file_chunking.html">
-   File “chunking”
+  <a class="reference internal" href="data_partitioning.html">
+   Data Pertitioning
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Integrations
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="api_multiprocessing.html">
+   Multiprocessing API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="api_storage_os.html">
+   Storage OS API Details
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sklearn_joblib.html">
+   Distributed Scikit-learn / Joblib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="airflow.html">
+   Airflow
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Advanced Features
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="worker_granularity.html">
+   Customize Worker Granularity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="monitoring.html">
+   Lithops Monitoring
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="customized_runtime.html">
+   Dynamic Runtime Customization
   </a>
  </li>
 </ul>
@@ -347,23 +379,13 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="api_multiprocessing.html">
-   Multiprocessing API
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="metrics.html">
    Prometheus Monitoring
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="dso.html">
-   Distributed shared objects across function activations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="sklearn_joblib.html">
-   Distributed Scikit-learn / Joblib
+   Distributed shared objects
   </a>
  </li>
 </ul>
@@ -376,6 +398,11 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Contributing to Lithops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="development.html">
+   Development
   </a>
  </li>
  <li class="toctree-l1">
@@ -429,9 +456,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/source/contributing.md.txt"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/source/contributing.rst.txt"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.rst</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -496,20 +523,19 @@
         
               <div>
                 
-  <p>.. _contributing:</p>
-<section class="tex2jax_ignore mathjax_ignore" id="contributing-to-lithops">
-<h1>Contributing to Lithops<a class="headerlink" href="#contributing-to-lithops" title="Permalink to this headline">¶</a></h1>
+  <section id="contributing-to-lithops">
+<span id="contributing"></span><h1>Contributing to Lithops<a class="headerlink" href="#contributing-to-lithops" title="Permalink to this headline">¶</a></h1>
 <section id="reporting-bugs-and-asking-questions">
 <h2>Reporting bugs and asking questions<a class="headerlink" href="#reporting-bugs-and-asking-questions" title="Permalink to this headline">¶</a></h2>
 <p>You can post questions or issues or feedback through the following channels:</p>
-<ol class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Github</span> <span class="pre">Discussions</span> <span class="pre">&lt;https://github.com/lithops-cloud/lithops/discussions&gt;</span></code>_: For discussions about development, questions about usage, and feature requests.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GitHub</span> <span class="pre">Issues</span> <span class="pre">&lt;https://github.com/lithops-cloud/lithops/issues&gt;</span></code>_: For bug reports and feature requests.</p></li>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://github.com/lithops-cloud/lithops/discussions">Github Discussions</a>: For discussions about development, questions about usage, and feature requests.</p></li>
+<li><p><a class="reference external" href="https://github.com/lithops-cloud/lithops/issues">GitHub Issues</a>: For bug reports and feature requests.</p></li>
 </ol>
 </section>
 <section id="to-contribute-a-patch">
 <h2>To contribute a patch<a class="headerlink" href="#to-contribute-a-patch" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Break your work into small, single-purpose patches if possible. It’s much
 harder to merge in a large change with a lot of disjoint features.</p></li>
 <li><p>Submit the patch as a GitHub pull request against the master branch.</p></li>
@@ -521,11 +547,13 @@ harder to merge in a large change with a lot of disjoint features.</p></li>
 <section id="unit-testing">
 <h2>Unit testing<a class="headerlink" href="#unit-testing" title="Permalink to this headline">¶</a></h2>
 <p>To test that all is working as expected, run either:</p>
-<p>.. code::</p>
-<p>$ lithops verify</p>
-<p>.. code::</p>
-<p>$ python3 -m lithops.tests.tests_main</p>
-<p>Please follow the guidelines in :ref:<code class="docutils literal notranslate"><span class="pre">testing</span></code> for more details.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ lithops verify
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 -m lithops.tests.tests_main
+</pre></div>
+</div>
+<p>Please follow the guidelines in <a class="reference internal" href="testing.html#testing"><span class="std std-ref">Testing Guidelines</span></a> for more details.</p>
 </section>
 </section>
 
@@ -540,19 +568,19 @@ harder to merge in a large change with a lot of disjoint features.</p></li>
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="sklearn_joblib.html" title="previous page">
+        <a class="left-prev" href="dso.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Distributed Scikit-learn / Joblib</p>
+                <p class="prevnext-title">Distributed shared objects</p>
             </div>
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="testing.html" title="next page">
+        <a class="right-next" href="development.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Testing Guidelines</p>
+                <p class="prevnext-title">Development</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
@@ -566,9 +594,9 @@ harder to merge in a large change with a lot of disjoint features.</p></li>
     <div class="container">
       <p>
         
-          By Josep Sampé, Gil Vernik<br/>
+          By The Lithops Team<br/>
         
-            &copy; Copyright 2021, IBM Corp., Cloudlab URV.<br/>
+            &copy; Copyright 2021, The Lithops Team.<br/>
       </p>
     </div>
   </footer>
