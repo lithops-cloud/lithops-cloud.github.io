@@ -340,7 +340,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="source/airflow.html">
-   Airflow
+   Apache Airflow
   </a>
  </li>
 </ul>
@@ -499,11 +499,6 @@
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-is-lithops-used-for">
-   What is Lithops used for?
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#additional-resources">
    Additional resources
   </a>
@@ -536,6 +531,9 @@
   <div class="section" id="what-is-lithops">
 <h1>What is Lithops?<a class="headerlink" href="#what-is-lithops" title="Permalink to this headline">¶</a></h1>
 <img alt="Lithops" class="align-center" src="_images/lithops_logo_readme.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <p><strong>Lithops is a Python multi-cloud serverless computing framework. It allows to run unmodified local python code at massive scale in the main serverless computing platforms.</strong></p>
 <p>Lithops delivers the user’s code into the cloud without requiring knowledge of how it is deployed and run.
 Moreover, its multicloud-agnostic architecture ensures portability across cloud providers, overcoming vendor lock-in.</p>
@@ -571,34 +569,9 @@ analytics, to name a few.</p>
 <p><strong>Lithops provides an extensible backend architecture that is designed to work with different compute and storage services available on Cloud providers and on-premise backends.</strong></p>
 <p>In this sense, you can code your application in Python and run it unmodified wherever your data is located at: IBM Cloud, AWS, Azure, Google Cloud and Alibaba Aliyun…</p>
 <img alt="Available backends" class="align-center" src="_images/multicloud.jpg" />
+<div class="line-block">
+<div class="line"><br /></div>
 </div>
-<div class="section" id="what-is-lithops-used-for">
-<h1>What is Lithops used for?<a class="headerlink" href="#what-is-lithops-used-for" title="Permalink to this headline">¶</a></h1>
-<table class="table">
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>👍 Lithops is good at…</p></th>
-<th class="head"><p>👎 Lithops is bad at…</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Embarrassingly parallel applications</p></td>
-<td><p>Micro-services (blocking request-response APIs)</p></td>
-</tr>
-<tr class="row-odd"><td><p>Batch processing for Big Data analytics that consume data from object storage</p></td>
-<td><p>Stream processing</p></td>
-</tr>
-<tr class="row-even"><td><p>Elastic applications where optimal compute resources cannot be established beforehand</p></td>
-<td><p>Applications that require specialized hardware like GPUs</p></td>
-</tr>
-<tr class="row-odd"><td><p>Stateful applications that make use of external services to mediate lightweight communication (like RabbitMQ or SQS)</p></td>
-<td><p>Applications that require heavy process to process communication (like MPI)</p></td>
-</tr>
-</tbody>
-</table>
 </div>
 <div class="section" id="additional-resources">
 <h1>Additional resources<a class="headerlink" href="#additional-resources" title="Permalink to this headline">¶</a></h1>
