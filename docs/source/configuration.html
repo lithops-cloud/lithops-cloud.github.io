@@ -396,6 +396,11 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/lithops-cloud/applications">
+   Applications
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="contributing.html">
    Contributing to Lithops
   </a>
@@ -512,11 +517,6 @@
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#lithops-config-keys">
      Lithops Config Keys
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#standalone-config-keys">
-     Standalone Config Keys
     </a>
    </li>
   </ul>
@@ -731,70 +731,6 @@ details as part of the Lithops invocation in runtime. You can see an entire list
 <td><p>False</p></td>
 <td><p>no</p></td>
 <td><p>Enables to build a new runtime with the map() function and its dependencies integrated. Only docker-based backends support this feature. |</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="standalone-config-keys">
-<h3>Standalone Config Keys<a class="headerlink" href="#standalone-config-keys" title="Permalink to this headline">¶</a></h3>
-<table class="colwidths-given table">
-<colgroup>
-<col style="width: 5%" />
-<col style="width: 5%" />
-<col style="width: 20%" />
-<col style="width: 10%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Group</p></th>
-<th class="head"><p>Key</p></th>
-<th class="head"><p>Default</p></th>
-<th class="head"><p>Mandatory</p></th>
-<th class="head"><p>Additional info</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>standalone</p></td>
-<td><p>backend</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">ibm_vpc</span></code></p></td>
-<td><p>no</p></td>
-<td><p>Standalone compute backend implementation. IBM VPC is the default. If set it will overwrite the <cite>backend</cite> set in lithops section</p></td>
-</tr>
-<tr class="row-odd"><td><p>standalone</p></td>
-<td><p>runtime</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">python3</span></code></p></td>
-<td><p>no</p></td>
-<td><p>Runtime name to run the functions. Can be a Docker image name</p></td>
-</tr>
-<tr class="row-even"><td><p>standalone</p></td>
-<td><p>auto_dismantle</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
-<td><p>no</p></td>
-<td><p>If False then the VM is not stopped automatically. Run <strong>exec.dismantle()</strong> explicitly to stop the VM.</p></td>
-</tr>
-<tr class="row-odd"><td><p>standalone</p></td>
-<td><p>soft_dismantle_timeout</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">300</span></code></p></td>
-<td><p>no</p></td>
-<td><p>Time in seconds to stop the VM instance after a job <strong>completed</strong> its execution</p></td>
-</tr>
-<tr class="row-even"><td><p>standalone</p></td>
-<td><p>hard_dismantle_timeout</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">3600</span></code></p></td>
-<td><p>no</p></td>
-<td><p>Time in seconds to stop the VM instance after a job <strong>started</strong> its execution</p></td>
-</tr>
-<tr class="row-odd"><td><p>standalone</p></td>
-<td><p>exec_mode</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">consume</span></code></p></td>
-<td><p>no</p></td>
-<td><p>One of: <strong>consume</strong> or <strong>create</strong>. If set to  <strong>create</strong>, Lithops will automatically create VMs based on the number of elements in iterdata</p></td>
-</tr>
-<tr class="row-even"><td><p>standalone</p></td>
-<td><p>pull_runtime</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
-<td><p>no</p></td>
-<td><p>If set to True, Lithops will execute the command <cite>docker pull &lt;runtime_name&gt;</cite> in each VSI before executing the a job</p></td>
 </tr>
 </tbody>
 </table>
