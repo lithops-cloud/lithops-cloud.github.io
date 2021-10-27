@@ -40,7 +40,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Azure Functions" href="azure_functions.html" />
-    <link rel="prev" title="Aliyun Function Compute" href="aliyun_functions.html" />
+    <link rel="prev" title="AWS Elastic Compute Cloud (EC2) (Beta)" href="aws_ec2.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -140,6 +140,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="aliyun_functions.html">
      Aliyun Function Compute
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="aws_ec2.html">
+     AWS Elastic Compute Cloud (EC2) (Beta)
     </a>
    </li>
    <li class="toctree-l2 current active">
@@ -598,17 +603,17 @@
 <ol class="simple">
 <li><p>Edit your lithops config and add the following keys:</p></li>
 </ol>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span>    <span class="nt">lithops</span><span class="p">:</span>
-        <span class="nt">backend</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_lambda</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
+    <span class="nt">backend</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_lambda</span>
 
-    <span class="nt">aws</span><span class="p">:</span>
-        <span class="nt">access_key_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;ACCESS_KEY_ID&gt;</span>
-        <span class="nt">secret_access_key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;SECRET_ACCESS_KEY&gt;</span>
-        <span class="c1">#account_id: &lt;ACCOUNT_ID&gt;  # Optional</span>
+<span class="nt">aws</span><span class="p">:</span>
+    <span class="nt">access_key_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;ACCESS_KEY_ID&gt;</span>
+    <span class="nt">secret_access_key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;SECRET_ACCESS_KEY&gt;</span>
+    <span class="c1">#account_id: &lt;ACCOUNT_ID&gt;  # Optional</span>
 
-    <span class="nt">aws_lambda</span><span class="p">:</span>
-        <span class="nt">execution_role</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;EXECUTION_ROLE_ARN&gt;</span>
-        <span class="nt">region_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span>
+<span class="nt">aws_lambda</span><span class="p">:</span>
+    <span class="nt">execution_role</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;EXECUTION_ROLE_ARN&gt;</span>
+    <span class="nt">region_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span>
 </pre></div>
 </div>
 </div>
@@ -722,17 +727,17 @@
 <div class="section" id="vpc">
 <h3>VPC<a class="headerlink" href="#vpc" title="Permalink to this headline">¶</a></h3>
 <p>To connect the Lithops lambda to a VPC, add the following configuration to the <code class="docutils literal notranslate"><span class="pre">aws_lambda</span></code> configuration section:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span>    <span class="nt">aws_lambda</span><span class="p">:</span>
-        <span class="nt">execution_role</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;EXECUTION_ROLE_ARN&gt;</span>
-        <span class="nt">region_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span>
-        <span class="nt">vpc</span><span class="p">:</span>
-            <span class="nt">subnets</span><span class="p">:</span>
-                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt;SUBNET_ID_1&gt;</span>
-                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt;SUBNET_ID_2&gt;</span>
-                <span class="l l-Scalar l-Scalar-Plain">...</span>
-            <span class="nt">security_groups</span><span class="p">:</span>
-                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt;SECURITY_GROUP_1&gt;</span>
-                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt;SECURITY_GROUP_2&gt;</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">aws_lambda</span><span class="p">:</span>
+    <span class="nt">execution_role</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;EXECUTION_ROLE_ARN&gt;</span>
+    <span class="nt">region_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span>
+    <span class="nt">vpc</span><span class="p">:</span>
+        <span class="nt">subnets</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt;SUBNET_ID_1&gt;</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt;SUBNET_ID_2&gt;</span>
+            <span class="l l-Scalar l-Scalar-Plain">...</span>
+        <span class="nt">security_groups</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt;SECURITY_GROUP_1&gt;</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt;SECURITY_GROUP_2&gt;</span>
                 <span class="l l-Scalar l-Scalar-Plain">...</span>
 </pre></div>
 </div>
@@ -746,16 +751,16 @@
 <div class="section" id="efs">
 <h3>EFS<a class="headerlink" href="#efs" title="Permalink to this headline">¶</a></h3>
 <p>To attach EFS volumes to the Lithops lambda, add the following configuration to the <code class="docutils literal notranslate"><span class="pre">aws_lambda</span></code> configuration section:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span>    <span class="nt">aws_lambda</span><span class="p">:</span>
-        <span class="nt">execution_role</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;EXECUTION_ROLE_ARN&gt;</span>
-        <span class="nt">region_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span>
-        <span class="nt">vpc</span><span class="p">:</span>
-            <span class="l l-Scalar l-Scalar-Plain">...</span>
-        <span class="nt">efs</span><span class="p">:</span>
-            <span class="p p-Indicator">-</span> <span class="nt">access_point</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;EFS_ACCESS_POINT_1&gt;</span>
-              <span class="nt">mount_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;LAMBDA_VOLUME_MOUNT_PATH_1&gt;</span>
-            <span class="p p-Indicator">-</span> <span class="nt">access_point</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;EFS_ACCESS_POINT_2&gt;</span>
-              <span class="nt">mount_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;LAMBDA_VOLUME_MOUNT_PATH_2&gt;</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">aws_lambda</span><span class="p">:</span>
+    <span class="nt">execution_role</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;EXECUTION_ROLE_ARN&gt;</span>
+    <span class="nt">region_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span>
+    <span class="nt">vpc</span><span class="p">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">...</span>
+    <span class="nt">efs</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">access_point</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;EFS_ACCESS_POINT_1&gt;</span>
+          <span class="nt">mount_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;LAMBDA_VOLUME_MOUNT_PATH_1&gt;</span>
+        <span class="p p-Indicator">-</span> <span class="nt">access_point</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;EFS_ACCESS_POINT_2&gt;</span>
+          <span class="nt">mount_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;LAMBDA_VOLUME_MOUNT_PATH_2&gt;</span>
             <span class="l l-Scalar l-Scalar-Plain">...</span>
 </pre></div>
 </div>
@@ -780,11 +785,11 @@
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="aliyun_functions.html" title="previous page">
+        <a class="left-prev" href="aws_ec2.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Aliyun Function Compute</p>
+                <p class="prevnext-title">AWS Elastic Compute Cloud (EC2) (Beta)</p>
             </div>
         </a>
     </div>
