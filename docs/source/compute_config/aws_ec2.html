@@ -40,7 +40,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="AWS Lambda" href="aws_lambda.html" />
-    <link rel="prev" title="Aliyun Function Compute" href="aliyun_functions.html" />
+    <link rel="prev" title="AWS Batch" href="aws_batch.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -140,6 +140,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="aliyun_functions.html">
      Aliyun Function Compute
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="aws_batch.html">
+     AWS Batch
     </a>
    </li>
    <li class="toctree-l2 current active">
@@ -850,6 +855,11 @@ Alternatively, you can set the <code class="docutils literal notranslate"><span 
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ lithops logs poll
 </pre></div>
 </div>
+<p>The master and worker VMs contains the Lithops service logs in <code class="docutils literal notranslate"><span class="pre">/tmp/lithops/service.log</span></code>
+You can login to the master VM and get a live ssh connection with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops attach -b aws_ec2
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -864,11 +874,11 @@ Alternatively, you can set the <code class="docutils literal notranslate"><span 
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="aliyun_functions.html" title="previous page">
+        <a class="left-prev" href="aws_batch.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Aliyun Function Compute</p>
+                <p class="prevnext-title">AWS Batch</p>
             </div>
         </a>
     </div>

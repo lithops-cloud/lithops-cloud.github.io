@@ -143,6 +143,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/aws_batch.html">
+     AWS Batch
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="compute_config/aws_ec2.html">
      AWS Elastic Compute Cloud (EC2)
     </a>
@@ -543,6 +548,18 @@
      </code>
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lithops-attach">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       lithops
+      </span>
+      <span class="pre">
+       attach
+      </span>
+     </code>
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -903,6 +920,38 @@ this page</span></a>.</p>
 </table>
 <ul class="simple">
 <li><p><strong>Usage example</strong>: <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">verify</span> <span class="pre">-b</span> <span class="pre">ibm_cf</span> <span class="pre">-s</span> <span class="pre">ibm_cos</span> <span class="pre">-f</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="lithops-attach">
+<h3><code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">attach</span></code><a class="headerlink" href="#lithops-attach" title="Permalink to this headline">¶</a></h3>
+<p>Open an ssh connection to the master VM (Only available for standalone backends)</p>
+<table class="table">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 73%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>–config, -c</p></td>
+<td><p>Path to your config file</p></td>
+</tr>
+<tr class="row-odd"><td><p>–backend, -b</p></td>
+<td><p>Compute backend name</p></td>
+</tr>
+<tr class="row-even"><td><p>–start</p></td>
+<td><p>Start the master VM if needed</p></td>
+</tr>
+<tr class="row-odd"><td><p>–debug, -d</p></td>
+<td><p>Activate debug logs (Flag)</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><strong>Usage example</strong>: <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">attach</span> <span class="pre">-b</span> <span class="pre">ibm_vpc</span></code></p></li>
 </ul>
 </div>
 </div>

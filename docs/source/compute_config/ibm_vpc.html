@@ -143,6 +143,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="aws_batch.html">
+     AWS Batch
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="aws_ec2.html">
      AWS Elastic Compute Cloud (EC2)
     </a>
@@ -913,6 +918,11 @@
 <h2>Viewing the execution logs<a class="headerlink" href="#viewing-the-execution-logs" title="Permalink to this headline">¶</a></h2>
 <p>You can view the function executions logs in your local machine using the <em>lithops client</em>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ lithops logs poll
+</pre></div>
+</div>
+<p>The master and worker VMs contains the Lithops service logs in <code class="docutils literal notranslate"><span class="pre">/tmp/lithops/service.log</span></code>
+You can login to the master VM and get a live ssh connection with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops attach -b ibm_vpc
 </pre></div>
 </div>
 </div>
