@@ -634,6 +634,12 @@
 <td><p>no</p></td>
 <td><p>If set to True, Lithops will execute the command <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">pull</span> <span class="pre">&lt;runtime_name&gt;</span></code> in each VSI before executing the a job (in case of using a docker runtime)</p></td>
 </tr>
+<tr class="row-even"><td><p>standalone</p></td>
+<td><p>workers_policy</p></td>
+<td><p>permissive</p></td>
+<td><p>no</p></td>
+<td><p>One of: <strong>permissive</strong>, <strong>strict</strong>. If set to <strong>strict</strong> will force creation of required workers number</p></td>
+</tr>
 </tbody>
 </table>
 <div class="section" id="ibm-vpc">
@@ -836,6 +842,12 @@
 <td><p>2</p></td>
 <td><p>no</p></td>
 <td><p>Number of Lithops processes within a given worker. This can be used to parallelize function activations within a worker. It is recommendable to set this value to the same number of CPUs of a worker VM.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ibm_vpc</p></td>
+<td><p>singlesocket</p></td>
+<td><p>False</p></td>
+<td><p>no</p></td>
+<td><p>Try to allocate workers with single socket CPU. If eventually running on multiple socket, a warning message printed to user. Is <strong>True</strong> standalone <strong>workers_policy</strong> must be set to <strong>strict</strong> to trace workers states</p></td>
 </tr>
 </tbody>
 </table>
