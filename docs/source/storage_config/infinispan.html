@@ -516,11 +516,28 @@
   <a class="reference internal nav-link" href="#configuration">
    Configuration
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary-of-configuration-keys-for-infinispan">
-   Summary of configuration keys for Infinispan:
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rest-endpoint">
+     Rest endpoint
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#summary-of-configuration-keys-for-infinispan">
+     Summary of configuration keys for Infinispan:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hotrod-endpoint">
+     Hotrod endpoint:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#summary-of-configuration-keys-for-infinispan-hotrod">
+     Summary of configuration keys for Infinispan_hotrod:
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -535,7 +552,8 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="infinispan">
 <h1>Infinispan<a class="headerlink" href="#infinispan" title="Permalink to this headline">¶</a></h1>
-<p>Lithops with Infinispan as storage backend.</p>
+<p>Lithops with Infinispan as storage backend. Infinispan provides two different endpoints: infinispan (rest) and
+infinispan_hotrod (native binary) endpoint.</p>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
@@ -547,18 +565,25 @@
 <ol class="simple">
 <li><p>Edit your lithops config file and add the following keys:</p></li>
 </ol>
+<div class="section" id="rest-endpoint">
+<h3>Rest endpoint<a class="headerlink" href="#rest-endpoint" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span>    <span class="nt">lithops</span><span class="p">:</span>
         <span class="nt">storage</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">infinispan</span>
+        <span class="nt">data_limit</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8</span> <span class="c1"># More space for data than the 4Mb default</span>
 
     <span class="nt">infinispan</span><span class="p">:</span>
         <span class="nt">username   </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;USER_NAME&gt;</span>
         <span class="nt">password   </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;PASSWORD&gt;</span>
         <span class="nt">endpoint   </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;INFINISPAN_SERVER_URL:PORT&gt;</span>
+        <span class="nt">cache_names </span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">cache_name_1</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">cache_name_2</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="summary-of-configuration-keys-for-infinispan">
-<h2>Summary of configuration keys for Infinispan:<a class="headerlink" href="#summary-of-configuration-keys-for-infinispan" title="Permalink to this headline">¶</a></h2>
+<h3>Summary of configuration keys for Infinispan:<a class="headerlink" href="#summary-of-configuration-keys-for-infinispan" title="Permalink to this headline">¶</a></h3>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Group</p></th>
@@ -588,10 +613,10 @@
 <td><p>The password</p></td>
 </tr>
 <tr class="row-odd"><td><p>infinispan</p></td>
-<td><p>cache_name</p></td>
+<td><p>cache_names</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
-<td><p>cahce name. # Optional ‘default’ in default value</p></td>
+<td><p>Cache names list. Each bucket will be mapped on a different cache with the same name # Optional [‘storage’] in default value</p></td>
 </tr>
 <tr class="row-even"><td><p>infinispan</p></td>
 <td><p>cache_type</p></td>
@@ -601,6 +626,64 @@
 </tr>
 </tbody>
 </table>
+</div>
+<div class="section" id="hotrod-endpoint">
+<h3>Hotrod endpoint:<a class="headerlink" href="#hotrod-endpoint" title="Permalink to this headline">¶</a></h3>
+<p>To run this endpoint you need to compile and install the Infinispan python client (<a class="reference external" href="https://github.com/infinispan/python-client">home page</a>)</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span>    <span class="nt">lithops</span><span class="p">:</span>
+        <span class="nt">storage</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">infinispan_hotrod</span>
+        <span class="nt">data_limit</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8</span> <span class="c1"># More space for data than the 4Mb default</span>
+
+    <span class="nt">infinispan_hotrod</span><span class="p">:</span>
+        <span class="nt">username   </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;USER_NAME&gt;</span>
+        <span class="nt">password   </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;PASSWORD&gt;</span>
+        <span class="nt">endpoint   </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;INFINISPAN_SERVER_HOSTNAME:PORT&gt;</span>
+        <span class="nt">cache_names </span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">cache_name_1</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">cache_name_2</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="summary-of-configuration-keys-for-infinispan-hotrod">
+<h3>Summary of configuration keys for Infinispan_hotrod:<a class="headerlink" href="#summary-of-configuration-keys-for-infinispan-hotrod" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Group</p></th>
+<th class="head"><p>Key</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Mandatory</p></th>
+<th class="head"><p>Additional info</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>infinispan</p></td>
+<td><p>endpoint</p></td>
+<td><p></p></td>
+<td><p>yes</p></td>
+<td><p>Endpoint to your Infinispan server</p></td>
+</tr>
+<tr class="row-odd"><td><p>infinispan</p></td>
+<td><p>username</p></td>
+<td><p></p></td>
+<td><p>yes</p></td>
+<td><p>The username</p></td>
+</tr>
+<tr class="row-even"><td><p>infinispan</p></td>
+<td><p>password</p></td>
+<td><p></p></td>
+<td><p>yes</p></td>
+<td><p>The password</p></td>
+</tr>
+<tr class="row-odd"><td><p>infinispan</p></td>
+<td><p>cache_names</p></td>
+<td><p></p></td>
+<td><p>no</p></td>
+<td><p>Cache names list. Each bucket will be mapped on a different cache with the same name # Optional [‘storage’] in default value</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 
