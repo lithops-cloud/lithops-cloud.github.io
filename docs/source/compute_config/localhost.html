@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Localhost</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -26,7 +26,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -42,8 +42,21 @@
     <link rel="next" title="OpenWhisk" href="openwhisk.html" />
     <link rel="prev" title="Knative" href="knative.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="en">
     
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-17598552-5', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
@@ -79,7 +92,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Overview of Lithops
  </span>
@@ -111,7 +124,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Install and Configure Lithops
  </span>
@@ -277,7 +290,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Lithops Compute API
  </span>
@@ -299,7 +312,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Lithops Storage API
  </span>
@@ -311,7 +324,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Data Processing
  </span>
@@ -328,7 +341,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Integrations
  </span>
@@ -355,7 +368,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Advanced Features
  </span>
@@ -382,7 +395,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Experimental Features
  </span>
@@ -399,7 +412,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Developer Guide
  </span>
@@ -550,12 +563,12 @@
 <p>In localhost, Lithops will use local CPUs to run functions in parallel. In this mode of execution it is not necessary to provide any kind of configuration or create a configuration file.</p>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>In case you have a config file, edit it and add these keys:</p></li>
 </ol>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
-    <span class="nt">backend</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">localhost</span>
-    <span class="nt">storage</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">localhost</span>  <span class="c1"># You can also point it to a public storage backend, such as aws_s3 or ibm_cos</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span><span class="w"></span>
+<span class="w">    </span><span class="nt">storage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span><span class="w">  </span><span class="c1"># You can also point it to a public storage backend, such as aws_s3 or ibm_cos</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -582,8 +595,8 @@
 <div class="section" id="docker-environment">
 <h3>Docker Environment<a class="headerlink" href="#docker-environment" title="Permalink to this headline">¶</a></h3>
 <p>The Docker environment runs the functions within a <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">container</span></code>. In this case you must <a class="reference external" href="https://docs.docker.com/get-docker/">install the Docker CE version</a> in your machine. This environment is automatically activated when you provide a docker image as a runtime. For example, by adding the following keys in the config:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">localhost</span><span class="p">:</span>
-    <span class="nt">runtime</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ibmfunctions/action-python-v3.8</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">localhost</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">runtime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ibmfunctions/action-python-v3.8</span><span class="w"></span>
 </pre></div>
 </div>
 <p>or by using the <code class="docutils literal notranslate"><span class="pre">runtime</span></code> param in a function executor:</p>
@@ -631,31 +644,22 @@
               </div>
               
         
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="knative.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Knative</p>
-            </div>
-        </a>
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="knative.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Knative</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="openwhisk.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">OpenWhisk</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="openwhisk.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">OpenWhisk</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>
@@ -666,7 +670,7 @@
         
           By The Lithops Team<br/>
         
-            &copy; Copyright 2021, The Lithops Team.<br/>
+            &copy; Copyright 2022, The Lithops Team.<br/>
       </p>
     </div>
   </footer>
@@ -676,18 +680,7 @@
       </div>
     </div>
   
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
-
-  
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-17598552-5', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
   </body>
 </html>

@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Azure Functions</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -26,7 +26,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -42,8 +42,21 @@
     <link rel="next" title="IBM Cloud Code Engine" href="code_engine.html" />
     <link rel="prev" title="AWS Lambda" href="aws_lambda.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="en">
     
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-17598552-5', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
@@ -79,7 +92,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Overview of Lithops
  </span>
@@ -111,7 +124,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Install and Configure Lithops
  </span>
@@ -277,7 +290,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Lithops Compute API
  </span>
@@ -299,7 +312,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Lithops Storage API
  </span>
@@ -311,7 +324,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Data Processing
  </span>
@@ -328,7 +341,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Integrations
  </span>
@@ -355,7 +368,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Advanced Features
  </span>
@@ -382,7 +395,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Experimental Features
  </span>
@@ -399,7 +412,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Developer Guide
  </span>
@@ -551,13 +564,13 @@
 <p><em>Note that currently Azure functions supports Python 3.6, 3.7, 3.8 and 3.9. So you must use one of these versions in your client machine.</em></p>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Install Microsoft Azure backend dependencies:</p></li>
 </ol>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 -m pip install lithops[azure]
 </pre></div>
 </div>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Install <a class="reference external" href="https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest">Azure CLI</a></p></li>
 <li><p>Install the <a class="reference external" href="https://github.com/Azure/azure-functions-core-tools">Azure Functions core tools</a></p></li>
 <li><p>Sign in with the Azure CLI:</p></li>
@@ -565,21 +578,21 @@
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>  $ az login
 </pre></div>
 </div>
-<ol>
+<ol class="arabic">
 <li><p>Create a Resource Group and a Storage Account:</p>
 <p>Option 1:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Access to the <a class="reference external" href="https://portal.azure.com/#blade/HubsExtension/BrowseResourceGroups">Azure portal Resource Groups</a> and create a new Resource group named <strong>LithopsResourceGroup</strong> (or similar) in your preferred region. If you already have a resource group, omit this step.</p></li>
 <li><p>Access to the <a class="reference external" href="https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts">Azure portal Storage Accounts</a> and create a new Storage Account with a unique name, for example: <strong>lithops0sa25s1</strong>. If you already have a storage account, omit this step.</p></li>
 </ol>
 <p>Option 2:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Create a Resource Group in a specific location. If you already have a resource group, omit this step.</p></li>
 </ol>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>  $ az group create --name LithopsResourceGroup --location westeurope
 </pre></div>
 </div>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Create a Storage Account with a unique name. If you already have a storage account, omit this step.</p></li>
 </ol>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>  $ <span class="nv">storage_account_name</span><span class="o">=</span>lithops<span class="k">$(</span>openssl rand -hex <span class="m">3</span><span class="k">)</span>
@@ -593,21 +606,21 @@
 </div>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Access to the <a class="reference external" href="https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts">Storage Account</a></p></li>
 <li><p>In the left menu, under the settings section, click on <em>Access Keys</em> and copy the <em>Key 1</em></p></li>
 <li><p>Edit your lithops config and add the following keys:</p></li>
 </ol>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span>  <span class="nt">lithops</span><span class="p">:</span>
-      <span class="nt">backend </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">azure_functions</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nt">lithops</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">backend </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">azure_functions</span><span class="w"></span>
 
-  <span class="nt">azure_storage</span><span class="p">:</span>
-      <span class="nt">storage_account_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;STORAGE_ACCOUNT_NAME&gt;</span>
-      <span class="nt">storage_account_key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;STORAGE_ACCOUNT_KEY&gt;</span>
+<span class="w">  </span><span class="nt">azure_storage</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">storage_account_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;STORAGE_ACCOUNT_NAME&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="nt">storage_account_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;STORAGE_ACCOUNT_KEY&gt;</span><span class="w"></span>
 
-  <span class="nt">azure_functions</span><span class="p">:</span>
-      <span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;CONSUMPTION_PLAN_LOCATION&gt;</span>
-      <span class="nt">resource_group</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;RESOURCE_GROUP_NAME&gt;</span>
+<span class="w">  </span><span class="nt">azure_functions</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">location</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;CONSUMPTION_PLAN_LOCATION&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="nt">resource_group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;RESOURCE_GROUP_NAME&gt;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -710,31 +723,22 @@
               </div>
               
         
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="aws_lambda.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">AWS Lambda</p>
-            </div>
-        </a>
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="aws_lambda.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">AWS Lambda</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="code_engine.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">IBM Cloud Code Engine</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="code_engine.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">IBM Cloud Code Engine</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>
@@ -745,7 +749,7 @@
         
           By The Lithops Team<br/>
         
-            &copy; Copyright 2021, The Lithops Team.<br/>
+            &copy; Copyright 2022, The Lithops Team.<br/>
       </p>
     </div>
   </footer>
@@ -755,18 +759,7 @@
       </div>
     </div>
   
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
-
-  
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-17598552-5', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
   </body>
 </html>

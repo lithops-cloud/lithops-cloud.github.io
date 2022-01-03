@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AWS Lambda</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -26,7 +26,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -42,8 +42,21 @@
     <link rel="next" title="Azure Functions" href="azure_functions.html" />
     <link rel="prev" title="AWS Elastic Compute Cloud (EC2)" href="aws_ec2.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="en">
     
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-17598552-5', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
@@ -79,7 +92,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Overview of Lithops
  </span>
@@ -111,7 +124,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Install and Configure Lithops
  </span>
@@ -277,7 +290,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Lithops Compute API
  </span>
@@ -299,7 +312,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Lithops Storage API
  </span>
@@ -311,7 +324,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Data Processing
  </span>
@@ -328,7 +341,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Integrations
  </span>
@@ -355,7 +368,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Advanced Features
  </span>
@@ -382,7 +395,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Experimental Features
  </span>
@@ -399,7 +412,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Developer Guide
  </span>
@@ -567,37 +580,37 @@
 <p>Lithops with <em>AWS Lambda</em> as serverless compute backend.</p>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Install Amazon Web Services backend dependencies:</p></li>
 </ol>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 -m pip install lithops[aws]
 </pre></div>
 </div>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><a class="reference external" href="https://console.aws.amazon.com/?nc2=h_m_mc">Login</a> to Amazon Web Services Console (or signup if you don’t have an account)</p></li>
 <li><p>Navigate to <strong>IAM &gt; Policies</strong>. Click on <strong>Create policy</strong>.</p></li>
 <li><p>Select <strong>JSON</strong> tab and paste the following JSON policy:</p></li>
 </ol>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;Version&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;Statement&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;Sid&quot;</span><span class="p">:</span> <span class="s2">&quot;VisualEditor0&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;Effect&quot;</span><span class="p">:</span> <span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;Action&quot;</span><span class="p">:</span> <span class="p">[</span>
-                <span class="s2">&quot;s3:*&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;lambda:*&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;ec2:*&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;ecr:*&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;sts:GetCallerIdentity&quot;</span>
-            <span class="p">],</span>
-            <span class="nt">&quot;Resource&quot;</span><span class="p">:</span> <span class="s2">&quot;*&quot;</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">}</span>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;Version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;Statement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;Sid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VisualEditor0&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;Effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Allow&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;Action&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;s3:*&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;lambda:*&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;ec2:*&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;ecr:*&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;sts:GetCallerIdentity&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;Resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;*&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Click <strong>Next: Tags</strong> and <strong>Next: Review</strong>. Fill the policy name field (you can name it <code class="docutils literal notranslate"><span class="pre">lithops-policy</span></code> or simmilar) and create the policy.</p></li>
 <li><p>Go back to <strong>IAM</strong> and navigate to <strong>Roles</strong> tab. Click <strong>Create role</strong>.</p></li>
 <li><p>Choose <strong>Lambda</strong> on the use case list and click <strong>Next: Permissions</strong>. Select the policy created before (<code class="docutils literal notranslate"><span class="pre">lithops-policy</span></code>). Click <strong>Next: Tags</strong> and <strong>Next: Review</strong>. Type a role name, for example <code class="docutils literal notranslate"><span class="pre">lithops-execution-role</span></code>. Click on <em>Create Role</em>.</p></li>
@@ -605,20 +618,20 @@
 </div>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Edit your lithops config and add the following keys:</p></li>
 </ol>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
-    <span class="nt">backend</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">aws_lambda</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aws_lambda</span><span class="w"></span>
 
-<span class="nt">aws</span><span class="p">:</span>
-    <span class="nt">access_key_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;ACCESS_KEY_ID&gt;</span>
-    <span class="nt">secret_access_key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;SECRET_ACCESS_KEY&gt;</span>
-    <span class="c1">#account_id: &lt;ACCOUNT_ID&gt;  # Optional</span>
+<span class="nt">aws</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">access_key_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;ACCESS_KEY_ID&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">secret_access_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SECRET_ACCESS_KEY&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c1">#account_id: &lt;ACCOUNT_ID&gt;  # Optional</span><span class="w"></span>
 
-<span class="nt">aws_lambda</span><span class="p">:</span>
-    <span class="nt">execution_role</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;EXECUTION_ROLE_ARN&gt;</span>
-    <span class="nt">region_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span>
+<span class="nt">aws_lambda</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">execution_role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;EXECUTION_ROLE_ARN&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">region_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -732,18 +745,18 @@
 <div class="section" id="vpc">
 <h3>VPC<a class="headerlink" href="#vpc" title="Permalink to this headline">¶</a></h3>
 <p>To connect the Lithops lambda to a VPC, add the following configuration to the <code class="docutils literal notranslate"><span class="pre">aws_lambda</span></code> configuration section:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">aws_lambda</span><span class="p">:</span>
-    <span class="nt">execution_role</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;EXECUTION_ROLE_ARN&gt;</span>
-    <span class="nt">region_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span>
-    <span class="nt">vpc</span><span class="p">:</span>
-        <span class="nt">subnets</span><span class="p">:</span>
-            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt;SUBNET_ID_1&gt;</span>
-            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt;SUBNET_ID_2&gt;</span>
-            <span class="l l-Scalar l-Scalar-Plain">...</span>
-        <span class="nt">security_groups</span><span class="p">:</span>
-            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt;SECURITY_GROUP_1&gt;</span>
-            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt;SECURITY_GROUP_2&gt;</span>
-                <span class="l l-Scalar l-Scalar-Plain">...</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">aws_lambda</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">execution_role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;EXECUTION_ROLE_ARN&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">region_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">vpc</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">subnets</span><span class="p">:</span><span class="w"></span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SUBNET_ID_1&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SUBNET_ID_2&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<span class="w">        </span><span class="nt">security_groups</span><span class="p">:</span><span class="w"></span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SECURITY_GROUP_1&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SECURITY_GROUP_2&gt;</span><span class="w"></span>
+<span class="w">                </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -756,17 +769,17 @@
 <div class="section" id="efs">
 <h3>EFS<a class="headerlink" href="#efs" title="Permalink to this headline">¶</a></h3>
 <p>To attach EFS volumes to the Lithops lambda, add the following configuration to the <code class="docutils literal notranslate"><span class="pre">aws_lambda</span></code> configuration section:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">aws_lambda</span><span class="p">:</span>
-    <span class="nt">execution_role</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;EXECUTION_ROLE_ARN&gt;</span>
-    <span class="nt">region_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span>
-    <span class="nt">vpc</span><span class="p">:</span>
-        <span class="l l-Scalar l-Scalar-Plain">...</span>
-    <span class="nt">efs</span><span class="p">:</span>
-        <span class="p p-Indicator">-</span> <span class="nt">access_point</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;EFS_ACCESS_POINT_1&gt;</span>
-          <span class="nt">mount_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;LAMBDA_VOLUME_MOUNT_PATH_1&gt;</span>
-        <span class="p p-Indicator">-</span> <span class="nt">access_point</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;EFS_ACCESS_POINT_2&gt;</span>
-          <span class="nt">mount_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;LAMBDA_VOLUME_MOUNT_PATH_2&gt;</span>
-            <span class="l l-Scalar l-Scalar-Plain">...</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">aws_lambda</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">execution_role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;EXECUTION_ROLE_ARN&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">region_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">vpc</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<span class="w">    </span><span class="nt">efs</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">access_point</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;EFS_ACCESS_POINT_1&gt;</span><span class="w"></span>
+<span class="w">          </span><span class="nt">mount_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;LAMBDA_VOLUME_MOUNT_PATH_1&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">access_point</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;EFS_ACCESS_POINT_2&gt;</span><span class="w"></span>
+<span class="w">          </span><span class="nt">mount_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;LAMBDA_VOLUME_MOUNT_PATH_2&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -783,31 +796,22 @@
               </div>
               
         
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="aws_ec2.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">AWS Elastic Compute Cloud (EC2)</p>
-            </div>
-        </a>
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="aws_ec2.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">AWS Elastic Compute Cloud (EC2)</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="azure_functions.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Azure Functions</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="azure_functions.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Azure Functions</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>
@@ -818,7 +822,7 @@
         
           By The Lithops Team<br/>
         
-            &copy; Copyright 2021, The Lithops Team.<br/>
+            &copy; Copyright 2022, The Lithops Team.<br/>
       </p>
     </div>
   </footer>
@@ -828,18 +832,7 @@
       </div>
     </div>
   
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
-
-  
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-17598552-5', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
   </body>
 </html>

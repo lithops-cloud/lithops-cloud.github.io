@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IBM Cloud Code Engine</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -26,7 +26,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -42,8 +42,21 @@
     <link rel="next" title="Google Cloud Run" href="gcp_cloudrun.html" />
     <link rel="prev" title="Azure Functions" href="azure_functions.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="en">
     
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-17598552-5', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
@@ -79,7 +92,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Overview of Lithops
  </span>
@@ -111,7 +124,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Install and Configure Lithops
  </span>
@@ -277,7 +290,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Lithops Compute API
  </span>
@@ -299,7 +312,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Lithops Storage API
  </span>
@@ -311,7 +324,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Data Processing
  </span>
@@ -328,7 +341,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Integrations
  </span>
@@ -355,7 +368,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Advanced Features
  </span>
@@ -382,7 +395,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Experimental Features
  </span>
@@ -399,7 +412,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Developer Guide
  </span>
@@ -638,14 +651,14 @@
 <p>Choose one option:</p>
 <div class="section" id="option-1-ibm-cloud-dashboard">
 <h3>Option 1 (IBM CLoud Dashboard):<a class="headerlink" href="#option-1-ibm-cloud-dashboard" title="Permalink to this headline">¶</a></h3>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Navigate to the <a class="reference external" href="https://cloud.ibm.com/codeengine/landing">IBM Cloud Code Engine dashboard</a> and create a new project in your preferred region.</p></li>
 </ol>
 </div>
 <div class="section" id="option-2-ibm-cloud-cli-tool">
 <h3>Option 2 (IBM CLoud CLI tool):<a class="headerlink" href="#option-2-ibm-cloud-cli-tool" title="Permalink to this headline">¶</a></h3>
 <p>In this step you are required to install IBM Cloud CLI tool, Code Engine plugin and create new Code Engine project</p>
-<ol>
+<ol class="arabic">
 <li><p>Install the <a class="reference external" href="https://cloud.ibm.com/docs/cli?topic=cli-getting-started">IBM Cloud CLI</a>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -sL https://ibm.biz/idt-installer <span class="p">|</span> bash
 </pre></div>
@@ -679,7 +692,7 @@
 <p>Choose one option:</p>
 <div class="section" id="option-1-ibm-iam">
 <h3>Option 1 (IBM IAM):<a class="headerlink" href="#option-1-ibm-iam" title="Permalink to this headline">¶</a></h3>
-<ol>
+<ol class="arabic">
 <li><p>If you don’t have an IAM API key created, navigate to the <a class="reference external" href="https://cloud.ibm.com/iam/apikeys">IBM IAM dashboard</a>.</p></li>
 <li><p>Click <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">an</span> <span class="pre">IBM</span> <span class="pre">Cloud</span> <span class="pre">API</span> <span class="pre">Key</span></code> and provide the necessary information.</p></li>
 <li><p>Copy the generated IAM API key (You can only see the key the first time you create it, so make sure to copy it).</p></li>
@@ -690,15 +703,15 @@
 </li>
 <li><p>Print the content of the kubernetes config file and copy the <code class="docutils literal notranslate"><span class="pre">namespace</span></code> value under the context section.</p></li>
 <li><p>Edit your lithops config and add the following keys:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
-    <span class="nt">backend</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">code_engine</span>
-    
-<span class="nt">ibm</span><span class="p">:</span>
-    <span class="nt">iam_api_key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;IAM_API_KEY&gt;</span>
-   
-<span class="nt">code_engine</span><span class="p">:</span>
-    <span class="nt">namespace  </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;NAMESPACE&gt;</span>
-    <span class="nt">region     </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;REGION&gt;</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">code_engine</span><span class="w"></span>
+<span class="w">    </span>
+<span class="nt">ibm</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">iam_api_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;IAM_API_KEY&gt;</span><span class="w"></span>
+<span class="w">   </span>
+<span class="nt">code_engine</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">namespace  </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;NAMESPACE&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">region     </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION&gt;</span><span class="w"></span>
 </pre></div>
 </div>
 </li>
@@ -706,7 +719,7 @@
 </div>
 <div class="section" id="option-2-kubeconfig-file">
 <h3>Option 2 (KUBECONFIG file):<a class="headerlink" href="#option-2-kubeconfig-file" title="Permalink to this headline">¶</a></h3>
-<ol>
+<ol class="arabic">
 <li><p>Locate the kubernetes config file using the IBM CLoud CLI:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ibmcloud ce project current
 </pre></div>
@@ -718,11 +731,11 @@
 </div>
 </li>
 <li><p>Edit your lithops config and add the following keys:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
-    <span class="nt">backend</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">code_engine</span>
-   
-<span class="nt">code_engine</span><span class="p">:</span>
-    <span class="nt">kubecfg_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;PATH TO CONFIG YAML FILE&gt;</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">code_engine</span><span class="w"></span>
+<span class="w">   </span>
+<span class="nt">code_engine</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">kubecfg_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;PATH TO CONFIG YAML FILE&gt;</span><span class="w"></span>
 </pre></div>
 </div>
 </li>
@@ -774,7 +787,7 @@
 <div class="section" id="use-your-own-runtime">
 <h3>Use your own runtime<a class="headerlink" href="#use-your-own-runtime" title="Permalink to this headline">¶</a></h3>
 <p>If a pre-built runtime is not provided, Lithops automatically builds the default runtime the first time you run a script. For this task it uses the <strong>docker</strong> command installed locally in your machine. To make this working, you need:</p>
-<ol>
+<ol class="arabic">
 <li><p><a class="reference external" href="https://docs.docker.com/get-docker/">Install the Docker CE version</a>.</p></li>
 <li><p>Login to your docker account:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker login
@@ -793,20 +806,20 @@
 <div class="section" id="configure-docker-hub">
 <h3>Configure Docker hub<a class="headerlink" href="#configure-docker-hub" title="Permalink to this headline">¶</a></h3>
 <p>To configure Lithops to access a private repository in your docker hub account, you need to extend the Code Engine config and add the following keys:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">code_engine</span><span class="p">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">....</span>
-    <span class="l l-Scalar l-Scalar-Plain">docker_user</span>      <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;Docker hub username&gt;</span>
-    <span class="nt">docker_password  </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;DOcker hub access TOEKN&gt;</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">code_engine</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">....</span><span class="w"></span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">docker_user</span><span class="w">      </span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;Docker hub username&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">docker_password  </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;DOcker hub access TOEKN&gt;</span><span class="w"></span>
 </pre></div>
 </div>
 <div class="section" id="configure-ibm-container-registry">
 <h4>Configure IBM Container Registry<a class="headerlink" href="#configure-ibm-container-registry" title="Permalink to this headline">¶</a></h4>
 <p>To configure Lithops to access to a private repository in your IBM Container Registry, you need to extend the Code Engine config and add the following keys:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">code_engine</span><span class="p">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">....</span>
-    <span class="l l-Scalar l-Scalar-Plain">docker_server</span>    <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">us.icr.io</span>  <span class="c1"># Change-me if you have the CR in another region</span>
-    <span class="nt">docker_user      </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">iamapikey</span>
-    <span class="nt">docker_password  </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;IBM IAM API KEY&gt;</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">code_engine</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">....</span><span class="w"></span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">docker_server</span><span class="w">    </span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">us.icr.io</span><span class="w">  </span><span class="c1"># Change-me if you have the CR in another region</span><span class="w"></span>
+<span class="w">    </span><span class="nt">docker_user      </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iamapikey</span><span class="w"></span>
+<span class="w">    </span><span class="nt">docker_password  </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;IBM IAM API KEY&gt;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -941,31 +954,22 @@ ibmcloud ce project select --name &lt;CPROJECT NAME&gt; --kubecfg
               </div>
               
         
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="azure_functions.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Azure Functions</p>
-            </div>
-        </a>
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="azure_functions.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Azure Functions</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="gcp_cloudrun.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Google Cloud Run</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="gcp_cloudrun.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Google Cloud Run</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>
@@ -976,7 +980,7 @@ ibmcloud ce project select --name &lt;CPROJECT NAME&gt; --kubecfg
         
           By The Lithops Team<br/>
         
-            &copy; Copyright 2021, The Lithops Team.<br/>
+            &copy; Copyright 2022, The Lithops Team.<br/>
       </p>
     </div>
   </footer>
@@ -986,18 +990,7 @@ ibmcloud ce project select --name &lt;CPROJECT NAME&gt; --kubecfg
       </div>
     </div>
   
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
-
-  
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-17598552-5', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
   </body>
 </html>

@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Storage API Deatils</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -26,7 +26,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -42,8 +42,21 @@
     <link rel="next" title="Processing data from the Cloud" href="data_processing.html" />
     <link rel="prev" title="Function chaining" href="notebooks/function_chaining.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="en">
     
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-17598552-5', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
@@ -79,7 +92,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Overview of Lithops
  </span>
@@ -111,7 +124,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Install and Configure Lithops
  </span>
@@ -277,7 +290,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Lithops Compute API
  </span>
@@ -299,7 +312,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Lithops Storage API
  </span>
@@ -311,7 +324,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Data Processing
  </span>
@@ -328,7 +341,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Integrations
  </span>
@@ -355,7 +368,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Advanced Features
  </span>
@@ -382,7 +395,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Experimental Features
  </span>
@@ -399,7 +412,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Developer Guide
  </span>
@@ -567,7 +580,7 @@ using the <code class="docutils literal notranslate"><span class="pre">backend</
 <h2>Storage API Reference<a class="headerlink" href="#storage-api-reference" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="lithops.storage.storage.Storage">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">lithops.storage.storage.</span></span><span class="sig-name descname"><span class="pre">Storage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storage_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lithops.storage.storage.</span></span><span class="sig-name descname"><span class="pre">Storage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storage_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>An Storage object is used by partitioner and other components to access
 underlying storage backend without exposing the the implementation details.</p>
@@ -619,29 +632,6 @@ to sending individual delete requests, reducing per-request overhead.</p>
 <li><p><strong>bucket</strong> (<em>str</em>) – Name of the bucket</p></li>
 <li><p><strong>key_list</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – List of object keys</p></li>
 </ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lithops.storage.storage.Storage.download_file">
-<span class="sig-name descname"><span class="pre">download_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bucket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.download_file" title="Permalink to this definition">¶</a></dt>
-<dd><p>Download a file from the storage backend. (Multipart download)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>bucket</strong> (<em>str</em>) – Name of the bucket</p></li>
-<li><p><strong>key</strong> (<em>str</em>) – Key of the object</p></li>
-<li><p><strong>stream</strong> – Get the object data or a file-like object</p></li>
-<li><p><strong>extra_args</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>]</em>) – Extra get arguments to be passed to the underlying backend implementation (dict).</p></li>
-<li><p><strong>file_name</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Object, as a binary array or as a file-like stream if parameter <cite>stream</cite> is enabled</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Union[str, bytes, TextIO, BinaryIO]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -834,26 +824,6 @@ of the object (key) and the size.</p>
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="lithops.storage.storage.Storage.upload_file">
-<span class="sig-name descname"><span class="pre">upload_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bucket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.upload_file" title="Permalink to this definition">¶</a></dt>
-<dd><p>Upload a file to a bucket of the storage backend. (Multipart upload)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>bucket</strong> (<em>str</em>) – Name of the bucket</p></li>
-<li><p><strong>key</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Key of the object</p></li>
-<li><p><strong>body</strong> – Object data</p></li>
-<li><p><strong>extra_args</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>]</em>) – Extra get arguments to be passed to the underlying backend implementation (dict).</p></li>
-<li><p><strong>file_name</strong> (<em>str</em>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>Union[str, bytes, TextIO, BinaryIO]</p>
-</dd>
-</dl>
-</dd></dl>
-
 </dd></dl>
 
 </div>
@@ -863,31 +833,22 @@ of the object (key) and the size.</p>
               </div>
               
         
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="notebooks/function_chaining.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Function chaining</p>
-            </div>
-        </a>
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="notebooks/function_chaining.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Function chaining</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="data_processing.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Processing data from the Cloud</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="data_processing.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Processing data from the Cloud</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>
@@ -898,7 +859,7 @@ of the object (key) and the size.</p>
         
           By The Lithops Team<br/>
         
-            &copy; Copyright 2021, The Lithops Team.<br/>
+            &copy; Copyright 2022, The Lithops Team.<br/>
       </p>
     </div>
   </footer>
@@ -908,18 +869,7 @@ of the object (key) and the size.</p>
       </div>
     </div>
   
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
-
-  
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-17598552-5', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
   </body>
 </html>

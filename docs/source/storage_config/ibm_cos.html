@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IBM Cloud Object Storage</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -26,7 +26,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -42,8 +42,21 @@
     <link rel="next" title="Infinispan" href="infinispan.html" />
     <link rel="prev" title="GCP Storage" href="gcp_storage.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="en">
     
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-17598552-5', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
@@ -79,7 +92,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Overview of Lithops
  </span>
@@ -111,7 +124,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Install and Configure Lithops
  </span>
@@ -277,7 +290,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Lithops Compute API
  </span>
@@ -299,7 +312,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Lithops Storage API
  </span>
@@ -311,7 +324,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Data Processing
  </span>
@@ -328,7 +341,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Integrations
  </span>
@@ -355,7 +368,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Advanced Features
  </span>
@@ -382,7 +395,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Experimental Features
  </span>
@@ -399,7 +412,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Developer Guide
  </span>
@@ -584,31 +597,31 @@
 <p>Lithops with IBM COS as storage backend.</p>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Create an <a class="reference external" href="https://www.ibm.com/cloud/object-storage">IBM Cloud Object Storage account</a>.</p></li>
 <li><p>Crate a bucket in your desired region. Remember to update the corresponding Lithops config field with this bucket name.</p></li>
 </ol>
 </div>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Create the credentials to access to your COS account (Choose one option):</p></li>
 </ol>
 <div class="section" id="option-1-cos-api-key">
 <h3>Option 1 (COS API Key):<a class="headerlink" href="#option-1-cos-api-key" title="Permalink to this headline">¶</a></h3>
-<ol>
+<ol class="arabic">
 <li><p>In the side navigation, click <code class="docutils literal notranslate"><span class="pre">Service</span> <span class="pre">Credentials</span></code>.</p></li>
 <li><p>Click <code class="docutils literal notranslate"><span class="pre">New</span> <span class="pre">credential</span> <span class="pre">+</span></code> and provide the necessary information.</p></li>
 <li><p>Click <code class="docutils literal notranslate"><span class="pre">Add</span></code> to generate service credential.</p></li>
 <li><p>Click <code class="docutils literal notranslate"><span class="pre">View</span> <span class="pre">credentials</span></code> and copy the <em>apikey</em> value.</p></li>
 <li><p>Edit your lithops config file and add the following keys:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
-    <span class="nt">storage</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ibm_cos</span>
-   
-<span class="nt">ibm_cos</span><span class="p">:</span>
-    <span class="nt">storage_bucket</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;BUCKET_NAME&gt;</span>
-    <span class="nt">region   </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;REGION&gt;</span>
-    <span class="nt">api_key  </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;API_KEY&gt;</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">storage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ibm_cos</span><span class="w"></span>
+<span class="w">   </span>
+<span class="nt">ibm_cos</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">storage_bucket</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;BUCKET_NAME&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">region   </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">api_key  </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;API_KEY&gt;</span><span class="w"></span>
 </pre></div>
 </div>
 </li>
@@ -616,21 +629,21 @@
 </div>
 <div class="section" id="option-2-cos-hmac-credentials">
 <h3>Option 2 (COS HMAC credentials):<a class="headerlink" href="#option-2-cos-hmac-credentials" title="Permalink to this headline">¶</a></h3>
-<ol>
+<ol class="arabic">
 <li><p>In the side navigation, click <code class="docutils literal notranslate"><span class="pre">Service</span> <span class="pre">Credentials</span></code>.</p></li>
 <li><p>Click <code class="docutils literal notranslate"><span class="pre">New</span> <span class="pre">credential</span> <span class="pre">+</span></code>.</p></li>
 <li><p>Click on advanced options and enable <code class="docutils literal notranslate"><span class="pre">Include</span> <span class="pre">HMAC</span> <span class="pre">Credential</span></code> button.</p></li>
 <li><p>Click <code class="docutils literal notranslate"><span class="pre">Add</span></code> to generate service credential.</p></li>
 <li><p>Click <code class="docutils literal notranslate"><span class="pre">View</span> <span class="pre">credentials</span></code> and copy the <em>access_key_id</em> and <em>secret_access_key</em> values.</p></li>
 <li><p>Edit your lithops config file and add the following keys:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
-    <span class="nt">storage</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ibm_cos</span>
-   
-<span class="nt">ibm_cos</span><span class="p">:</span>
-    <span class="nt">storage_bucket</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;BUCKET_NAME&gt;</span>
-    <span class="nt">region </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;REGION&gt;</span>  
-    <span class="nt">access_key  </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;ACCESS_KEY_ID&gt;</span>
-    <span class="nt">secret_key  </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;SECRET_KEY_ID&gt;</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">storage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ibm_cos</span><span class="w"></span>
+<span class="w">   </span>
+<span class="nt">ibm_cos</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">storage_bucket</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;BUCKET_NAME&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">region </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION&gt;</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">access_key  </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;ACCESS_KEY_ID&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">secret_key  </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SECRET_KEY_ID&gt;</span><span class="w"></span>
 </pre></div>
 </div>
 </li>
@@ -638,20 +651,20 @@
 </div>
 <div class="section" id="option-3-ibm-iam-api-key">
 <h3>Option 3 (IBM IAM API Key):<a class="headerlink" href="#option-3-ibm-iam-api-key" title="Permalink to this headline">¶</a></h3>
-<ol>
+<ol class="arabic">
 <li><p>If you don’t have an IAM API key created, navigate to the <a class="reference external" href="https://cloud.ibm.com/iam/apikeys">IBM IAM dashboard</a></p></li>
 <li><p>Click <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">an</span> <span class="pre">IBM</span> <span class="pre">Cloud</span> <span class="pre">API</span> <span class="pre">Key</span></code> and provide the necessary information.</p></li>
 <li><p>Copy the generated IAM API key (You can only see the key the first time you create it, so make sure to copy it).</p></li>
 <li><p>Edit your lithops config file and add the following keys:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
-    <span class="nt">storage_backend</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ibm_cos</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">storage_backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ibm_cos</span><span class="w"></span>
 
-<span class="nt">ibm</span><span class="p">:</span>
-    <span class="nt">iam_api_key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;IAM_API_KEY&gt;</span>
-   
-<span class="nt">ibm_cos</span><span class="p">:</span>
-    <span class="nt">storage_bucket</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;BUCKET_NAME&gt;</span>
-    <span class="nt">region </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;REGION&gt;</span>
+<span class="nt">ibm</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">iam_api_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;IAM_API_KEY&gt;</span><span class="w"></span>
+<span class="w">   </span>
+<span class="nt">ibm_cos</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">storage_bucket</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;BUCKET_NAME&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">region </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION&gt;</span><span class="w"></span>
 </pre></div>
 </div>
 </li>
@@ -663,8 +676,8 @@
 <div class="section" id="using-region">
 <h3>Using region<a class="headerlink" href="#using-region" title="Permalink to this headline">¶</a></h3>
 <p>The easiest apporach is to let Lithops to choose the right endpoint by itself. To enable this, just configure Lithops with the region name of your <code class="docutils literal notranslate"><span class="pre">storage_bucket</span></code>, as follows:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span>    <span class="nt">ibm_cos</span><span class="p">:</span>
-        <span class="nt">region   </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;REGION&gt;</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">ibm_cos</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">region   </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION&gt;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Valid region names are: us-east, us-south, eu-gb, eu-de, etc..</p>
@@ -672,13 +685,13 @@
 <div class="section" id="using-endpoints-path">
 <h3>Using endpoints path<a class="headerlink" href="#using-endpoints-path" title="Permalink to this headline">¶</a></h3>
 <p>Alternative to using region, you can configure the public and private endpoints as follows:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Login to IBM Cloud and open up your dashboard. Then navigate to your instance of Object Storage.</p></li>
 <li><p>In the side navigation, click <code class="docutils literal notranslate"><span class="pre">Endpoints</span></code> to find your COS endpoints. You must copy both <code class="docutils literal notranslate"><span class="pre">public</span></code> and <code class="docutils literal notranslate"><span class="pre">private</span></code> endpoints of the region where you created your bucket.</p></li>
 </ol>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span>    <span class="nt">ibm_cos</span><span class="p">:</span>
-        <span class="nt">endpoint</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://s3.&lt;region&gt;.cloud-object-storage_config.appdomain.cloud</span>
-        <span class="nt">private_endpoint</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://s3.private.&lt;region&gt;.cloud-object-storage_config.appdomain.cloud</span> 
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">ibm_cos</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">endpoint</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://s3.&lt;region&gt;.cloud-object-storage_config.appdomain.cloud</span><span class="w"></span>
+<span class="w">        </span><span class="nt">private_endpoint</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://s3.private.&lt;region&gt;.cloud-object-storage_config.appdomain.cloud</span><span class="w"> </span>
 </pre></div>
 </div>
 </div>
@@ -770,31 +783,22 @@
               </div>
               
         
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="gcp_storage.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">GCP Storage</p>
-            </div>
-        </a>
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="gcp_storage.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">GCP Storage</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="infinispan.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Infinispan</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="infinispan.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Infinispan</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>
@@ -805,7 +809,7 @@
         
           By The Lithops Team<br/>
         
-            &copy; Copyright 2021, The Lithops Team.<br/>
+            &copy; Copyright 2022, The Lithops Team.<br/>
       </p>
     </div>
   </footer>
@@ -815,18 +819,7 @@
       </div>
     </div>
   
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
-
-  
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-17598552-5', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
   </body>
 </html>

@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Architecture Design</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -26,7 +26,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -42,8 +42,21 @@
     <link rel="next" title="Comparing Lithops with other distributed computing frameworks" href="comparing_lithops.html" />
     <link rel="prev" title="What is Lithops?" href="../index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="en">
     
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-17598552-5', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
@@ -79,7 +92,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Overview of Lithops
  </span>
@@ -111,7 +124,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Install and Configure Lithops
  </span>
@@ -277,7 +290,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Lithops Compute API
  </span>
@@ -299,7 +312,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Lithops Storage API
  </span>
@@ -311,7 +324,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Data Processing
  </span>
@@ -328,7 +341,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Integrations
  </span>
@@ -355,7 +368,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Advanced Features
  </span>
@@ -382,7 +395,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Experimental Features
  </span>
@@ -399,7 +412,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Developer Guide
  </span>
@@ -556,7 +569,7 @@
 <h2>Computation flow<a class="headerlink" href="#computation-flow" title="Permalink to this headline">¶</a></h2>
 <p>In Lithops, each map or reduce computation is executed as a separate compute <em>job</em>. This means that calling a <code class="docutils literal notranslate"><span class="pre">FunctionExecutor.map()</span></code> results in one job, and calling <code class="docutils literal notranslate"><span class="pre">FunctionExecutor.map_reduce()</span></code> results in two jobs, one of <code class="docutils literal notranslate"><span class="pre">map()</span></code> and one of <code class="docutils literal notranslate"><span class="pre">reduce()</span></code>, executed one after the other.</p>
 <p>As mentioned above, the <code class="docutils literal notranslate"><span class="pre">FunctionExecutor</span></code> class is responsible for orchestrating the computation in Lithops. One <code class="docutils literal notranslate"><span class="pre">FunctionExecutor</span></code> object is instantiated prior to any use of Lithops. Its initialization includes these important steps:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>It sets up the workers (depending on the specific compute backend), such as constructing docker images, defining IBM Cloud Functions, etc. This step may not include actually creating the workers, as this may be done automatically by the backend on-demand.</p></li>
 <li><p>It defines a bucket in object storage (depending on the storage backend) in which each job will store job and call data (prior to computation) and results (when computation is complete).</p></li>
 <li><p>It creates a <code class="docutils literal notranslate"><span class="pre">FunctionInvoker</span></code> object, which is responsible for executing a job as a set of independent per-worker calls.</p></li>
@@ -564,14 +577,14 @@
 <p>Compute jobs are created in the functions of the <code class="docutils literal notranslate"><span class="pre">job</span></code> module (see chart above), invoked from the respective API method of <code class="docutils literal notranslate"><span class="pre">FunctionExecutor</span></code>. Map jobs are created in <code class="docutils literal notranslate"><span class="pre">create_map_job()</span></code> and reduce jobs in <code class="docutils literal notranslate"><span class="pre">create_reduce_job()</span></code>. The flow in both functions is quite similar. First, data is partitioned, with the intention of each partition be processed by one worker. For map jobs, this is done by invoking the <code class="docutils literal notranslate"><span class="pre">create_partitions()</span></code> function of the <code class="docutils literal notranslate"><span class="pre">partitioner</span></code> module, yielding a partition map.</p>
 <p>For reduce jobs, Lithops currently supports two modes: reduce per object, where each object is processed by a reduce function,  and global (default) reduce, where all data is processed by a single reduce function. Respectively, data is partitioned as either one partition per storage object, or one global partition with all data. This process yields a partition map similar to map jobs. Additionally, <code class="docutils literal notranslate"><span class="pre">create_reduce_job()</span></code> wraps the reduce function in a special wrapper function that forces waiting for data before the actual reduce function is invoked. This is because reduce jobs follow map jobs, so the output of the map jobs needs to finish before reduce can run.</p>
 <p>Eventually, both functions of <code class="docutils literal notranslate"><span class="pre">create_map_job()</span></code> and <code class="docutils literal notranslate"><span class="pre">create_reduce_job()</span></code> end up calling <code class="docutils literal notranslate"><span class="pre">_create_job()</span></code> which is the main flow of creating a job, described in high-level below:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>A <code class="docutils literal notranslate"><span class="pre">job_description</span></code> record is defined for the job (and is eventually returned from all job creation functions)</p></li>
 <li><p>The partition map and the data processing function (that processes a single partition in either map or reduce jobs) are each <em>pickled</em> (serialized) into a byte sequence.</p></li>
 <li><p>The pickled partition map is stored in the object storage bucket, under <code class="docutils literal notranslate"><span class="pre">agg_data_key</span></code> object</p></li>
 <li><p>The pickled processing function and its module dependencies are stored in the same bucket under <code class="docutils literal notranslate"><span class="pre">func_key</span></code> object</p></li>
 </ol>
 <p>Once job creation is done and the <code class="docutils literal notranslate"><span class="pre">job_description</span></code> record for the new job is returned to the <code class="docutils literal notranslate"><span class="pre">FunctionExecutor</span></code> object, it proceeds to execute the job by calling <code class="docutils literal notranslate"><span class="pre">run()</span></code> method of its <code class="docutils literal notranslate"><span class="pre">FunctionInvoker</span></code> instance. This triggers the following flow:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>The job is executed as a set of independent <em>calls</em> (invocations) that are submitted to a <code class="docutils literal notranslate"><span class="pre">ThreadPoolExecutor</span></code> object (thread pool size is defined by configuration). This means call invocation is concurrent from the start.</p></li>
 <li><p>Each call executes first a call to an internal <code class="docutils literal notranslate"><span class="pre">invoke()</span></code> function defined inside <code class="docutils literal notranslate"><span class="pre">FunctionInvoker.run()</span></code>, which builds a <code class="docutils literal notranslate"><span class="pre">payload</span></code> (parameter) as a single dictionary with all the data the call needs. The call data includes copy of some of the <code class="docutils literal notranslate"><span class="pre">job_description</span></code> data as well as some specific data for the call such as:</p>
 <ul class="simple">
@@ -607,31 +620,22 @@
               </div>
               
         
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="../index.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">What is Lithops?</p>
-            </div>
-        </a>
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../index.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">What is Lithops?</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="comparing_lithops.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Comparing Lithops with other distributed computing frameworks</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="comparing_lithops.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Comparing Lithops with other distributed computing frameworks</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>
@@ -642,7 +646,7 @@
         
           By The Lithops Team<br/>
         
-            &copy; Copyright 2021, The Lithops Team.<br/>
+            &copy; Copyright 2022, The Lithops Team.<br/>
       </p>
     </div>
   </footer>
@@ -652,18 +656,7 @@
       </div>
     </div>
   
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
-
-  
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-17598552-5', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
   </body>
 </html>
