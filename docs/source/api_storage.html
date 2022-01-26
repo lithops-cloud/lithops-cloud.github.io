@@ -637,6 +637,29 @@ to sending individual delete requests, reducing per-request overhead.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="lithops.storage.storage.Storage.download_file">
+<span class="sig-name descname"><span class="pre">download_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bucket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.download_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download a file from the storage backend. (Multipart download)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bucket</strong> (<em>str</em>) – Name of the bucket</p></li>
+<li><p><strong>key</strong> (<em>str</em>) – Key of the object</p></li>
+<li><p><strong>stream</strong> – Get the object data or a file-like object</p></li>
+<li><p><strong>extra_args</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>]</em>) – Extra get arguments to be passed to the underlying backend implementation (dict).</p></li>
+<li><p><strong>file_name</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Object, as a binary array or as a file-like stream if parameter <cite>stream</cite> is enabled</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[str, bytes, TextIO, BinaryIO]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="lithops.storage.storage.Storage.get_client">
 <span class="sig-name descname"><span class="pre">get_client</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.get_client" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieves the underlying storage client.</p>
@@ -820,6 +843,26 @@ of the object (key) and the size.</p>
 <li><p><strong>key</strong> (<em>str</em>) – Key of the object</p></li>
 <li><p><strong>body</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>bytes</em><em>, </em><em>TextIO</em><em>, </em><em>BinaryIO</em><em>]</em>) – Object data</p></li>
 </ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lithops.storage.storage.Storage.upload_file">
+<span class="sig-name descname"><span class="pre">upload_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bucket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.upload_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Upload a file to a bucket of the storage backend. (Multipart upload)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bucket</strong> (<em>str</em>) – Name of the bucket</p></li>
+<li><p><strong>key</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Key of the object</p></li>
+<li><p><strong>body</strong> – Object data</p></li>
+<li><p><strong>extra_args</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>]</em>) – Extra get arguments to be passed to the underlying backend implementation (dict).</p></li>
+<li><p><strong>file_name</strong> (<em>str</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Union[str, bytes, TextIO, BinaryIO]</p>
 </dd>
 </dl>
 </dd></dl>

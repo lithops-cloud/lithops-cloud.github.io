@@ -1211,8 +1211,8 @@ with the same set of commands.</p>
 <p>Uploads a local file to a bucket.</p>
 <table class="table">
 <colgroup>
-<col style="width: 33%" />
-<col style="width: 67%" />
+<col style="width: 31%" />
+<col style="width: 69%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter</p></th>
@@ -1226,14 +1226,17 @@ with the same set of commands.</p>
 <tr class="row-odd"><td><p>bucket</p></td>
 <td><p>Name of the destination bucket</p></td>
 </tr>
-<tr class="row-even"><td><p>–config, -c</p></td>
-<td><p>Path to your config file</p></td>
+<tr class="row-even"><td><p>–key, -k</p></td>
+<td><p>Object name. filename if not present</p></td>
 </tr>
 <tr class="row-odd"><td><p>–backend, -b</p></td>
 <td><p>Storage backend name</p></td>
 </tr>
 <tr class="row-even"><td><p>–debug, -d</p></td>
 <td><p>Activate debug logs (Flag)</p></td>
+</tr>
+<tr class="row-odd"><td><p>–config, -c</p></td>
+<td><p>Path to your config file</p></td>
 </tr>
 </tbody>
 </table>
@@ -1247,8 +1250,8 @@ with the same set of commands.</p>
 <p>Downloads a remote object stored in a bucket to a local file.</p>
 <table class="table">
 <colgroup>
-<col style="width: 36%" />
-<col style="width: 64%" />
+<col style="width: 32%" />
+<col style="width: 68%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter</p></th>
@@ -1262,14 +1265,17 @@ with the same set of commands.</p>
 <tr class="row-odd"><td><p>key</p></td>
 <td><p>Key of the object</p></td>
 </tr>
-<tr class="row-even"><td><p>–config, -c</p></td>
-<td><p>Path to your config file</p></td>
+<tr class="row-even"><td><p>–out, -o</p></td>
+<td><p>local filename. key if not present</p></td>
 </tr>
 <tr class="row-odd"><td><p>–backend, -b</p></td>
 <td><p>Storage backend name</p></td>
 </tr>
 <tr class="row-even"><td><p>–debug, -d</p></td>
 <td><p>Activate debug logs (Flag)</p></td>
+</tr>
+<tr class="row-odd"><td><p>–config, -c</p></td>
+<td><p>Path to your config file</p></td>
 </tr>
 </tbody>
 </table>
@@ -1301,14 +1307,14 @@ with the same set of commands.</p>
 <tr class="row-even"><td><p>–prefix, -p</p></td>
 <td><p>Prefix of the objects to delete</p></td>
 </tr>
-<tr class="row-odd"><td><p>–config, -c</p></td>
-<td><p>Path to your config file</p></td>
-</tr>
-<tr class="row-even"><td><p>–backend, -b</p></td>
+<tr class="row-odd"><td><p>–backend, -b</p></td>
 <td><p>Storage backend name</p></td>
 </tr>
-<tr class="row-odd"><td><p>–debug, -d</p></td>
+<tr class="row-even"><td><p>–debug, -d</p></td>
 <td><p>Activate debug logs (Flag)</p></td>
+</tr>
+<tr class="row-odd"><td><p>–config, -c</p></td>
+<td><p>Path to your config file</p></td>
 </tr>
 </tbody>
 </table>
@@ -1342,14 +1348,14 @@ object:<code class="docutils literal notranslate"><span class="pre">lithops</spa
 <tr class="row-odd"><td><p>–prefix, -p</p></td>
 <td><p>Prefix of the objects to list</p></td>
 </tr>
-<tr class="row-even"><td><p>–config, -c</p></td>
-<td><p>Path to your config file</p></td>
-</tr>
-<tr class="row-odd"><td><p>–backend, -b</p></td>
+<tr class="row-even"><td><p>–backend, -b</p></td>
 <td><p>Storage backend name</p></td>
 </tr>
-<tr class="row-even"><td><p>–debug, -d</p></td>
+<tr class="row-odd"><td><p>–debug, -d</p></td>
 <td><p>Activate debug logs (Flag)</p></td>
+</tr>
+<tr class="row-even"><td><p>–config, -c</p></td>
+<td><p>Path to your config file</p></td>
 </tr>
 </tbody>
 </table>
