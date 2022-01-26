@@ -599,7 +599,7 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#lithops-runtime-create-runtime-name">
+    <a class="reference internal nav-link" href="#lithops-runtime-deploy-runtime-name">
      <code class="docutils literal notranslate">
       <span class="pre">
        lithops
@@ -608,7 +608,7 @@
        runtime
       </span>
       <span class="pre">
-       create
+       deploy
       </span>
       <span class="pre">
        &lt;runtime-name&gt;
@@ -1012,11 +1012,12 @@ the runtime to the compute backend.</p>
 <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">runtime</span> <span class="pre">build</span> <span class="pre">-f</span> <span class="pre">Dockefile.pythonv39</span> <span class="pre">-b</span> <span class="pre">ibm_cf</span> <span class="pre">lithopscloud/my-runtime-name-v39:01</span></code></p></li>
 </ul>
 </div>
-<div class="section" id="lithops-runtime-create-runtime-name">
-<h3><code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">runtime</span> <span class="pre">create</span> <span class="pre">&lt;runtime-name&gt;</span></code><a class="headerlink" href="#lithops-runtime-create-runtime-name" title="Permalink to this headline">¶</a></h3>
-<p>Creates/deploy a new Lithops runtime based on a image built with the
-previous command. When you build a runtime, for example from a
-Dockerfile, the runtime is uploaded to a docker registry, however it is
+<div class="section" id="lithops-runtime-deploy-runtime-name">
+<h3><code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">runtime</span> <span class="pre">deploy</span> <span class="pre">&lt;runtime-name&gt;</span></code><a class="headerlink" href="#lithops-runtime-deploy-runtime-name" title="Permalink to this headline">¶</a></h3>
+<p>Deploys a new Lithops runtime to the compute backend
+based on an image built with the previous command.
+When you build a runtime, for example from a Dockerfile,
+the runtime is uploaded to a docker registry, however it is
 not deployed to the compute backend. To do so run this command. Note
 that the runtime is automatically created/deployed in the compute
 backend the first time you run a function with it, so in most of the
@@ -1057,12 +1058,12 @@ cases you can avoid using this command.</p>
 </table>
 <ul class="simple">
 <li><p><strong>Usage example</strong>:
-<code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">runtime</span> <span class="pre">create</span> <span class="pre">-b</span> <span class="pre">ibm_cf</span> <span class="pre">lithopscloud/my-runtime-name-v39:01</span> <span class="pre">-m</span> <span class="pre">1024</span> <span class="pre">-t</span> <span class="pre">300</span></code></p></li>
+<code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">runtime</span> <span class="pre">deploy</span> <span class="pre">-b</span> <span class="pre">ibm_cf</span> <span class="pre">lithopscloud/my-runtime-name-v39:01</span> <span class="pre">-m</span> <span class="pre">1024</span> <span class="pre">-t</span> <span class="pre">300</span></code></p></li>
 </ul>
 </div>
 <div class="section" id="lithops-runtime-update-runtime-name">
 <h3><code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">runtime</span> <span class="pre">update</span> <span class="pre">&lt;runtime-name&gt;</span></code><a class="headerlink" href="#lithops-runtime-update-runtime-name" title="Permalink to this headline">¶</a></h3>
-<p>Updates an already created/deployed runtime with the local lithops code.
+<p>Updates an already deployed runtime with the local lithops code.
 This command is useful when developers change the local python Lithops
 code and want to update the deployed runtimes with it. As an
 alternative, you can run <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">clean</span> <span class="pre">-b</span> <span class="pre">&lt;backend-name&gt;</span></code> and then
