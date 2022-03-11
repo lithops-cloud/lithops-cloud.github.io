@@ -521,6 +521,18 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#configure-docker-hub">
+   Configure Docker hub
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#configure-ibm-container-registry">
+     Configure IBM Container Registry
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#ibm-vpc">
    IBM VPC
   </a>
@@ -653,8 +665,36 @@
 <td><p>no</p></td>
 <td><p>One of: <strong>permissive</strong>, <strong>strict</strong>. If set to <strong>strict</strong> will force creation of required workers number</p></td>
 </tr>
+<tr class="row-odd"><td><p>standalone</p></td>
+<td><p>gpu</p></td>
+<td><p>False</p></td>
+<td><p>no</p></td>
+<td><p>If True docker started with gpu support. Requires host to have neccessary hardware and software preconfigured and docker image runtime with gpu support specified</p></td>
+</tr>
 </tbody>
 </table>
+<div class="section" id="configure-docker-hub">
+<h2>Configure Docker hub<a class="headerlink" href="#configure-docker-hub" title="Permalink to this headline">¶</a></h2>
+<p>To configure Lithops to access a private docker repository, you need to add the following keys to <strong>standalone</strong> config:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">standalone</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">....</span><span class="w"></span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">docker_server</span><span class="w">    </span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;Docker registry server&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">docker_user      </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;Docker registry username&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">docker_password  </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;Docker registry access token&gt;</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="section" id="configure-ibm-container-registry">
+<h3>Configure IBM Container Registry<a class="headerlink" href="#configure-ibm-container-registry" title="Permalink to this headline">¶</a></h3>
+<p>To configure Lithops to access to a private docker repository in your IBM Container Registry, you need to extend the <strong>standalone</strong> config and add the following keys:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">standalone</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">....</span><span class="w"></span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">docker_server</span><span class="w">    </span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">us.icr.io</span><span class="w">  </span><span class="c1"># Change-me if you have the CR in another region</span><span class="w"></span>
+<span class="w">    </span><span class="nt">docker_user      </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iamapikey</span><span class="w"></span>
+<span class="w">    </span><span class="nt">docker_password  </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;IBM IAM API KEY&gt;</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="ibm-vpc">
 <h2>IBM VPC<a class="headerlink" href="#ibm-vpc" title="Permalink to this headline">¶</a></h2>
 <p>The assumption that you already familiar with IBM Cloud, have your IBM IAM API key created (you can create new keys <a class="reference external" href="https://cloud.ibm.com/iam/apikeys">here</a>), have valid IBM COS account, region and resource group.</p>

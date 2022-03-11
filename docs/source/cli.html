@@ -599,7 +599,7 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#lithops-runtime-deploy-runtime-name">
+    <a class="reference internal nav-link" href="#lithops-runtime-create-runtime-name">
      <code class="docutils literal notranslate">
       <span class="pre">
        lithops
@@ -608,7 +608,7 @@
        runtime
       </span>
       <span class="pre">
-       deploy
+       create
       </span>
       <span class="pre">
        &lt;runtime-name&gt;
@@ -1012,8 +1012,8 @@ the runtime to the compute backend.</p>
 <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">runtime</span> <span class="pre">build</span> <span class="pre">-f</span> <span class="pre">Dockefile.pythonv39</span> <span class="pre">-b</span> <span class="pre">ibm_cf</span> <span class="pre">lithopscloud/my-runtime-name-v39:01</span></code></p></li>
 </ul>
 </div>
-<div class="section" id="lithops-runtime-deploy-runtime-name">
-<h3><code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">runtime</span> <span class="pre">deploy</span> <span class="pre">&lt;runtime-name&gt;</span></code><a class="headerlink" href="#lithops-runtime-deploy-runtime-name" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="lithops-runtime-create-runtime-name">
+<h3><code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">runtime</span> <span class="pre">create</span> <span class="pre">&lt;runtime-name&gt;</span></code><a class="headerlink" href="#lithops-runtime-create-runtime-name" title="Permalink to this headline">¶</a></h3>
 <p>Deploys a new Lithops runtime to the compute backend
 based on an image built with the previous command.
 When you build a runtime, for example from a Dockerfile,
@@ -1103,7 +1103,7 @@ let Lithops create the runtime automatically with the new Lithops code.</p>
 </div>
 <div class="section" id="lithops-runtime-list">
 <h3><code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">runtime</span> <span class="pre">list</span></code><a class="headerlink" href="#lithops-runtime-list" title="Permalink to this headline">¶</a></h3>
-<p>Lists all created/deployed runtimes of an specific compute backend.</p>
+<p>Lists all deployed runtimes of an specific compute backend.</p>
 <table class="table">
 <colgroup>
 <col style="width: 36%" />

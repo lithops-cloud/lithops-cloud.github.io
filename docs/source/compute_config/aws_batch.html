@@ -697,48 +697,54 @@
 <td><p>Number of vCPUs assigned to each task container. It can be different from <code class="docutils literal notranslate"><span class="pre">worker_processes</span></code>. Use it to run a task that uses multiple processes within a container.</p></td>
 </tr>
 <tr class="row-odd"><td><p>aws_batch</p></td>
+<td><p>service_role</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td><p>no</p></td>
+<td><p>Service role for AWS Batch. Leave empty for use a service-linked execution role. More info <a class="reference external" href="https://docs.aws.amazon.com/batch/latest/userguide/using-service-linked-roles.html">here</a></p></td>
+</tr>
+<tr class="row-even"><td><p>aws_batch</p></td>
 <td><p>execution_role</p></td>
 <td><p></p></td>
 <td><p>yes</p></td>
 <td><p>ARN of the execution role used to execute AWS Batch tasks on ECS for Fargate environments</p></td>
 </tr>
-<tr class="row-even"><td><p>aws_batch</p></td>
+<tr class="row-odd"><td><p>aws_batch</p></td>
 <td><p>instance_role</p></td>
 <td><p></p></td>
 <td><p>yes</p></td>
 <td><p>ARN of the execution role used to execute AWS Batch tasks on ECS for EC2 environments</p></td>
 </tr>
-<tr class="row-odd"><td><p>aws_batch</p></td>
+<tr class="row-even"><td><p>aws_batch</p></td>
 <td><p>region_name</p></td>
 <td><p></p></td>
 <td><p>yes</p></td>
 <td><p>Region name (like <code class="docutils literal notranslate"><span class="pre">us-east-1</span></code>) where to deploy the ECS cluster</p></td>
 </tr>
-<tr class="row-even"><td><p>aws_batch</p></td>
+<tr class="row-odd"><td><p>aws_batch</p></td>
 <td><p>env_type</p></td>
 <td><p></p></td>
 <td><p>yes</p></td>
 <td><p>Compute environment type, one of: <code class="docutils literal notranslate"><span class="pre">[&quot;EC2&quot;,</span> <span class="pre">&quot;SPOT&quot;,</span> <span class="pre">&quot;FARGATE&quot;,</span> <span class="pre">&quot;FARGATE_SPOT&quot;]</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p>aws_batch</p></td>
+<tr class="row-even"><td><p>aws_batch</p></td>
 <td><p>env_max_cpus</p></td>
 <td><p></p></td>
 <td><p>yes</p></td>
 <td><p>Maximum total CPUs of the compute environment</p></td>
 </tr>
-<tr class="row-even"><td><p>aws_batch</p></td>
+<tr class="row-odd"><td><p>aws_batch</p></td>
 <td><p>assign_public_ip</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
 <td><p>no</p></td>
 <td><p>Assing public IPs to ECS task containers. Set to <code class="docutils literal notranslate"><span class="pre">true</span></code> if the tasks are being deployed in a public subnet. Set to <code class="docutils literal notranslate"><span class="pre">false</span></code> when deploying on a private subnet.</p></td>
 </tr>
-<tr class="row-odd"><td><p>aws_batch</p></td>
+<tr class="row-even"><td><p>aws_batch</p></td>
 <td><p>subnets</p></td>
 <td><p></p></td>
 <td><p>yes</p></td>
 <td><p>List of subnets where to deploy the ECS task containers. Note that if you are using a <strong>private subnet</strong>, you can set <code class="docutils literal notranslate"><span class="pre">assing_public_ip</span></code> to <code class="docutils literal notranslate"><span class="pre">false</span></code> but make sure containers can reach other AWS services like ECR, Secrets service, etc., by, for example, using a NAT gateway. If you are using a <strong>public subnet</strong> you must set <code class="docutils literal notranslate"><span class="pre">assing_public_ip</span></code> to <code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p>aws_batch</p></td>
+<tr class="row-odd"><td><p>aws_batch</p></td>
 <td><p>security_groups</p></td>
 <td><p></p></td>
 <td><p>yes</p></td>
