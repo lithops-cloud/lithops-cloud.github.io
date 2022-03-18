@@ -136,7 +136,7 @@ the runtime to the compute backend.
 -  **Usage example**:
    ``lithops runtime build -f Dockefile.pythonv39 -b ibm_cf lithopscloud/my-runtime-name-v39:01``
 
-``lithops runtime create <runtime-name>``
+``lithops runtime deploy <runtime-name>``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Deploys a new Lithops runtime to the compute backend 
@@ -198,7 +198,7 @@ let Lithops create the runtime automatically with the new Lithops code.
 ``lithops runtime list``
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Lists all deployed runtimes of an specific compute backend.
+Lists all created/deployed runtimes of an specific compute backend.
 
 +-----------------+------------------------------+
 | Parameter       | Description                  |

@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Storage API Deatils</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -22,13 +22,13 @@
       
 
     
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -40,23 +40,10 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Processing data from the Cloud" href="data_processing.html" />
-    <link rel="prev" title="Function chaining" href="notebooks/function_chaining.html" />
+    <link rel="prev" title="Execution stats" href="api_stats.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en">
+    <meta name="docsearch:language" content="en" />
     
-
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-17598552-5', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
-
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
@@ -71,10 +58,6 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
-      
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
-      
       
       <img src="../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
@@ -92,7 +75,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Overview of Lithops
  </span>
@@ -124,7 +107,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Install and Configure Lithops
  </span>
@@ -290,7 +273,7 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Lithops Compute API
  </span>
@@ -311,8 +294,13 @@
    Function chaining
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="api_stats.html">
+   Execution stats
+  </a>
+ </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Lithops Storage API
  </span>
@@ -324,7 +312,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Data Processing
  </span>
@@ -341,7 +329,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Integrations
  </span>
@@ -368,7 +356,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Advanced Features
  </span>
@@ -395,7 +383,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Experimental Features
  </span>
@@ -412,7 +400,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Developer Guide
  </span>
@@ -579,14 +567,14 @@ using the <code class="docutils literal notranslate"><span class="pre">backend</
 <div class="section" id="storage-api-reference">
 <h2>Storage API Reference<a class="headerlink" href="#storage-api-reference" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="lithops.storage.storage.Storage">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lithops.storage.storage.</span></span><span class="sig-name descname"><span class="pre">Storage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storage_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage" title="Permalink to this definition">¶</a></dt>
+<dt id="lithops.storage.storage.Storage">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">lithops.storage.storage.</span></code><code class="sig-name descname"><span class="pre">Storage</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storage_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>An Storage object is used by partitioner and other components to access
 underlying storage backend without exposing the the implementation details.</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="lithops.storage.storage.Storage.delete_cloudobject">
-<span class="sig-name descname"><span class="pre">delete_cloudobject</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cloudobject</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.delete_cloudobject" title="Permalink to this definition">¶</a></dt>
+<dt id="lithops.storage.storage.Storage.delete_cloudobject">
+<code class="sig-name descname"><span class="pre">delete_cloudobject</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cloudobject</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.delete_cloudobject" title="Permalink to this definition">¶</a></dt>
 <dd><p>Delete a CloudObject from storage.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -596,8 +584,8 @@ underlying storage backend without exposing the the implementation details.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="lithops.storage.storage.Storage.delete_cloudobjects">
-<span class="sig-name descname"><span class="pre">delete_cloudobjects</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cloudobjects</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.delete_cloudobjects" title="Permalink to this definition">¶</a></dt>
+<dt id="lithops.storage.storage.Storage.delete_cloudobjects">
+<code class="sig-name descname"><span class="pre">delete_cloudobjects</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cloudobjects</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.delete_cloudobjects" title="Permalink to this definition">¶</a></dt>
 <dd><p>Delete multiple CloudObjects from storage.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -607,8 +595,8 @@ underlying storage backend without exposing the the implementation details.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="lithops.storage.storage.Storage.delete_object">
-<span class="sig-name descname"><span class="pre">delete_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bucket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.delete_object" title="Permalink to this definition">¶</a></dt>
+<dt id="lithops.storage.storage.Storage.delete_object">
+<code class="sig-name descname"><span class="pre">delete_object</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bucket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.delete_object" title="Permalink to this definition">¶</a></dt>
 <dd><p>Removes objects from the storage backend.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -621,8 +609,8 @@ underlying storage backend without exposing the the implementation details.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="lithops.storage.storage.Storage.delete_objects">
-<span class="sig-name descname"><span class="pre">delete_objects</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bucket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.delete_objects" title="Permalink to this definition">¶</a></dt>
+<dt id="lithops.storage.storage.Storage.delete_objects">
+<code class="sig-name descname"><span class="pre">delete_objects</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bucket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.delete_objects" title="Permalink to this definition">¶</a></dt>
 <dd><p>This operation enables you to delete multiple objects from a bucket using a single HTTP request.
 If you know the object keys that you want to delete, then this operation provides a suitable alternative
 to sending individual delete requests, reducing per-request overhead.</p>
@@ -637,8 +625,8 @@ to sending individual delete requests, reducing per-request overhead.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="lithops.storage.storage.Storage.download_file">
-<span class="sig-name descname"><span class="pre">download_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bucket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.download_file" title="Permalink to this definition">¶</a></dt>
+<dt id="lithops.storage.storage.Storage.download_file">
+<code class="sig-name descname"><span class="pre">download_file</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bucket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.download_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Download a file from the storage backend. (Multipart download)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -660,8 +648,8 @@ to sending individual delete requests, reducing per-request overhead.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="lithops.storage.storage.Storage.get_client">
-<span class="sig-name descname"><span class="pre">get_client</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.get_client" title="Permalink to this definition">¶</a></dt>
+<dt id="lithops.storage.storage.Storage.get_client">
+<code class="sig-name descname"><span class="pre">get_client</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.get_client" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieves the underlying storage client.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -674,8 +662,8 @@ to sending individual delete requests, reducing per-request overhead.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="lithops.storage.storage.Storage.get_cloudobject">
-<span class="sig-name descname"><span class="pre">get_cloudobject</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cloudobject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.get_cloudobject" title="Permalink to this definition">¶</a></dt>
+<dt id="lithops.storage.storage.Storage.get_cloudobject">
+<code class="sig-name descname"><span class="pre">get_cloudobject</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cloudobject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.get_cloudobject" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a CloudObject’s content from storage.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -694,8 +682,8 @@ to sending individual delete requests, reducing per-request overhead.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="lithops.storage.storage.Storage.get_object">
-<span class="sig-name descname"><span class="pre">get_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bucket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_get_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.get_object" title="Permalink to this definition">¶</a></dt>
+<dt id="lithops.storage.storage.Storage.get_object">
+<code class="sig-name descname"><span class="pre">get_object</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bucket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_get_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.get_object" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieves objects from the storage backend.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -716,8 +704,8 @@ to sending individual delete requests, reducing per-request overhead.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="lithops.storage.storage.Storage.get_storage_config">
-<span class="sig-name descname"><span class="pre">get_storage_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.get_storage_config" title="Permalink to this definition">¶</a></dt>
+<dt id="lithops.storage.storage.Storage.get_storage_config">
+<code class="sig-name descname"><span class="pre">get_storage_config</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.get_storage_config" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieves the configuration of this storage handler.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -730,8 +718,8 @@ to sending individual delete requests, reducing per-request overhead.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="lithops.storage.storage.Storage.head_bucket">
-<span class="sig-name descname"><span class="pre">head_bucket</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bucket</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.head_bucket" title="Permalink to this definition">¶</a></dt>
+<dt id="lithops.storage.storage.Storage.head_bucket">
+<code class="sig-name descname"><span class="pre">head_bucket</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bucket</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.head_bucket" title="Permalink to this definition">¶</a></dt>
 <dd><p>This operation is useful to determine if a bucket exists and you have permission to access it.
 The operation returns a 200 OK if the bucket exists and you have permission to access it.
 Otherwise, the operation might return responses such as 404 Not Found and 403 Forbidden.</p>
@@ -749,8 +737,8 @@ Otherwise, the operation might return responses such as 404 Not Found and 403 Fo
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="lithops.storage.storage.Storage.head_object">
-<span class="sig-name descname"><span class="pre">head_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bucket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.head_object" title="Permalink to this definition">¶</a></dt>
+<dt id="lithops.storage.storage.Storage.head_object">
+<code class="sig-name descname"><span class="pre">head_object</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bucket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.head_object" title="Permalink to this definition">¶</a></dt>
 <dd><p>The HEAD operation retrieves metadata from an object without returning the object itself. This operation is
 useful if you’re only interested in an object’s metadata.</p>
 <dl class="field-list simple">
@@ -770,8 +758,8 @@ useful if you’re only interested in an object’s metadata.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="lithops.storage.storage.Storage.list_keys">
-<span class="sig-name descname"><span class="pre">list_keys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bucket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.list_keys" title="Permalink to this definition">¶</a></dt>
+<dt id="lithops.storage.storage.Storage.list_keys">
+<code class="sig-name descname"><span class="pre">list_keys</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bucket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.list_keys" title="Permalink to this definition">¶</a></dt>
 <dd><p>Similar to list_objects(), it returns all of the object keys in a bucket.
 For each object, the list contains only the names of the objects (keys).</p>
 <dl class="field-list simple">
@@ -791,8 +779,8 @@ For each object, the list contains only the names of the objects (keys).</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="lithops.storage.storage.Storage.list_objects">
-<span class="sig-name descname"><span class="pre">list_objects</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bucket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.list_objects" title="Permalink to this definition">¶</a></dt>
+<dt id="lithops.storage.storage.Storage.list_objects">
+<code class="sig-name descname"><span class="pre">list_objects</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bucket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.list_objects" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns all of the object keys in a bucket. For each object, the list contains the name
 of the object (key) and the size.</p>
 <dl class="field-list simple">
@@ -812,8 +800,8 @@ of the object (key) and the size.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="lithops.storage.storage.Storage.put_cloudobject">
-<span class="sig-name descname"><span class="pre">put_cloudobject</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">body</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bucket</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.put_cloudobject" title="Permalink to this definition">¶</a></dt>
+<dt id="lithops.storage.storage.Storage.put_cloudobject">
+<code class="sig-name descname"><span class="pre">put_cloudobject</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">body</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bucket</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.put_cloudobject" title="Permalink to this definition">¶</a></dt>
 <dd><p>Put a CloudObject into storage.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -833,8 +821,8 @@ of the object (key) and the size.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="lithops.storage.storage.Storage.put_object">
-<span class="sig-name descname"><span class="pre">put_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bucket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">body</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.put_object" title="Permalink to this definition">¶</a></dt>
+<dt id="lithops.storage.storage.Storage.put_object">
+<code class="sig-name descname"><span class="pre">put_object</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bucket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">body</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.put_object" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds an object to a bucket of the storage backend.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -848,8 +836,8 @@ of the object (key) and the size.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="lithops.storage.storage.Storage.upload_file">
-<span class="sig-name descname"><span class="pre">upload_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bucket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.upload_file" title="Permalink to this definition">¶</a></dt>
+<dt id="lithops.storage.storage.Storage.upload_file">
+<code class="sig-name descname"><span class="pre">upload_file</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bucket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.upload_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Upload a file to a bucket of the storage backend. (Multipart upload)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -876,27 +864,36 @@ of the object (key) and the size.</p>
               </div>
               
         
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="notebooks/function_chaining.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Function chaining</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="data_processing.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Processing data from the Cloud</p>
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="api_stats.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Execution stats</p>
+            </div>
+        </a>
     </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
+     <div id="next">
+        <a class="right-next" href="data_processing.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Processing data from the Cloud</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
 </div>
         
         </div>
     </div>
-    <footer class="footer">
+    <footer class="footer mt-5 mt-md-0">
     <div class="container">
       <p>
         
@@ -912,7 +909,18 @@ of the object (key) and the size.</p>
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-17598552-5', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
 
   </body>
 </html>
