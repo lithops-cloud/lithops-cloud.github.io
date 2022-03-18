@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Knative</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -22,13 +22,13 @@
       
 
     
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
@@ -42,21 +42,8 @@
     <link rel="next" title="Localhost" href="localhost.html" />
     <link rel="prev" title="Kubernetes (batch/job)" href="k8s_job.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en">
+    <meta name="docsearch:language" content="en" />
     
-
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-17598552-5', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
-
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
@@ -71,10 +58,6 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
-      
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
-      
       
       <img src="../../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
@@ -92,7 +75,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Overview of Lithops
  </span>
@@ -124,7 +107,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Install and Configure Lithops
  </span>
@@ -290,7 +273,7 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Lithops Compute API
  </span>
@@ -311,8 +294,13 @@
    Function chaining
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../api_stats.html">
+   Execution stats
+  </a>
+ </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Lithops Storage API
  </span>
@@ -324,7 +312,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Data Processing
  </span>
@@ -341,7 +329,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Integrations
  </span>
@@ -368,7 +356,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Advanced Features
  </span>
@@ -395,7 +383,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Experimental Features
  </span>
@@ -412,7 +400,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Developer Guide
  </span>
@@ -590,7 +578,7 @@
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>Note that Lithops automatically builds the default runtime the first time you run a script. For this task it uses the <strong>docker</strong> command installed locally in your machine. If for some reason you can’t install the Docker CE package locally, you must provide the <strong>docker_token</strong> parameter in the configuration. This way lithops will use Tekton of your k8s cluster to build the default runtime to your docker hub account. In this case, omit steps 1 and 2.</p>
-<ol class="arabic">
+<ol>
 <li><p><a class="reference external" href="https://docs.docker.com/get-docker/">Install the Docker CE version</a>.</p></li>
 <li><p>Login to your docker account:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker login
@@ -601,7 +589,7 @@
 </ol>
 <div class="section" id="option-1-ibm-iks">
 <h3>Option 1 (IBM IKS):<a class="headerlink" href="#option-1-ibm-iks" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic simple">
+<ol class="simple">
 <li><p>Access to the <a class="reference external" href="https://cloud.ibm.com/kubernetes/landing">IBM dashboard</a> and create a new Kubernetes cluster. For testing purposes, it is preferable to use this setup:</p>
 <ul class="simple">
 <li><p>Install Kubernetes &gt;= v1.16</p></li>
@@ -617,7 +605,7 @@
 </div>
 <div class="section" id="option-2-ibm-iks-or-any-other-kubernetes-cluster">
 <h3>Option 2 (IBM IKS or any other Kubernetes Cluster):<a class="headerlink" href="#option-2-ibm-iks-or-any-other-kubernetes-cluster" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic">
+<ol>
 <li><p>Install Kubernetes &gt;= v1.16 and make sure the <em>kubectl</em> client is running.</p></li>
 <li><p>Install the <strong>helm</strong> Kubernetes package manager in your local machine. Instructions can be found <a class="reference external" href="https://github.com/helm/helm#install">here</a>.</p></li>
 <li><p>Install the Knative environment into the k8s cluster:</p>
@@ -630,15 +618,15 @@
 </div>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic">
+<ol>
 <li><p>Make sure you have the ~/.kube/config file. Alternatively, you can set KUBECONFIG environment variable:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">KUBECONFIG</span><span class="o">=</span>&lt;path-to-kube-config-file&gt;
 </pre></div>
 </div>
 </li>
 <li><p>Edit your lithops config and add the following keys:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">knative</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
+    <span class="nt">backend</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">knative</span>
 </pre></div>
 </div>
 </li>
@@ -648,21 +636,21 @@
 <div class="section" id="configure-docker-hub">
 <h4>Configure Docker hub<a class="headerlink" href="#configure-docker-hub" title="Permalink to this headline">¶</a></h4>
 <p>To configure Lithops to access a private repository in your docker hub account, you need to extend the Knative config and add the following keys:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">knative</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">....</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">docker_user</span><span class="w">      </span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;Docker hub Username&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">docker_password  </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;DOcker hub access TOEKN&gt;</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">knative</span><span class="p">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">....</span>
+    <span class="l l-Scalar l-Scalar-Plain">docker_user</span>      <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;Docker hub Username&gt;</span>
+    <span class="nt">docker_password  </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;DOcker hub access TOEKN&gt;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="configure-ibm-container-registry">
 <h4>Configure IBM Container Registry<a class="headerlink" href="#configure-ibm-container-registry" title="Permalink to this headline">¶</a></h4>
 <p>To configure Lithops to access to a private repository in your IBM Container Registry, you need to extend the Knative config and add the following keys:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">knative</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">....</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">docker_server</span><span class="w">    </span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">us.icr.io</span><span class="w"></span>
-<span class="w">    </span><span class="nt">docker_user      </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iamapikey</span><span class="w"></span>
-<span class="w">    </span><span class="nt">docker_password  </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;IBM IAM API KEY&gt;</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">knative</span><span class="p">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">....</span>
+    <span class="l l-Scalar l-Scalar-Plain">docker_server</span>    <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">us.icr.io</span>
+    <span class="nt">docker_user      </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">iamapikey</span>
+    <span class="nt">docker_password  </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;IBM IAM API KEY&gt;</span>
 </pre></div>
 </div>
 </div>
@@ -768,7 +756,7 @@
 </table>
 <div class="section" id="verify">
 <h3>Verify<a class="headerlink" href="#verify" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic">
+<ol>
 <li><p>Verify that all the pods from the following namespaces are in <em>Running</em> status:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl get pods --namespace istio-system
 kubectl get pods --namespace knative-serving
@@ -791,27 +779,36 @@ kubectl get pods --namespace tekton-pipelines
               </div>
               
         
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="k8s_job.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Kubernetes (batch/job)</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="localhost.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Localhost</p>
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="k8s_job.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Kubernetes (batch/job)</p>
+            </div>
+        </a>
     </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
+     <div id="next">
+        <a class="right-next" href="localhost.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Localhost</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
 </div>
         
         </div>
     </div>
-    <footer class="footer">
+    <footer class="footer mt-5 mt-md-0">
     <div class="container">
       <p>
         
@@ -827,7 +824,18 @@ kubectl get pods --namespace tekton-pipelines
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-17598552-5', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
 
   </body>
 </html>

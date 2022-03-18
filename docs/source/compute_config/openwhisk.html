@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OpenWhisk</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -22,13 +22,13 @@
       
 
     
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
@@ -42,21 +42,8 @@
     <link rel="next" title="Virtual Machine" href="vm.html" />
     <link rel="prev" title="Localhost" href="localhost.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en">
+    <meta name="docsearch:language" content="en" />
     
-
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-17598552-5', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
-
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
@@ -71,10 +58,6 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
-      
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
-      
       
       <img src="../../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
@@ -92,7 +75,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Overview of Lithops
  </span>
@@ -124,7 +107,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Install and Configure Lithops
  </span>
@@ -290,7 +273,7 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Lithops Compute API
  </span>
@@ -311,8 +294,13 @@
    Function chaining
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../api_stats.html">
+   Execution stats
+  </a>
+ </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Lithops Storage API
  </span>
@@ -324,7 +312,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Data Processing
  </span>
@@ -341,7 +329,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Integrations
  </span>
@@ -368,7 +356,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Advanced Features
  </span>
@@ -395,7 +383,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Experimental Features
  </span>
@@ -412,7 +400,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Developer Guide
  </span>
@@ -551,7 +539,7 @@
 <p>Lithops with <em>OpenWhisk</em> as serverless compute backend. Lithops can also run functions on vanilla OpenWhisk installations, for example by deploying OpenWhisk with <a class="reference external" href="https://github.com/apache/openwhisk-devtools">openwhisk-devtools</a>.</p>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic">
+<ol>
 <li><p>install the <a class="reference external" href="https://github.com/apache/openwhisk-cli">openwhisk-cli</a></p></li>
 <li><p>Make sure you can run end-to-end <a class="reference external" href="https://github.com/apache/openwhisk/blob/master/docs/actions-python.md#creating-and-invoking-python-actions">python example</a>.</p>
 <p>For example, create a file named <code class="docutils literal notranslate"><span class="pre">hello.py</span></code> with the next content:</p>
@@ -575,16 +563,16 @@
 </div>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic">
+<ol>
 <li><p>Edit your Lithops config and add the following keys:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="nt">lithops</span><span class="p">:</span><span class="w"></span>
-<span class="w">     </span><span class="nt">backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openwhisk</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span> <span class="nt">lithops</span><span class="p">:</span>
+     <span class="nt">backend</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">openwhisk</span>
 
-<span class="w"> </span><span class="nt">openwhisk</span><span class="p">:</span><span class="w"></span>
-<span class="w">     </span><span class="nt">endpoint    </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;OW_ENDPOINT&gt;</span><span class="w"></span>
-<span class="w">     </span><span class="nt">namespace   </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;NAMESPACE&gt;</span><span class="w"></span>
-<span class="w">     </span><span class="nt">api_key     </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;AUTH_KEY&gt;</span><span class="w"></span>
-<span class="w">     </span><span class="nt">insecure    </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;True/False&gt;</span><span class="w"></span>
+ <span class="nt">openwhisk</span><span class="p">:</span>
+     <span class="nt">endpoint    </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;OW_ENDPOINT&gt;</span>
+     <span class="nt">namespace   </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;NAMESPACE&gt;</span>
+     <span class="nt">api_key     </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;AUTH_KEY&gt;</span>
+     <span class="nt">insecure    </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;True/False&gt;</span>
 </pre></div>
 </div>
 <ul>
@@ -596,11 +584,11 @@
 </pre></div>
 </div>
 <p>Copy all the values into the lithops config file as:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">openwhisk</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">endpoint    </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://192.168.1.30</span><span class="w"></span>
-<span class="w">    </span><span class="nt">namespace   </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">guest</span><span class="w"></span>
-<span class="w">    </span><span class="nt">api_key     </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">23bc46b1-71f6-4ed5-8c54-816aa4f8c50:123zO3xZCLrMN6v2BKK1dXYFpXlPkccOFqm12CdAsMgRU4VrNZ9lyGVCG</span><span class="w"></span>
-<span class="w">    </span><span class="nt">insecure    </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">openwhisk</span><span class="p">:</span>
+    <span class="nt">endpoint    </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://192.168.1.30</span>
+    <span class="nt">namespace   </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">guest</span>
+    <span class="nt">api_key     </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">23bc46b1-71f6-4ed5-8c54-816aa4f8c50:123zO3xZCLrMN6v2BKK1dXYFpXlPkccOFqm12CdAsMgRU4VrNZ9lyGVCG</span>
+    <span class="nt">insecure    </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
 </pre></div>
 </div>
 </li>
@@ -689,27 +677,36 @@
               </div>
               
         
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="localhost.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Localhost</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="vm.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Virtual Machine</p>
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="localhost.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Localhost</p>
+            </div>
+        </a>
     </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
+     <div id="next">
+        <a class="right-next" href="vm.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Virtual Machine</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
 </div>
         
         </div>
     </div>
-    <footer class="footer">
+    <footer class="footer mt-5 mt-md-0">
     <div class="container">
       <p>
         
@@ -725,7 +722,18 @@
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-17598552-5', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
 
   </body>
 </html>
