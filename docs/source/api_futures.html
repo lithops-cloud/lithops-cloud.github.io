@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lithops Futures API</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,13 +22,13 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -42,8 +42,21 @@
     <link rel="next" title="Lithops Functions and Parameters" href="functions.html" />
     <link rel="prev" title="Swift" href="storage_config/swift.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="en">
     
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-17598552-5', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
@@ -58,6 +71,10 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
       
       <img src="../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
@@ -75,7 +92,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Overview of Lithops
  </span>
@@ -107,7 +124,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Install and Configure Lithops
  </span>
@@ -273,7 +290,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Lithops Compute API
  </span>
@@ -294,13 +311,8 @@
    Function chaining
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="api_stats.html">
-   Execution stats
-  </a>
- </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Lithops Storage API
  </span>
@@ -312,7 +324,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Data Processing
  </span>
@@ -329,7 +341,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Integrations
  </span>
@@ -356,7 +368,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Advanced Features
  </span>
@@ -383,7 +395,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Experimental Features
  </span>
@@ -400,7 +412,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Developer Guide
  </span>
@@ -541,36 +553,36 @@
 <div class="section" id="module-lithops.executors">
 <span id="futures-api-reference"></span><h2>Futures API Reference<a class="headerlink" href="#module-lithops.executors" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="lithops.executors.FunctionExecutor">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">lithops.executors.</span></code><code class="sig-name descname"><span class="pre">FunctionExecutor</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runtime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runtime_memory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">monitoring</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">worker_processes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remote_invoker</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.executors.FunctionExecutor" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="lithops.executors.FunctionExecutor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lithops.executors.</span></span><span class="sig-name descname"><span class="pre">FunctionExecutor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runtime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runtime_memory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">monitoring</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">worker_processes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remote_invoker</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.executors.FunctionExecutor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Executor abstract class that contains the common logic for the Localhost, Serverless and Standalone executors</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>mode</strong> – Execution mode. One of: localhost, serverless or standalone</p></li>
-<li><p><strong>config</strong> – Settings passed in here will override those in lithops_config</p></li>
-<li><p><strong>backend</strong> – Compute backend to run the functions</p></li>
-<li><p><strong>storage</strong> – Storage backend to store Lithops data</p></li>
-<li><p><strong>runtime</strong> – Name of the runtime to run the functions</p></li>
-<li><p><strong>runtime_memory</strong> – Memory (in MB) to use to run the functions</p></li>
-<li><p><strong>monitoring</strong> – Monitoring system implementation. One of: storage, rabbitmq</p></li>
-<li><p><strong>max_workers</strong> – Max number of parallel workers</p></li>
-<li><p><strong>worker_processes</strong> – Worker granularity, number of concurrent/parallel processes in each worker</p></li>
-<li><p><strong>remote_invoker</strong> – Spawn a function that will perform the actual job invocation (True/False)</p></li>
-<li><p><strong>log_level</strong> – Log level printing (INFO, DEBUG, …). Set it to None to hide all logs. If this is param is set, all logging params in config are disabled</p></li>
+<li><p><strong>mode</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Execution mode. One of: localhost, serverless or standalone</p></li>
+<li><p><strong>config</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – Settings passed in here will override those in lithops_config</p></li>
+<li><p><strong>backend</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Compute backend to run the functions</p></li>
+<li><p><strong>storage</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Storage backend to store Lithops data</p></li>
+<li><p><strong>runtime</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Name of the runtime to run the functions</p></li>
+<li><p><strong>runtime_memory</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – Memory (in MB) to use to run the functions</p></li>
+<li><p><strong>monitoring</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Monitoring system implementation. One of: storage, rabbitmq</p></li>
+<li><p><strong>max_workers</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – Max number of parallel workers</p></li>
+<li><p><strong>worker_processes</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – Worker granularity, number of concurrent/parallel processes in each worker</p></li>
+<li><p><strong>remote_invoker</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – Spawn a function that will perform the actual job invocation (True/False)</p></li>
+<li><p><strong>log_level</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Log level printing (INFO, DEBUG, …). Set it to None to hide all logs. If this is param is set, all logging params in config are disabled</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="lithops.executors.FunctionExecutor.call_async">
-<code class="sig-name descname"><span class="pre">call_async</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_env</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runtime_memory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_modules</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_modules</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.executors.FunctionExecutor.call_async" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="lithops.executors.FunctionExecutor.call_async">
+<span class="sig-name descname"><span class="pre">call_async</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_env</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runtime_memory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_modules</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_modules</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.executors.FunctionExecutor.call_async" title="Permalink to this definition">¶</a></dt>
 <dd><p>For running one function execution asynchronously.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>func</strong> (<em>collections.abc.Callable</em>) – The function to map over the data.</p></li>
-<li><p><strong>data</strong> (<em>Union</em><em>[</em><em>List</em><em>[</em><em>Any</em><em>]</em><em>, </em><em>Tuple</em><em>[</em><em>Any</em><em>, </em><em>..</em><em>]</em><em>, </em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – Input data. Arguments can be passed as a list or tuple, or as a dictionary for keyword arguments.</p></li>
+<li><p><strong>data</strong> (<em>Union</em><em>[</em><em>List</em><em>[</em><em>Any</em><em>]</em><em>, </em><em>Tuple</em><em>[</em><em>Any</em><em>, </em><em>...</em><em>]</em><em>, </em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – Input data. Arguments can be passed as a list or tuple, or as a dictionary for keyword arguments.</p></li>
 <li><p><strong>extra_env</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>]</em>) – Additional env variables for function environment.</p></li>
 <li><p><strong>runtime_memory</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – Memory to use to run the function.</p></li>
 <li><p><strong>timeout</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – Time that the function has to complete its execution before raising a timeout.</p></li>
@@ -588,8 +600,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="lithops.executors.FunctionExecutor.clean">
-<code class="sig-name descname"><span class="pre">clean</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clean_cloudobjects</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clean_fn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.executors.FunctionExecutor.clean" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="lithops.executors.FunctionExecutor.clean">
+<span class="sig-name descname"><span class="pre">clean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clean_cloudobjects</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clean_fn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.executors.FunctionExecutor.clean" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deletes all the temp files from storage. These files include the function,
 the data serialization and the function invocation results. It can also clean
 cloudobjects.</p>
@@ -608,8 +620,8 @@ cloudobjects.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="lithops.executors.FunctionExecutor.get_result">
-<code class="sig-name descname"><span class="pre">get_result</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">throw_except</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threadpool_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">64</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_dur_sec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.executors.FunctionExecutor.get_result" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="lithops.executors.FunctionExecutor.get_result">
+<span class="sig-name descname"><span class="pre">get_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">throw_except</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threadpool_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">64</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_dur_sec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.executors.FunctionExecutor.get_result" title="Permalink to this definition">¶</a></dt>
 <dd><p>For getting the results from all function activations</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -628,8 +640,8 @@ cloudobjects.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="lithops.executors.FunctionExecutor.job_summary">
-<code class="sig-name descname"><span class="pre">job_summary</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cloud_objects_n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.executors.FunctionExecutor.job_summary" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="lithops.executors.FunctionExecutor.job_summary">
+<span class="sig-name descname"><span class="pre">job_summary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cloud_objects_n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.executors.FunctionExecutor.job_summary" title="Permalink to this definition">¶</a></dt>
 <dd><p>Logs information of a job executed by the calling function executor.
 currently supports: code_engine, ibm_vpc and ibm_cf.</p>
 <dl class="field-list simple">
@@ -640,16 +652,16 @@ currently supports: code_engine, ibm_vpc and ibm_cf.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="lithops.executors.FunctionExecutor.map">
-<code class="sig-name descname"><span class="pre">map</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_iterdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunksize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_env</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runtime_memory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj_chunk_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj_chunk_number</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_modules</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_modules</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.executors.FunctionExecutor.map" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="lithops.executors.FunctionExecutor.map">
+<span class="sig-name descname"><span class="pre">map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_iterdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunksize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_env</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runtime_memory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj_chunk_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj_chunk_number</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_modules</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_modules</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.executors.FunctionExecutor.map" title="Permalink to this definition">¶</a></dt>
 <dd><p>Spawn multiple function activations based on the items of an input list.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>map_function</strong> (<em>collections.abc.Callable</em>) – The function to map over the data</p></li>
-<li><p><strong>map_iterdata</strong> (<em>List</em><em>[</em><em>Union</em><em>[</em><em>List</em><em>[</em><em>Any</em><em>]</em><em>, </em><em>Tuple</em><em>[</em><em>Any</em><em>, </em><em>..</em><em>]</em><em>, </em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em><em>]</em>) – An iterable of input data (e.g python list).</p></li>
+<li><p><strong>map_iterdata</strong> (<em>List</em><em>[</em><em>Union</em><em>[</em><em>List</em><em>[</em><em>Any</em><em>]</em><em>, </em><em>Tuple</em><em>[</em><em>Any</em><em>, </em><em>...</em><em>]</em><em>, </em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em><em>]</em>) – An iterable of input data (e.g python list).</p></li>
 <li><p><strong>chunksize</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – Split map_iteradata in chunks of this size. Lithops spawns 1 worker per resulting chunk</p></li>
-<li><p><strong>extra_args</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><em>List</em><em>[</em><em>Any</em><em>]</em><em>, </em><em>Tuple</em><em>[</em><em>Any</em><em>, </em><em>..</em><em>]</em><em>, </em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em><em>]</em>) – Additional arguments to pass to each map_function activation</p></li>
+<li><p><strong>extra_args</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><em>List</em><em>[</em><em>Any</em><em>]</em><em>, </em><em>Tuple</em><em>[</em><em>Any</em><em>, </em><em>...</em><em>]</em><em>, </em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em><em>]</em>) – Additional arguments to pass to each map_function activation</p></li>
 <li><p><strong>extra_env</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>]</em><em>]</em>) – Additional environment variables for function environment</p></li>
 <li><p><strong>runtime_memory</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – Memory (in MB) to use to run the functions</p></li>
 <li><p><strong>obj_chunk_size</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – Used for data processing. Chunk size to split each object in bytes. Must be &gt;= 1MiB. ‘None’ for processing the whole file in one function activation</p></li>
@@ -669,17 +681,17 @@ currently supports: code_engine, ibm_vpc and ibm_cf.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="lithops.executors.FunctionExecutor.map_reduce">
-<code class="sig-name descname"><span class="pre">map_reduce</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_iterdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reduce_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunksize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_env</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_runtime_memory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reduce_runtime_memory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj_chunk_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj_chunk_number</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reducer_one_per_object</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spawn_reducer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_modules</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_modules</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.executors.FunctionExecutor.map_reduce" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="lithops.executors.FunctionExecutor.map_reduce">
+<span class="sig-name descname"><span class="pre">map_reduce</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_iterdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reduce_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunksize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_env</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_runtime_memory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reduce_runtime_memory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj_chunk_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj_chunk_number</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reducer_one_per_object</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spawn_reducer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_modules</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_modules</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.executors.FunctionExecutor.map_reduce" title="Permalink to this definition">¶</a></dt>
 <dd><p>Map the map_function over the data and apply the reduce_function across all futures.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>map_function</strong> (<em>collections.abc.Callable</em>) – The function to map over the data</p></li>
-<li><p><strong>map_iterdata</strong> (<em>List</em><em>[</em><em>Union</em><em>[</em><em>List</em><em>[</em><em>Any</em><em>]</em><em>, </em><em>Tuple</em><em>[</em><em>Any</em><em>, </em><em>..</em><em>]</em><em>, </em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em><em>]</em>) – An iterable of input data</p></li>
+<li><p><strong>map_iterdata</strong> (<em>List</em><em>[</em><em>Union</em><em>[</em><em>List</em><em>[</em><em>Any</em><em>]</em><em>, </em><em>Tuple</em><em>[</em><em>Any</em><em>, </em><em>...</em><em>]</em><em>, </em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em><em>]</em>) – An iterable of input data</p></li>
 <li><p><strong>reduce_function</strong> (<em>collections.abc.Callable</em>) – The function to reduce over the futures</p></li>
 <li><p><strong>chunksize</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – Split map_iteradata in chunks of this size. Lithops spawns 1 worker per resulting chunk. Default 1</p></li>
-<li><p><strong>extra_args</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><em>List</em><em>[</em><em>Any</em><em>]</em><em>, </em><em>Tuple</em><em>[</em><em>Any</em><em>, </em><em>..</em><em>]</em><em>, </em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em><em>]</em>) – Additional arguments to pass to function activation. Default None</p></li>
+<li><p><strong>extra_args</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><em>List</em><em>[</em><em>Any</em><em>]</em><em>, </em><em>Tuple</em><em>[</em><em>Any</em><em>, </em><em>...</em><em>]</em><em>, </em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em><em>]</em>) – Additional arguments to pass to function activation. Default None</p></li>
 <li><p><strong>extra_env</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>]</em><em>]</em>) – Additional environment variables for action environment. Default None</p></li>
 <li><p><strong>map_runtime_memory</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – Memory to use to run the map function. Default None (loaded from config)</p></li>
 <li><p><strong>reduce_runtime_memory</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – Memory to use to run the reduce function. Default None (loaded from config)</p></li>
@@ -702,8 +714,8 @@ currently supports: code_engine, ibm_vpc and ibm_cf.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="lithops.executors.FunctionExecutor.plot">
-<code class="sig-name descname"><span class="pre">plot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.executors.FunctionExecutor.plot" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="lithops.executors.FunctionExecutor.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.executors.FunctionExecutor.plot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates timeline and histogram of the current execution in dst_dir.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -716,8 +728,8 @@ currently supports: code_engine, ibm_vpc and ibm_cf.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="lithops.executors.FunctionExecutor.wait">
-<code class="sig-name descname"><span class="pre">wait</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">throw_except</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_when</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">download_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threadpool_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">64</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_dur_sec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.executors.FunctionExecutor.wait" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="lithops.executors.FunctionExecutor.wait">
+<span class="sig-name descname"><span class="pre">wait</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">throw_except</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_when</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">download_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threadpool_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">64</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_dur_sec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.executors.FunctionExecutor.wait" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wait for the Future instances (possibly created by different Executor instances)
 given by fs to complete. Returns a named 2-tuple of sets. The first set, named done,
 contains the futures that completed (finished or cancelled futures) before the wait
@@ -748,63 +760,63 @@ seconds to wait before returning.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="lithops.executors.LocalhostExecutor">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">lithops.executors.</span></code><code class="sig-name descname"><span class="pre">LocalhostExecutor</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runtime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">worker_processes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">monitoring</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.executors.LocalhostExecutor" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="lithops.executors.LocalhostExecutor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lithops.executors.</span></span><span class="sig-name descname"><span class="pre">LocalhostExecutor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runtime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">worker_processes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">monitoring</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.executors.LocalhostExecutor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#lithops.executors.FunctionExecutor" title="lithops.executors.FunctionExecutor"><code class="xref py py-class docutils literal notranslate"><span class="pre">lithops.executors.FunctionExecutor</span></code></a></p>
 <p>Initialize a LocalhostExecutor class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>config</strong> – Settings passed in here will override those in config file.</p></li>
-<li><p><strong>runtime</strong> – Runtime name to use.</p></li>
-<li><p><strong>storage</strong> – Name of the storage backend to use.</p></li>
-<li><p><strong>worker_processes</strong> – Worker granularity, number of concurrent/parallel processes in each worker</p></li>
-<li><p><strong>monitoring</strong> – monitoring system.</p></li>
-<li><p><strong>log_level</strong> – log level to use during the execution.</p></li>
+<li><p><strong>config</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – Settings passed in here will override those in config file.</p></li>
+<li><p><strong>runtime</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – Runtime name to use.</p></li>
+<li><p><strong>storage</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Name of the storage backend to use.</p></li>
+<li><p><strong>worker_processes</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – Worker granularity, number of concurrent/parallel processes in each worker</p></li>
+<li><p><strong>monitoring</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – monitoring system.</p></li>
+<li><p><strong>log_level</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – log level to use during the execution.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py class">
-<dt id="lithops.executors.ServerlessExecutor">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">lithops.executors.</span></code><code class="sig-name descname"><span class="pre">ServerlessExecutor</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runtime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runtime_memory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">worker_processes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">monitoring</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remote_invoker</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.executors.ServerlessExecutor" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="lithops.executors.ServerlessExecutor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lithops.executors.</span></span><span class="sig-name descname"><span class="pre">ServerlessExecutor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runtime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runtime_memory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">worker_processes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">monitoring</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remote_invoker</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.executors.ServerlessExecutor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#lithops.executors.FunctionExecutor" title="lithops.executors.FunctionExecutor"><code class="xref py py-class docutils literal notranslate"><span class="pre">lithops.executors.FunctionExecutor</span></code></a></p>
 <p>Initialize a ServerlessExecutor class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>config</strong> – Settings passed in here will override those in config file</p></li>
-<li><p><strong>runtime</strong> – Runtime name to use</p></li>
-<li><p><strong>runtime_memory</strong> – memory to use in the runtime</p></li>
-<li><p><strong>backend</strong> – Name of the serverless compute backend to use</p></li>
-<li><p><strong>storage</strong> – Name of the storage backend to use</p></li>
-<li><p><strong>max_workers</strong> – Max number of concurrent workers</p></li>
-<li><p><strong>worker_processes</strong> – Worker granularity, number of concurrent/parallel processes in each worker</p></li>
-<li><p><strong>monitoring</strong> – monitoring system</p></li>
-<li><p><strong>remote_invoker</strong> – Spawn a function that will perform the actual job invocation (True/False)</p></li>
-<li><p><strong>log_level</strong> – log level to use during the execution</p></li>
+<li><p><strong>config</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – Settings passed in here will override those in config file</p></li>
+<li><p><strong>runtime</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Runtime name to use</p></li>
+<li><p><strong>runtime_memory</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – memory to use in the runtime</p></li>
+<li><p><strong>backend</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Name of the serverless compute backend to use</p></li>
+<li><p><strong>storage</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Name of the storage backend to use</p></li>
+<li><p><strong>max_workers</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – Max number of concurrent workers</p></li>
+<li><p><strong>worker_processes</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – Worker granularity, number of concurrent/parallel processes in each worker</p></li>
+<li><p><strong>monitoring</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – monitoring system</p></li>
+<li><p><strong>remote_invoker</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – Spawn a function that will perform the actual job invocation (True/False)</p></li>
+<li><p><strong>log_level</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – log level to use during the execution</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py class">
-<dt id="lithops.executors.StandaloneExecutor">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">lithops.executors.</span></code><code class="sig-name descname"><span class="pre">StandaloneExecutor</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runtime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">worker_processes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">monitoring</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.executors.StandaloneExecutor" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="lithops.executors.StandaloneExecutor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lithops.executors.</span></span><span class="sig-name descname"><span class="pre">StandaloneExecutor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runtime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">worker_processes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">monitoring</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.executors.StandaloneExecutor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#lithops.executors.FunctionExecutor" title="lithops.executors.FunctionExecutor"><code class="xref py py-class docutils literal notranslate"><span class="pre">lithops.executors.FunctionExecutor</span></code></a></p>
 <p>Initialize a StandaloneExecutor class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>config</strong> – Settings passed in here will override those in config file</p></li>
-<li><p><strong>runtime</strong> – Runtime name to use</p></li>
-<li><p><strong>backend</strong> – Name of the standalone compute backend to use</p></li>
-<li><p><strong>storage</strong> – Name of the storage backend to use</p></li>
-<li><p><strong>max_workers</strong> – Max number of concurrent workers</p></li>
-<li><p><strong>worker_processes</strong> – Worker granularity, number of concurrent/parallel processes in each worker</p></li>
-<li><p><strong>monitoring</strong> – monitoring system</p></li>
-<li><p><strong>log_level</strong> – log level to use during the execution</p></li>
+<li><p><strong>config</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – Settings passed in here will override those in config file</p></li>
+<li><p><strong>runtime</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Runtime name to use</p></li>
+<li><p><strong>backend</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Name of the standalone compute backend to use</p></li>
+<li><p><strong>storage</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Name of the storage backend to use</p></li>
+<li><p><strong>max_workers</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – Max number of concurrent workers</p></li>
+<li><p><strong>worker_processes</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – Worker granularity, number of concurrent/parallel processes in each worker</p></li>
+<li><p><strong>monitoring</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – monitoring system</p></li>
+<li><p><strong>log_level</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – log level to use during the execution</p></li>
 </ul>
 </dd>
 </dl>
@@ -817,36 +829,27 @@ seconds to wait before returning.</p>
               </div>
               
         
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="storage_config/swift.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Swift</p>
-            </div>
-        </a>
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="storage_config/swift.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Swift</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="functions.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lithops Functions and Parameters</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="functions.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Lithops Functions and Parameters</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
@@ -862,18 +865,7 @@ seconds to wait before returning.</p>
       </div>
     </div>
   
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
-
-  
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-17598552-5', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
   </body>
 </html>
