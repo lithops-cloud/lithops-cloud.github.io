@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=84ace793992934648b4de8eed757e5a2" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     
   <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
@@ -35,7 +35,7 @@
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
     <link rel="shortcut icon" href="_static/favicon.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -65,7 +65,12 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<div class="col-12 col-md-3 bd-sidebar site-navigation " id="site-navigation">
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
@@ -309,6 +314,11 @@
    Function chaining
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/api_stats.html">
+   Execution stats
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -452,22 +462,22 @@
 
 
           
+<!-- This is an invisible pixel that we watch to see if we've scrolled. -->
+<div class="sbt-scroll-pixel-helper"></div>
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
     <div class="topbar container-xl fixed-top">
     <div class="topbar-contents row">
         <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
         <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
+            <div class="topbar-left">
+                
+                <label class="nav-toggle-button" for="__navigation">
+                    <div class="visually-hidden">Toggle navigation</div>
+                    <i class="fas fa-bars"></i>
+                </label>
+                
+            </div>
             
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
@@ -482,7 +492,7 @@
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -511,7 +521,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -578,10 +588,80 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Lithops Futures API Details</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Lithops Futures API Details
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#executor">
+     Executor
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#executor-call-async">
+     Executor.call_async()
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#executor-map">
+     Executor.map()
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#executor-map-reduce">
+     Executor.map_reduce()
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#executor-wait">
+     Executor.wait()
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#executor-get-result">
+     Executor.get_result()
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#executor-plot">
+     Executor.plot()
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#executor-clean">
+     Executor.clean()
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#function-chaining">
+   Function chaining
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="lithops-futures-api-details">
+  <div class="section" id="lithops-futures-api-details">
 <h1>Lithops Futures API Details<a class="headerlink" href="#lithops-futures-api-details" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="executor">
 <h2>Executor<a class="headerlink" href="#executor" title="Permalink to this headline">¶</a></h2>
@@ -606,35 +686,35 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>call_async()</p></td>
+<tr class="row-even"><td><p><span class="xref myst">call_async()</span></p></td>
 <td><p>Async.</p></td>
 <td><p>Method used to spawn one function activation</p></td>
 </tr>
-<tr class="row-odd"><td><p>map()</p></td>
+<tr class="row-odd"><td><p><span class="xref myst">map()</span></p></td>
 <td><p>Async.</p></td>
 <td><p>Method used to spawn multiple function activations</p></td>
 </tr>
-<tr class="row-even"><td><p>map_reduce()</p></td>
+<tr class="row-even"><td><p><span class="xref myst">map_reduce()</span></p></td>
 <td><p>Async.</p></td>
 <td><p>Method used to spawn multiple function activations with one (or multiple) reducers</p></td>
 </tr>
-<tr class="row-odd"><td><p>wait()</p></td>
+<tr class="row-odd"><td><p><span class="xref myst">wait()</span></p></td>
 <td><p>Sync.</p></td>
 <td><p>Wait for the function activations to complete. It blocks the local execution until all the function activations finished their execution (configurable)</p></td>
 </tr>
-<tr class="row-even"><td><p>get_result()</p></td>
+<tr class="row-even"><td><p><span class="xref myst">get_result()</span></p></td>
 <td><p>Sync.</p></td>
 <td><p>Method used to retrieve the results of all function activations. The results are returned within an ordered list, where each element of the list is the result of one activation</p></td>
 </tr>
-<tr class="row-odd"><td><p>plot()</p></td>
+<tr class="row-odd"><td><p><span class="xref myst">plot()</span></p></td>
 <td><p>Sync.</p></td>
 <td><p>Method used to create execution plots</p></td>
 </tr>
-<tr class="row-even"><td><p>job_summary()</p></td>
+<tr class="row-even"><td><p><span class="xref myst">job_summary()</span></p></td>
 <td><p>Sync.</p></td>
 <td><p>Method used to create a summary file of the executed jobs. It includes times and money</p></td>
 </tr>
-<tr class="row-odd"><td><p>clean()</p></td>
+<tr class="row-odd"><td><p><span class="xref myst">clean()</span></p></td>
 <td><p>Async.</p></td>
 <td><p>Method used to clean the temporary data generated by Lithops</p></td>
 </tr>
@@ -886,7 +966,7 @@
 </pre></div>
 </div>
 </li>
-<li><p><strong>Code example</strong>: <span class="xref myst">call_async.py</span></p></li>
+<li><p><strong>Code example</strong>: <a class="reference download internal" download="" href="_downloads/74d5c1c5a769ba2163ab4a916a4f06ce/call_async.py"><span class="xref download myst">call_async.py</span></a></p></li>
 </ul>
 </div>
 <div class="section" id="executor-map">
@@ -959,7 +1039,7 @@
 </pre></div>
 </div>
 </li>
-<li><p><strong>Code example</strong>: <span class="xref myst">map.py</span></p></li>
+<li><p><strong>Code example</strong>: <a class="reference download internal" download="" href="_downloads/0da8a12d150fcab6ae22282b2c903965/map.py"><span class="xref download myst">map.py</span></a></p></li>
 </ul>
 </div>
 <div class="section" id="executor-map-reduce">
@@ -1048,7 +1128,7 @@
 </pre></div>
 </div>
 </li>
-<li><p><strong>Code example</strong>: <span class="xref myst">map_reduce.py</span></p></li>
+<li><p><strong>Code example</strong>: <a class="reference download internal" download="" href="_downloads/f452a415b50f5d24995b600464e3902b/map_reduce.py"><span class="xref download myst">map_reduce.py</span></a></p></li>
 </ul>
 </div>
 <div class="section" id="executor-wait">
@@ -1102,7 +1182,7 @@
 </pre></div>
 </div>
 </li>
-<li><p><strong>Code example</strong>: <span class="xref myst">wait.py</span></p></li>
+<li><p><strong>Code example</strong>: <a class="reference download internal" download="" href="_downloads/9a773c3eae298e1f294565945e9acda3/wait.py"><span class="xref download myst">wait.py</span></a></p></li>
 </ul>
 </div>
 <div class="section" id="executor-get-result">
@@ -1148,7 +1228,7 @@
 </pre></div>
 </div>
 </li>
-<li><p><strong>Code example</strong>: <span class="xref myst">call_async.py</span>, <span class="xref myst">map.py</span>, <span class="xref myst">map_reduce.py</span></p></li>
+<li><p><strong>Code example</strong>: <a class="reference download internal" download="" href="_downloads/74d5c1c5a769ba2163ab4a916a4f06ce/call_async.py"><span class="xref download myst">call_async.py</span></a>, <a class="reference download internal" download="" href="_downloads/0da8a12d150fcab6ae22282b2c903965/map.py"><span class="xref download myst">map.py</span></a>, <a class="reference download internal" download="" href="_downloads/f452a415b50f5d24995b600464e3902b/map_reduce.py"><span class="xref download myst">map_reduce.py</span></a></p></li>
 </ul>
 </div>
 <div class="section" id="executor-plot">
@@ -1231,11 +1311,11 @@
 </pre></div>
 </div>
 </li>
-<li><p><strong>Code example</strong>: <span class="xref myst">map.py</span></p></li>
+<li><p><strong>Code example</strong>: <a class="reference download internal" download="" href="_downloads/0da8a12d150fcab6ae22282b2c903965/map.py"><span class="xref download myst">map.py</span></a></p></li>
 </ul>
 </div>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="function-chaining">
+<div class="section" id="function-chaining">
 <h1>Function chaining<a class="headerlink" href="#function-chaining" title="Permalink to this headline">¶</a></h1>
 <p>Function chaining is a pattern where multiple functions are called on the same executor consecutively. Using the same <code class="docutils literal notranslate"><span class="pre">lithops.FunctionExecutor</span></code> object reference, multiple functions can be invoked. It increases the readability of the code and means less redundancy. This means we chain multiple functions together with the same element reference. It’s not necessary to attach the <code class="docutils literal notranslate"><span class="pre">lithops.FunctionExecutor</span></code> reference multiple times for each function call.</p>
 <p>This patter is specially useful when the output of one invocation is the input of another invocation. In this case, Lithops does not download the intermediate results to the local client, instead, the intermediate results are directly read from the next function.</p>
@@ -1319,23 +1399,21 @@
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By The Lithops Team<br/>
-        
-            &copy; Copyright 2022, The Lithops Team.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By The Lithops Team<br/>
+    
+        &copy; Copyright 2022, The Lithops Team.<br/>
+  </p>
+</footer>
 </main>
 
 
