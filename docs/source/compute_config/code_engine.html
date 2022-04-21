@@ -4,11 +4,13 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>IBM Cloud Code Engine</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,15 +20,12 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=84ace793992934648b4de8eed757e5a2" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -34,8 +33,8 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="../../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -47,18 +46,30 @@
 
     <!-- Google Analytics -->
     
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7YKZHZYDCR"></script>
 <script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-17598552-5', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){ dataLayer.push(arguments); }
+                    gtag('js', new Date());
+                    gtag('config', 'G-7YKZHZYDCR');
+                </script>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -67,14 +78,10 @@
     <div class="container-xl">
       <div class="row">
           
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<div class="col-12 col-md-3 bd-sidebar site-navigation " id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -90,446 +97,584 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../index.html">
-   What is Lithops?
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Overview of Lithops
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../design.html">
-   Architecture Design
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../comparing_lithops.html">
-   Comparing Lithops with other distributed computing frameworks
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../supported_clouds.html">
-   Supported Clouds
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../execution_modes.html">
-   Execution Modes
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../cli.html">
-   Lithops Command Line Tool
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Install and Configure Lithops
- </span>
-</p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../install_lithops.html">
-   Installing Lithops
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../configuration.html">
-   Configuration
-  </a>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="../compute_backends.html">
-   Compute Backends
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
+        <ul class="list-caption">
+ <li class="toctree-l0 has-children">
+  <p aria-level="2" class="caption" role="heading">
+   <span class="caption-text">
+    Overview of Lithops
+   </span>
+  </p>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label class="label-parts" for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="aliyun_functions.html">
-     Aliyun Function Compute
+  <ul class="nav bd-sidenav">
+   <li class="toctree-l1">
+    <a class="reference internal" href="../design.html">
+     Architecture Design
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="aws_batch.html">
-     AWS Batch
+   <li class="toctree-l1">
+    <a class="reference internal" href="../comparing_lithops.html">
+     Comparing Lithops with other distributed computing frameworks
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="aws_ec2.html">
-     AWS Elastic Compute Cloud (EC2)
+   <li class="toctree-l1">
+    <a class="reference internal" href="../supported_clouds.html">
+     Supported Clouds
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="aws_lambda.html">
-     AWS Lambda
+   <li class="toctree-l1">
+    <a class="reference internal" href="../execution_modes.html">
+     Execution Modes
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="azure_functions.html">
-     Azure Functions
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     IBM Cloud Code Engine
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="gcp_cloudrun.html">
-     Google Cloud Run
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="gcp_functions.html">
-     Google Cloud Functions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="ibm_cf.html">
-     IBM Cloud Functions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="ibm_vpc.html">
-     IBM Virtual Private Cloud
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="k8s_job.html">
-     Kubernetes (batch/job)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="knative.html">
-     Knative
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="localhost.html">
-     Localhost
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="openwhisk.html">
-     OpenWhisk
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="vm.html">
-     Virtual Machine
+   <li class="toctree-l1">
+    <a class="reference internal" href="../cli.html">
+     Lithops Command Line Tool
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../storage_backends.html">
-   Storage Backends
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+ <li class="toctree-l0 has-children">
+  <p aria-level="2" class="caption" role="heading">
+   <span class="caption-text">
+    Install and Configure Lithops
+   </span>
+  </p>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label class="label-parts" for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../storage_config/aliyun_oss.html">
-     Aliyun Object Storage Service
+  <ul class="current nav bd-sidenav">
+   <li class="toctree-l1">
+    <a class="reference internal" href="../install_lithops.html">
+     Installing Lithops
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../storage_config/aws_s3.html">
-     AWS S3
+   <li class="toctree-l1">
+    <a class="reference internal" href="../configuration.html">
+     Configuration
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../storage_config/azure_blob.html">
-     Azure Blob Storage
+   <li class="toctree-l1 current active has-children">
+    <a class="reference internal" href="../compute_backends.html">
+     Compute Backends
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l2">
+      <a class="reference internal" href="aliyun_functions.html">
+       Aliyun Function Compute
+      </a>
+     </li>
+     <li class="toctree-l2">
+      <a class="reference internal" href="aws_batch.html">
+       AWS Batch
+      </a>
+     </li>
+     <li class="toctree-l2">
+      <a class="reference internal" href="aws_ec2.html">
+       AWS Elastic Compute Cloud (EC2)
+      </a>
+     </li>
+     <li class="toctree-l2">
+      <a class="reference internal" href="aws_lambda.html">
+       AWS Lambda
+      </a>
+     </li>
+     <li class="toctree-l2">
+      <a class="reference internal" href="azure_functions.html">
+       Azure Functions
+      </a>
+     </li>
+     <li class="toctree-l2 current active">
+      <a class="current reference internal" href="#">
+       IBM Cloud Code Engine
+      </a>
+     </li>
+     <li class="toctree-l2">
+      <a class="reference internal" href="gcp_cloudrun.html">
+       Google Cloud Run
+      </a>
+     </li>
+     <li class="toctree-l2">
+      <a class="reference internal" href="gcp_functions.html">
+       Google Cloud Functions
+      </a>
+     </li>
+     <li class="toctree-l2">
+      <a class="reference internal" href="ibm_cf.html">
+       IBM Cloud Functions
+      </a>
+     </li>
+     <li class="toctree-l2">
+      <a class="reference internal" href="ibm_vpc.html">
+       IBM Virtual Private Cloud
+      </a>
+     </li>
+     <li class="toctree-l2">
+      <a class="reference internal" href="k8s_job.html">
+       Kubernetes (batch/job)
+      </a>
+     </li>
+     <li class="toctree-l2">
+      <a class="reference internal" href="knative.html">
+       Knative
+      </a>
+     </li>
+     <li class="toctree-l2">
+      <a class="reference internal" href="localhost.html">
+       Localhost
+      </a>
+     </li>
+     <li class="toctree-l2">
+      <a class="reference internal" href="openwhisk.html">
+       OpenWhisk
+      </a>
+     </li>
+     <li class="toctree-l2">
+      <a class="reference internal" href="vm.html">
+       Virtual Machine
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l1 has-children">
+    <a class="reference internal" href="../storage_backends.html">
+     Storage Backends
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l2">
+      <a class="reference internal" href="../storage_config/aliyun_oss.html">
+       Aliyun Object Storage Service
+      </a>
+     </li>
+     <li class="toctree-l2">
+      <a class="reference internal" href="../storage_config/aws_s3.html">
+       AWS S3
+      </a>
+     </li>
+     <li class="toctree-l2">
+      <a class="reference internal" href="../storage_config/azure_blob.html">
+       Azure Blob Storage
+      </a>
+     </li>
+     <li class="toctree-l2">
+      <a class="reference internal" href="../storage_config/ceph.html">
+       Ceph
+      </a>
+     </li>
+     <li class="toctree-l2">
+      <a class="reference internal" href="../storage_config/gcp_storage.html">
+       GCP Storage
+      </a>
+     </li>
+     <li class="toctree-l2">
+      <a class="reference internal" href="../storage_config/ibm_cos.html">
+       IBM Cloud Object Storage
+      </a>
+     </li>
+     <li class="toctree-l2">
+      <a class="reference internal" href="../storage_config/infinispan.html">
+       Infinispan
+      </a>
+     </li>
+     <li class="toctree-l2">
+      <a class="reference internal" href="../storage_config/minio.html">
+       MinIO
+      </a>
+     </li>
+     <li class="toctree-l2">
+      <a class="reference internal" href="../storage_config/redis.html">
+       Redis
+      </a>
+     </li>
+     <li class="toctree-l2">
+      <a class="reference internal" href="../storage_config/swift.html">
+       Swift
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l0 has-children">
+  <p aria-level="2" class="caption" role="heading">
+   <span class="caption-text">
+    Lithops Compute API
+   </span>
+  </p>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label class="label-parts" for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="nav bd-sidenav">
+   <li class="toctree-l1">
+    <a class="reference internal" href="../api_futures.html">
+     Lithops Futures API
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../storage_config/ceph.html">
-     Ceph
+   <li class="toctree-l1">
+    <a class="reference internal" href="../functions.html">
+     Lithops Functions and Parameters
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../storage_config/gcp_storage.html">
-     GCP Storage
+   <li class="toctree-l1">
+    <a class="reference internal" href="../notebooks/function_chaining.html">
+     Function chaining
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../storage_config/ibm_cos.html">
-     IBM Cloud Object Storage
+   <li class="toctree-l1">
+    <a class="reference internal" href="../api_stats.html">
+     Execution stats
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../storage_config/infinispan.html">
-     Infinispan
+  </ul>
+ </li>
+ <li class="toctree-l0 has-children">
+  <p aria-level="2" class="caption" role="heading">
+   <span class="caption-text">
+    Lithops Storage API
+   </span>
+  </p>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label class="label-parts" for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="nav bd-sidenav">
+   <li class="toctree-l1">
+    <a class="reference internal" href="../api_storage.html">
+     Storage API Deatils
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../storage_config/minio.html">
-     MinIO
+  </ul>
+ </li>
+ <li class="toctree-l0 has-children">
+  <p aria-level="2" class="caption" role="heading">
+   <span class="caption-text">
+    Data Processing
+   </span>
+  </p>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label class="label-parts" for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="nav bd-sidenav">
+   <li class="toctree-l1">
+    <a class="reference internal" href="../data_processing.html">
+     Processing data from the Cloud
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../storage_config/redis.html">
-     Redis
+   <li class="toctree-l1">
+    <a class="reference internal" href="../data_partitioning.html">
+     Data Partitioning
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../storage_config/swift.html">
-     Swift
+  </ul>
+ </li>
+ <li class="toctree-l0 has-children">
+  <p aria-level="2" class="caption" role="heading">
+   <span class="caption-text">
+    Integrations
+   </span>
+  </p>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label class="label-parts" for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="nav bd-sidenav">
+   <li class="toctree-l1">
+    <a class="reference internal" href="../api_multiprocessing.html">
+     Multiprocessing API
+    </a>
+   </li>
+   <li class="toctree-l1">
+    <a class="reference internal" href="../api_storage_os.html">
+     Storage OS API
+    </a>
+   </li>
+   <li class="toctree-l1">
+    <a class="reference internal" href="../sklearn_joblib.html">
+     Distributed Scikit-learn / Joblib
+    </a>
+   </li>
+   <li class="toctree-l1">
+    <a class="reference internal" href="../airflow.html">
+     Apache Airflow
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l0 has-children">
+  <p aria-level="2" class="caption" role="heading">
+   <span class="caption-text">
+    Advanced Features
+   </span>
+  </p>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label class="label-parts" for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="nav bd-sidenav">
+   <li class="toctree-l1">
+    <a class="reference internal" href="../worker_granularity.html">
+     Customize Worker Granularity
+    </a>
+   </li>
+   <li class="toctree-l1">
+    <a class="reference internal" href="../monitoring.html">
+     Lithops Monitoring
+    </a>
+   </li>
+   <li class="toctree-l1">
+    <a class="reference external" href="https://github.com/lithops-cloud/lithops/tree/master/runtime">
+     Custom Runtime
+    </a>
+   </li>
+   <li class="toctree-l1">
+    <a class="reference internal" href="../customized_runtime.html">
+     Dynamic Runtime Customization
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l0 has-children">
+  <p aria-level="2" class="caption" role="heading">
+   <span class="caption-text">
+    Experimental Features
+   </span>
+  </p>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label class="label-parts" for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="nav bd-sidenav">
+   <li class="toctree-l1">
+    <a class="reference internal" href="../metrics.html">
+     Prometheus Monitoring
+    </a>
+   </li>
+   <li class="toctree-l1">
+    <a class="reference internal" href="../dso.html">
+     Distributed shared objects
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l0 has-children">
+  <p aria-level="2" class="caption" role="heading">
+   <span class="caption-text">
+    Developer Guide
+   </span>
+  </p>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label class="label-parts" for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="nav bd-sidenav">
+   <li class="toctree-l1">
+    <a class="reference external" href="https://github.com/lithops-cloud/applications">
+     Applications
+    </a>
+   </li>
+   <li class="toctree-l1">
+    <a class="reference internal" href="../contributing.html">
+     Contributing to Lithops
+    </a>
+   </li>
+   <li class="toctree-l1">
+    <a class="reference internal" href="../testing.html">
+     Testing Guidelines
+    </a>
+   </li>
+   <li class="toctree-l1">
+    <a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/CHANGELOG.md">
+     Changelog
     </a>
    </li>
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Lithops Compute API
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../api_futures.html">
-   Lithops Futures API
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../functions.html">
-   Lithops Functions and Parameters
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../notebooks/function_chaining.html">
-   Function chaining
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../api_stats.html">
-   Execution stats
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Lithops Storage API
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../api_storage.html">
-   Storage API Deatils
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Data Processing
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../data_processing.html">
-   Processing data from the Cloud
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../data_partitioning.html">
-   Data Partitioning
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Integrations
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../api_multiprocessing.html">
-   Multiprocessing API
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../api_storage_os.html">
-   Storage OS API
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../sklearn_joblib.html">
-   Distributed Scikit-learn / Joblib
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../airflow.html">
-   Apache Airflow
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Advanced Features
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../worker_granularity.html">
-   Customize Worker Granularity
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../monitoring.html">
-   Lithops Monitoring
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference external" href="https://github.com/lithops-cloud/lithops/tree/master/runtime">
-   Custom Runtime
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../customized_runtime.html">
-   Dynamic Runtime Customization
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Experimental Features
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../metrics.html">
-   Prometheus Monitoring
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../dso.html">
-   Distributed shared objects
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Developer Guide
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference external" href="https://github.com/lithops-cloud/applications">
-   Applications
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../contributing.html">
-   Contributing to Lithops
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../testing.html">
-   Testing Guidelines
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/CHANGELOG.md">
-   Changelog
-  </a>
- </li>
-</ul>
-
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<!-- This is an invisible pixel that we watch to see if we've scrolled. -->
-<div class="sbt-scroll-pixel-helper"></div>
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            <div class="topbar-left">
-                
-                <label class="nav-toggle-button" for="__navigation">
-                    <div class="visually-hidden">Toggle navigation</div>
-                    <i class="fas fa-bars"></i>
-                </label>
-                
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
             </div>
             
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/source/compute_config/code_engine.md.txt"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/lithops-cloud/lithops"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/lithops-cloud/lithops/issues/new?title=Issue%20on%20page%20%2Fsource/compute_config/code_engine.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-            <!-- Launch buttons -->
-
         </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/lithops-cloud/lithops"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/lithops-cloud/lithops/issues/new?title=Issue%20on%20page%20%2Fsource/compute_config/code_engine.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/source/compute_config/code_engine.md.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#installation">
    Installation
@@ -643,12 +788,11 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>IBM Cloud Code Engine</h1>
@@ -778,24 +922,25 @@
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="section" id="ibm-cloud-code-engine">
-<h1>IBM Cloud Code Engine<a class="headerlink" href="#ibm-cloud-code-engine" title="Permalink to this headline">¶</a></h1>
+  <section id="ibm-cloud-code-engine">
+<h1>IBM Cloud Code Engine<a class="headerlink" href="#ibm-cloud-code-engine" title="Permalink to this headline">#</a></h1>
 <p><a class="reference external" href="https://cloud.ibm.com/codeengine/overview">IBM Code Engine</a> allows you to run your application, job or container on a managed serverless platform. Auto-scale workloads and only pay for the resources you consume.</p>
 <p>IBM Code Engine exposes both Knative and Kubernetes Job Descriptor API. Lithops supports both of them. Follow IBM Code Engine documentation to get more details on the difference between those APIs.</p>
-<div class="section" id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">#</a></h2>
 <p>Choose one option:</p>
-<div class="section" id="option-1-ibm-cloud-dashboard">
-<h3>Option 1 (IBM CLoud Dashboard):<a class="headerlink" href="#option-1-ibm-cloud-dashboard" title="Permalink to this headline">¶</a></h3>
+<section id="option-1-ibm-cloud-dashboard">
+<h3>Option 1 (IBM CLoud Dashboard):<a class="headerlink" href="#option-1-ibm-cloud-dashboard" title="Permalink to this headline">#</a></h3>
 <ol class="arabic simple">
 <li><p>Navigate to the <a class="reference external" href="https://cloud.ibm.com/codeengine/landing">IBM Cloud Code Engine dashboard</a> and create a new project in your preferred region.</p></li>
 </ol>
-</div>
-<div class="section" id="option-2-ibm-cloud-cli-tool">
-<h3>Option 2 (IBM CLoud CLI tool):<a class="headerlink" href="#option-2-ibm-cloud-cli-tool" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="option-2-ibm-cloud-cli-tool">
+<h3>Option 2 (IBM CLoud CLI tool):<a class="headerlink" href="#option-2-ibm-cloud-cli-tool" title="Permalink to this headline">#</a></h3>
 <p>In this step you are required to install IBM Cloud CLI tool, Code Engine plugin and create new Code Engine project</p>
 <ol class="arabic">
 <li><p>Install the <a class="reference external" href="https://cloud.ibm.com/docs/cli?topic=cli-getting-started">IBM Cloud CLI</a>:</p>
@@ -824,13 +969,13 @@
 </div>
 </li>
 </ol>
-</div>
-</div>
-<div class="section" id="configuration">
-<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">#</a></h2>
 <p>Choose one option:</p>
-<div class="section" id="option-1-ibm-iam">
-<h3>Option 1 (IBM IAM):<a class="headerlink" href="#option-1-ibm-iam" title="Permalink to this headline">¶</a></h3>
+<section id="option-1-ibm-iam">
+<h3>Option 1 (IBM IAM):<a class="headerlink" href="#option-1-ibm-iam" title="Permalink to this headline">#</a></h3>
 <ol class="arabic">
 <li><p>If you don’t have an IAM API key created, navigate to the <a class="reference external" href="https://cloud.ibm.com/iam/apikeys">IBM IAM dashboard</a>.</p></li>
 <li><p>Click <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">an</span> <span class="pre">IBM</span> <span class="pre">Cloud</span> <span class="pre">API</span> <span class="pre">Key</span></code> and provide the necessary information.</p></li>
@@ -842,22 +987,22 @@
 </li>
 <li><p>Print the content of the kubernetes config file and copy the <code class="docutils literal notranslate"><span class="pre">namespace</span></code> value under the context section.</p></li>
 <li><p>Edit your lithops config and add the following keys:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
-    <span class="nt">backend</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">code_engine</span>
-    
-<span class="nt">ibm</span><span class="p">:</span>
-    <span class="nt">iam_api_key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;IAM_API_KEY&gt;</span>
-   
-<span class="nt">code_engine</span><span class="p">:</span>
-    <span class="nt">namespace  </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;NAMESPACE&gt;</span>
-    <span class="nt">region     </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;REGION&gt;</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">code_engine</span><span class="w"></span>
+<span class="w">    </span>
+<span class="nt">ibm</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">iam_api_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;IAM_API_KEY&gt;</span><span class="w"></span>
+<span class="w">   </span>
+<span class="nt">code_engine</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">namespace  </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;NAMESPACE&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">region     </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION&gt;</span><span class="w"></span>
 </pre></div>
 </div>
 </li>
 </ol>
-</div>
-<div class="section" id="option-2-kubeconfig-file">
-<h3>Option 2 (KUBECONFIG file):<a class="headerlink" href="#option-2-kubeconfig-file" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="option-2-kubeconfig-file">
+<h3>Option 2 (KUBECONFIG file):<a class="headerlink" href="#option-2-kubeconfig-file" title="Permalink to this headline">#</a></h3>
 <ol class="arabic">
 <li><p>Locate the kubernetes config file using the IBM CLoud CLI:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ibmcloud ce project current
@@ -870,21 +1015,21 @@
 </div>
 </li>
 <li><p>Edit your lithops config and add the following keys:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
-    <span class="nt">backend</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">code_engine</span>
-   
-<span class="nt">code_engine</span><span class="p">:</span>
-    <span class="nt">kubecfg_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;PATH TO CONFIG YAML FILE&gt;</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">code_engine</span><span class="w"></span>
+<span class="w">   </span>
+<span class="nt">code_engine</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">kubecfg_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;PATH TO CONFIG YAML FILE&gt;</span><span class="w"></span>
 </pre></div>
 </div>
 </li>
 </ol>
-</div>
-</div>
-<div class="section" id="runtime">
-<h2>Runtime<a class="headerlink" href="#runtime" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="use-a-pre-built-runtime">
-<h3>Use a pre-built runtime<a class="headerlink" href="#use-a-pre-built-runtime" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="runtime">
+<h2>Runtime<a class="headerlink" href="#runtime" title="Permalink to this headline">#</a></h2>
+<section id="use-a-pre-built-runtime">
+<h3>Use a pre-built runtime<a class="headerlink" href="#use-a-pre-built-runtime" title="Permalink to this headline">#</a></h3>
 <p>To work with Code Engine there is need to use dedicated runtime. You can use a pre-built runtime listed below</p>
 <table class="colwidths-auto table">
 <thead>
@@ -922,9 +1067,9 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="use-your-own-runtime">
-<h3>Use your own runtime<a class="headerlink" href="#use-your-own-runtime" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="use-your-own-runtime">
+<h3>Use your own runtime<a class="headerlink" href="#use-your-own-runtime" title="Permalink to this headline">#</a></h3>
 <p>If a pre-built runtime is not provided, Lithops automatically builds the default runtime the first time you run a script. For this task it uses the <strong>docker</strong> command installed locally in your machine. To make this working, you need:</p>
 <ol class="arabic">
 <li><p><a class="reference external" href="https://docs.docker.com/get-docker/">Install the Docker CE version</a>.</p></li>
@@ -934,38 +1079,38 @@
 </div>
 </li>
 </ol>
-</div>
-<div class="section" id="custom-runtime">
-<h3>Custom runtime<a class="headerlink" href="#custom-runtime" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="custom-runtime">
+<h3>Custom runtime<a class="headerlink" href="#custom-runtime" title="Permalink to this headline">#</a></h3>
 <p>If you need to create a runtime with custom system packages and libraries, please follow <a class="reference external" href="https://github.com/lithops-cloud/lithops/tree/master/runtime/code_engine">Building and managing Lithops runtimes to run the functions</a></p>
-</div>
-</div>
-<div class="section" id="configure-a-private-container-registry-for-your-runtime">
-<h2>Configure a private container registry for your runtime<a class="headerlink" href="#configure-a-private-container-registry-for-your-runtime" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="configure-docker-hub">
-<h3>Configure Docker hub<a class="headerlink" href="#configure-docker-hub" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="configure-a-private-container-registry-for-your-runtime">
+<h2>Configure a private container registry for your runtime<a class="headerlink" href="#configure-a-private-container-registry-for-your-runtime" title="Permalink to this headline">#</a></h2>
+<section id="configure-docker-hub">
+<h3>Configure Docker hub<a class="headerlink" href="#configure-docker-hub" title="Permalink to this headline">#</a></h3>
 <p>To configure Lithops to access a private repository in your docker hub account, you need to extend the Code Engine config and add the following keys:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">code_engine</span><span class="p">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">....</span>
-    <span class="l l-Scalar l-Scalar-Plain">docker_user</span>      <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;Docker hub username&gt;</span>
-    <span class="nt">docker_password  </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;DOcker hub access TOEKN&gt;</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">code_engine</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">....</span><span class="w"></span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">docker_user</span><span class="w">      </span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;Docker hub username&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">docker_password  </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;DOcker hub access TOEKN&gt;</span><span class="w"></span>
 </pre></div>
 </div>
-<div class="section" id="configure-ibm-container-registry">
-<h4>Configure IBM Container Registry<a class="headerlink" href="#configure-ibm-container-registry" title="Permalink to this headline">¶</a></h4>
+<section id="configure-ibm-container-registry">
+<h4>Configure IBM Container Registry<a class="headerlink" href="#configure-ibm-container-registry" title="Permalink to this headline">#</a></h4>
 <p>To configure Lithops to access to a private repository in your IBM Container Registry, you need to extend the Code Engine config and add the following keys:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">code_engine</span><span class="p">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">....</span>
-    <span class="l l-Scalar l-Scalar-Plain">docker_server</span>    <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">us.icr.io</span>  <span class="c1"># Change-me if you have the CR in another region</span>
-    <span class="nt">docker_user      </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">iamapikey</span>
-    <span class="nt">docker_password  </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;IBM IAM API KEY&gt;</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">code_engine</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">....</span><span class="w"></span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">docker_server</span><span class="w">    </span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">us.icr.io</span><span class="w">  </span><span class="c1"># Change-me if you have the CR in another region</span><span class="w"></span>
+<span class="w">    </span><span class="nt">docker_user      </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iamapikey</span><span class="w"></span>
+<span class="w">    </span><span class="nt">docker_password  </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;IBM IAM API KEY&gt;</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="summary-of-configuration-keys-for-job-api">
-<h2>Summary of configuration keys for Job API:<a class="headerlink" href="#summary-of-configuration-keys-for-job-api" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+</section>
+<section id="summary-of-configuration-keys-for-job-api">
+<h2>Summary of configuration keys for Job API:<a class="headerlink" href="#summary-of-configuration-keys-for-job-api" title="Permalink to this headline">#</a></h2>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Group</p></th>
@@ -1056,12 +1201,12 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="lithops-using-knative-api-of-code-engine">
-<h2>Lithops using Knative API of Code Engine<a class="headerlink" href="#lithops-using-knative-api-of-code-engine" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="lithops-using-knative-api-of-code-engine">
+<h2>Lithops using Knative API of Code Engine<a class="headerlink" href="#lithops-using-knative-api-of-code-engine" title="Permalink to this headline">#</a></h2>
 <p>The preferable way to run Lithops in Code Engine is by using the JOB API. However, Lithops can be also executed in Code Engine using the Knative API. To configure this mode of execution refer to the <a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/config/compute/knative.md#configuration">Knative documentation</a> and follow the steps to configure Knative.</p>
-<div class="section" id="usage-example">
-<h3>Usage Example<a class="headerlink" href="#usage-example" title="Permalink to this headline">¶</a></h3>
+<section id="usage-example">
+<h3>Usage Example<a class="headerlink" href="#usage-example" title="Permalink to this headline">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lithops</span>
 
 <span class="n">iterdata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Gil&#39;</span><span class="p">,</span> <span class="s1">&#39;Dana&#39;</span><span class="p">,</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;Scott&#39;</span><span class="p">]</span>
@@ -1075,32 +1220,34 @@
     <span class="nb">print</span><span class="p">(</span><span class="n">lt</span><span class="o">.</span><span class="n">get_result</span><span class="p">())</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="troubleshooting">
-<h3>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="fault">
-<h4>Fault<a class="headerlink" href="#fault" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="troubleshooting">
+<h3>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">#</a></h3>
+<section id="fault">
+<h4>Fault<a class="headerlink" href="#fault" title="Permalink to this headline">#</a></h4>
 <p>Lithops throws exception with ‘Missing access token parameter’</p>
-<div class="section" id="cause-remedy">
-<h5>Cause / Remedy<a class="headerlink" href="#cause-remedy" title="Permalink to this headline">¶</a></h5>
+<section id="cause-remedy">
+<h5>Cause / Remedy<a class="headerlink" href="#cause-remedy" title="Permalink to this headline">#</a></h5>
 <p>This likely occurs when you were logout from ibmcloud or the kubectl token can’t re-generate new authentication token. To resolve this login into ibmcloud and re-create kubectl file</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ibmcloud login -r &lt;CE Project Region&gt;
 ibmcloud target -g &lt;GROUP&gt; -o &lt;ORG&gt;
 ibmcloud ce project select --name &lt;CPROJECT NAME&gt; --kubecfg
 </pre></div>
 </div>
-</div>
-</div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
+</section>
+</section>
 
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="azure_functions.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1116,24 +1263,28 @@ ibmcloud ce project select --name &lt;CPROJECT NAME&gt; --kubecfg
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By The Lithops Team<br/>
+  
+      &copy; Copyright 2022, The Lithops Team.<br/>
+</p>
+        </footer>
+    </div>
     
-      By The Lithops Team<br/>
-    
-        &copy; Copyright 2022, The Lithops Team.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>
