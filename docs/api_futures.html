@@ -4,13 +4,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lithops Futures API Details</title>
     
-  <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -20,54 +18,32 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <link rel="shortcut icon" href="_static/favicon.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en">
+    <meta name="docsearch:language" content="en" />
     
-
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7YKZHZYDCR"></script>
-<script>
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){ dataLayer.push(arguments); }
-                    gtag('js', new Date());
-                    gtag('config', 'G-7YKZHZYDCR');
-                </script>
-
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
-
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -76,15 +52,10 @@
     <div class="container-xl">
       <div class="row">
           
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
-      
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
-      
       
       <img src="_static/lithops_logo_readme.png" class="logo" alt="logo">
       
@@ -95,721 +66,513 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="list-caption">
- <li class="toctree-l0 has-children">
-  <p aria-level="2" class="caption" role="heading">
-   <span class="caption-text">
-    Overview of Lithops
-   </span>
-  </p>
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="index.html">
+   What is Lithops?
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Overview of Lithops
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/design.html">
+   Architecture Design
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/comparing_lithops.html">
+   Comparing Lithops with other distributed computing frameworks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/supported_clouds.html">
+   Supported Clouds
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/execution_modes.html">
+   Execution Modes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/cli.html">
+   Lithops Command Line Tool
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Install and Configure Lithops
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/install_lithops.html">
+   Installing Lithops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/configuration.html">
+   Configuration
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="source/compute_backends.html">
+   Compute Backends
+  </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label class="label-parts" for="toctree-checkbox-1">
+  <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="nav bd-sidenav">
-   <li class="toctree-l1">
-    <a class="reference internal" href="source/design.html">
-     Architecture Design
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="source/compute_config/aliyun_functions.html">
+     Aliyun Function Compute
     </a>
    </li>
-   <li class="toctree-l1">
-    <a class="reference internal" href="source/comparing_lithops.html">
-     Comparing Lithops with other distributed computing frameworks
+   <li class="toctree-l2">
+    <a class="reference internal" href="source/compute_config/aws_batch.html">
+     AWS Batch
     </a>
    </li>
-   <li class="toctree-l1">
-    <a class="reference internal" href="source/supported_clouds.html">
-     Supported Clouds
+   <li class="toctree-l2">
+    <a class="reference internal" href="source/compute_config/aws_ec2.html">
+     AWS Elastic Compute Cloud (EC2)
     </a>
    </li>
-   <li class="toctree-l1">
-    <a class="reference internal" href="source/execution_modes.html">
-     Execution Modes
+   <li class="toctree-l2">
+    <a class="reference internal" href="source/compute_config/aws_lambda.html">
+     AWS Lambda
     </a>
    </li>
-   <li class="toctree-l1">
-    <a class="reference internal" href="source/cli.html">
-     Lithops Command Line Tool
+   <li class="toctree-l2">
+    <a class="reference internal" href="source/compute_config/azure_functions.html">
+     Azure Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="source/compute_config/code_engine.html">
+     IBM Cloud Code Engine
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="source/compute_config/gcp_cloudrun.html">
+     Google Cloud Run
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="source/compute_config/gcp_functions.html">
+     Google Cloud Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="source/compute_config/ibm_cf.html">
+     IBM Cloud Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="source/compute_config/ibm_vpc.html">
+     IBM Virtual Private Cloud
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="source/compute_config/k8s_job.html">
+     Kubernetes (batch/job)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="source/compute_config/knative.html">
+     Knative
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="source/compute_config/localhost.html">
+     Localhost
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="source/compute_config/openwhisk.html">
+     OpenWhisk
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="source/compute_config/vm.html">
+     Virtual Machine
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l0 has-children">
-  <p aria-level="2" class="caption" role="heading">
-   <span class="caption-text">
-    Install and Configure Lithops
-   </span>
-  </p>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="source/storage_backends.html">
+   Storage Backends
+  </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label class="label-parts" for="toctree-checkbox-2">
+  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="nav bd-sidenav">
-   <li class="toctree-l1">
-    <a class="reference internal" href="source/install_lithops.html">
-     Installing Lithops
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="source/storage_config/aliyun_oss.html">
+     Aliyun Object Storage Service
     </a>
    </li>
-   <li class="toctree-l1">
-    <a class="reference internal" href="source/configuration.html">
-     Configuration
+   <li class="toctree-l2">
+    <a class="reference internal" href="source/storage_config/aws_s3.html">
+     AWS S3
     </a>
    </li>
-   <li class="toctree-l1 has-children">
-    <a class="reference internal" href="source/compute_backends.html">
-     Compute Backends
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-    <label for="toctree-checkbox-3">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l2">
-      <a class="reference internal" href="source/compute_config/aliyun_functions.html">
-       Aliyun Function Compute
-      </a>
-     </li>
-     <li class="toctree-l2">
-      <a class="reference internal" href="source/compute_config/aws_batch.html">
-       AWS Batch
-      </a>
-     </li>
-     <li class="toctree-l2">
-      <a class="reference internal" href="source/compute_config/aws_ec2.html">
-       AWS Elastic Compute Cloud (EC2)
-      </a>
-     </li>
-     <li class="toctree-l2">
-      <a class="reference internal" href="source/compute_config/aws_lambda.html">
-       AWS Lambda
-      </a>
-     </li>
-     <li class="toctree-l2">
-      <a class="reference internal" href="source/compute_config/azure_functions.html">
-       Azure Functions
-      </a>
-     </li>
-     <li class="toctree-l2">
-      <a class="reference internal" href="source/compute_config/code_engine.html">
-       IBM Cloud Code Engine
-      </a>
-     </li>
-     <li class="toctree-l2">
-      <a class="reference internal" href="source/compute_config/gcp_cloudrun.html">
-       Google Cloud Run
-      </a>
-     </li>
-     <li class="toctree-l2">
-      <a class="reference internal" href="source/compute_config/gcp_functions.html">
-       Google Cloud Functions
-      </a>
-     </li>
-     <li class="toctree-l2">
-      <a class="reference internal" href="source/compute_config/ibm_cf.html">
-       IBM Cloud Functions
-      </a>
-     </li>
-     <li class="toctree-l2">
-      <a class="reference internal" href="source/compute_config/ibm_vpc.html">
-       IBM Virtual Private Cloud
-      </a>
-     </li>
-     <li class="toctree-l2">
-      <a class="reference internal" href="source/compute_config/k8s_job.html">
-       Kubernetes (batch/job)
-      </a>
-     </li>
-     <li class="toctree-l2">
-      <a class="reference internal" href="source/compute_config/knative.html">
-       Knative
-      </a>
-     </li>
-     <li class="toctree-l2">
-      <a class="reference internal" href="source/compute_config/localhost.html">
-       Localhost
-      </a>
-     </li>
-     <li class="toctree-l2">
-      <a class="reference internal" href="source/compute_config/openwhisk.html">
-       OpenWhisk
-      </a>
-     </li>
-     <li class="toctree-l2">
-      <a class="reference internal" href="source/compute_config/vm.html">
-       Virtual Machine
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l1 has-children">
-    <a class="reference internal" href="source/storage_backends.html">
-     Storage Backends
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-    <label for="toctree-checkbox-4">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l2">
-      <a class="reference internal" href="source/storage_config/aliyun_oss.html">
-       Aliyun Object Storage Service
-      </a>
-     </li>
-     <li class="toctree-l2">
-      <a class="reference internal" href="source/storage_config/aws_s3.html">
-       AWS S3
-      </a>
-     </li>
-     <li class="toctree-l2">
-      <a class="reference internal" href="source/storage_config/azure_blob.html">
-       Azure Blob Storage
-      </a>
-     </li>
-     <li class="toctree-l2">
-      <a class="reference internal" href="source/storage_config/ceph.html">
-       Ceph
-      </a>
-     </li>
-     <li class="toctree-l2">
-      <a class="reference internal" href="source/storage_config/gcp_storage.html">
-       GCP Storage
-      </a>
-     </li>
-     <li class="toctree-l2">
-      <a class="reference internal" href="source/storage_config/ibm_cos.html">
-       IBM Cloud Object Storage
-      </a>
-     </li>
-     <li class="toctree-l2">
-      <a class="reference internal" href="source/storage_config/infinispan.html">
-       Infinispan
-      </a>
-     </li>
-     <li class="toctree-l2">
-      <a class="reference internal" href="source/storage_config/minio.html">
-       MinIO
-      </a>
-     </li>
-     <li class="toctree-l2">
-      <a class="reference internal" href="source/storage_config/redis.html">
-       Redis
-      </a>
-     </li>
-     <li class="toctree-l2">
-      <a class="reference internal" href="source/storage_config/swift.html">
-       Swift
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l0 has-children">
-  <p aria-level="2" class="caption" role="heading">
-   <span class="caption-text">
-    Lithops Compute API
-   </span>
-  </p>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label class="label-parts" for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="nav bd-sidenav">
-   <li class="toctree-l1">
-    <a class="reference internal" href="source/api_futures.html">
-     Lithops Futures API
+   <li class="toctree-l2">
+    <a class="reference internal" href="source/storage_config/azure_blob.html">
+     Azure Blob Storage
     </a>
    </li>
-   <li class="toctree-l1">
-    <a class="reference internal" href="source/functions.html">
-     Lithops Functions and Parameters
+   <li class="toctree-l2">
+    <a class="reference internal" href="source/storage_config/ceph.html">
+     Ceph
     </a>
    </li>
-   <li class="toctree-l1">
-    <a class="reference internal" href="source/notebooks/function_chaining.html">
-     Function chaining
+   <li class="toctree-l2">
+    <a class="reference internal" href="source/storage_config/gcp_storage.html">
+     GCP Storage
     </a>
    </li>
-   <li class="toctree-l1">
-    <a class="reference internal" href="source/api_stats.html">
-     Execution stats
+   <li class="toctree-l2">
+    <a class="reference internal" href="source/storage_config/ibm_cos.html">
+     IBM Cloud Object Storage
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l0 has-children">
-  <p aria-level="2" class="caption" role="heading">
-   <span class="caption-text">
-    Lithops Storage API
-   </span>
-  </p>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label class="label-parts" for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="nav bd-sidenav">
-   <li class="toctree-l1">
-    <a class="reference internal" href="source/api_storage.html">
-     Storage API Deatils
+   <li class="toctree-l2">
+    <a class="reference internal" href="source/storage_config/infinispan.html">
+     Infinispan
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l0 has-children">
-  <p aria-level="2" class="caption" role="heading">
-   <span class="caption-text">
-    Data Processing
-   </span>
-  </p>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label class="label-parts" for="toctree-checkbox-7">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="nav bd-sidenav">
-   <li class="toctree-l1">
-    <a class="reference internal" href="source/data_processing.html">
-     Processing data from the Cloud
+   <li class="toctree-l2">
+    <a class="reference internal" href="source/storage_config/minio.html">
+     MinIO
     </a>
    </li>
-   <li class="toctree-l1">
-    <a class="reference internal" href="source/data_partitioning.html">
-     Data Partitioning
+   <li class="toctree-l2">
+    <a class="reference internal" href="source/storage_config/redis.html">
+     Redis
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l0 has-children">
-  <p aria-level="2" class="caption" role="heading">
-   <span class="caption-text">
-    Integrations
-   </span>
-  </p>
-  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-  <label class="label-parts" for="toctree-checkbox-8">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="nav bd-sidenav">
-   <li class="toctree-l1">
-    <a class="reference internal" href="source/api_multiprocessing.html">
-     Multiprocessing API
-    </a>
-   </li>
-   <li class="toctree-l1">
-    <a class="reference internal" href="source/api_storage_os.html">
-     Storage OS API
-    </a>
-   </li>
-   <li class="toctree-l1">
-    <a class="reference internal" href="source/sklearn_joblib.html">
-     Distributed Scikit-learn / Joblib
-    </a>
-   </li>
-   <li class="toctree-l1">
-    <a class="reference internal" href="source/airflow.html">
-     Apache Airflow
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l0 has-children">
-  <p aria-level="2" class="caption" role="heading">
-   <span class="caption-text">
-    Advanced Features
-   </span>
-  </p>
-  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-  <label class="label-parts" for="toctree-checkbox-9">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="nav bd-sidenav">
-   <li class="toctree-l1">
-    <a class="reference internal" href="source/worker_granularity.html">
-     Customize Worker Granularity
-    </a>
-   </li>
-   <li class="toctree-l1">
-    <a class="reference internal" href="source/monitoring.html">
-     Lithops Monitoring
-    </a>
-   </li>
-   <li class="toctree-l1">
-    <a class="reference external" href="https://github.com/lithops-cloud/lithops/tree/master/runtime">
-     Custom Runtime
-    </a>
-   </li>
-   <li class="toctree-l1">
-    <a class="reference internal" href="source/customized_runtime.html">
-     Dynamic Runtime Customization
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l0 has-children">
-  <p aria-level="2" class="caption" role="heading">
-   <span class="caption-text">
-    Experimental Features
-   </span>
-  </p>
-  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-  <label class="label-parts" for="toctree-checkbox-10">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="nav bd-sidenav">
-   <li class="toctree-l1">
-    <a class="reference internal" href="source/metrics.html">
-     Prometheus Monitoring
-    </a>
-   </li>
-   <li class="toctree-l1">
-    <a class="reference internal" href="source/dso.html">
-     Distributed shared objects
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l0 has-children">
-  <p aria-level="2" class="caption" role="heading">
-   <span class="caption-text">
-    Developer Guide
-   </span>
-  </p>
-  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
-  <label class="label-parts" for="toctree-checkbox-11">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="nav bd-sidenav">
-   <li class="toctree-l1">
-    <a class="reference external" href="https://github.com/lithops-cloud/applications">
-     Applications
-    </a>
-   </li>
-   <li class="toctree-l1">
-    <a class="reference internal" href="source/contributing.html">
-     Contributing to Lithops
-    </a>
-   </li>
-   <li class="toctree-l1">
-    <a class="reference internal" href="source/testing.html">
-     Testing Guidelines
-    </a>
-   </li>
-   <li class="toctree-l1">
-    <a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/CHANGELOG.md">
-     Changelog
+   <li class="toctree-l2">
+    <a class="reference internal" href="source/storage_config/swift.html">
+     Swift
     </a>
    </li>
   </ul>
  </li>
 </ul>
+<p class="caption">
+ <span class="caption-text">
+  Lithops Compute API
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/api_futures.html">
+   Lithops Futures API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/functions.html">
+   Lithops Functions and Parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/notebooks/function_chaining.html">
+   Function chaining
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/api_stats.html">
+   Execution stats
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Lithops Storage API
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/api_storage.html">
+   Storage API Deatils
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Data Processing
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/data_processing.html">
+   Processing data from the Cloud
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/data_partitioning.html">
+   Data Partitioning
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Integrations
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/api_multiprocessing.html">
+   Multiprocessing API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/api_storage_os.html">
+   Storage OS API
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/sklearn_joblib.html">
+   Distributed Scikit-learn / Joblib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/airflow.html">
+   Apache Airflow
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Advanced Features
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/worker_granularity.html">
+   Customize Worker Granularity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/monitoring.html">
+   Lithops Monitoring
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/lithops-cloud/lithops/tree/master/runtime">
+   Custom Runtime
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/customized_runtime.html">
+   Dynamic Runtime Customization
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Experimental Features
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/metrics.html">
+   Prometheus Monitoring
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/dso.html">
+   Distributed shared objects
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Developer Guide
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/lithops-cloud/applications">
+   Applications
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/contributing.html">
+   Contributing to Lithops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="source/testing.html">
+   Testing Guidelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/CHANGELOG.md">
+   Changelog
+  </a>
+ </li>
+</ul>
+
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
             
-            <div class="navbar_extra_footer">
-            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/api_futures.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/lithops-cloud/lithops"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/lithops-cloud/lithops/issues/new?title=Issue%20on%20page%20%2Fapi_futures.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
             </div>
-            
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Lithops Futures API Details
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#executor">
+     Executor
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#executor-call-async">
+     Executor.call_async()
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#executor-map">
+     Executor.map()
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#executor-map-reduce">
+     Executor.map_reduce()
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#executor-wait">
+     Executor.wait()
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#executor-get-result">
+     Executor.get_result()
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#executor-plot">
+     Executor.plot()
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#executor-clean">
+     Executor.clean()
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#function-chaining">
+   Function chaining
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
-    <div id="rtd-footer-container"></div>
 </div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
         
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/lithops-cloud/lithops"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/lithops-cloud/lithops/issues/new?title=Issue%20on%20page%20%2Fapi_futures.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/api_futures.md.txt"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.md</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
-    </div>
-</div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Lithops Futures API Details
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#executor">
-     Executor
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#executor-call-async">
-     Executor.call_async()
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#executor-map">
-     Executor.map()
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#executor-map-reduce">
-     Executor.map_reduce()
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#executor-wait">
-     Executor.wait()
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#executor-get-result">
-     Executor.get_result()
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#executor-plot">
-     Executor.plot()
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#executor-clean">
-     Executor.clean()
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#function-chaining">
-   Function chaining
-  </a>
- </li>
-</ul>
-
-    </nav>
-</div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Lithops Futures API Details</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Lithops Futures API Details
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#executor">
-     Executor
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#executor-call-async">
-     Executor.call_async()
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#executor-map">
-     Executor.map()
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#executor-map-reduce">
-     Executor.map_reduce()
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#executor-wait">
-     Executor.wait()
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#executor-get-result">
-     Executor.get_result()
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#executor-plot">
-     Executor.plot()
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#executor-clean">
-     Executor.clean()
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#function-chaining">
-   Function chaining
-  </a>
- </li>
-</ul>
-
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            <main id="main-content" role="main">
-                
               <div>
                 
-  <section id="lithops-futures-api-details">
-<h1>Lithops Futures API Details<a class="headerlink" href="#lithops-futures-api-details" title="Permalink to this headline">#</a></h1>
-<section id="executor">
-<h2>Executor<a class="headerlink" href="#executor" title="Permalink to this headline">#</a></h2>
+  <div class="tex2jax_ignore mathjax_ignore section" id="lithops-futures-api-details">
+<h1>Lithops Futures API Details<a class="headerlink" href="#lithops-futures-api-details" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="executor">
+<h2>Executor<a class="headerlink" href="#executor" title="Permalink to this headline">¶</a></h2>
 <p>The primary object in Lithops is the executor. The standard way to get everything set up is to import <code class="docutils literal notranslate"><span class="pre">lithops</span></code>, and create an instance of one of the available modes of executions.</p>
 <p>Lithops is shipped with 3 modes of execution: <strong>Localhost</strong>, <strong>Serverless</strong> and <strong>Standalone</strong>. In this sense, each mode of execution has its own executor class:</p>
 <ul class="simple">
@@ -831,35 +594,35 @@ title="Print to PDF"
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><span class="xref myst">call_async()</span></p></td>
+<tr class="row-even"><td><p>call_async()</p></td>
 <td><p>Async.</p></td>
 <td><p>Method used to spawn one function activation</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="xref myst">map()</span></p></td>
+<tr class="row-odd"><td><p>map()</p></td>
 <td><p>Async.</p></td>
 <td><p>Method used to spawn multiple function activations</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="xref myst">map_reduce()</span></p></td>
+<tr class="row-even"><td><p>map_reduce()</p></td>
 <td><p>Async.</p></td>
 <td><p>Method used to spawn multiple function activations with one (or multiple) reducers</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="xref myst">wait()</span></p></td>
+<tr class="row-odd"><td><p>wait()</p></td>
 <td><p>Sync.</p></td>
 <td><p>Wait for the function activations to complete. It blocks the local execution until all the function activations finished their execution (configurable)</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="xref myst">get_result()</span></p></td>
+<tr class="row-even"><td><p>get_result()</p></td>
 <td><p>Sync.</p></td>
 <td><p>Method used to retrieve the results of all function activations. The results are returned within an ordered list, where each element of the list is the result of one activation</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="xref myst">plot()</span></p></td>
+<tr class="row-odd"><td><p>plot()</p></td>
 <td><p>Sync.</p></td>
 <td><p>Method used to create execution plots</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="xref myst">job_summary()</span></p></td>
+<tr class="row-even"><td><p>job_summary()</p></td>
 <td><p>Sync.</p></td>
 <td><p>Method used to create a summary file of the executed jobs. It includes times and money</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="xref myst">clean()</span></p></td>
+<tr class="row-odd"><td><p>clean()</p></td>
 <td><p>Async.</p></td>
 <td><p>Method used to clean the temporary data generated by Lithops</p></td>
 </tr>
@@ -1061,9 +824,9 @@ title="Print to PDF"
 <span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">()</span>
 </pre></div>
 </div>
-</section>
-<section id="executor-call-async">
-<h2>Executor.call_async()<a class="headerlink" href="#executor-call-async" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="executor-call-async">
+<h2>Executor.call_async()<a class="headerlink" href="#executor-call-async" title="Permalink to this headline">¶</a></h2>
 <p>Spawn only one function activation.</p>
 <p><strong>call_async</strong>(func, data, **kwargs)</p>
 <table class="colwidths-auto table">
@@ -1111,11 +874,11 @@ title="Print to PDF"
 </pre></div>
 </div>
 </li>
-<li><p><strong>Code example</strong>: <a class="reference download internal" download="" href="_downloads/74d5c1c5a769ba2163ab4a916a4f06ce/call_async.py"><span class="xref download myst">call_async.py</span></a></p></li>
+<li><p><strong>Code example</strong>: <span class="xref myst">call_async.py</span></p></li>
 </ul>
-</section>
-<section id="executor-map">
-<h2>Executor.map()<a class="headerlink" href="#executor-map" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="executor-map">
+<h2>Executor.map()<a class="headerlink" href="#executor-map" title="Permalink to this headline">¶</a></h2>
 <p>Spawn multiple function activations based on the items of an input list.</p>
 <p><strong>map</strong>(map_function, map_iterdata, **kwargs)</p>
 <table class="colwidths-auto table">
@@ -1184,11 +947,11 @@ title="Print to PDF"
 </pre></div>
 </div>
 </li>
-<li><p><strong>Code example</strong>: <a class="reference download internal" download="" href="_downloads/0da8a12d150fcab6ae22282b2c903965/map.py"><span class="xref download myst">map.py</span></a></p></li>
+<li><p><strong>Code example</strong>: <span class="xref myst">map.py</span></p></li>
 </ul>
-</section>
-<section id="executor-map-reduce">
-<h2>Executor.map_reduce()<a class="headerlink" href="#executor-map-reduce" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="executor-map-reduce">
+<h2>Executor.map_reduce()<a class="headerlink" href="#executor-map-reduce" title="Permalink to this headline">¶</a></h2>
 <p>Spawn multiple <em>map_function</em> activations,  based on the items of an input list,  eventually spawning one (or multiple) <em>reduce_function</em> activations over the results of the map phase.</p>
 <p><strong>map_reduce</strong>(map_function, map_iterdata, reduce_function, **kwargs)</p>
 <table class="colwidths-auto table">
@@ -1273,11 +1036,11 @@ title="Print to PDF"
 </pre></div>
 </div>
 </li>
-<li><p><strong>Code example</strong>: <a class="reference download internal" download="" href="_downloads/f452a415b50f5d24995b600464e3902b/map_reduce.py"><span class="xref download myst">map_reduce.py</span></a></p></li>
+<li><p><strong>Code example</strong>: <span class="xref myst">map_reduce.py</span></p></li>
 </ul>
-</section>
-<section id="executor-wait">
-<h2>Executor.wait()<a class="headerlink" href="#executor-wait" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="executor-wait">
+<h2>Executor.wait()<a class="headerlink" href="#executor-wait" title="Permalink to this headline">¶</a></h2>
 <p>Waits for the function activations to finish.</p>
 <p><strong>wait</strong>(**kwargs)</p>
 <table class="colwidths-auto table">
@@ -1327,11 +1090,11 @@ title="Print to PDF"
 </pre></div>
 </div>
 </li>
-<li><p><strong>Code example</strong>: <a class="reference download internal" download="" href="_downloads/9a773c3eae298e1f294565945e9acda3/wait.py"><span class="xref download myst">wait.py</span></a></p></li>
+<li><p><strong>Code example</strong>: <span class="xref myst">wait.py</span></p></li>
 </ul>
-</section>
-<section id="executor-get-result">
-<h2>Executor.get_result()<a class="headerlink" href="#executor-get-result" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="executor-get-result">
+<h2>Executor.get_result()<a class="headerlink" href="#executor-get-result" title="Permalink to this headline">¶</a></h2>
 <p>Gets the results from all the function activations. It internally makes use of the <code class="docutils literal notranslate"><span class="pre">Executor.wait()</span></code> method.</p>
 <p><strong>get_result</strong>(**kwargs)</p>
 <table class="colwidths-auto table">
@@ -1373,11 +1136,11 @@ title="Print to PDF"
 </pre></div>
 </div>
 </li>
-<li><p><strong>Code example</strong>: <a class="reference download internal" download="" href="_downloads/74d5c1c5a769ba2163ab4a916a4f06ce/call_async.py"><span class="xref download myst">call_async.py</span></a>, <a class="reference download internal" download="" href="_downloads/0da8a12d150fcab6ae22282b2c903965/map.py"><span class="xref download myst">map.py</span></a>, <a class="reference download internal" download="" href="_downloads/f452a415b50f5d24995b600464e3902b/map_reduce.py"><span class="xref download myst">map_reduce.py</span></a></p></li>
+<li><p><strong>Code example</strong>: <span class="xref myst">call_async.py</span>, <span class="xref myst">map.py</span>, <span class="xref myst">map_reduce.py</span></p></li>
 </ul>
-</section>
-<section id="executor-plot">
-<h2>Executor.plot()<a class="headerlink" href="#executor-plot" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="executor-plot">
+<h2>Executor.plot()<a class="headerlink" href="#executor-plot" title="Permalink to this headline">¶</a></h2>
 <p>Creates 2 detailed execution plots: A timeline plot and a histogram plot.</p>
 <p><strong>plot</strong>(**kwargs)</p>
 <table class="colwidths-auto table">
@@ -1415,9 +1178,9 @@ title="Print to PDF"
   <img width="48%" src="source/images/timeline.png"></img>
   <img width="48%" src="source/images/histogram.png"></img>
 </p>
-</section>
-<section id="executor-clean">
-<h2>Executor.clean()<a class="headerlink" href="#executor-clean" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="executor-clean">
+<h2>Executor.clean()<a class="headerlink" href="#executor-clean" title="Permalink to this headline">¶</a></h2>
 <p>Cleans the temporary data generated by Lithops in IBM COS. This process runs asynchronously to the main execution since Lithops starts another process to do the task. If <code class="docutils literal notranslate"><span class="pre">data_cleaner=True</span></code> (default), this method is executed automatically after calling <code class="docutils literal notranslate"><span class="pre">get_result()</span></code>.</p>
 <p><strong>clean</strong>(**kwargs)</p>
 <table class="colwidths-auto table">
@@ -1456,12 +1219,12 @@ title="Print to PDF"
 </pre></div>
 </div>
 </li>
-<li><p><strong>Code example</strong>: <a class="reference download internal" download="" href="_downloads/0da8a12d150fcab6ae22282b2c903965/map.py"><span class="xref download myst">map.py</span></a></p></li>
+<li><p><strong>Code example</strong>: <span class="xref myst">map.py</span></p></li>
 </ul>
-</section>
-</section>
-<section id="function-chaining">
-<h1>Function chaining<a class="headerlink" href="#function-chaining" title="Permalink to this headline">#</a></h1>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="function-chaining">
+<h1>Function chaining<a class="headerlink" href="#function-chaining" title="Permalink to this headline">¶</a></h1>
 <p>Function chaining is a pattern where multiple functions are called on the same executor consecutively. Using the same <code class="docutils literal notranslate"><span class="pre">lithops.FunctionExecutor</span></code> object reference, multiple functions can be invoked. It increases the readability of the code and means less redundancy. This means we chain multiple functions together with the same element reference. It’s not necessary to attach the <code class="docutils literal notranslate"><span class="pre">lithops.FunctionExecutor</span></code> reference multiple times for each function call.</p>
 <p>This patter is specially useful when the output of one invocation is the input of another invocation. In this case, Lithops does not download the intermediate results to the local client, instead, the intermediate results are directly read from the next function.</p>
 <p>It currently works with the Futures API, and you can chain the <code class="docutils literal notranslate"><span class="pre">map()</span></code>, <code class="docutils literal notranslate"><span class="pre">map_reuce()</span></code>, <code class="docutils literal notranslate"><span class="pre">wait()</span></code> and <code class="docutils literal notranslate"><span class="pre">get_result()</span></code> methods. Note that the returning value of one function must match the signature of the next function when chaining multiple <code class="docutils literal notranslate"><span class="pre">map()</span></code> calls. View the next examples:</p>
@@ -1539,39 +1302,48 @@ title="Print to PDF"
 <span class="nb">print</span><span class="p">(</span><span class="n">final_result</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
+</div>
 
 
               </div>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+
 </div>
-            </footer>
+        
         </div>
     </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By The Lithops Team<br/>
-  
-      &copy; Copyright 2022, The Lithops Team.<br/>
-</p>
-        </footer>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Lithops Team<br/>
+        
+            &copy; Copyright 2022, The Lithops Team.<br/>
+      </p>
     </div>
-    
-</div>
+  </footer>
+</main>
 
 
       </div>
     </div>
   
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
+  
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-7YKZHZYDCR"></script>
+<script>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){ dataLayer.push(arguments); }
+                    gtag('config', 'G-7YKZHZYDCR');
+                </script>
 
   </body>
 </html>
