@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Google Cloud Functions</title>
+    <title>Google Cloud Functions &#8212; Lithops v2.7.1.dev0</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -90,6 +90,8 @@
       
       <img src="../../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
+      
+      <h1 class="site-logo" id="site-title">Lithops v2.7.1.dev0</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
@@ -187,6 +189,11 @@
      <li class="toctree-l2">
       <a class="reference internal" href="aws_lambda.html">
        AWS Lambda
+      </a>
+     </li>
+     <li class="toctree-l2">
+      <a class="reference internal" href="azure_containers.html">
+       Azure Container Apps
       </a>
      </li>
      <li class="toctree-l2">
@@ -702,6 +709,16 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-lithops">
+   Test Lithops
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#viewing-the-execution-logs">
+   Viewing the execution logs
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -748,6 +765,16 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-lithops">
+   Test Lithops
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#viewing-the-execution-logs">
+   Viewing the execution logs
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -766,7 +793,7 @@ title="Print to PDF"
 <ol class="arabic simple">
 <li><p>Install Google Cloud Platform backend dependencies:</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 -m install lithops[gcp]
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m install lithops<span class="o">[</span>gcp<span class="o">]</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
@@ -796,10 +823,8 @@ title="Print to PDF"
 <span class="w">        </span><span class="nt">backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gcp_functions</span><span class="w"></span>
 
 <span class="w">    </span><span class="nt">gcp</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="nt">project_name </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;PROJECT_ID&gt;</span><span class="w"></span>
-<span class="w">        </span><span class="nt">service_account </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SERVICE_ACCOUNT_EMAIL&gt;</span><span class="w"></span>
-<span class="w">        </span><span class="nt">credentials_path </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;FULL_PATH_TO_CREDENTIALS_JSON&gt;</span><span class="w"></span>
 <span class="w">        </span><span class="nt">region </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="nt">credentials_path </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;FULL_PATH_TO_CREDENTIALS_JSON&gt;</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
@@ -818,28 +843,16 @@ title="Print to PDF"
 </thead>
 <tbody>
 <tr class="row-even"><td><p>gcp</p></td>
-<td><p>project_name</p></td>
-<td><p></p></td>
-<td><p>yes</p></td>
-<td><p>Project id given by Google Cloud Platform in step 3 (e.g. <code class="docutils literal notranslate"><span class="pre">lithops-876385</span></code>)</p></td>
-</tr>
-<tr class="row-odd"><td><p>gcp</p></td>
-<td><p>service_account</p></td>
-<td><p></p></td>
-<td><p>yes</p></td>
-<td><p>Service account email of the service account created on step 5 (e.g. <code class="docutils literal notranslate"><span class="pre">lithops-executor&#64;lithops.iam.gserviceaccount.com</span></code>)</p></td>
-</tr>
-<tr class="row-even"><td><p>gcp</p></td>
-<td><p>credentials_path</p></td>
-<td><p></p></td>
-<td><p>yes</p></td>
-<td><p><strong>Absolute</strong> path of your JSON key file downloaded in step 7 (e.g. <code class="docutils literal notranslate"><span class="pre">/home/myuser/lithops-invoker1234567890.json</span></code>)</p></td>
-</tr>
-<tr class="row-odd"><td><p>gcp</p></td>
 <td><p>region</p></td>
 <td><p></p></td>
 <td><p>yes</p></td>
-<td><p>Region of the bucket created at step 8. Functions and pub/sub queue will be created in the same region (e.g. <code class="docutils literal notranslate"><span class="pre">us-east1</span></code>)</p></td>
+<td><p>Region name of the bucket created at step 8 of the gcp_storage config. Functions and pub/sub queues will be created in the same region (e.g. <code class="docutils literal notranslate"><span class="pre">us-east1</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p>gcp</p></td>
+<td><p>credentials_path</p></td>
+<td><p></p></td>
+<td><p>yes</p></td>
+<td><p><strong>Absolute</strong> path of your JSON key file downloaded in step 7 (e.g. <code class="docutils literal notranslate"><span class="pre">/home/myuser/lithops-invoker1234567890.json</span></code>). Alternatively you can set <code class="docutils literal notranslate"><span class="pre">GOOGLE_APPLICATION_CREDENTIALS</span></code> environment variable. If not provided it will try to load the default credentials from the environment</p></td>
 </tr>
 </tbody>
 </table>
@@ -895,6 +908,20 @@ title="Print to PDF"
 </tbody>
 </table>
 </section>
+</section>
+<section id="test-lithops">
+<h2>Test Lithops<a class="headerlink" href="#test-lithops" title="Permalink to this headline">#</a></h2>
+<p>Once you have your compute and storage backends configured, you can run a hello world function with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops <span class="nb">test</span> -b gcp_functions -s gcp_storage
+</pre></div>
+</div>
+</section>
+<section id="viewing-the-execution-logs">
+<h2>Viewing the execution logs<a class="headerlink" href="#viewing-the-execution-logs" title="Permalink to this headline">#</a></h2>
+<p>You can view the function executions logs in your local machine using the <em>lithops client</em>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops logs poll
+</pre></div>
+</div>
 </section>
 </section>
 

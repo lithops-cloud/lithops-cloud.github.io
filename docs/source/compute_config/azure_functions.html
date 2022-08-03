@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Azure Functions</title>
+    <title>Azure Functions &#8212; Lithops v2.7.1.dev0</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -39,7 +39,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="IBM Cloud Code Engine" href="code_engine.html" />
-    <link rel="prev" title="AWS Lambda" href="aws_lambda.html" />
+    <link rel="prev" title="Azure Container Apps" href="azure_containers.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -90,6 +90,8 @@
       
       <img src="../../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
+      
+      <h1 class="site-logo" id="site-title">Lithops v2.7.1.dev0</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
@@ -187,6 +189,11 @@
      <li class="toctree-l2">
       <a class="reference internal" href="aws_lambda.html">
        AWS Lambda
+      </a>
+     </li>
+     <li class="toctree-l2">
+      <a class="reference internal" href="azure_containers.html">
+       Azure Container Apps
       </a>
      </li>
      <li class="toctree-l2 current active">
@@ -702,6 +709,16 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-lithops">
+   Test Lithops
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#viewing-the-execution-logs">
+   Viewing the execution logs
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -748,6 +765,16 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-lithops">
+   Test Lithops
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#viewing-the-execution-logs">
+   Viewing the execution logs
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -767,7 +794,7 @@ title="Print to PDF"
 <ol class="arabic simple">
 <li><p>Install Microsoft Azure backend dependencies:</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 -m pip install lithops[azure]
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">lithops</span><span class="p">[</span><span class="n">azure</span><span class="p">]</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
@@ -775,7 +802,7 @@ title="Print to PDF"
 <li><p>Install the <a class="reference external" href="https://github.com/Azure/azure-functions-core-tools">Azure Functions core tools</a></p></li>
 <li><p>Sign in with the Azure CLI:</p></li>
 </ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>  $ az login
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>  az login
 </pre></div>
 </div>
 <ol class="arabic" start="5">
@@ -789,16 +816,16 @@ title="Print to PDF"
 <ol class="arabic simple">
 <li><p>Create a Resource Group in a specific location. If you already have a resource group, omit this step.</p></li>
 </ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>  $ az group create --name LithopsResourceGroup --location westeurope
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>  az group create --name LithopsResourceGroup --location westeurope
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
 <li><p>Create a Storage Account with a unique name. If you already have a storage account, omit this step.</p></li>
 </ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>  $ <span class="nv">storage_account_name</span><span class="o">=</span>lithops<span class="k">$(</span>openssl rand -hex <span class="m">3</span><span class="k">)</span>
-  $ <span class="nb">echo</span> <span class="nv">$storage_account_name</span>
-  $ az storage_config account create --name <span class="nv">$storage_account_name</span> --location westeurope <span class="se">\</span>
-     --resource-group LithopsResourceGroup --sku Standard_LRS
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>  <span class="nv">storage_account_name</span><span class="o">=</span>lithops<span class="k">$(</span>openssl rand -hex <span class="m">3</span><span class="k">)</span>
+  <span class="nb">echo</span> <span class="nv">$storage_account_name</span>
+  az storage account create --name <span class="nv">$storage_account_name</span> --location westeurope <span class="se">\</span>
+    --resource-group LithopsResourceGroup --sku Standard_LRS
 </pre></div>
 </div>
 </li>
@@ -879,9 +906,9 @@ title="Print to PDF"
 </tr>
 <tr class="row-even"><td><p>azure_functions</p></td>
 <td><p>max_workers</p></td>
-<td><p>200</p></td>
+<td><p>1000</p></td>
 <td><p>no</p></td>
-<td><p>Max number of workers per <code class="docutils literal notranslate"><span class="pre">FunctionExecutor()</span></code></p></td>
+<td><p>Max number of parallel workers. Altough Azure limits the number of workrs to 200, it is convenient to keep this value high</p></td>
 </tr>
 <tr class="row-odd"><td><p>azure_functions</p></td>
 <td><p>worker_processes</p></td>
@@ -903,7 +930,7 @@ title="Print to PDF"
 </tr>
 <tr class="row-even"><td><p>azure_functions</p></td>
 <td><p>invocation_type</p></td>
-<td><p>http</p></td>
+<td><p>event</p></td>
 <td><p>no</p></td>
 <td><p>One of ‘http’ or ‘event’</p></td>
 </tr>
@@ -917,6 +944,20 @@ title="Print to PDF"
 </table>
 </section>
 </section>
+<section id="test-lithops">
+<h2>Test Lithops<a class="headerlink" href="#test-lithops" title="Permalink to this headline">#</a></h2>
+<p>Once you have your compute and storage backends configured, you can run a hello world function with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops <span class="nb">test</span> -b azure_functions -s azure_storage
+</pre></div>
+</div>
+</section>
+<section id="viewing-the-execution-logs">
+<h2>Viewing the execution logs<a class="headerlink" href="#viewing-the-execution-logs" title="Permalink to this headline">#</a></h2>
+<p>You can view the function executions logs in your local machine using the <em>lithops client</em>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops logs poll
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -927,11 +968,11 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="aws_lambda.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="azure_containers.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">AWS Lambda</p>
+            <p class="prev-next-title">Azure Container Apps</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="code_engine.html" title="next page">

@@ -1,8 +1,6 @@
-# Azure Functions
+# Azure Container Apps
 
-Lithops with Azure Functions as serverless compute backend.
-
-*Note that currently Azure functions supports Python 3.6, 3.7, 3.8 and 3.9. So you must use one of these versions in your client machine.*
+Lithops with Azure Container Apps as serverless compute backend.
 
 ## Installation
 
@@ -44,7 +42,15 @@ python3 -m pip install lithops[azure]
       storage_account_name=lithops$(openssl rand -hex 3)
       echo $storage_account_name
       az storage account create --name $storage_account_name --location westeurope \
-        --resource-group LithopsResourceGroup --sku Standard_LRS
+         --resource-group LithopsResourceGroup --sku Standard_LRS
+    ```
+
+    3. Create a Container App environment named lithops.
+    ```bash
+      az extension add --name containerapp --upgrade
+      az provider register --namespace Microsoft.App
+      az provider register --namespace Microsoft.OperationalInsights
+      az containerapp env create --name lithops --resource-group LithopsResourceGroup --location westeurope
     ```
 
 
@@ -58,14 +64,14 @@ python3 -m pip install lithops[azure]
 
 ```yaml
   lithops:
-      backend : azure_functions
+      backend : azure_containers
 
   azure_storage:
       storage_account_name: <STORAGE_ACCOUNT_NAME>
       storage_account_key: <STORAGE_ACCOUNT_KEY>
 
-  azure_functions:
-      location: <CONSUMPTION_PLAN_LOCATION>
+  azure_containers:
+      location: <LOCATION>
       resource_group: <RESOURCE_GROUP_NAME>
 ```
 
@@ -82,21 +88,26 @@ python3 -m pip install lithops[azure]
 
 |Group|Key|Default|Mandatory|Additional info|
 |---|---|---|---|---|
-|azure_functions| resource_group | |yes | Name of the resource group used in the step 5 of the installation. |
-|azure_functions| location |  |yes | The location of the consumption plan for the runtime. Use `az functionapp list-consumption-locations` to view the available locations.|
-|azure_functions | max_workers | 1000 | no | Max number of parallel workers. Altough Azure limits the number of workrs to 200, it is convenient to keep this value high|
-|azure_functions | worker_processes | 1 | no | Number of Lithops processes within a given worker. This can be used to parallelize function activations within a worker |
-|azure_functions| runtime |  |no | Runtime name already deployed in the service|
-|azure_functions | runtime_timeout | 300 |no | Runtime timeout in seconds. Default 5 minutes |
-|azure_functions| invocation_type | event  | no | One of 'http' or 'event'|
-|azure_functions | invoke_pool_threads | 100 |no | Number of concurrent threads used for invocation |
+|azure_containers| resource_group | |yes | Name of the resource group used in the step 5 of the installation. |
+|azure_containers| location |  |yes | The location where you created the 'lithops' Container APP environment|
+|azure_containers| environment | lithops |no | The environemnt name you created in the step 5 of the installation |
+|azure_containers | docker_server | index.docker.io |no | Docker server URL |
+|azure_containers | docker_user | |no | Docker hub username |
+|azure_containers | docker_password | |no | Login to your docker hub account and generate a new access token [here](https://hub.docker.com/settings/security)|
+|azure_containers | max_workers | 1000 | no | Max number of parallel workers. Although Azure limits the number of parallel workers to 30, it is convenient to keep this value high|
+|azure_containers | worker_processes | 1 | no | Number of Lithops processes within a given worker. This can be used to parallelize function activations within a worker |
+|azure_containers| runtime |  |no | Docker image name|
+|azure_containers | runtime_memory | 512 |no | Memory limit in MB. Default 512Mi |
+|azure_containers | runtime_timeout | 600 |no | Runtime timeout in seconds. Default 10 minutes |
+|azure_containers| invocation_type | event  | no | Currently it supports event invocation|
+|azure_containers | invoke_pool_threads | 32 |no | Number of concurrent threads used for invocation |
 
 
 ## Test Lithops
 Once you have your compute and storage backends configured, you can run a hello world function with:
 
 ```bash
-lithops test -b azure_functions -s azure_storage
+lithops test -b azure_containers -s azure_storage
 ```
 
 

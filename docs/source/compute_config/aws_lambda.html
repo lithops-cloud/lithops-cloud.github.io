@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>AWS Lambda</title>
+    <title>AWS Lambda &#8212; Lithops v2.7.1.dev0</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -38,7 +38,7 @@
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Azure Functions" href="azure_functions.html" />
+    <link rel="next" title="Azure Container Apps" href="azure_containers.html" />
     <link rel="prev" title="AWS Elastic Compute Cloud (EC2)" href="aws_ec2.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
@@ -90,6 +90,8 @@
       
       <img src="../../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
+      
+      <h1 class="site-logo" id="site-title">Lithops v2.7.1.dev0</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
@@ -187,6 +189,11 @@
      <li class="toctree-l2 current active">
       <a class="current reference internal" href="#">
        AWS Lambda
+      </a>
+     </li>
+     <li class="toctree-l2">
+      <a class="reference internal" href="azure_containers.html">
+       Azure Container Apps
       </a>
      </li>
      <li class="toctree-l2">
@@ -719,6 +726,16 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-lithops">
+   Test Lithops
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#viewing-the-execution-logs">
+   Viewing the execution logs
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -782,6 +799,16 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-lithops">
+   Test Lithops
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#viewing-the-execution-logs">
+   Viewing the execution logs
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -800,7 +827,7 @@ title="Print to PDF"
 <ol class="arabic simple">
 <li><p>Install Amazon Web Services backend dependencies:</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 -m pip install lithops[aws]
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">lithops</span><span class="p">[</span><span class="n">aws</span><span class="p">]</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
@@ -959,6 +986,18 @@ title="Print to PDF"
 <td><p>no</p></td>
 <td><p>Runtime architecture. One of <strong>x86_64</strong> or <strong>arm64</strong></p></td>
 </tr>
+<tr class="row-even"><td><p>aws_lambda</p></td>
+<td><p>ephemeral_storage</p></td>
+<td><p>512</p></td>
+<td><p>no</p></td>
+<td><p>Ephemeral storage (<code class="docutils literal notranslate"><span class="pre">/tmp</span></code>) size in MB (must be between 512 MB and 10240 MB)</p></td>
+</tr>
+<tr class="row-odd"><td><p>aws_lambda</p></td>
+<td><p>env_vars</p></td>
+<td><p>{}</p></td>
+<td><p>no</p></td>
+<td><p>List of {name: …, value: …} pairs for Lambda instance environment variables</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -1013,6 +1052,20 @@ title="Print to PDF"
 <p>For more information, check out <a class="reference external" href="https://aws.amazon.com/blogs/compute/using-amazon-efs-for-aws-lambda-in-your-serverless-applications/">AWS documentation on attaching EFS volumes to Lambda</a>.</p>
 </section>
 </section>
+<section id="test-lithops">
+<h2>Test Lithops<a class="headerlink" href="#test-lithops" title="Permalink to this headline">#</a></h2>
+<p>Once you have your compute and storage backends configured, you can run a hello world function with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops <span class="nb">test</span> -b aws_lambda -s aws_s3
+</pre></div>
+</div>
+</section>
+<section id="viewing-the-execution-logs">
+<h2>Viewing the execution logs<a class="headerlink" href="#viewing-the-execution-logs" title="Permalink to this headline">#</a></h2>
+<p>You can view the function executions logs in your local machine using the <em>lithops client</em>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops logs poll
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -1030,10 +1083,10 @@ title="Print to PDF"
             <p class="prev-next-title">AWS Elastic Compute Cloud (EC2)</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="azure_functions.html" title="next page">
+    <a class='right-next' id="next-link" href="azure_containers.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Azure Functions</p>
+        <p class="prev-next-title">Azure Container Apps</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

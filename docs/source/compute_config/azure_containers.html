@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Kubernetes (batch/job) &#8212; Lithops v2.7.1.dev0</title>
+    <title>Azure Container Apps &#8212; Lithops v2.7.1.dev0</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -38,8 +38,8 @@
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Knative" href="knative.html" />
-    <link rel="prev" title="IBM Virtual Private Cloud" href="ibm_vpc.html" />
+    <link rel="next" title="Azure Functions" href="azure_functions.html" />
+    <link rel="prev" title="AWS Lambda" href="aws_lambda.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -191,8 +191,8 @@
        AWS Lambda
       </a>
      </li>
-     <li class="toctree-l2">
-      <a class="reference internal" href="azure_containers.html">
+     <li class="toctree-l2 current active">
+      <a class="current reference internal" href="#">
        Azure Container Apps
       </a>
      </li>
@@ -226,8 +226,8 @@
        IBM Virtual Private Cloud
       </a>
      </li>
-     <li class="toctree-l2 current active">
-      <a class="current reference internal" href="#">
+     <li class="toctree-l2">
+      <a class="reference internal" href="k8s_job.html">
        Kubernetes (batch/job)
       </a>
      </li>
@@ -595,7 +595,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/lithops-cloud/lithops/issues/new?title=Issue%20on%20page%20%2Fsource/compute_config/k8s_job.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/lithops-cloud/lithops/issues/new?title=Issue%20on%20page%20%2Fsource/compute_config/azure_containers.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -623,7 +623,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/source/compute_config/k8s_job.md.txt"
+        <a href="../../_sources/source/compute_config/azure_containers.md.txt"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -683,31 +683,31 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation">
+   Installation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#configuration">
    Configuration
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#configure-a-private-container-registry-for-your-runtime">
-   Configure a private container registry for your runtime
+  <a class="reference internal nav-link" href="#summary-of-configuration-keys-for-azure">
+   Summary of configuration keys for Azure
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#azure">
+   Azure
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#configure-docker-hub">
-     Configure Docker hub
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#configure-ibm-container-registry">
-     Configure IBM Container Registry
+    <a class="reference internal nav-link" href="#azure-functions">
+     Azure Functions
     </a>
    </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary-of-configuration-keys-for-kubernetes">
-   Summary of configuration keys for kubernetes:
-  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#test-lithops">
@@ -728,7 +728,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Kubernetes (batch/job)</h1>
+                <h1>Azure Container Apps</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -739,31 +739,31 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation">
+   Installation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#configuration">
    Configuration
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#configure-a-private-container-registry-for-your-runtime">
-   Configure a private container registry for your runtime
+  <a class="reference internal nav-link" href="#summary-of-configuration-keys-for-azure">
+   Summary of configuration keys for Azure
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#azure">
+   Azure
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#configure-docker-hub">
-     Configure Docker hub
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#configure-ibm-container-registry">
-     Configure IBM Container Registry
+    <a class="reference internal nav-link" href="#azure-functions">
+     Azure Functions
     </a>
    </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary-of-configuration-keys-for-kubernetes">
-   Summary of configuration keys for kubernetes:
-  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#test-lithops">
@@ -785,64 +785,85 @@ title="Print to PDF"
                 
               <div>
                 
-  <section id="kubernetes-batch-job">
-<h1>Kubernetes (batch/job)<a class="headerlink" href="#kubernetes-batch-job" title="Permalink to this headline">#</a></h1>
-<p>Lithops with kubernetes as serverless compute backend.</p>
+  <section id="azure-container-apps">
+<h1>Azure Container Apps<a class="headerlink" href="#azure-container-apps" title="Permalink to this headline">#</a></h1>
+<p>Lithops with Azure Container Apps as serverless compute backend.</p>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">#</a></h2>
+<ol class="arabic simple">
+<li><p>Install Microsoft Azure backend dependencies:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">lithops</span><span class="p">[</span><span class="n">azure</span><span class="p">]</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Install <a class="reference external" href="https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest">Azure CLI</a></p></li>
+<li><p>Install the <a class="reference external" href="https://github.com/Azure/azure-functions-core-tools">Azure Functions core tools</a></p></li>
+<li><p>Sign in with the Azure CLI:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>  az login
+</pre></div>
+</div>
+<ol class="arabic" start="5">
+<li><p>Create a Resource Group and a Storage Account:</p>
+<p>Option 1:</p>
+<ol class="arabic simple">
+<li><p>Access to the <a class="reference external" href="https://portal.azure.com/#blade/HubsExtension/BrowseResourceGroups">Azure portal Resource Groups</a> and create a new Resource group named <strong>LithopsResourceGroup</strong> (or similar) in your preferred region. If you already have a resource group, omit this step.</p></li>
+<li><p>Access to the <a class="reference external" href="https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts">Azure portal Storage Accounts</a> and create a new Storage Account with a unique name, for example: <strong>lithops0sa25s1</strong>. If you already have a storage account, omit this step.</p></li>
+</ol>
+<p>Option 2:</p>
+<ol class="arabic simple">
+<li><p>Create a Resource Group in a specific location. If you already have a resource group, omit this step.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>  az group create --name LithopsResourceGroup --location westeurope
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Create a Storage Account with a unique name. If you already have a storage account, omit this step.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>  <span class="nv">storage_account_name</span><span class="o">=</span>lithops<span class="k">$(</span>openssl rand -hex <span class="m">3</span><span class="k">)</span>
+  <span class="nb">echo</span> <span class="nv">$storage_account_name</span>
+  az storage account create --name <span class="nv">$storage_account_name</span> --location westeurope <span class="se">\</span>
+     --resource-group LithopsResourceGroup --sku Standard_LRS
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Create a Container App environment named lithops.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>  az extension add --name containerapp --upgrade
+  az provider register --namespace Microsoft.App
+  az provider register --namespace Microsoft.OperationalInsights
+  az containerapp env create --name lithops --resource-group LithopsResourceGroup --location westeurope
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
 <section id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">#</a></h2>
-<ol class="arabic simple">
-<li><p>Edit your Lithops config and add the following keys:</p></li>
+<ol class="arabic simple" start="6">
+<li><p>Access to the <a class="reference external" href="https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts">Storage Account</a></p></li>
+<li><p>In the left menu, under the settings section, click on <em>Access Keys</em> and copy the <em>Key 1</em></p></li>
+<li><p>Edit your lithops config and add the following keys:</p></li>
 </ol>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nt">lithops</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="nt">backend </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">k8s</span><span class="w"></span>
-</pre></div>
-</div>
-<ol class="arabic" start="2">
-<li><p>Make sure you have a kubernetes cluster configuration file.</p>
-<ul>
-<li><p>Option 1: You have the config file in <code class="docutils literal notranslate"><span class="pre">~/.kube/config</span></code></p></li>
-<li><p>Option 2: You have the config file in another location, and you exported the KUBECONFIG variable:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">KUBECONFIG</span><span class="o">=</span>&lt;path-to-kube-config-file&gt;
-</pre></div>
-</div>
-</li>
-<li><p>Option 3: You have the config file in another location, and you set the <code class="docutils literal notranslate"><span class="pre">kubecfg_path</span></code> var in the Lithops config:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">k8s</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">kubecfg_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;path-to-kube-config-file&gt;</span><span class="w"></span>
-</pre></div>
-</div>
-</li>
-</ul>
-</li>
-</ol>
-</section>
-<section id="configure-a-private-container-registry-for-your-runtime">
-<h2>Configure a private container registry for your runtime<a class="headerlink" href="#configure-a-private-container-registry-for-your-runtime" title="Permalink to this headline">#</a></h2>
-<section id="configure-docker-hub">
-<h3>Configure Docker hub<a class="headerlink" href="#configure-docker-hub" title="Permalink to this headline">#</a></h3>
-<p>To configure Lithops to access a private repository in your docker hub account, you need to extend the kubernetes config and add the following keys:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">k8s</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">....</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">docker_server</span><span class="w">    </span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker.io</span><span class="w"></span>
-<span class="w">    </span><span class="nt">docker_user      </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;Docker hub Username&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">docker_password  </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;DOcker hub access TOEKN&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="nt">backend </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">azure_containers</span><span class="w"></span>
+
+<span class="w">  </span><span class="nt">azure_storage</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">storage_account_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;STORAGE_ACCOUNT_NAME&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="nt">storage_account_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;STORAGE_ACCOUNT_KEY&gt;</span><span class="w"></span>
+
+<span class="w">  </span><span class="nt">azure_containers</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">location</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;LOCATION&gt;</span><span class="w"></span>
+<span class="w">      </span><span class="nt">resource_group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;RESOURCE_GROUP_NAME&gt;</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
-<section id="configure-ibm-container-registry">
-<h3>Configure IBM Container Registry<a class="headerlink" href="#configure-ibm-container-registry" title="Permalink to this headline">#</a></h3>
-<p>To configure Lithops to access to a private repository in your IBM Container Registry, you need to extend the kubernetes config and add the following keys:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">k8s</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">....</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">docker_server</span><span class="w">    </span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">us.icr.io</span><span class="w"></span>
-<span class="w">    </span><span class="nt">docker_user      </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iamapikey</span><span class="w"></span>
-<span class="w">    </span><span class="nt">docker_password  </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;IBM IAM API KEY&gt;</span><span class="w"></span>
-</pre></div>
-</div>
+<section id="summary-of-configuration-keys-for-azure">
+<h2>Summary of configuration keys for Azure<a class="headerlink" href="#summary-of-configuration-keys-for-azure" title="Permalink to this headline">#</a></h2>
 </section>
-</section>
-<section id="summary-of-configuration-keys-for-kubernetes">
-<h2>Summary of configuration keys for kubernetes:<a class="headerlink" href="#summary-of-configuration-keys-for-kubernetes" title="Permalink to this headline">#</a></h2>
+<section id="azure">
+<h2>Azure<a class="headerlink" href="#azure" title="Permalink to this headline">#</a></h2>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Group</p></th>
@@ -853,73 +874,118 @@ title="Print to PDF"
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>k8s</p></td>
-<td><p>kubecfg_path</p></td>
+<tr class="row-even"><td><p>azure_storage</p></td>
+<td><p>storage_account_name</p></td>
 <td><p></p></td>
-<td><p>no</p></td>
-<td><p>Path to kubecfg file. Mandatory if config file not in <code class="docutils literal notranslate"><span class="pre">~/.kube/config</span></code> or KUBECONFIG env var not present</p></td>
+<td><p>yes</p></td>
+<td><p>The name generated in the step 5 of the installation</p></td>
 </tr>
-<tr class="row-odd"><td><p>k8s</p></td>
+<tr class="row-odd"><td><p>azure_storage</p></td>
+<td><p>storage_account_key</p></td>
+<td><p></p></td>
+<td><p>yes</p></td>
+<td><p>An Account Key, found in <em>Storage Accounts</em> &gt; <code class="docutils literal notranslate"><span class="pre">account_name</span></code> &gt; <em>Settings</em> &gt; <em>Access Keys</em></p></td>
+</tr>
+</tbody>
+</table>
+<section id="azure-functions">
+<h3>Azure Functions<a class="headerlink" href="#azure-functions" title="Permalink to this headline">#</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Group</p></th>
+<th class="head"><p>Key</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Mandatory</p></th>
+<th class="head"><p>Additional info</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>azure_containers</p></td>
+<td><p>resource_group</p></td>
+<td><p></p></td>
+<td><p>yes</p></td>
+<td><p>Name of the resource group used in the step 5 of the installation.</p></td>
+</tr>
+<tr class="row-odd"><td><p>azure_containers</p></td>
+<td><p>location</p></td>
+<td><p></p></td>
+<td><p>yes</p></td>
+<td><p>The location where you created the ‘lithops’ Container APP environment</p></td>
+</tr>
+<tr class="row-even"><td><p>azure_containers</p></td>
+<td><p>environment</p></td>
+<td><p>lithops</p></td>
+<td><p>no</p></td>
+<td><p>The environemnt name you created in the step 5 of the installation</p></td>
+</tr>
+<tr class="row-odd"><td><p>azure_containers</p></td>
 <td><p>docker_server</p></td>
-<td><p>docker.io</p></td>
+<td><p>index.docker.io</p></td>
 <td><p>no</p></td>
 <td><p>Docker server URL</p></td>
 </tr>
-<tr class="row-even"><td><p>k8s</p></td>
+<tr class="row-even"><td><p>azure_containers</p></td>
 <td><p>docker_user</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
 <td><p>Docker hub username</p></td>
 </tr>
-<tr class="row-odd"><td><p>k8s</p></td>
+<tr class="row-odd"><td><p>azure_containers</p></td>
 <td><p>docker_password</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
 <td><p>Login to your docker hub account and generate a new access token <a class="reference external" href="https://hub.docker.com/settings/security">here</a></p></td>
 </tr>
-<tr class="row-even"><td><p>k8s</p></td>
+<tr class="row-even"><td><p>azure_containers</p></td>
 <td><p>max_workers</p></td>
-<td><p>200</p></td>
+<td><p>1000</p></td>
 <td><p>no</p></td>
-<td><p>Max number of workers per <code class="docutils literal notranslate"><span class="pre">FunctionExecutor()</span></code></p></td>
+<td><p>Max number of parallel workers. Although Azure limits the number of parallel workers to 30, it is convenient to keep this value high</p></td>
 </tr>
-<tr class="row-odd"><td><p>k8s</p></td>
+<tr class="row-odd"><td><p>azure_containers</p></td>
 <td><p>worker_processes</p></td>
 <td><p>1</p></td>
 <td><p>no</p></td>
-<td><p>Number of Lithops processes within a given worker. This can be used to parallelize function activations within a worker. It is recommendable to set this value to the same number of CPUs of the container.</p></td>
+<td><p>Number of Lithops processes within a given worker. This can be used to parallelize function activations within a worker</p></td>
 </tr>
-<tr class="row-even"><td><p>k8s</p></td>
+<tr class="row-even"><td><p>azure_containers</p></td>
 <td><p>runtime</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
-<td><p>Docker image name.</p></td>
+<td><p>Docker image name</p></td>
 </tr>
-<tr class="row-odd"><td><p>k8s</p></td>
-<td><p>runtime_cpu</p></td>
-<td><p>0.5</p></td>
-<td><p>no</p></td>
-<td><p>CPU limit. Default 0.5vCPU</p></td>
-</tr>
-<tr class="row-even"><td><p>k8s</p></td>
+<tr class="row-odd"><td><p>azure_containers</p></td>
 <td><p>runtime_memory</p></td>
-<td><p>256</p></td>
+<td><p>512</p></td>
 <td><p>no</p></td>
-<td><p>Memory limit in MB. Default 256Mi</p></td>
+<td><p>Memory limit in MB. Default 512Mi</p></td>
 </tr>
-<tr class="row-odd"><td><p>k8s</p></td>
+<tr class="row-even"><td><p>azure_containers</p></td>
 <td><p>runtime_timeout</p></td>
 <td><p>600</p></td>
 <td><p>no</p></td>
-<td><p>Runtime timeout in seconds. Default 600 seconds</p></td>
+<td><p>Runtime timeout in seconds. Default 10 minutes</p></td>
+</tr>
+<tr class="row-odd"><td><p>azure_containers</p></td>
+<td><p>invocation_type</p></td>
+<td><p>event</p></td>
+<td><p>no</p></td>
+<td><p>Currently it supports event invocation</p></td>
+</tr>
+<tr class="row-even"><td><p>azure_containers</p></td>
+<td><p>invoke_pool_threads</p></td>
+<td><p>32</p></td>
+<td><p>no</p></td>
+<td><p>Number of concurrent threads used for invocation</p></td>
 </tr>
 </tbody>
 </table>
 </section>
+</section>
 <section id="test-lithops">
 <h2>Test Lithops<a class="headerlink" href="#test-lithops" title="Permalink to this headline">#</a></h2>
 <p>Once you have your compute and storage backends configured, you can run a hello world function with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops <span class="nb">test</span> -b k8s -s ibm_cos
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops <span class="nb">test</span> -b azure_containers -s azure_storage
 </pre></div>
 </div>
 </section>
@@ -940,17 +1006,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="ibm_vpc.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="aws_lambda.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">IBM Virtual Private Cloud</p>
+            <p class="prev-next-title">AWS Lambda</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="knative.html" title="next page">
+    <a class='right-next' id="next-link" href="azure_functions.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Knative</p>
+        <p class="prev-next-title">Azure Functions</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

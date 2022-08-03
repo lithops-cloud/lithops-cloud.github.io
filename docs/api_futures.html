@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Lithops Futures API Details</title>
+    <title>Lithops Futures API Details &#8212; Lithops v2.7.1.dev0</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -88,6 +88,8 @@
       
       <img src="_static/lithops_logo_readme.png" class="logo" alt="logo">
       
+      
+      <h1 class="site-logo" id="site-title">Lithops v2.7.1.dev0</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -185,6 +187,11 @@
      <li class="toctree-l2">
       <a class="reference internal" href="source/compute_config/aws_lambda.html">
        AWS Lambda
+      </a>
+     </li>
+     <li class="toctree-l2">
+      <a class="reference internal" href="source/compute_config/azure_containers.html">
+       Azure Container Apps
       </a>
      </li>
      <li class="toctree-l2">
@@ -1174,6 +1181,10 @@ title="Print to PDF"
 <td><p>None</p></td>
 <td><p>Used for data_processing. Number of chunks to split each object. ‘None’ for processing the whole file in one function activation. chunk_n has prevalence over chunk_size if both parameters are set</p></td>
 </tr>
+<tr class="row-even"><td><p>obj_newline</p></td>
+<td><p>‘\n’</p></td>
+<td><p>New line character for keeping line integrity of partitions. ‘None’ for disabling line integrity logic and get partitions of the exact same size in the functions</p></td>
+</tr>
 </tbody>
 </table>
 <ul>
@@ -1259,7 +1270,11 @@ title="Print to PDF"
 <td><p>None</p></td>
 <td><p>Used for data_processing. Number of chunks to split each object. ‘None’ for processing the whole file in one function activation. chunk_n has prevalence over chunk_size if both parameters are set</p></td>
 </tr>
-<tr class="row-odd"><td><p>reducer_one_per_object</p></td>
+<tr class="row-odd"><td><p>obj_newline</p></td>
+<td><p>‘\n’</p></td>
+<td><p>New line character for keeping line integrity of partitions. ‘None’ for disabling line integrity logic and get partitions of the exact same size in the functions</p></td>
+</tr>
+<tr class="row-even"><td><p>obj_reduce_by_key</p></td>
 <td><p>False</p></td>
 <td><p>Used for data_processing. Set one reducer per object after running the partitioner (reduce-by-key)</p></td>
 </tr>
@@ -1316,6 +1331,10 @@ title="Print to PDF"
 <td><p>1</p></td>
 <td><p>Time interval between each check (seconds) if no rabbitmq_monitor activated</p></td>
 </tr>
+<tr class="row-odd"><td><p>show_progressbar</p></td>
+<td><p>True</p></td>
+<td><p>whether or not to show the progress bar</p></td>
+</tr>
 </tbody>
 </table>
 <ul>
@@ -1361,6 +1380,10 @@ title="Print to PDF"
 <tr class="row-even"><td><p>WAIT_DUR_SEC</p></td>
 <td><p>1</p></td>
 <td><p>Time interval between each check (seconds) if no rabbitmq_monitor activated</p></td>
+</tr>
+<tr class="row-odd"><td><p>show_progressbar</p></td>
+<td><p>True</p></td>
+<td><p>whether or not to show the progress bar</p></td>
 </tr>
 </tbody>
 </table>

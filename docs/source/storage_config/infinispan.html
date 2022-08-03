@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Infinispan</title>
+    <title>Infinispan &#8212; Lithops v2.7.1.dev0</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -90,6 +90,8 @@
       
       <img src="../../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
+      
+      <h1 class="site-logo" id="site-title">Lithops v2.7.1.dev0</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
@@ -187,6 +189,11 @@
      <li class="toctree-l2">
       <a class="reference internal" href="../compute_config/aws_lambda.html">
        AWS Lambda
+      </a>
+     </li>
+     <li class="toctree-l2">
+      <a class="reference internal" href="../compute_config/azure_containers.html">
+       Azure Container Apps
       </a>
      </li>
      <li class="toctree-l2">
@@ -792,6 +799,7 @@ infinispan_hotrod (native binary) endpoint.</p>
 <span class="w">    </span><span class="nt">infinispan</span><span class="p">:</span><span class="w"></span>
 <span class="w">        </span><span class="nt">username   </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;USER_NAME&gt;</span><span class="w"></span>
 <span class="w">        </span><span class="nt">password   </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;PASSWORD&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="nt">mech</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;DIGEST|BASIC&gt;</span><span class="w"> </span><span class="c1"># Defaults to DIGEST</span><span class="w"></span>
 <span class="w">        </span><span class="nt">endpoint   </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;INFINISPAN_SERVER_URL:PORT&gt;</span><span class="w"></span>
 <span class="w">        </span><span class="nt">cache_names </span><span class="p">:</span><span class="w"></span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cache_name_1</span><span class="w"></span>
@@ -831,12 +839,18 @@ infinispan_hotrod (native binary) endpoint.</p>
 <td><p>The password</p></td>
 </tr>
 <tr class="row-odd"><td><p>infinispan</p></td>
+<td><p>mech</p></td>
+<td><p></p></td>
+<td><p>no</p></td>
+<td><p>Authentication mechanism</p></td>
+</tr>
+<tr class="row-even"><td><p>infinispan</p></td>
 <td><p>cache_names</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
 <td><p>Cache names list. Each bucket will be mapped on a different cache with the same name # Optional [‘storage’] in default value</p></td>
 </tr>
-<tr class="row-even"><td><p>infinispan</p></td>
+<tr class="row-odd"><td><p>infinispan</p></td>
 <td><p>cache_type</p></td>
 <td><p></p></td>
 <td><p>no</p></td>

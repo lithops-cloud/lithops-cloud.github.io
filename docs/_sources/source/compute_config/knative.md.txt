@@ -1,10 +1,10 @@
 # Knative
 
-Lithops with *Knative* as serverless compute backend. Lithops also supports vanilla Knative for running applications. The easiest way to make it working is to create an IBM Kubernetes (IKS) cluster through the [IBM dashboard](https://cloud.ibm.com/kubernetes/landing). Alternatively you can use your own kubernetes cluster or a minikube installation.
+Lithops with *Knative* as serverless compute backend. Lithops also supports vanilla Knative for running applications. The easiest way to make it working is to create an IBM Kubernetes (IKS) cluster through the [IBM dashboard](https://cloud.ibm.com/kubernetes/landing). Alternatively you can use your own kubernetes cluster or a kind/minikube installation.
 
 ## Installation
 
-Note that Lithops automatically builds the default runtime the first time you run a script. For this task it uses the **docker** command installed locally in your machine. If for some reason you can't install the Docker CE package locally, you must provide the **docker_token** parameter in the configuration. This way lithops will use Tekton of your k8s cluster to build the default runtime to your docker hub account. In this case, omit steps 1 and 2.
+Note that Lithops automatically builds the default runtime the first time you run a script. For this task it uses the **docker** command installed locally in your machine.
 
 1. [Install the Docker CE version](https://docs.docker.com/get-docker/).
 
@@ -13,41 +13,58 @@ Note that Lithops automatically builds the default runtime the first time you ru
    docker login
    ```
 
-3. Choose one of these 2 installation options:
+3. Choose one of these 3 installation options:
 
-### Option 1 (IBM IKS):
+### Option 1 - Minikube:
 
-4. Access to the [IBM dashboard](https://cloud.ibm.com/kubernetes/landing) and create a new Kubernetes cluster. For testing purposes, it is preferable to use this setup:
-    - Install Kubernetes >= v1.16
-    - Select a **single zone** to place the worker nodes
-    - *Master service endpoint*: Public endpoint only
-    - Your cluster must have 3 or more worker nodes with at least 4 cores and 16GB RAM.
-    - No need to encrypt local disk
+4. Start minikube with the 'ingress' addon:
+   ```bash
+   minikube start --addons=ingress
+   ```
 
-5. Once the cluster is running, follow the instructions of the "Access" tab of the dashboard to configure the *kubectl* client in your local machine. 
+5. [Follow this instructions to install knative serving.](https://knative.dev/docs/install/yaml-install/serving/install-serving-with-yaml/)
 
-6. In the dashboard of your cluster, go to the "Add-ons" tab and install Knative. It automatically installs Istio and Tekton.
+6. Install a networking layer. Currently Lithops supports **Kourier**. [Follow these instructions to install Kourier.](https://knative.dev/docs/install/yaml-install/serving/install-serving-with-yaml/#install-a-networking-layer)
+
+7. Edit your lithops config and add:
+    ```yaml
+    knative:
+        ingress_endpoint : http://127.0.0.1:80
+    ```
+
+8. On a separate terminal, keep running:
+   ```bash
+   minikube tunnel
+   ```
+
+### Option 2 - IBM IKS:
+
+4. Access to the [IBM dashboard](https://cloud.ibm.com/kubernetes/landing) and create a new Kubernetes cluster.
+
+5. Once the cluster is running, follow the instructions of the "Actions"--> "Connect via CLI" option of the dashboard to configure the *kubectl* client in your local machine. 
+
+6. [Follow this instructions to install knative serving.](https://knative.dev/docs/install/yaml-install/serving/install-serving-with-yaml/)
+
+7. Install a networking layer. Currently Lithops supports **Kourier**. [Follow these instructions to install Kourier.](https://knative.dev/docs/install/yaml-install/serving/install-serving-with-yaml/#install-a-networking-layer)
 
 
-### Option 2 (IBM IKS or any other Kubernetes Cluster):
+### Option 3 - IBM IKS or any other Kubernetes Cluster:
 
 4. Install Kubernetes >= v1.16 and make sure the *kubectl* client is running.
 
-5. Install the **helm** Kubernetes package manager in your local machine. Instructions can be found [here](https://github.com/helm/helm#install).
+6. [Follow this instructions to install knative serving.](https://knative.dev/docs/install/yaml-install/serving/install-serving-with-yaml/)
 
-6. Install the Knative environment into the k8s cluster:
-    ```
-    curl http://cloudlab.urv.cat/knative/install_env.sh | bash
-    ```
+7. Install a networking layer. Currently Lithops supports **Kourier**. [Follow these instructions to install Kourier.](https://knative.dev/docs/install/yaml-install/serving/install-serving-with-yaml/#install-a-networking-layer)
+
 
 ## Configuration
 
-7. Make sure you have the ~/.kube/config file. Alternatively, you can set KUBECONFIG environment variable:
+8. Make sure you have the ~/.kube/config file. Alternatively, you can set KUBECONFIG environment variable:
    ```bash
    export KUBECONFIG=<path-to-kube-config-file>
    ```
 
-8. Edit your lithops config and add the following keys:
+9. Edit your lithops config and add the following keys:
     ```yaml
     lithops:
         backend: knative
@@ -61,6 +78,7 @@ To configure Lithops to access a private repository in your docker hub account, 
 ```yaml
 knative:
     ....
+    docker_server    : docker.io
     docker_user      : <Docker hub Username>
     docker_password  : <DOcker hub access TOEKN>
 ```
@@ -80,9 +98,9 @@ knative:
 
 |Group|Key|Default|Mandatory|Additional info|
 |---|---|---|---|---|
-|knative | istio_endpoint | |no | Istio IngressGateway Endpoint. Make sure to use http:// prefix |
+|knative | ingress_endpoint | |no | Ingress endpoint. Make sure to use http:// prefix |
 |knative | kubecfg_path | |no | Path to kubecfg file. Mandatory if config file not in `~/.kube/config` or KUBECONFIG env var not present|
-|knative | docker_server | https://index.docker.io/v1/ |no | Docker server URL |
+|knative | docker_server | docker.io |no | Docker server URL |
 |knative | docker_user | |no | Docker hub username |
 |knative | docker_password | |no | Login to your docker hub account and generate a new access token [here](https://hub.docker.com/settings/security)|
 |knative | git_url | |no | Git repository to build the image |
@@ -93,20 +111,32 @@ knative:
 |knative | runtime_cpu | 0.5 |no | CPU limit. Default 0.5vCPU |
 |knative | runtime_memory | 256 |no | Memory limit in MB. Default 256Mi |
 |knative | runtime_timeout | 600 |no | Runtime timeout in seconds. Default 600 seconds |
-|knative | invoke_pool_threads | {lithops.workers} |no | Number of concurrent threads used for invocation |
-
+|knative | invoke_pool_threads | 250 |no | Number of concurrent threads used for invocation |
 
 ### Verify
 
-9. Verify that all the pods from the following namespaces are in *Running* status: 
+10. Verify that all the pods from the following namespaces are in *Running* status: 
     ```bash
-    kubectl get pods --namespace istio-system
-    kubectl get pods --namespace knative-serving
-    kubectl get pods --namespace knative-eventing
-    kubectl get pods --namespace tekton-pipelines
+    kubectl get pods -n knative-serving
     ```
 
-10. Monitor how pods and other resources are created:
+11. Monitor how pods and other resources are created:
     ```bash
     watch kubectl get pod,service,revision,deployment -o wide
     ```
+
+## Test Lithops
+
+Once you have your compute and storage backends configured, you can run a hello world function with:
+
+```bash
+lithops test -b knative -s ibm_cos
+```
+
+## Viewing the execution logs
+
+You can view the function executions logs in your local machine using the *lithops client*:
+
+```bash
+lithops logs poll
+```

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>AWS Elastic Compute Cloud (EC2)</title>
+    <title>AWS Elastic Compute Cloud (EC2) &#8212; Lithops v2.7.1.dev0</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -90,6 +90,8 @@
       
       <img src="../../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
+      
+      <h1 class="site-logo" id="site-title">Lithops v2.7.1.dev0</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
@@ -187,6 +189,11 @@
      <li class="toctree-l2">
       <a class="reference internal" href="aws_lambda.html">
        AWS Lambda
+      </a>
+     </li>
+     <li class="toctree-l2">
+      <a class="reference internal" href="azure_containers.html">
+       Azure Container Apps
       </a>
      </li>
      <li class="toctree-l2">
@@ -727,6 +734,11 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-lithops">
+   Test Lithops
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#viewing-the-execution-logs">
    Viewing the execution logs
   </a>
@@ -800,6 +812,11 @@ title="Print to PDF"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-lithops">
+   Test Lithops
+  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#viewing-the-execution-logs">
@@ -1091,10 +1108,17 @@ Alternatively, you can set the <code class="docutils literal notranslate"><span 
 </table>
 </section>
 </section>
+<section id="test-lithops">
+<h2>Test Lithops<a class="headerlink" href="#test-lithops" title="Permalink to this headline">#</a></h2>
+<p>Once you have your compute and storage backends configured, you can run a hello world function with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops <span class="nb">test</span> -b aws_ec2 -s aws_s3
+</pre></div>
+</div>
+</section>
 <section id="viewing-the-execution-logs">
 <h2>Viewing the execution logs<a class="headerlink" href="#viewing-the-execution-logs" title="Permalink to this headline">#</a></h2>
 <p>You can view the function executions logs in your local machine using the <em>lithops client</em>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ lithops logs poll
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops logs poll
 </pre></div>
 </div>
 <p>The master and worker VMs contains the Lithops service logs in <code class="docutils literal notranslate"><span class="pre">/tmp/lithops/service.log</span></code></p>

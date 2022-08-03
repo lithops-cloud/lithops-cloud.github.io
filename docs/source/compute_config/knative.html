@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Knative</title>
+    <title>Knative &#8212; Lithops v2.7.1.dev0</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -90,6 +90,8 @@
       
       <img src="../../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
+      
+      <h1 class="site-logo" id="site-title">Lithops v2.7.1.dev0</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
@@ -187,6 +189,11 @@
      <li class="toctree-l2">
       <a class="reference internal" href="aws_lambda.html">
        AWS Lambda
+      </a>
+     </li>
+     <li class="toctree-l2">
+      <a class="reference internal" href="azure_containers.html">
+       Azure Container Apps
       </a>
      </li>
      <li class="toctree-l2">
@@ -681,13 +688,18 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#option-1-ibm-iks">
-     Option 1 (IBM IKS):
+    <a class="reference internal nav-link" href="#option-1-minikube">
+     Option 1 - Minikube:
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#option-2-ibm-iks-or-any-other-kubernetes-cluster">
-     Option 2 (IBM IKS or any other Kubernetes Cluster):
+    <a class="reference internal nav-link" href="#option-2-ibm-iks">
+     Option 2 - IBM IKS:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#option-3-ibm-iks-or-any-other-kubernetes-cluster">
+     Option 3 - IBM IKS or any other Kubernetes Cluster:
     </a>
    </li>
   </ul>
@@ -727,6 +739,16 @@ title="Print to PDF"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-lithops">
+   Test Lithops
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#viewing-the-execution-logs">
+   Viewing the execution logs
+  </a>
  </li>
 </ul>
 
@@ -753,13 +775,18 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#option-1-ibm-iks">
-     Option 1 (IBM IKS):
+    <a class="reference internal nav-link" href="#option-1-minikube">
+     Option 1 - Minikube:
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#option-2-ibm-iks-or-any-other-kubernetes-cluster">
-     Option 2 (IBM IKS or any other Kubernetes Cluster):
+    <a class="reference internal nav-link" href="#option-2-ibm-iks">
+     Option 2 - IBM IKS:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#option-3-ibm-iks-or-any-other-kubernetes-cluster">
+     Option 3 - IBM IKS or any other Kubernetes Cluster:
     </a>
    </li>
   </ul>
@@ -800,6 +827,16 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-lithops">
+   Test Lithops
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#viewing-the-execution-logs">
+   Viewing the execution logs
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -812,10 +849,10 @@ title="Print to PDF"
                 
   <section id="knative">
 <h1>Knative<a class="headerlink" href="#knative" title="Permalink to this headline">#</a></h1>
-<p>Lithops with <em>Knative</em> as serverless compute backend. Lithops also supports vanilla Knative for running applications. The easiest way to make it working is to create an IBM Kubernetes (IKS) cluster through the <a class="reference external" href="https://cloud.ibm.com/kubernetes/landing">IBM dashboard</a>. Alternatively you can use your own kubernetes cluster or a minikube installation.</p>
+<p>Lithops with <em>Knative</em> as serverless compute backend. Lithops also supports vanilla Knative for running applications. The easiest way to make it working is to create an IBM Kubernetes (IKS) cluster through the <a class="reference external" href="https://cloud.ibm.com/kubernetes/landing">IBM dashboard</a>. Alternatively you can use your own kubernetes cluster or a kind/minikube installation.</p>
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">#</a></h2>
-<p>Note that Lithops automatically builds the default runtime the first time you run a script. For this task it uses the <strong>docker</strong> command installed locally in your machine. If for some reason you can’t install the Docker CE package locally, you must provide the <strong>docker_token</strong> parameter in the configuration. This way lithops will use Tekton of your k8s cluster to build the default runtime to your docker hub account. In this case, omit steps 1 and 2.</p>
+<p>Note that Lithops automatically builds the default runtime the first time you run a script. For this task it uses the <strong>docker</strong> command installed locally in your machine.</p>
 <ol class="arabic">
 <li><p><a class="reference external" href="https://docs.docker.com/get-docker/">Install the Docker CE version</a>.</p></li>
 <li><p>Login to your docker account:</p>
@@ -823,40 +860,52 @@ title="Print to PDF"
 </pre></div>
 </div>
 </li>
-<li><p>Choose one of these 2 installation options:</p></li>
+<li><p>Choose one of these 3 installation options:</p></li>
 </ol>
-<section id="option-1-ibm-iks">
-<h3>Option 1 (IBM IKS):<a class="headerlink" href="#option-1-ibm-iks" title="Permalink to this headline">#</a></h3>
-<ol class="arabic simple" start="4">
-<li><p>Access to the <a class="reference external" href="https://cloud.ibm.com/kubernetes/landing">IBM dashboard</a> and create a new Kubernetes cluster. For testing purposes, it is preferable to use this setup:</p>
-<ul class="simple">
-<li><p>Install Kubernetes &gt;= v1.16</p></li>
-<li><p>Select a <strong>single zone</strong> to place the worker nodes</p></li>
-<li><p><em>Master service endpoint</em>: Public endpoint only</p></li>
-<li><p>Your cluster must have 3 or more worker nodes with at least 4 cores and 16GB RAM.</p></li>
-<li><p>No need to encrypt local disk</p></li>
-</ul>
-</li>
-<li><p>Once the cluster is running, follow the instructions of the “Access” tab of the dashboard to configure the <em>kubectl</em> client in your local machine.</p></li>
-<li><p>In the dashboard of your cluster, go to the “Add-ons” tab and install Knative. It automatically installs Istio and Tekton.</p></li>
-</ol>
-</section>
-<section id="option-2-ibm-iks-or-any-other-kubernetes-cluster">
-<h3>Option 2 (IBM IKS or any other Kubernetes Cluster):<a class="headerlink" href="#option-2-ibm-iks-or-any-other-kubernetes-cluster" title="Permalink to this headline">#</a></h3>
+<section id="option-1-minikube">
+<h3>Option 1 - Minikube:<a class="headerlink" href="#option-1-minikube" title="Permalink to this headline">#</a></h3>
 <ol class="arabic" start="4">
-<li><p>Install Kubernetes &gt;= v1.16 and make sure the <em>kubectl</em> client is running.</p></li>
-<li><p>Install the <strong>helm</strong> Kubernetes package manager in your local machine. Instructions can be found <a class="reference external" href="https://github.com/helm/helm#install">here</a>.</p></li>
-<li><p>Install the Knative environment into the k8s cluster:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">cloudlab</span><span class="o">.</span><span class="n">urv</span><span class="o">.</span><span class="n">cat</span><span class="o">/</span><span class="n">knative</span><span class="o">/</span><span class="n">install_env</span><span class="o">.</span><span class="n">sh</span> <span class="o">|</span> <span class="n">bash</span>
+<li><p>Start minikube with the ‘ingress’ addon:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>minikube start --addons<span class="o">=</span>ingress
+</pre></div>
+</div>
+</li>
+<li><p><a class="reference external" href="https://knative.dev/docs/install/yaml-install/serving/install-serving-with-yaml/">Follow this instructions to install knative serving.</a></p></li>
+<li><p>Install a networking layer. Currently Lithops supports <strong>Kourier</strong>. <a class="reference external" href="https://knative.dev/docs/install/yaml-install/serving/install-serving-with-yaml/#install-a-networking-layer">Follow these instructions to install Kourier.</a></p></li>
+<li><p>Edit your lithops config and add:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">knative</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">ingress_endpoint </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://127.0.0.1:80</span><span class="w"></span>
+</pre></div>
+</div>
+</li>
+<li><p>On a separate terminal, keep running:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>minikube tunnel
 </pre></div>
 </div>
 </li>
 </ol>
 </section>
+<section id="option-2-ibm-iks">
+<h3>Option 2 - IBM IKS:<a class="headerlink" href="#option-2-ibm-iks" title="Permalink to this headline">#</a></h3>
+<ol class="arabic simple" start="4">
+<li><p>Access to the <a class="reference external" href="https://cloud.ibm.com/kubernetes/landing">IBM dashboard</a> and create a new Kubernetes cluster.</p></li>
+<li><p>Once the cluster is running, follow the instructions of the “Actions”–&gt; “Connect via CLI” option of the dashboard to configure the <em>kubectl</em> client in your local machine.</p></li>
+<li><p><a class="reference external" href="https://knative.dev/docs/install/yaml-install/serving/install-serving-with-yaml/">Follow this instructions to install knative serving.</a></p></li>
+<li><p>Install a networking layer. Currently Lithops supports <strong>Kourier</strong>. <a class="reference external" href="https://knative.dev/docs/install/yaml-install/serving/install-serving-with-yaml/#install-a-networking-layer">Follow these instructions to install Kourier.</a></p></li>
+</ol>
+</section>
+<section id="option-3-ibm-iks-or-any-other-kubernetes-cluster">
+<h3>Option 3 - IBM IKS or any other Kubernetes Cluster:<a class="headerlink" href="#option-3-ibm-iks-or-any-other-kubernetes-cluster" title="Permalink to this headline">#</a></h3>
+<ol class="arabic simple" start="4">
+<li><p>Install Kubernetes &gt;= v1.16 and make sure the <em>kubectl</em> client is running.</p></li>
+<li><p><a class="reference external" href="https://knative.dev/docs/install/yaml-install/serving/install-serving-with-yaml/">Follow this instructions to install knative serving.</a></p></li>
+<li><p>Install a networking layer. Currently Lithops supports <strong>Kourier</strong>. <a class="reference external" href="https://knative.dev/docs/install/yaml-install/serving/install-serving-with-yaml/#install-a-networking-layer">Follow these instructions to install Kourier.</a></p></li>
+</ol>
+</section>
 </section>
 <section id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">#</a></h2>
-<ol class="arabic" start="7">
+<ol class="arabic" start="8">
 <li><p>Make sure you have the ~/.kube/config file. Alternatively, you can set KUBECONFIG environment variable:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">KUBECONFIG</span><span class="o">=</span>&lt;path-to-kube-config-file&gt;
 </pre></div>
@@ -876,7 +925,8 @@ title="Print to PDF"
 <p>To configure Lithops to access a private repository in your docker hub account, you need to extend the Knative config and add the following keys:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">knative</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">....</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">docker_user</span><span class="w">      </span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;Docker hub Username&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">docker_server</span><span class="w">    </span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker.io</span><span class="w"></span>
+<span class="w">    </span><span class="nt">docker_user      </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;Docker hub Username&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="nt">docker_password  </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;DOcker hub access TOEKN&gt;</span><span class="w"></span>
 </pre></div>
 </div>
@@ -907,10 +957,10 @@ title="Print to PDF"
 </thead>
 <tbody>
 <tr class="row-even"><td><p>knative</p></td>
-<td><p>istio_endpoint</p></td>
+<td><p>ingress_endpoint</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
-<td><p>Istio IngressGateway Endpoint. Make sure to use http:// prefix</p></td>
+<td><p>Ingress endpoint. Make sure to use http:// prefix</p></td>
 </tr>
 <tr class="row-odd"><td><p>knative</p></td>
 <td><p>kubecfg_path</p></td>
@@ -920,7 +970,7 @@ title="Print to PDF"
 </tr>
 <tr class="row-even"><td><p>knative</p></td>
 <td><p>docker_server</p></td>
-<td><p>https://index.docker.io/v1/</p></td>
+<td><p>docker.io</p></td>
 <td><p>no</p></td>
 <td><p>Docker server URL</p></td>
 </tr>
@@ -986,7 +1036,7 @@ title="Print to PDF"
 </tr>
 <tr class="row-odd"><td><p>knative</p></td>
 <td><p>invoke_pool_threads</p></td>
-<td><p>{lithops.workers}</p></td>
+<td><p>250</p></td>
 <td><p>no</p></td>
 <td><p>Number of concurrent threads used for invocation</p></td>
 </tr>
@@ -994,12 +1044,9 @@ title="Print to PDF"
 </table>
 <section id="verify">
 <h3>Verify<a class="headerlink" href="#verify" title="Permalink to this headline">#</a></h3>
-<ol class="arabic" start="9">
+<ol class="arabic" start="10">
 <li><p>Verify that all the pods from the following namespaces are in <em>Running</em> status:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl get pods --namespace istio-system
-kubectl get pods --namespace knative-serving
-kubectl get pods --namespace knative-eventing
-kubectl get pods --namespace tekton-pipelines
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl get pods -n knative-serving
 </pre></div>
 </div>
 </li>
@@ -1010,6 +1057,20 @@ kubectl get pods --namespace tekton-pipelines
 </li>
 </ol>
 </section>
+</section>
+<section id="test-lithops">
+<h2>Test Lithops<a class="headerlink" href="#test-lithops" title="Permalink to this headline">#</a></h2>
+<p>Once you have your compute and storage backends configured, you can run a hello world function with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops <span class="nb">test</span> -b knative -s ibm_cos
+</pre></div>
+</div>
+</section>
+<section id="viewing-the-execution-logs">
+<h2>Viewing the execution logs<a class="headerlink" href="#viewing-the-execution-logs" title="Permalink to this headline">#</a></h2>
+<p>You can view the function executions logs in your local machine using the <em>lithops client</em>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops logs poll
+</pre></div>
+</div>
 </section>
 </section>
 

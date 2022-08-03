@@ -69,8 +69,7 @@ The user can obtain these statistics through the future object:
 
 .. code::
 
-    {'chunksize': 1,
-     'data_size_bytes': 21,
+    {'func_data_size_bytes': 21,
      'func_module_size_bytes': 556,
      'func_result_size': 26.0,
      'host_data_upload_time': 0,
@@ -90,7 +89,9 @@ The user can obtain these statistics through the future object:
      'worker_func_exec_time': 1.91e-06,
      'worker_func_start_tstamp': 1647526902.2985158,
      'worker_result_upload_time': 0.07001352,
-     'worker_start_tstamp': 1647526902.1615202}
+     'worker_start_tstamp': 1647526902.1615202,
+     'worker_peak_memory_start': 88469504,
+     'worker_peak_memory_end': 126469504}
 
 
 .. list-table::
@@ -99,9 +100,7 @@ The user can obtain these statistics through the future object:
 
    * - Stat
      - Description
-   * - :code:`chunksize`
-     - The number of "chunks" the function has processed. It is given by the "chunksize" parameter of the `FunctionExecutor` job submit. A chunksize of N means that the function has processed N elements of the input list.
-   * - :code:`data_size_bytes`
+   * - :code:`func_data_size_bytes`
      - Size in bytes of the input data processed by this function. That is, the object size of the input list item processed by this function. Note that if the function processes data obtained from object storage, this value does not include the size of that data, only those that have been serialized and sent from the host process to the function.
    * - :code:`func_module_size_bytes`
      - Size in bytes of the dependencies (function and modules) serialized and uploaded by the host process.
@@ -143,6 +142,10 @@ The user can obtain these statistics through the future object:
      - Total time taken for the function to upload the result to cloud object storage.
    * - :code:`worker_start_tstamp`
      - Timestamp of the start of the worker function.
+   * - :code:`worker_peak_memory_start`
+     - Peak memory usage in bytes before executing the function.
+   * - :code:`worker_peak_memory_end`
+     - Peak memory usage in bytes after executing the function.
 
 
 

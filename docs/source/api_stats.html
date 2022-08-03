@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Execution stats</title>
+    <title>Execution stats &#8212; Lithops v2.7.1.dev0</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -90,6 +90,8 @@
       
       <img src="../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
+      
+      <h1 class="site-logo" id="site-title">Lithops v2.7.1.dev0</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -187,6 +189,11 @@
      <li class="toctree-l2">
       <a class="reference internal" href="compute_config/aws_lambda.html">
        AWS Lambda
+      </a>
+     </li>
+     <li class="toctree-l2">
+      <a class="reference internal" href="compute_config/azure_containers.html">
+       Azure Container Apps
       </a>
      </li>
      <li class="toctree-l2">
@@ -782,8 +789,7 @@ The user can obtain these statistics through the future object:</p>
 <span class="n">pprint</span><span class="p">(</span><span class="n">future</span><span class="o">.</span><span class="n">stats</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;chunksize&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
- <span class="s1">&#39;data_size_bytes&#39;</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;func_data_size_bytes&#39;</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span>
  <span class="s1">&#39;func_module_size_bytes&#39;</span><span class="p">:</span> <span class="mi">556</span><span class="p">,</span>
  <span class="s1">&#39;func_result_size&#39;</span><span class="p">:</span> <span class="mf">26.0</span><span class="p">,</span>
  <span class="s1">&#39;host_data_upload_time&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -803,7 +809,9 @@ The user can obtain these statistics through the future object:</p>
  <span class="s1">&#39;worker_func_exec_time&#39;</span><span class="p">:</span> <span class="mf">1.91e-06</span><span class="p">,</span>
  <span class="s1">&#39;worker_func_start_tstamp&#39;</span><span class="p">:</span> <span class="mf">1647526902.2985158</span><span class="p">,</span>
  <span class="s1">&#39;worker_result_upload_time&#39;</span><span class="p">:</span> <span class="mf">0.07001352</span><span class="p">,</span>
- <span class="s1">&#39;worker_start_tstamp&#39;</span><span class="p">:</span> <span class="mf">1647526902.1615202</span><span class="p">}</span>
+ <span class="s1">&#39;worker_start_tstamp&#39;</span><span class="p">:</span> <span class="mf">1647526902.1615202</span><span class="p">,</span>
+ <span class="s1">&#39;worker_peak_memory_start&#39;</span><span class="p">:</span> <span class="mi">88469504</span><span class="p">,</span>
+ <span class="s1">&#39;worker_peak_memory_end&#39;</span><span class="p">:</span> <span class="mi">126469504</span><span class="p">}</span>
 </pre></div>
 </div>
 <table class="colwidths-given table">
@@ -817,71 +825,74 @@ The user can obtain these statistics through the future object:</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">chunksize</span></code></p></td>
-<td><p>The number of “chunks” the function has processed. It is given by the “chunksize” parameter of the <cite>FunctionExecutor</cite> job submit. A chunksize of N means that the function has processed N elements of the input list.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">data_size_bytes</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">func_data_size_bytes</span></code></p></td>
 <td><p>Size in bytes of the input data processed by this function. That is, the object size of the input list item processed by this function. Note that if the function processes data obtained from object storage, this value does not include the size of that data, only those that have been serialized and sent from the host process to the function.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">func_module_size_bytes</span></code></p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">func_module_size_bytes</span></code></p></td>
 <td><p>Size in bytes of the dependencies (function and modules) serialized and uploaded by the host process.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">func_result_size</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">func_result_size</span></code></p></td>
 <td><p>Size in bytes of the result object of the function that has been returned by the <cite>return</cite> statement. Note that if the function uploads the result to object storage and, for example, only returns the key of the object through the <cite>return</cite> statement, this parameter will indicate the size of the key and not the size of the actual result data.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">host_data_upload_time</span></code></p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">host_data_upload_time</span></code></p></td>
 <td><p>Total time taken by the host process to upload the input data to cloud object storage.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">host_func_upload_time</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">host_func_upload_time</span></code></p></td>
 <td><p>Total time taken by the host process to upload the dependencies (function and serialized modules) to cloud object storage.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">host_job_create_tstamp</span></code></p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">host_job_create_tstamp</span></code></p></td>
 <td><p>Timestamp of the job creation, i.e. the initial time of the call to <cite>call_async</cite>, <cite>map</cite> or <cite>map_reduce</cite>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">host_job_created_time</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">host_job_created_time</span></code></p></td>
 <td><p>Total time taken by the host process to create the job.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">host_job_serialize_time</span></code></p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">host_job_serialize_time</span></code></p></td>
 <td><p>Total time taken by the host process to serialize the input data and dependencies (functions and modules).</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">host_result_done_tstamp</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">host_result_done_tstamp</span></code></p></td>
 <td><p>Timestamp of when host received the function result from cloud object storage.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">host_result_query_count</span></code></p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">host_result_query_count</span></code></p></td>
 <td><p>Number of queries to the object storage to get the status object (synchronize the completion of the function)</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">host_status_done_tstamp</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">host_status_done_tstamp</span></code></p></td>
 <td><p>Timestamp of when the host received the signal that the function has finished its execution.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">host_status_query_count</span></code></p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">host_status_query_count</span></code></p></td>
 <td><p>Number of queries to the object storage to get the result object</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">host_submit_tstamp</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">host_submit_tstamp</span></code></p></td>
 <td><p>Timestamp of function invocation.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_cold_start</span></code></p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_cold_start</span></code></p></td>
 <td><p>Indicates whether it was a “warm” invocation (the container was already running) or “cold” (the container had to be deployed).</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_end_tstamp</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_end_tstamp</span></code></p></td>
 <td><p>Timestamp in which the worker function had finished its execution.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_exec_time</span></code></p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_exec_time</span></code></p></td>
 <td><p>Total execution time of the worker function (lithops wrapper + user defined funtion execution time).</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_end_tstamp</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_end_tstamp</span></code></p></td>
 <td><p>Timestamp of the end of execution of the user-defined function.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_exec_time</span></code></p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_exec_time</span></code></p></td>
 <td><p>Total execution time of the user-defined function.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_start_tstamp</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_start_tstamp</span></code></p></td>
 <td><p>Timestamp of the start of execution of the user-defined function.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_result_upload_time</span></code></p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_result_upload_time</span></code></p></td>
 <td><p>Total time taken for the function to upload the result to cloud object storage.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_start_tstamp</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_start_tstamp</span></code></p></td>
 <td><p>Timestamp of the start of the worker function.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_peak_memory_start</span></code></p></td>
+<td><p>Peak memory usage in bytes before executing the function.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_peak_memory_end</span></code></p></td>
+<td><p>Peak memory usage in bytes after executing the function.</p></td>
 </tr>
 </tbody>
 </table>
