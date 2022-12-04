@@ -22,7 +22,7 @@ Note that the sets of Lithops components in both dashed frames are partially ove
    :align: center
    :alt: Lithops Architecture v1.0
 
-   Lithops Architecture
+   Lithops Internal Design
 
 The Lithops components themselves consist of key classes and modules. Both classes and modules are shown using UML class symbols, but class names start with uppercase letters and have an ``__init__()`` method, while modules do not.
 
