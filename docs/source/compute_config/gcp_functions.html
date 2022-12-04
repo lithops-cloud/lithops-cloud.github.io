@@ -38,8 +38,8 @@
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="IBM Cloud Functions" href="ibm_cf.html" />
-    <link rel="prev" title="Google Cloud Run" href="gcp_cloudrun.html" />
+    <link rel="next" title="Google Cloud Run" href="gcp_cloudrun.html" />
+    <link rel="prev" title="AWS Batch" href="aws_batch.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -163,48 +163,8 @@
   </label>
   <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="aliyun_functions.html">
-     Aliyun Function Compute
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="aws_batch.html">
-     AWS Batch
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="aws_ec2.html">
-     AWS Elastic Compute Cloud (EC2)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="aws_lambda.html">
-     AWS Lambda
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="azure_containers.html">
-     Azure Container Apps
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="azure_functions.html">
-     Azure Functions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="code_engine.html">
-     IBM Cloud Code Engine
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="gcp_cloudrun.html">
-     Google Cloud Run
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Google Cloud Functions
+    <a class="reference internal" href="localhost.html">
+     Localhost
     </a>
    </li>
    <li class="toctree-l2">
@@ -213,8 +173,8 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="ibm_vpc.html">
-     IBM Virtual Private Cloud
+    <a class="reference internal" href="code_engine.html">
+     IBM Cloud Code Engine
     </a>
    </li>
    <li class="toctree-l2">
@@ -228,18 +188,38 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="localhost.html">
-     Localhost
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="openwhisk.html">
      OpenWhisk
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="vm.html">
-     Virtual Machine
+    <a class="reference internal" href="aws_lambda.html">
+     AWS Lambda
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="aws_batch.html">
+     AWS Batch
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Google Cloud Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="gcp_cloudrun.html">
+     Google Cloud Run
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="azure_functions.html">
+     Azure Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="azure_containers.html">
+     Azure Container Apps
     </a>
    </li>
   </ul>
@@ -745,14 +725,15 @@ title="Print to PDF"
 <li><p>Add the following roles to the service account:</p></li>
 </ol>
 <ul class="simple">
-<li><p>Service Account User</p></li>
-<li><p>Cloud Functions Admin</p></li>
-<li><p>Pub/Sub Admin</p></li>
-<li><p>Storage Admin</p></li>
+<li><p>Service Accounts –&gt; Service Account User</p></li>
+<li><p>Cloud Functions –&gt; Cloud Functions Admin</p></li>
+<li><p>Pub/Sub –&gt; Pub/Sub Admin</p></li>
+<li><p>Cloud Storage –&gt; Storage Admin</p></li>
 </ul>
 <ol class="arabic simple" start="7">
-<li><p>Click on <em>Continue</em>. Then, click on <em>Create key</em>. Select <em>JSON</em> and then <em>Create</em>. Download the JSON file to a secure location in you computer. Click <em>Done</em>.</p></li>
-<li><p>Enable <strong>Google Cloud Build</strong> API: Navigate to <em>APIs &amp; services</em> tab on the menu. Click <em>ENABLE APIS AND SERVICES</em>. Look for “Cloud Build API” at the search bar. Click <em>Enable</em>.</p></li>
+<li><p>Click on <em>Continue</em> and <em>Done</em>. Next, access the newly created service account, and click on the <em>keys</em> tab. Click on <em>Add key</em>. Select <em>JSON</em> and then <em>Create</em>. Download the JSON file to a secure location in you computer.</p></li>
+<li><p>Enable the <strong>Cloud Build API</strong> : Navigate to <em>APIs &amp; services</em> tab on the menu. Click <em>ENABLE APIS AND SERVICES</em>. Look for “Cloud Build API” at the search bar. Click <em>Enable</em>.</p></li>
+<li><p>Enable the <strong>Cloud Functions API</strong> : Navigate to <em>APIs &amp; services</em> tab on the menu. Click <em>ENABLE APIS AND SERVICES</em>. Look for “Cloud Functions API” at the search bar. Click <em>Enable</em>.</p></li>
 </ol>
 </section>
 <section id="configuration">
@@ -874,17 +855,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="gcp_cloudrun.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="aws_batch.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Google Cloud Run</p>
+            <p class="prev-next-title">AWS Batch</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="ibm_cf.html" title="next page">
+    <a class='right-next' id="next-link" href="gcp_cloudrun.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">IBM Cloud Functions</p>
+        <p class="prev-next-title">Google Cloud Run</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

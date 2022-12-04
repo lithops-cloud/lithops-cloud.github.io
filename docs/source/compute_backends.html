@@ -38,7 +38,7 @@
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Aliyun Function Compute" href="compute_config/aliyun_functions.html" />
+    <link rel="next" title="Localhost" href="compute_config/localhost.html" />
     <link rel="prev" title="Configuration" href="configuration.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
@@ -163,48 +163,8 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/aliyun_functions.html">
-     Aliyun Function Compute
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/aws_batch.html">
-     AWS Batch
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/aws_ec2.html">
-     AWS Elastic Compute Cloud (EC2)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/aws_lambda.html">
-     AWS Lambda
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/azure_containers.html">
-     Azure Container Apps
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/azure_functions.html">
-     Azure Functions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/code_engine.html">
-     IBM Cloud Code Engine
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/gcp_cloudrun.html">
-     Google Cloud Run
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/gcp_functions.html">
-     Google Cloud Functions
+    <a class="reference internal" href="compute_config/localhost.html">
+     Localhost
     </a>
    </li>
    <li class="toctree-l2">
@@ -213,8 +173,8 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/ibm_vpc.html">
-     IBM Virtual Private Cloud
+    <a class="reference internal" href="compute_config/code_engine.html">
+     IBM Cloud Code Engine
     </a>
    </li>
    <li class="toctree-l2">
@@ -228,18 +188,38 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/localhost.html">
-     Localhost
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="compute_config/openwhisk.html">
      OpenWhisk
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/vm.html">
-     Virtual Machine
+    <a class="reference internal" href="compute_config/aws_lambda.html">
+     AWS Lambda
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/aws_batch.html">
+     AWS Batch
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/gcp_functions.html">
+     Google Cloud Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/gcp_cloudrun.html">
+     Google Cloud Run
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/azure_functions.html">
+     Azure Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/azure_containers.html">
+     Azure Container Apps
     </a>
    </li>
   </ul>
@@ -601,12 +581,41 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#serverless-compute-backends">
+   Serverless Compute Backends
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#standalone-compute-backends">
+   Standalone Compute Backends
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -618,6 +627,24 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#serverless-compute-backends">
+   Serverless Compute Backends
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#standalone-compute-backends">
+   Standalone Compute Backends
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -629,24 +656,30 @@ title="Print to PDF"
 <h1>Compute Backends<a class="headerlink" href="#compute-backends" title="Permalink to this headline">#</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="compute_config/aliyun_functions.html">Aliyun Function Compute</a></li>
-<li class="toctree-l1"><a class="reference internal" href="compute_config/aws_batch.html">AWS Batch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="compute_config/aws_ec2.html">AWS Elastic Compute Cloud (EC2)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="compute_config/aws_lambda.html">AWS Lambda</a></li>
-<li class="toctree-l1"><a class="reference internal" href="compute_config/azure_containers.html">Azure Container Apps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="compute_config/azure_functions.html">Azure Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="compute_config/code_engine.html">IBM Cloud Code Engine</a></li>
-<li class="toctree-l1"><a class="reference internal" href="compute_config/gcp_cloudrun.html">Google Cloud Run</a></li>
-<li class="toctree-l1"><a class="reference internal" href="compute_config/gcp_functions.html">Google Cloud Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="compute_config/ibm_cf.html">IBM Cloud Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="compute_config/ibm_vpc.html">IBM Virtual Private Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="compute_config/k8s_job.html">Kubernetes (batch/job)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="compute_config/knative.html">Knative</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compute_config/localhost.html">Localhost</a></li>
-<li class="toctree-l1"><a class="reference internal" href="compute_config/openwhisk.html">OpenWhisk</a></li>
-<li class="toctree-l1"><a class="reference internal" href="compute_config/vm.html">Virtual Machine</a></li>
 </ul>
 </div>
+<section id="serverless-compute-backends">
+<h2>Serverless Compute Backends<a class="headerlink" href="#serverless-compute-backends" title="Permalink to this headline">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="compute_config/ibm_cf.html">IBM Cloud Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compute_config/code_engine.html">IBM Cloud Code Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compute_config/k8s_job.html">Kubernetes (batch/job)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compute_config/knative.html">Knative</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compute_config/openwhisk.html">OpenWhisk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compute_config/aws_lambda.html">AWS Lambda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compute_config/aws_batch.html">AWS Batch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compute_config/gcp_functions.html">Google Cloud Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compute_config/gcp_cloudrun.html">Google Cloud Run</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compute_config/azure_functions.html">Azure Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compute_config/azure_containers.html">Azure Container Apps</a></li>
+</ul>
+</div>
+</section>
+<section id="standalone-compute-backends">
+<h2>Standalone Compute Backends<a class="headerlink" href="#standalone-compute-backends" title="Permalink to this headline">#</a></h2>
+</section>
 </section>
 
 
@@ -664,10 +697,10 @@ title="Print to PDF"
             <p class="prev-next-title">Configuration</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="compute_config/aliyun_functions.html" title="next page">
+    <a class='right-next' id="next-link" href="compute_config/localhost.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Aliyun Function Compute</p>
+        <p class="prev-next-title">Localhost</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

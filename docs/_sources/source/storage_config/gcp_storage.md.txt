@@ -30,7 +30,7 @@ $ python3 -m pip install lithops[gcp]
 
 ## Configuration
 
-9. Edit your cloudbutton config file and add the following keys:
+9. Edit your lithops config file and add the following keys:
 
 ```yaml
     lithops:

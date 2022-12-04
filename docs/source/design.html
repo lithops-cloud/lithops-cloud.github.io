@@ -163,48 +163,8 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/aliyun_functions.html">
-     Aliyun Function Compute
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/aws_batch.html">
-     AWS Batch
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/aws_ec2.html">
-     AWS Elastic Compute Cloud (EC2)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/aws_lambda.html">
-     AWS Lambda
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/azure_containers.html">
-     Azure Container Apps
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/azure_functions.html">
-     Azure Functions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/code_engine.html">
-     IBM Cloud Code Engine
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/gcp_cloudrun.html">
-     Google Cloud Run
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/gcp_functions.html">
-     Google Cloud Functions
+    <a class="reference internal" href="compute_config/localhost.html">
+     Localhost
     </a>
    </li>
    <li class="toctree-l2">
@@ -213,8 +173,8 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/ibm_vpc.html">
-     IBM Virtual Private Cloud
+    <a class="reference internal" href="compute_config/code_engine.html">
+     IBM Cloud Code Engine
     </a>
    </li>
    <li class="toctree-l2">
@@ -228,18 +188,38 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/localhost.html">
-     Localhost
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="compute_config/openwhisk.html">
      OpenWhisk
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/vm.html">
-     Virtual Machine
+    <a class="reference internal" href="compute_config/aws_lambda.html">
+     AWS Lambda
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/aws_batch.html">
+     AWS Batch
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/gcp_functions.html">
+     Google Cloud Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/gcp_cloudrun.html">
+     Google Cloud Run
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/azure_functions.html">
+     Azure Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/azure_containers.html">
+     Azure Container Apps
     </a>
    </li>
   </ul>
@@ -564,7 +544,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/source/design.md.txt"
+        <a href="../_sources/source/design.rst.txt"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -575,7 +555,7 @@ title="Download source file"
 <span class="headerbtn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.md</span>
+<span class="headerbtn__text-container">.rst</span>
 </a>
 
       </li>
@@ -696,20 +676,23 @@ title="Print to PDF"
 <h1>Architecture Design<a class="headerlink" href="#architecture-design" title="Permalink to this headline">#</a></h1>
 <section id="lithops-high-level-architecture-design">
 <h2>Lithops high-level architecture design:<a class="headerlink" href="#lithops-high-level-architecture-design" title="Permalink to this headline">#</a></h2>
-<p align="center">
-<img src="images/lithops.jpg" alt="Lithops Architecture" width="400"/>
-</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/lithops.jpg"><img alt="Lithops Architecture v1.0" src="../_images/lithops.jpg" style="width: 00px;" /></a>
+<figcaption>
+<p><span class="caption-text">Lithops Architecture</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h2>
-<p>The chart below presents the main components of the architecture of Lithops. The components are largely divided into three sets:</p>
-<ul class="simple">
-<li><p>Components inside the dashed purple frame comprise the client code (running e.g., on your laptop).</p></li>
-<li><p>Components inside the dashed orange frame comprise a Lithops worker. Each worker executes a “call”, one unit of computation (e.g., processing one dataset record, or one object) within a larger map or reduce job of Lithops. Workers execute in the compute backend of choice, such as IBM Cloud Functions, Knative Serving or even your local laptop.</p></li>
-<li><p>Outside both frames are various external facilities or services with which Lithops components interact. These external components are marked in ellipses, each one with its name and logo.</p></li>
-</ul>
+<p>The chart below presents the main components of the architecture of Lithops. The components are largely divided into three sets: * Components inside the dashed purple frame comprise the client code (running e.g., on your laptop). * Components inside the dashed orange frame comprise a Lithops worker. Each worker executes a “call”, one unit of computation (e.g., processing one dataset record, or one object) within a larger map or reduce job of Lithops. Workers execute in the compute backend of choice, such as IBM Cloud Functions, Knative Serving or even your local laptop. * Outside both frames are various external facilities or services with which Lithops components interact. These external components are marked in ellipses, each one with its name and logo.</p>
 <p>Note that the sets of Lithops components in both dashed frames are partially overlapping. In particular, the storage components are shared since Lithops’s main communication between the client and the workers relies on storage.</p>
-<p><img alt="Lithops Architecture" src="../_images/lithops.png" /></p>
+<figure class="align-center" id="id2">
+<img alt="Lithops Architecture v1.0" src="../_images/lithops.png" />
+<figcaption>
+<p><span class="caption-text">Lithops Architecture</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>The Lithops components themselves consist of key classes and modules. Both classes and modules are shown using UML class symbols, but class names start with uppercase letters and have an <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> method, while modules do not.</p>
 <p>The top-level client API module of Lithops, <code class="docutils literal notranslate"><span class="pre">lithops.__init__</span></code>, is shown as a green module. It provides the API functions described in the documentation. Each of its functions creates an instance of <code class="docutils literal notranslate"><span class="pre">FunctionExecutor</span></code>, which is the main class implementing Lithops logic, shown in with a gray background.</p>
 <p>A worker is deployed by the client code, but independently of the client - separate process, container, etc. Therefore, it requires a separate entry point to its logic, defined in the <code class="docutils literal notranslate"><span class="pre">entry_point</span></code> module, with a yellow background. As part of its execution, it eventually creates an instance of <code class="docutils literal notranslate"><span class="pre">JobRunner</span></code>, which is the main class implementing the Lithops worker logic, also shown with a gray background.</p>
@@ -720,45 +703,11 @@ title="Print to PDF"
 <section id="computation-flow">
 <h2>Computation flow<a class="headerlink" href="#computation-flow" title="Permalink to this headline">#</a></h2>
 <p>In Lithops, each map or reduce computation is executed as a separate compute <em>job</em>. This means that calling a <code class="docutils literal notranslate"><span class="pre">FunctionExecutor.map()</span></code> results in one job, and calling <code class="docutils literal notranslate"><span class="pre">FunctionExecutor.map_reduce()</span></code> results in two jobs, one of <code class="docutils literal notranslate"><span class="pre">map()</span></code> and one of <code class="docutils literal notranslate"><span class="pre">reduce()</span></code>, executed one after the other.</p>
-<p>As mentioned above, the <code class="docutils literal notranslate"><span class="pre">FunctionExecutor</span></code> class is responsible for orchestrating the computation in Lithops. One <code class="docutils literal notranslate"><span class="pre">FunctionExecutor</span></code> object is instantiated prior to any use of Lithops. Its initialization includes these important steps:</p>
-<ol class="arabic simple">
-<li><p>It sets up the workers (depending on the specific compute backend), such as constructing docker images, defining IBM Cloud Functions, etc. This step may not include actually creating the workers, as this may be done automatically by the backend on-demand.</p></li>
-<li><p>It defines a bucket in object storage (depending on the storage backend) in which each job will store job and call data (prior to computation) and results (when computation is complete).</p></li>
-<li><p>It creates a <code class="docutils literal notranslate"><span class="pre">FunctionInvoker</span></code> object, which is responsible for executing a job as a set of independent per-worker calls.</p></li>
-</ol>
+<p>As mentioned above, the <code class="docutils literal notranslate"><span class="pre">FunctionExecutor</span></code> class is responsible for orchestrating the computation in Lithops. One <code class="docutils literal notranslate"><span class="pre">FunctionExecutor</span></code> object is instantiated prior to any use of Lithops. Its initialization includes these important steps: 1. It sets up the workers (depending on the specific compute backend), such as constructing docker images, defining IBM Cloud Functions, etc. This step may not include actually creating the workers, as this may be done automatically by the backend on-demand. 2. It defines a bucket in object storage (depending on the storage backend) in which each job will store job and call data (prior to computation) and results (when computation is complete). 3. It creates a <code class="docutils literal notranslate"><span class="pre">FunctionInvoker</span></code> object, which is responsible for executing a job as a set of independent per-worker calls.</p>
 <p>Compute jobs are created in the functions of the <code class="docutils literal notranslate"><span class="pre">job</span></code> module (see chart above), invoked from the respective API method of <code class="docutils literal notranslate"><span class="pre">FunctionExecutor</span></code>. Map jobs are created in <code class="docutils literal notranslate"><span class="pre">create_map_job()</span></code> and reduce jobs in <code class="docutils literal notranslate"><span class="pre">create_reduce_job()</span></code>. The flow in both functions is quite similar. First, data is partitioned, with the intention of each partition be processed by one worker. For map jobs, this is done by invoking the <code class="docutils literal notranslate"><span class="pre">create_partitions()</span></code> function of the <code class="docutils literal notranslate"><span class="pre">partitioner</span></code> module, yielding a partition map.</p>
-<p>For reduce jobs, Lithops currently supports two modes: reduce per object, where each object is processed by a reduce function,  and global (default) reduce, where all data is processed by a single reduce function. Respectively, data is partitioned as either one partition per storage object, or one global partition with all data. This process yields a partition map similar to map jobs. Additionally, <code class="docutils literal notranslate"><span class="pre">create_reduce_job()</span></code> wraps the reduce function in a special wrapper function that forces waiting for data before the actual reduce function is invoked. This is because reduce jobs follow map jobs, so the output of the map jobs needs to finish before reduce can run.</p>
-<p>Eventually, both functions of <code class="docutils literal notranslate"><span class="pre">create_map_job()</span></code> and <code class="docutils literal notranslate"><span class="pre">create_reduce_job()</span></code> end up calling <code class="docutils literal notranslate"><span class="pre">_create_job()</span></code> which is the main flow of creating a job, described in high-level below:</p>
-<ol class="arabic simple">
-<li><p>A <code class="docutils literal notranslate"><span class="pre">job_description</span></code> record is defined for the job (and is eventually returned from all job creation functions)</p></li>
-<li><p>The partition map and the data processing function (that processes a single partition in either map or reduce jobs) are each <em>pickled</em> (serialized) into a byte sequence.</p></li>
-<li><p>The pickled partition map is stored in the object storage bucket, under <code class="docutils literal notranslate"><span class="pre">agg_data_key</span></code> object</p></li>
-<li><p>The pickled processing function and its module dependencies are stored in the same bucket under <code class="docutils literal notranslate"><span class="pre">func_key</span></code> object</p></li>
-</ol>
-<p>Once job creation is done and the <code class="docutils literal notranslate"><span class="pre">job_description</span></code> record for the new job is returned to the <code class="docutils literal notranslate"><span class="pre">FunctionExecutor</span></code> object, it proceeds to execute the job by calling <code class="docutils literal notranslate"><span class="pre">run()</span></code> method of its <code class="docutils literal notranslate"><span class="pre">FunctionInvoker</span></code> instance. This triggers the following flow:</p>
-<ol class="arabic simple">
-<li><p>The job is executed as a set of independent <em>calls</em> (invocations) that are submitted to a <code class="docutils literal notranslate"><span class="pre">ThreadPoolExecutor</span></code> object (thread pool size is defined by configuration). This means call invocation is concurrent from the start.</p></li>
-<li><p>Each call executes first a call to an internal <code class="docutils literal notranslate"><span class="pre">invoke()</span></code> function defined inside <code class="docutils literal notranslate"><span class="pre">FunctionInvoker.run()</span></code>, which builds a <code class="docutils literal notranslate"><span class="pre">payload</span></code> (parameter) as a single dictionary with all the data the call needs. The call data includes copy of some of the <code class="docutils literal notranslate"><span class="pre">job_description</span></code> data as well as some specific data for the call such as:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">call_id</span></code> (integer ranging from 0 to <code class="docutils literal notranslate"><span class="pre">total_calls</span> <span class="pre">-</span> <span class="pre">1</span></code>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">data_byte_range</span></code> - defines the specific partition for this call, as defined by the partitioner during job creation</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">output_key</span></code> - specific storage object (in the bucket) for computation output</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">status_key</span></code> - specific storage object (in the bucket) for computation logs</p></li>
-</ul>
-</li>
-<li><p>Invocation proceeds to <code class="docutils literal notranslate"><span class="pre">Compute.invoke()</span></code>, which adds a retry mechanism for the current call, with random delays between retries (all configurable).</p></li>
-<li><p>Invocation proceeds to <code class="docutils literal notranslate"><span class="pre">ComputeBackend.invoke()</span></code>. Further execution depends on the compute backend:</p>
-<ul class="simple">
-<li><p>On IBM Cloud Functions, <code class="docutils literal notranslate"><span class="pre">invoke()</span></code> is performed as a standard non-blocking action invocation, with the payload being included as a single JSON parameter.</p></li>
-<li><p>On Knative Serving, <code class="docutils literal notranslate"><span class="pre">invoke()</span></code> is performed as an HTTP POST request delivered over a connection that lasts for the entire time of the computation.</p></li>
-<li><p>On a localhost (your laptop), <code class="docutils literal notranslate"><span class="pre">invoke()</span></code> is performed as posting the call on a queue. A master process continuously pulls calls from the queue and dispatches them onto processes from a pool of configurable size.</p></li>
-<li><p>On a Docker cloud, <code class="docutils literal notranslate"><span class="pre">invoke()</span></code> is performed similar to localhost above, except the processes in the pool controlled by the master further delegate execution to a Docker container they create.</p></li>
-</ul>
-</li>
-<li><p>When computation completes, each call commits the result to object storage in the configured bucket under <code class="docutils literal notranslate"><span class="pre">output_key</span></code> object</p></li>
-<li><p>Each <code class="docutils literal notranslate"><span class="pre">invoke()</span></code> returns a <code class="docutils literal notranslate"><span class="pre">ResponseFuture</span></code> object, which is a future object to wait on for the computed result of each call</p></li>
-<li><p>A list of <code class="docutils literal notranslate"><span class="pre">ResponseFuture</span></code> objects returned by <code class="docutils literal notranslate"><span class="pre">FunctionInvoker.run()</span></code> is stored in the <code class="docutils literal notranslate"><span class="pre">FunctionExecutor</span></code> object and also returned by its respective method for map [+reduce] job. Later calls to <code class="docutils literal notranslate"><span class="pre">wait()</span></code> or <code class="docutils literal notranslate"><span class="pre">get_result()</span></code> can be used to wait for job completion and retrieve the results, respectively.</p></li>
-</ol>
+<p>For reduce jobs, Lithops currently supports two modes: reduce per object, where each object is processed by a reduce function, and global (default) reduce, where all data is processed by a single reduce function. Respectively, data is partitioned as either one partition per storage object, or one global partition with all data. This process yields a partition map similar to map jobs. Additionally, <code class="docutils literal notranslate"><span class="pre">create_reduce_job()</span></code> wraps the reduce function in a special wrapper function that forces waiting for data before the actual reduce function is invoked. This is because reduce jobs follow map jobs, so the output of the map jobs needs to finish before reduce can run.</p>
+<p>Eventually, both functions of <code class="docutils literal notranslate"><span class="pre">create_map_job()</span></code> and <code class="docutils literal notranslate"><span class="pre">create_reduce_job()</span></code> end up calling <code class="docutils literal notranslate"><span class="pre">_create_job()</span></code> which is the main flow of creating a job, described in high-level below: 1. A <code class="docutils literal notranslate"><span class="pre">job_description</span></code> record is defined for the job (and is eventually returned from all job creation functions) 2. The partition map and the data processing function (that processes a single partition in either map or reduce jobs) are each <em>pickled</em> (serialized) into a byte sequence. 3. The pickled partition map is stored in the object storage bucket, under <code class="docutils literal notranslate"><span class="pre">agg_data_key</span></code> object 4. The pickled processing function and its module dependencies are stored in the same bucket under <code class="docutils literal notranslate"><span class="pre">func_key</span></code> object</p>
+<p>Once job creation is done and the <code class="docutils literal notranslate"><span class="pre">job_description</span></code> record for the new job is returned to the <code class="docutils literal notranslate"><span class="pre">FunctionExecutor</span></code> object, it proceeds to execute the job by calling <code class="docutils literal notranslate"><span class="pre">run()</span></code> method of its <code class="docutils literal notranslate"><span class="pre">FunctionInvoker</span></code> instance. This triggers the following flow: 1. The job is executed as a set of independent <em>calls</em> (invocations) that are submitted to a <code class="docutils literal notranslate"><span class="pre">ThreadPoolExecutor</span></code> object (thread pool size is defined by configuration). This means call invocation is concurrent from the start. 2. Each call executes first a call to an internal <code class="docutils literal notranslate"><span class="pre">invoke()</span></code> function defined inside <code class="docutils literal notranslate"><span class="pre">FunctionInvoker.run()</span></code>, which builds a <code class="docutils literal notranslate"><span class="pre">payload</span></code> (parameter) as a single dictionary with all the data the call needs. The call data includes copy of some of the <code class="docutils literal notranslate"><span class="pre">job_description</span></code> data as well as some specific data for the call such as: * <code class="docutils literal notranslate"><span class="pre">call_id</span></code> (integer ranging from 0 to <code class="docutils literal notranslate"><span class="pre">total_calls</span> <span class="pre">-</span> <span class="pre">1</span></code>) * <code class="docutils literal notranslate"><span class="pre">data_byte_range</span></code> - defines the specific partition for this call, as defined by the partitioner during job creation * <code class="docutils literal notranslate"><span class="pre">output_key</span></code> - specific storage object (in the bucket) for computation output * <code class="docutils literal notranslate"><span class="pre">status_key</span></code> - specific storage object (in the bucket) for computation logs 3. Invocation proceeds to <code class="docutils literal notranslate"><span class="pre">Compute.invoke()</span></code>, which adds a retry mechanism for the current call, with random delays between retries (all configurable). 4. Invocation proceeds to <code class="docutils literal notranslate"><span class="pre">ComputeBackend.invoke()</span></code>. Further execution depends on the compute backend: * On IBM Cloud Functions, <code class="docutils literal notranslate"><span class="pre">invoke()</span></code> is performed as a standard non-blocking action invocation, with the payload being included as a single JSON parameter. * On Knative Serving, <code class="docutils literal notranslate"><span class="pre">invoke()</span></code> is performed as an HTTP POST request delivered over a connection that lasts for the entire time of the computation. * On a localhost (your laptop), <code class="docutils literal notranslate"><span class="pre">invoke()</span></code> is performed as posting the call on a queue. A master process continuously pulls calls from the queue and dispatches them onto processes from a pool of configurable size. * On a Docker cloud, <code class="docutils literal notranslate"><span class="pre">invoke()</span></code> is performed similar to localhost above, except the processes in the pool controlled by the master further delegate execution to a Docker container they create. 5. When computation completes, each call commits the result to object storage in the configured bucket under <code class="docutils literal notranslate"><span class="pre">output_key</span></code> object 6. Each <code class="docutils literal notranslate"><span class="pre">invoke()</span></code> returns a <code class="docutils literal notranslate"><span class="pre">ResponseFuture</span></code> object, which is a future object to wait on for the computed result of each call 7. A list of <code class="docutils literal notranslate"><span class="pre">ResponseFuture</span></code> objects returned by <code class="docutils literal notranslate"><span class="pre">FunctionInvoker.run()</span></code> is stored in the <code class="docutils literal notranslate"><span class="pre">FunctionExecutor</span></code> object and also returned by its respective method for map [+reduce] job. Later calls to <code class="docutils literal notranslate"><span class="pre">wait()</span></code> or <code class="docutils literal notranslate"><span class="pre">get_result()</span></code> can be used to wait for job completion and retrieve the results, respectively.</p>
 </section>
 <section id="detecting-completion-of-job">
 <h2>Detecting Completion of Job<a class="headerlink" href="#detecting-completion-of-job" title="Permalink to this headline">#</a></h2>

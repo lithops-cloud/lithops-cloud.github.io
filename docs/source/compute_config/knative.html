@@ -38,7 +38,7 @@
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Localhost" href="localhost.html" />
+    <link rel="next" title="OpenWhisk" href="openwhisk.html" />
     <link rel="prev" title="Kubernetes (batch/job)" href="k8s_job.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
@@ -163,48 +163,8 @@
   </label>
   <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="aliyun_functions.html">
-     Aliyun Function Compute
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="aws_batch.html">
-     AWS Batch
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="aws_ec2.html">
-     AWS Elastic Compute Cloud (EC2)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="aws_lambda.html">
-     AWS Lambda
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="azure_containers.html">
-     Azure Container Apps
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="azure_functions.html">
-     Azure Functions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="code_engine.html">
-     IBM Cloud Code Engine
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="gcp_cloudrun.html">
-     Google Cloud Run
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="gcp_functions.html">
-     Google Cloud Functions
+    <a class="reference internal" href="localhost.html">
+     Localhost
     </a>
    </li>
    <li class="toctree-l2">
@@ -213,8 +173,8 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="ibm_vpc.html">
-     IBM Virtual Private Cloud
+    <a class="reference internal" href="code_engine.html">
+     IBM Cloud Code Engine
     </a>
    </li>
    <li class="toctree-l2">
@@ -228,18 +188,38 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="localhost.html">
-     Localhost
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="openwhisk.html">
      OpenWhisk
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="vm.html">
-     Virtual Machine
+    <a class="reference internal" href="aws_lambda.html">
+     AWS Lambda
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="aws_batch.html">
+     AWS Batch
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="gcp_functions.html">
+     Google Cloud Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="gcp_cloudrun.html">
+     Google Cloud Run
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="azure_functions.html">
+     Azure Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="azure_containers.html">
+     Azure Container Apps
     </a>
    </li>
   </ul>
@@ -898,84 +878,90 @@ title="Print to PDF"
 </thead>
 <tbody>
 <tr class="row-even"><td><p>knative</p></td>
+<td><p>kubecfg_path</p></td>
+<td><p></p></td>
+<td><p>no</p></td>
+<td><p>Path to kubecfg file. Mandatory if config file not in <code class="docutils literal notranslate"><span class="pre">~/.kube/config</span></code> or KUBECONFIG env var not present</p></td>
+</tr>
+<tr class="row-odd"><td><p>knative</p></td>
+<td><p>networking_layer</p></td>
+<td><p>kourier</p></td>
+<td><p>no</p></td>
+<td><p>One of: <strong>kourier</strong> or <strong>istio</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>knative</p></td>
 <td><p>ingress_endpoint</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
 <td><p>Ingress endpoint. Make sure to use http:// prefix</p></td>
 </tr>
 <tr class="row-odd"><td><p>knative</p></td>
-<td><p>kubecfg_path</p></td>
-<td><p></p></td>
-<td><p>no</p></td>
-<td><p>Path to kubecfg file. Mandatory if config file not in <code class="docutils literal notranslate"><span class="pre">~/.kube/config</span></code> or KUBECONFIG env var not present</p></td>
-</tr>
-<tr class="row-even"><td><p>knative</p></td>
 <td><p>docker_server</p></td>
 <td><p>docker.io</p></td>
 <td><p>no</p></td>
 <td><p>Docker server URL</p></td>
 </tr>
-<tr class="row-odd"><td><p>knative</p></td>
+<tr class="row-even"><td><p>knative</p></td>
 <td><p>docker_user</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
 <td><p>Docker hub username</p></td>
 </tr>
-<tr class="row-even"><td><p>knative</p></td>
+<tr class="row-odd"><td><p>knative</p></td>
 <td><p>docker_password</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
 <td><p>Login to your docker hub account and generate a new access token <a class="reference external" href="https://hub.docker.com/settings/security">here</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>knative</p></td>
+<tr class="row-even"><td><p>knative</p></td>
 <td><p>git_url</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
 <td><p>Git repository to build the image</p></td>
 </tr>
-<tr class="row-even"><td><p>knative</p></td>
+<tr class="row-odd"><td><p>knative</p></td>
 <td><p>git_rev</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
 <td><p>Git revision to build the image</p></td>
 </tr>
-<tr class="row-odd"><td><p>knative</p></td>
+<tr class="row-even"><td><p>knative</p></td>
 <td><p>max_workers</p></td>
 <td><p>250</p></td>
 <td><p>no</p></td>
 <td><p>Max number of workers per <code class="docutils literal notranslate"><span class="pre">FunctionExecutor()</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p>knative</p></td>
+<tr class="row-odd"><td><p>knative</p></td>
 <td><p>worker_processes</p></td>
 <td><p>1</p></td>
 <td><p>no</p></td>
 <td><p>Number of Lithops processes within a given worker. This can be used to parallelize function activations within a worker. It is recommendable to set this value to the same number of CPUs of the container.</p></td>
 </tr>
-<tr class="row-odd"><td><p>knative</p></td>
+<tr class="row-even"><td><p>knative</p></td>
 <td><p>runtime</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
 <td><p>Docker image name</p></td>
 </tr>
-<tr class="row-even"><td><p>knative</p></td>
+<tr class="row-odd"><td><p>knative</p></td>
 <td><p>runtime_cpu</p></td>
 <td><p>0.5</p></td>
 <td><p>no</p></td>
 <td><p>CPU limit. Default 0.5vCPU</p></td>
 </tr>
-<tr class="row-odd"><td><p>knative</p></td>
+<tr class="row-even"><td><p>knative</p></td>
 <td><p>runtime_memory</p></td>
 <td><p>256</p></td>
 <td><p>no</p></td>
 <td><p>Memory limit in MB. Default 256Mi</p></td>
 </tr>
-<tr class="row-even"><td><p>knative</p></td>
+<tr class="row-odd"><td><p>knative</p></td>
 <td><p>runtime_timeout</p></td>
 <td><p>600</p></td>
 <td><p>no</p></td>
 <td><p>Runtime timeout in seconds. Default 600 seconds</p></td>
 </tr>
-<tr class="row-odd"><td><p>knative</p></td>
+<tr class="row-even"><td><p>knative</p></td>
 <td><p>invoke_pool_threads</p></td>
 <td><p>250</p></td>
 <td><p>no</p></td>
@@ -1030,10 +1016,10 @@ title="Print to PDF"
             <p class="prev-next-title">Kubernetes (batch/job)</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="localhost.html" title="next page">
+    <a class='right-next' id="next-link" href="openwhisk.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Localhost</p>
+        <p class="prev-next-title">OpenWhisk</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
