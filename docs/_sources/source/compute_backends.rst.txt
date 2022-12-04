@@ -7,7 +7,7 @@ Compute Backends
 
    compute_config/localhost.md
 
-Serverless Compute Backends:
+**Serverless Compute Backends:**
 
 .. toctree::
    :glob:
@@ -25,11 +25,12 @@ Serverless Compute Backends:
    compute_config/azure_functions.md
    compute_config/azure_containers.md
 
-Standalone Compute Backends:
+**Standalone Compute Backends:**
 
 .. toctree::
    :glob:
    :maxdepth: 1
+
    compute_config/vm.md
    compute_config/ibm_vpc.md
    compute_config/aws_ec2.md
