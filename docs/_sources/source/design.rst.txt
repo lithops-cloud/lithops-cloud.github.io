@@ -6,7 +6,7 @@ Lithops high-level architecture design:
 
 .. figure:: images/lithops.jpg
    :align: center
-   :width: 00
+   :width: 400
    :alt: Lithops Architecture v1.0
 
    Lithops Architecture
