@@ -24,6 +24,7 @@ Lithops with MinIO storage backend.
         endpoint: <ENDPOINT_URL>
         access_key_id: <ACCESS_KEY>
         secret_access_key: <SECRET_ACCESS_KEY>
+        session_token: <SESSION_TOKEN>  # Optional
 ```
 
 ## Summary of configuration keys for MinIO
@@ -34,3 +35,4 @@ Lithops with MinIO storage backend.
 |minio | endpoint | |yes | The host ip adress where you installed the Ceph server. Must start with http:// or https:// |
 |minio | access_key_id | |yes | Account user access key |
 |minio | secret_access_key | |yes | Account user secret access key |
+|minio | session_token | |no | Session token for temporary AWS credentials |

@@ -633,6 +633,11 @@ title="Print to PDF"
      Choose an operating system image for the VM
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#summary-of-configuration-keys-for-aws">
+     Summary of configuration keys for AWS
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -711,6 +716,11 @@ title="Print to PDF"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#choose-an-operating-system-image-for-the-vm">
      Choose an operating system image for the VM
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#summary-of-configuration-keys-for-aws">
+     Summary of configuration keys for AWS
     </a>
    </li>
   </ul>
@@ -837,6 +847,45 @@ title="Print to PDF"
 <li><p>Option 2: Alternatively, you can use a pre-built custom image that will greatly improve VM creation time for Lithops jobs. To benefit from this approach, navigate to <a class="reference external" href="https://github.com/lithops-cloud/lithops/tree/master/runtime/aws_ec2">runtime/aws_ec2</a>, and follow the instructions.</p></li>
 </ul>
 </section>
+<section id="summary-of-configuration-keys-for-aws">
+<h3>Summary of configuration keys for AWS<a class="headerlink" href="#summary-of-configuration-keys-for-aws" title="Permalink to this headline">#</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Group</p></th>
+<th class="head"><p>Key</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Mandatory</p></th>
+<th class="head"><p>Additional info</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>aws</p></td>
+<td><p>access_key_id</p></td>
+<td><p></p></td>
+<td><p>yes</p></td>
+<td><p>Account access key to AWS services. To find them, navigate to <em>My Security Credentials</em> and click <em>Create Access Key</em> if you don’t already have one.</p></td>
+</tr>
+<tr class="row-odd"><td><p>aws</p></td>
+<td><p>secret_access_key</p></td>
+<td><p></p></td>
+<td><p>yes</p></td>
+<td><p>Account secret access key to AWS services. To find them, navigate to <em>My Security Credentials</em> and click <em>Create Access Key</em> if you don’t already have one.</p></td>
+</tr>
+<tr class="row-even"><td><p>aws</p></td>
+<td><p>session_token</p></td>
+<td><p></p></td>
+<td><p>no</p></td>
+<td><p>Session token for temporary AWS credentials</p></td>
+</tr>
+<tr class="row-odd"><td><p>aws</p></td>
+<td><p>account_id</p></td>
+<td><p></p></td>
+<td><p>no</p></td>
+<td><p>*This field will be used if present to retrieve the account ID instead of using AWS STS. The account ID is used to format full image names for container runtimes.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
 </section>
 <section id="lithops-and-the-vm-consume-mode">
 <h2>Lithops and the VM consume mode<a class="headerlink" href="#lithops-and-the-vm-consume-mode" title="Permalink to this headline">#</a></h2>
@@ -845,15 +894,16 @@ title="Print to PDF"
 <h3>Lithops configuration for the consume mode<a class="headerlink" href="#lithops-configuration-for-the-consume-mode" title="Permalink to this headline">#</a></h3>
 <p>Edit your lithops config and add the relevant keys:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span><span class="w"></span>
-<span class="w">   </span><span class="nt">backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aws_ec2</span><span class="w"></span>
+<span class="w">    </span><span class="nt">backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aws_ec2</span><span class="w"></span>
 
 <span class="nt">aws</span><span class="p">:</span><span class="w"></span>
-<span class="w">   </span><span class="nt">access_key_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;ACCESS_KEY_ID&gt;</span><span class="w"></span>
-<span class="w">   </span><span class="nt">secret_access_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SECRET_ACCESS_KEY&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">access_key_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;AWS_ACCESS_KEY_ID&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">secret_access_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;AWS_SECRET_ACCESS_KEY&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c1">#session_token: &lt;AWS_SESSION_TOKEN&gt;  # Optional</span><span class="w"></span>
 
 <span class="nt">aws_ec2</span><span class="p">:</span><span class="w"></span>
-<span class="w">   </span><span class="nt">region_name </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span><span class="w"></span>
-<span class="w">   </span><span class="nt">instance_id </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;INSTANCE ID OF THE VM&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">region_name </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">instance_id </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;INSTANCE ID OF THE VM&gt;</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
@@ -923,8 +973,9 @@ Alternatively, you can set the <code class="docutils literal notranslate"><span 
 <span class="w">    </span><span class="nt">exec_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">create|reuse</span><span class="w"></span>
 
 <span class="nt">aws</span><span class="p">:</span><span class="w"></span>
-<span class="w">   </span><span class="nt">access_key_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;ACCESS_KEY_ID&gt;</span><span class="w"></span>
-<span class="w">   </span><span class="nt">secret_access_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SECRET_ACCESS_KEY&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">access_key_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;AWS_ACCESS_KEY_ID&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">secret_access_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;AWS_SECRET_ACCESS_KEY&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c1">#session_token: &lt;AWS_SESSION_TOKEN&gt;  # Optional</span><span class="w"></span>
 
 <span class="nt">aws_ec2</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="nt">region_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span><span class="w"></span>
@@ -1101,7 +1152,7 @@ Alternatively, you can set the <code class="docutils literal notranslate"><span 
   
     By The Lithops Team<br/>
   
-      &copy; Copyright 2022, The Lithops Team.<br/>
+      &copy; Copyright 2023, The Lithops Team.<br/>
 </p>
         </footer>
     </div>

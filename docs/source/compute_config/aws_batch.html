@@ -739,7 +739,7 @@ title="Print to PDF"
 </div>
 <ol class="arabic simple" start="2">
 <li><p><a class="reference external" href="https://console.aws.amazon.com/?nc2=h_m_mc">Login</a> to Amazon Web Services Console (or signup if you don’t have an account)</p></li>
-<li><p>Navigate to <strong>IAM &gt; Roles</strong> to create the ECS Task Execution Role. AWS provides a defualt role named <code class="docutils literal notranslate"><span class="pre">ecsTaskExecutionRole</span></code>, which can be used instead. If you want to create another role or it is missing, create a new role and add the following policies:</p>
+<li><p>Navigate to <strong>IAM &gt; Roles</strong> to create the ECS Task Execution Role. AWS provides a defualt role named <code class="docutils literal notranslate"><span class="pre">ecsTaskExecutionRole</span></code>, which can be used instead. If you want to create another role or it is missing, create a new role attached to <code class="docutils literal notranslate"><span class="pre">Elastic</span> <span class="pre">Container</span> <span class="pre">Service</span> <span class="pre">Task</span></code>, and add the following policies:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">SecretsManagerReadWrite</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">AmazonEC2ContainerRegistryFullAccess</span></code></p></li>
@@ -747,7 +747,7 @@ title="Print to PDF"
 <li><p><code class="docutils literal notranslate"><span class="pre">AmazonECSTaskExecutionRolePolicy</span></code></p></li>
 </ul>
 </li>
-<li><p>Navigate to <strong>IAM &gt; Roles</strong> to create the ECS Instance Role. AWS provides a defualt role named <code class="docutils literal notranslate"><span class="pre">ecsInstanceRole</span></code>, which can be used instead. If you want to create another role or it is missing, create a new role and add the following policy:</p>
+<li><p>Navigate to <strong>IAM &gt; Roles</strong> to create the ECS Instance Role. AWS provides a defualt role named <code class="docutils literal notranslate"><span class="pre">ecsInstanceRole</span></code>, which can be used instead. If you want to create another role or it is missing, create a new role attached to <code class="docutils literal notranslate"><span class="pre">EC2</span></code>, and add the following policy:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">AmazonEC2ContainerServiceforEC2Role</span></code></p></li>
 </ul>
@@ -760,9 +760,10 @@ title="Print to PDF"
 <li><p>Edit your lithops config and add the following keys:</p></li>
 </ol>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">aws</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">access_key_id </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;AWS_ACCESS_KEY_ID&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">secret_access_key </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;AWS_SECRET_ACCESS_KEY&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">account_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;AWS_ACCOUNT_ID&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">access_key_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;AWS_ACCESS_KEY_ID&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">secret_access_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;AWS_SECRET_ACCESS_KEY&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c1">#session_token: &lt;AWS_SESSION_TOKEN&gt;  # Optional</span><span class="w"></span>
+<span class="w">    </span><span class="c1">#account_id: &lt;AWS_ACCOUNT_ID&gt;  # Optional</span><span class="w"></span>
 
 <span class="nt">aws_batch</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="nt">runtime </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;RUNTIME_NAME&gt;</span><span class="w"></span>
@@ -814,6 +815,12 @@ title="Print to PDF"
 <td><p>Account secret access key to AWS services. To find them, navigate to <em>My Security Credentials</em> and click <em>Create Access Key</em> if you don’t already have one.</p></td>
 </tr>
 <tr class="row-even"><td><p>aws</p></td>
+<td><p>session_token</p></td>
+<td><p></p></td>
+<td><p>no</p></td>
+<td><p>Session token for temporary AWS credentials</p></td>
+</tr>
+<tr class="row-odd"><td><p>aws</p></td>
 <td><p>account_id</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
@@ -835,42 +842,6 @@ title="Print to PDF"
 </thead>
 <tbody>
 <tr class="row-even"><td><p>aws_batch</p></td>
-<td><p>runtime</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">default_runtime-v3X</span></code></p></td>
-<td><p>no</p></td>
-<td><p>Runtime name</p></td>
-</tr>
-<tr class="row-odd"><td><p>aws_batch</p></td>
-<td><p>runtime_timeout</p></td>
-<td><p>60</p></td>
-<td><p>no</p></td>
-<td><p>Runtime timeout</p></td>
-</tr>
-<tr class="row-even"><td><p>aws_batch</p></td>
-<td><p>runtime_memory</p></td>
-<td><p>512</p></td>
-<td><p>no</p></td>
-<td><p>Runtime memory</p></td>
-</tr>
-<tr class="row-odd"><td><p>aws_batch</p></td>
-<td><p>worker_processes</p></td>
-<td><p>1</p></td>
-<td><p>no</p></td>
-<td><p>Worker processes</p></td>
-</tr>
-<tr class="row-even"><td><p>aws_batch</p></td>
-<td><p>container_vcpus</p></td>
-<td><p>1</p></td>
-<td><p>no</p></td>
-<td><p>Number of vCPUs assigned to each task container. It can be different from <code class="docutils literal notranslate"><span class="pre">worker_processes</span></code>. Use it to run a task that uses multiple processes within a container.</p></td>
-</tr>
-<tr class="row-odd"><td><p>aws_batch</p></td>
-<td><p>service_role</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
-<td><p>no</p></td>
-<td><p>Service role for AWS Batch. Leave empty for use a service-linked execution role. More info <a class="reference external" href="https://docs.aws.amazon.com/batch/latest/userguide/using-service-linked-roles.html">here</a></p></td>
-</tr>
-<tr class="row-even"><td><p>aws_batch</p></td>
 <td><p>execution_role</p></td>
 <td><p></p></td>
 <td><p>yes</p></td>
@@ -889,16 +860,16 @@ title="Print to PDF"
 <td><p>Region name (like <code class="docutils literal notranslate"><span class="pre">us-east-1</span></code>) where to deploy the ECS cluster</p></td>
 </tr>
 <tr class="row-odd"><td><p>aws_batch</p></td>
-<td><p>env_type</p></td>
+<td><p>security_groups</p></td>
 <td><p></p></td>
 <td><p>yes</p></td>
-<td><p>Compute environment type, one of: <code class="docutils literal notranslate"><span class="pre">[&quot;EC2&quot;,</span> <span class="pre">&quot;SPOT&quot;,</span> <span class="pre">&quot;FARGATE&quot;,</span> <span class="pre">&quot;FARGATE_SPOT&quot;]</span></code></p></td>
+<td><p>List of Security groups to attach for ECS task containers. By default, you can use a security group that accepts all outbound traffic but blocks all inbound traffic.</p></td>
 </tr>
 <tr class="row-even"><td><p>aws_batch</p></td>
-<td><p>env_max_cpus</p></td>
+<td><p>subnets</p></td>
 <td><p></p></td>
 <td><p>yes</p></td>
-<td><p>Maximum total CPUs of the compute environment</p></td>
+<td><p>List of subnets from a VPC where to deploy the ECS task containers. Note that if you are using a <strong>private subnet</strong>, you can set <code class="docutils literal notranslate"><span class="pre">assing_public_ip</span></code> to <code class="docutils literal notranslate"><span class="pre">false</span></code> but make sure containers can reach other AWS services like ECR, Secrets service, etc., by, for example, using a NAT gateway. If you are using a <strong>public subnet</strong> you must set <code class="docutils literal notranslate"><span class="pre">assing_public_ip</span></code> to <code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p>aws_batch</p></td>
 <td><p>assign_public_ip</p></td>
@@ -907,16 +878,52 @@ title="Print to PDF"
 <td><p>Assing public IPs to ECS task containers. Set to <code class="docutils literal notranslate"><span class="pre">true</span></code> if the tasks are being deployed in a public subnet. Set to <code class="docutils literal notranslate"><span class="pre">false</span></code> when deploying on a private subnet.</p></td>
 </tr>
 <tr class="row-even"><td><p>aws_batch</p></td>
-<td><p>subnets</p></td>
-<td><p></p></td>
-<td><p>yes</p></td>
-<td><p>List of subnets where to deploy the ECS task containers. Note that if you are using a <strong>private subnet</strong>, you can set <code class="docutils literal notranslate"><span class="pre">assing_public_ip</span></code> to <code class="docutils literal notranslate"><span class="pre">false</span></code> but make sure containers can reach other AWS services like ECR, Secrets service, etc., by, for example, using a NAT gateway. If you are using a <strong>public subnet</strong> you must set <code class="docutils literal notranslate"><span class="pre">assing_public_ip</span></code> to <code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+<td><p>runtime</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">default_runtime-v3X</span></code></p></td>
+<td><p>no</p></td>
+<td><p>Runtime name</p></td>
 </tr>
 <tr class="row-odd"><td><p>aws_batch</p></td>
-<td><p>security_groups</p></td>
-<td><p></p></td>
-<td><p>yes</p></td>
-<td><p>List of Security groups to attach for ECS task containers. By default, you can use a security group that accepts all outbound traffic but blocks all inbound traffic.</p></td>
+<td><p>runtime_timeout</p></td>
+<td><p>180</p></td>
+<td><p>no</p></td>
+<td><p>Runtime timeout</p></td>
+</tr>
+<tr class="row-even"><td><p>aws_batch</p></td>
+<td><p>runtime_memory</p></td>
+<td><p>1024</p></td>
+<td><p>no</p></td>
+<td><p>Runtime memory</p></td>
+</tr>
+<tr class="row-odd"><td><p>aws_batch</p></td>
+<td><p>worker_processes</p></td>
+<td><p>1</p></td>
+<td><p>no</p></td>
+<td><p>Worker processes</p></td>
+</tr>
+<tr class="row-even"><td><p>aws_batch</p></td>
+<td><p>container_vcpus</p></td>
+<td><p>0.5</p></td>
+<td><p>no</p></td>
+<td><p>Number of vCPUs assigned to each task container. It can be different from <code class="docutils literal notranslate"><span class="pre">worker_processes</span></code>. Use it to run a task that uses multiple processes within a container.</p></td>
+</tr>
+<tr class="row-odd"><td><p>aws_batch</p></td>
+<td><p>service_role</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td><p>no</p></td>
+<td><p>Service role for AWS Batch. Leave empty for use a service-linked execution role. More info <a class="reference external" href="https://docs.aws.amazon.com/batch/latest/userguide/using-service-linked-roles.html">here</a></p></td>
+</tr>
+<tr class="row-even"><td><p>aws_batch</p></td>
+<td><p>env_max_cpus</p></td>
+<td><p>10</p></td>
+<td><p>no</p></td>
+<td><p>Maximum total CPUs of the compute environment</p></td>
+</tr>
+<tr class="row-odd"><td><p>aws_batch</p></td>
+<td><p>env_type</p></td>
+<td><p>FARGATE_SPOT</p></td>
+<td><p>no</p></td>
+<td><p>Compute environment type, one of: <code class="docutils literal notranslate"><span class="pre">[&quot;EC2&quot;,</span> <span class="pre">&quot;SPOT&quot;,</span> <span class="pre">&quot;FARGATE&quot;,</span> <span class="pre">&quot;FARGATE_SPOT&quot;]</span></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -969,7 +976,7 @@ title="Print to PDF"
   
     By The Lithops Team<br/>
   
-      &copy; Copyright 2022, The Lithops Team.<br/>
+      &copy; Copyright 2023, The Lithops Team.<br/>
 </p>
         </footer>
     </div>

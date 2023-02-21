@@ -731,6 +731,7 @@ title="Print to PDF"
 <span class="nt">aws</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="nt">access_key_id </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;ACCESS_KEY_ID&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="nt">secret_access_key </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SECRET_ACCESS_KEY&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">session_token </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SESSION_TOKEN&gt;</span><span class="w">  </span><span class="c1"># Optional</span><span class="w"></span>
 
 <span class="nt">aws_s3</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="nt">storage_bucket</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;BUCKET_NAME&gt;</span><span class="w"></span>
@@ -766,6 +767,12 @@ title="Print to PDF"
 <td><p>yes</p></td>
 <td><p>Account secret access key to AWS services. To find them, navigate to <em>My Security Credentials</em> and click <em>Create Access Key</em> if you don’t already have one.</p></td>
 </tr>
+<tr class="row-even"><td><p>aws</p></td>
+<td><p>session_token</p></td>
+<td><p></p></td>
+<td><p>no</p></td>
+<td><p>Session token for temporary AWS credentials</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -790,14 +797,8 @@ title="Print to PDF"
 <tr class="row-odd"><td><p>aws_s3</p></td>
 <td><p>region_name</p></td>
 <td><p></p></td>
-<td><p>no</p></td>
-<td><p><strong>Mandatory</strong> if no endpoint. Region of your Bcuket. e.g us-east-1, eu-west-1, etc</p></td>
-</tr>
-<tr class="row-even"><td><p>aws_s3</p></td>
-<td><p>endpoint</p></td>
-<td><p></p></td>
-<td><p>no</p></td>
-<td><p><strong>Mandatory</strong> if no region_name. Endpoint to your Bcuket. Make sure to use the full path with ‘https://’ as prefix. e.g. <code class="docutils literal notranslate"><span class="pre">https://s3.us-east-1.amazonaws.com</span></code></p></td>
+<td><p>yes</p></td>
+<td><p>Region of your Bcuket. e.g us-east-1, eu-west-1, etc</p></td>
 </tr>
 </tbody>
 </table>
@@ -836,7 +837,7 @@ title="Print to PDF"
   
     By The Lithops Team<br/>
   
-      &copy; Copyright 2022, The Lithops Team.<br/>
+      &copy; Copyright 2023, The Lithops Team.<br/>
 </p>
         </footer>
     </div>

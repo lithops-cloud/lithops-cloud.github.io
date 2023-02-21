@@ -811,44 +811,56 @@ title="Print to PDF"
 </thead>
 <tbody>
 <tr class="row-even"><td><p>gcp_cloudrun</p></td>
+<td><p>min_workers</p></td>
+<td><p>0</p></td>
+<td><p>no</p></td>
+<td><p>Minimum number of workers of a given runtime to keep in warm status</p></td>
+</tr>
+<tr class="row-odd"><td><p>gcp_cloudrun</p></td>
 <td><p>max_workers</p></td>
 <td><p>1000</p></td>
 <td><p>no</p></td>
-<td><p>Max number of workers per <code class="docutils literal notranslate"><span class="pre">FunctionExecutor()</span></code></p></td>
+<td><p>Maximum number of workers to scale a given runtime</p></td>
 </tr>
-<tr class="row-odd"><td><p>gcp_cloudrun</p></td>
+<tr class="row-even"><td><p>gcp_cloudrun</p></td>
 <td><p>worker_processes</p></td>
 <td><p>1</p></td>
 <td><p>no</p></td>
 <td><p>Number of Lithops processes within a given worker. This can be used to parallelize function activations within a worker. It is recommendable to set this value to the same number of CPUs of the container.</p></td>
 </tr>
-<tr class="row-even"><td><p>gcp_cloudrun</p></td>
+<tr class="row-odd"><td><p>gcp_cloudrun</p></td>
 <td><p>runtime</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
 <td><p>Container image name</p></td>
 </tr>
-<tr class="row-odd"><td><p>gcp_cloudrun</p></td>
-<td><p>runtime_cpu</p></td>
-<td><p>1</p></td>
-<td><p>no</p></td>
-<td><p>CPU limit. Default 1vCPU</p></td>
-</tr>
 <tr class="row-even"><td><p>gcp_cloudrun</p></td>
+<td><p>runtime_cpu</p></td>
+<td><p>0.25</p></td>
+<td><p>no</p></td>
+<td><p>CPU limit. Default 0.25vCPU</p></td>
+</tr>
+<tr class="row-odd"><td><p>gcp_cloudrun</p></td>
 <td><p>runtime_memory</p></td>
 <td><p>256</p></td>
 <td><p>no</p></td>
 <td><p>Memory limit in MB. Default 256Mi</p></td>
 </tr>
-<tr class="row-odd"><td><p>gcp_cloudrun</p></td>
+<tr class="row-even"><td><p>gcp_cloudrun</p></td>
 <td><p>runtime_timeout</p></td>
 <td><p>300</p></td>
 <td><p>no</p></td>
 <td><p>Runtime timeout in seconds. Default 5 minutes</p></td>
 </tr>
+<tr class="row-odd"><td><p>gcp_cloudrun</p></td>
+<td><p>trigger</p></td>
+<td><p>https</p></td>
+<td><p>no</p></td>
+<td><p>Currently it supports ‘https’ trigger</p></td>
+</tr>
 <tr class="row-even"><td><p>gcp_cloudrun</p></td>
 <td><p>invoke_pool_threads</p></td>
-<td><p>1000</p></td>
+<td><p>100</p></td>
 <td><p>no</p></td>
 <td><p>Number of concurrent threads used for invocation</p></td>
 </tr>
@@ -903,7 +915,7 @@ title="Print to PDF"
   
     By The Lithops Team<br/>
   
-      &copy; Copyright 2022, The Lithops Team.<br/>
+      &copy; Copyright 2023, The Lithops Team.<br/>
 </p>
         </footer>
     </div>

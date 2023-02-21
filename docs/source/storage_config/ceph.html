@@ -706,6 +706,7 @@ title="Print to PDF"
 <span class="w">        </span><span class="nt">endpoint</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;ENDPOINT_URL&gt;</span><span class="w"></span>
 <span class="w">        </span><span class="nt">access_key_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;ACCESS_KEY&gt;</span><span class="w"></span>
 <span class="w">        </span><span class="nt">secret_access_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SECRET_ACCESS_KEY&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="nt">session_token </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SESSION_TOKEN&gt;</span><span class="w">  </span><span class="c1"># Optional</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
@@ -722,28 +723,34 @@ title="Print to PDF"
 </thead>
 <tbody>
 <tr class="row-even"><td><p>ceph</p></td>
+<td><p>storage_bucket</p></td>
+<td><p></p></td>
+<td><p>yes</p></td>
+<td><p>The name of a bucket that exists in you account. This will be used by Lithops for intermediate data. If set, this will overwrite the <code class="docutils literal notranslate"><span class="pre">storage_bucket</span></code> set in <code class="docutils literal notranslate"><span class="pre">lithops</span></code> section</p></td>
+</tr>
+<tr class="row-odd"><td><p>ceph</p></td>
 <td><p>endpoint</p></td>
 <td><p></p></td>
 <td><p>yes</p></td>
 <td><p>The host ip adress where you installed the Ceph server. Must start with http:// or https://</p></td>
 </tr>
-<tr class="row-odd"><td><p>ceph</p></td>
+<tr class="row-even"><td><p>ceph</p></td>
 <td><p>access_key_id</p></td>
 <td><p></p></td>
 <td><p>yes</p></td>
 <td><p>Account user access key</p></td>
 </tr>
-<tr class="row-even"><td><p>ceph</p></td>
+<tr class="row-odd"><td><p>ceph</p></td>
 <td><p>secret_access_key</p></td>
 <td><p></p></td>
 <td><p>yes</p></td>
 <td><p>Account user secret access key</p></td>
 </tr>
-<tr class="row-odd"><td><p>ceph</p></td>
-<td><p>storage_bucket</p></td>
+<tr class="row-even"><td><p>ceph</p></td>
+<td><p>session_token</p></td>
 <td><p></p></td>
-<td><p>yes</p></td>
-<td><p>The name of a bucket that exists in you account. This will be used by Lithops for intermediate data. If set, this will overwrite the <code class="docutils literal notranslate"><span class="pre">storage_bucket</span></code> set in <code class="docutils literal notranslate"><span class="pre">lithops</span></code> section</p></td>
+<td><p>no</p></td>
+<td><p>Session token for temporary AWS credentials</p></td>
 </tr>
 </tbody>
 </table>
@@ -781,7 +788,7 @@ title="Print to PDF"
   
     By The Lithops Team<br/>
   
-      &copy; Copyright 2022, The Lithops Team.<br/>
+      &copy; Copyright 2023, The Lithops Team.<br/>
 </p>
         </footer>
     </div>

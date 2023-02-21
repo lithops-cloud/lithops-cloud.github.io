@@ -747,10 +747,6 @@ title="Print to PDF"
 <section id="execution-environments">
 <h2>Execution Environments<a class="headerlink" href="#execution-environments" title="Permalink to this headline">#</a></h2>
 <p>The virtual machine backend can run functions both using the default <code class="docutils literal notranslate"><span class="pre">python3</span></code> interpreter of the VM, or by using a <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">container</span></code> within the VM. The environment is automatically chosen depending on if you provided a Docker image as a runtime or not.</p>
-<p>In both cases, you can view the executions logs in your local machine using the <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">client</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ lithops logs poll
-</pre></div>
-</div>
 <section id="default-environment">
 <h3>Default Environment<a class="headerlink" href="#default-environment" title="Permalink to this headline">#</a></h3>
 <p>The default environment runs the functions in the same <code class="docutils literal notranslate"><span class="pre">python3</span></code> interpreter that you ran the Lithops script. It does not require any extra configuration. You must ensure that your VM contains the same <code class="docutils literal notranslate"><span class="pre">python3</span></code> interpreter, and all the dependencies required by your Lithops app. So, once the backend is configured in the config file, you only need to create a <code class="docutils literal notranslate"><span class="pre">FunctionExecutor</span></code> to work with it:</p>
@@ -812,13 +808,13 @@ title="Print to PDF"
 <td><p>runtime</p></td>
 <td><p>python3</p></td>
 <td><p>no</p></td>
-<td><p>Docker image name</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python3</span></code> or a docker image name</p></td>
 </tr>
 <tr class="row-odd"><td><p>vm</p></td>
 <td><p>worker_processes</p></td>
 <td><p>1</p></td>
 <td><p>no</p></td>
-<td><p>Number of Lithops processes within the VM. This can be used to parallelize function activations within a worker. It is recommendable to set it with the same number CPUs of the VM</p></td>
+<td><p>Number of Lithops processes within the VM. This can be used to parallelize function activations within the VM. It is recommendable to set it with the same number CPUs of the VM</p></td>
 </tr>
 </tbody>
 </table>
@@ -870,7 +866,7 @@ title="Print to PDF"
   
     By The Lithops Team<br/>
   
-      &copy; Copyright 2022, The Lithops Team.<br/>
+      &copy; Copyright 2023, The Lithops Team.<br/>
 </p>
         </footer>
     </div>
