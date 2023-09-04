@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Aliyun Function Compute &#8212; Lithops v2.9.0</title>
+    <title>Aliyun Function Compute &#8212; Lithops v3.0.1.dev0</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -89,7 +89,7 @@
       <img src="../../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Lithops v2.9.0</h1>
+      <h1 class="site-logo" id="site-title">Lithops v3.0.1.dev0</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
@@ -237,6 +237,11 @@
      AWS Elastic Compute Cloud (EC2)
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="azure_vms.html">
+     Azure Virtual Machines (Beta)
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -320,7 +325,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../functions.html">
-   Lithops Functions and Parameters
+   Functions and Parameters
   </a>
  </li>
  <li class="toctree-l1">
@@ -342,7 +347,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../api_storage.html">
-   Storage API Deatils
+   Storage API Details
   </a>
  </li>
 </ul>
@@ -403,7 +408,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../monitoring.html">
-   Lithops Monitoring
+   Monitoring
   </a>
  </li>
  <li class="toctree-l1">
@@ -510,19 +515,10 @@ title="Toggle navigation"
 
         
     </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/lithops-cloud/lithops"
+    <div class="header-article__right"><a href="https://github.com/lithops-cloud/lithops"
    class="headerbtn"
    data-toggle="tooltip"
-data-placement="left"
+data-placement="bottom"
 title="Source repository"
 >
   
@@ -530,31 +526,8 @@ title="Source repository"
 <span class="headerbtn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-<span class="headerbtn__text-container">repository</span>
+
 </a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/lithops-cloud/lithops/issues/new?title=Issue%20on%20page%20%2Fsource/compute_config/aliyun_functions.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
 
 <div class="menu-dropdown menu-dropdown-download-buttons">
   <button class="headerbtn menu-dropdown__trigger"
@@ -730,20 +703,22 @@ title="Print to PDF"
 <section id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">#</a></h2>
 <ol class="arabic simple">
-<li><p><a class="reference external" href="https://fc.console.aliyun.com/fc/overview">Access to your Function Compute dashboard</a>, choose your preferred region, and copy the public endpoint.</p></li>
+<li><p><a class="reference external" href="https://ram.console.aliyun.com/manage/ak">Navigate to the Cloud Console</a> and create a new AccessKey (If you don’t have one)</p></li>
+<li><p><a class="reference external" href="https://fc.console.aliyun.com/fc/overview">Access to your Function Compute dashboard</a>, and choose your preferred region.</p></li>
 <li><p>Access to the <a class="reference external" href="https://ram.console.aliyun.com/roles/">Resource Access Management (RAM) Roles dashboard</a>, and create a new Role that contains the <code class="docutils literal notranslate"><span class="pre">AliyunOSSFullAccess</span></code> permission. Alternatively you can use an already created Role that contains the <code class="docutils literal notranslate"><span class="pre">AliyunOSSFullAccess</span></code> permission.</p></li>
 <li><p>Edit your Lithops config and add the following keys:</p></li>
 </ol>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nt">lithops</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="nt">backend </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aliyun_fc</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">backend </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aliyun_fc</span>
 
-<span class="w">  </span><span class="nt">aliyun</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">access_key_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;ACCESS_KEY_ID&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">access_key_secret</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;ACCESS_KEY_SECRET&gt;</span><span class="w"></span>
+<span class="nt">aliyun</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">account_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;ACCOUNT_ID&gt;</span>
+<span class="w">    </span><span class="nt">access_key_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;ACCESS_KEY_ID&gt;</span>
+<span class="w">    </span><span class="nt">access_key_secret</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;ACCESS_KEY_SECRET&gt;</span>
+<span class="w">    </span><span class="nt">region </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span>
 
-<span class="w">  </span><span class="nt">aliyun_fc</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="nt">public_endpoint </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;PUBLIC_ENDPOINT&gt;</span><span class="w"></span>
-<span class="w">      </span><span class="nt">role_arn</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;ROLE_ARN&gt;</span><span class="w"></span>
+<span class="nt">aliyun_fc</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">role_arn</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;ROLE_ARN&gt;</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="4">
@@ -763,16 +738,28 @@ title="Print to PDF"
 </thead>
 <tbody>
 <tr class="row-even"><td><p>aliyun</p></td>
+<td><p>account_id</p></td>
+<td><p></p></td>
+<td><p>yes</p></td>
+<td><p>Alibaba Cloud Account ID</p></td>
+</tr>
+<tr class="row-odd"><td><p>aliyun</p></td>
 <td><p>access_key_id</p></td>
 <td><p></p></td>
 <td><p>yes</p></td>
 <td><p>Access Key Id</p></td>
 </tr>
-<tr class="row-odd"><td><p>aliyun</p></td>
+<tr class="row-even"><td><p>aliyun</p></td>
 <td><p>access_key_secret</p></td>
 <td><p></p></td>
 <td><p>yes</p></td>
 <td><p>Access Key Secret</p></td>
+</tr>
+<tr class="row-odd"><td><p>aliyun</p></td>
+<td><p>region</p></td>
+<td><p></p></td>
+<td><p>yes</p></td>
+<td><p>Region name. For example: <code class="docutils literal notranslate"><span class="pre">eu-west-1</span></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -790,16 +777,16 @@ title="Print to PDF"
 </thead>
 <tbody>
 <tr class="row-even"><td><p>aliyun_fc</p></td>
-<td><p>public_endpoint</p></td>
-<td><p></p></td>
-<td><p>yes</p></td>
-<td><p>public endpoint (URL) to the service. OSS and FC endpoints are different.</p></td>
-</tr>
-<tr class="row-odd"><td><p>aliyun_fc</p></td>
 <td><p>role_arn</p></td>
 <td><p></p></td>
 <td><p>yes</p></td>
 <td><p>Role ARN. For example: <code class="docutils literal notranslate"><span class="pre">acs:ram::5244532493961771:role/aliyunfclogexecutionrole</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>aliyun_fc</p></td>
+<td><p>region</p></td>
+<td><p></p></td>
+<td><p>no</p></td>
+<td><p>Region name. For example: <code class="docutils literal notranslate"><span class="pre">eu-west-1</span></code>. Lithops will use the region set under the <code class="docutils literal notranslate"><span class="pre">aliyun</span></code> section if it is not set here</p></td>
 </tr>
 <tr class="row-even"><td><p>aliyun_fc</p></td>
 <td><p>service</p></td>
@@ -849,14 +836,14 @@ title="Print to PDF"
 <section id="test-lithops">
 <h2>Test Lithops<a class="headerlink" href="#test-lithops" title="Permalink to this headline">#</a></h2>
 <p>Once you have your compute and storage backends configured, you can run a hello world function with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops <span class="nb">test</span> -b aliyun_fc -s aliyun_oss
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops<span class="w"> </span>hello<span class="w"> </span>-b<span class="w"> </span>aliyun_fc<span class="w"> </span>-s<span class="w"> </span>aliyun_oss
 </pre></div>
 </div>
 </section>
 <section id="viewing-the-execution-logs">
 <h2>Viewing the execution logs<a class="headerlink" href="#viewing-the-execution-logs" title="Permalink to this headline">#</a></h2>
 <p>You can view the function executions logs in your local machine using the <em>lithops client</em>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops logs poll
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops<span class="w"> </span>logs<span class="w"> </span>poll
 </pre></div>
 </div>
 </section>

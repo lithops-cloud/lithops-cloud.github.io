@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>AWS Lambda &#8212; Lithops v2.9.0</title>
+    <title>AWS Lambda &#8212; Lithops v3.0.1.dev0</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -91,7 +91,7 @@
       <img src="../../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Lithops v2.9.0</h1>
+      <h1 class="site-logo" id="site-title">Lithops v3.0.1.dev0</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
@@ -239,6 +239,11 @@
      AWS Elastic Compute Cloud (EC2)
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="azure_vms.html">
+     Azure Virtual Machines (Beta)
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -322,7 +327,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../functions.html">
-   Lithops Functions and Parameters
+   Functions and Parameters
   </a>
  </li>
  <li class="toctree-l1">
@@ -344,7 +349,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../api_storage.html">
-   Storage API Deatils
+   Storage API Details
   </a>
  </li>
 </ul>
@@ -405,7 +410,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../monitoring.html">
-   Lithops Monitoring
+   Monitoring
   </a>
  </li>
  <li class="toctree-l1">
@@ -512,19 +517,10 @@ title="Toggle navigation"
 
         
     </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/lithops-cloud/lithops"
+    <div class="header-article__right"><a href="https://github.com/lithops-cloud/lithops"
    class="headerbtn"
    data-toggle="tooltip"
-data-placement="left"
+data-placement="bottom"
 title="Source repository"
 >
   
@@ -532,31 +528,8 @@ title="Source repository"
 <span class="headerbtn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-<span class="headerbtn__text-container">repository</span>
+
 </a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/lithops-cloud/lithops/issues/new?title=Issue%20on%20page%20%2Fsource/compute_config/aws_lambda.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
 
 <div class="menu-dropdown menu-dropdown-download-buttons">
   <button class="headerbtn menu-dropdown__trigger"
@@ -778,23 +751,26 @@ title="Print to PDF"
 <li><p>Navigate to <strong>IAM &gt; Policies</strong>. Click on <strong>Create policy</strong>.</p></li>
 <li><p>Select <strong>JSON</strong> tab and paste the following JSON policy:</p></li>
 </ol>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;Version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;Statement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;Sid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VisualEditor0&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;Effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Allow&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;Action&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;s3:*&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;lambda:*&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;ec2:*&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;ecr:*&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;sts:GetCallerIdentity&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">],</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;Resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;*&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">]</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;Version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Statement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;Sid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VisualEditor0&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;Effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;Action&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;s3:*&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;lambda:*&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;ec2:*&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;ecr:*&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;sts:GetCallerIdentity&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;logs:CreateLogGroup&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;logs:CreateLogStream&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;logs:PutLogEvents&quot;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;Resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;*&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="5">
@@ -808,18 +784,16 @@ title="Print to PDF"
 <ol class="arabic simple" start="6">
 <li><p>Edit your lithops config and add the following keys:</p></li>
 </ol>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aws_lambda</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aws_lambda</span>
 
-<span class="nt">aws</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">access_key_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;AWS_ACCESS_KEY_ID&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">secret_access_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;AWS_SECRET_ACCESS_KEY&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="c1">#session_token: &lt;AWS_SESSION_TOKEN&gt;  # Optional</span><span class="w"></span>
-<span class="w">    </span><span class="c1">#account_id: &lt;AWS_ACCOUNT_ID&gt;  # Optional</span><span class="w"></span>
+<span class="nt">aws</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span>
+<span class="w">    </span><span class="nt">access_key_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;AWS_ACCESS_KEY_ID&gt;</span>
+<span class="w">    </span><span class="nt">secret_access_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;AWS_SECRET_ACCESS_KEY&gt;</span>
 
-<span class="nt">aws_lambda</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">execution_role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;EXECUTION_ROLE_ARN&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">region_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span><span class="w"></span>
+<span class="nt">aws_lambda</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">execution_role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;EXECUTION_ROLE_ARN&gt;</span>
 </pre></div>
 </div>
 </section>
@@ -838,24 +812,30 @@ title="Print to PDF"
 </thead>
 <tbody>
 <tr class="row-even"><td><p>aws</p></td>
+<td><p>region</p></td>
+<td><p></p></td>
+<td><p>yes</p></td>
+<td><p>AWS Region. For example <code class="docutils literal notranslate"><span class="pre">us-east-1</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>aws</p></td>
 <td><p>access_key_id</p></td>
 <td><p></p></td>
 <td><p>yes</p></td>
 <td><p>Account access key to AWS services. To find them, navigate to <em>My Security Credentials</em> and click <em>Create Access Key</em> if you don’t already have one.</p></td>
 </tr>
-<tr class="row-odd"><td><p>aws</p></td>
+<tr class="row-even"><td><p>aws</p></td>
 <td><p>secret_access_key</p></td>
 <td><p></p></td>
 <td><p>yes</p></td>
 <td><p>Account secret access key to AWS services. To find them, navigate to <em>My Security Credentials</em> and click <em>Create Access Key</em> if you don’t already have one.</p></td>
 </tr>
-<tr class="row-even"><td><p>aws</p></td>
+<tr class="row-odd"><td><p>aws</p></td>
 <td><p>session_token</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
 <td><p>Session token for temporary AWS credentials</p></td>
 </tr>
-<tr class="row-odd"><td><p>aws</p></td>
+<tr class="row-even"><td><p>aws</p></td>
 <td><p>account_id</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
@@ -877,16 +857,16 @@ title="Print to PDF"
 </thead>
 <tbody>
 <tr class="row-even"><td><p>aws_lambda</p></td>
-<td><p>region_name</p></td>
-<td><p></p></td>
-<td><p>yes</p></td>
-<td><p>Region where the S3 bucket is located and where Lambda functions will be invoked (e.g. <code class="docutils literal notranslate"><span class="pre">us-east-1</span></code>)</p></td>
-</tr>
-<tr class="row-odd"><td><p>aws_lambda</p></td>
 <td><p>execution_role</p></td>
 <td><p></p></td>
 <td><p>yes</p></td>
 <td><p>ARN of the execution role created at step 3. You can find it in the Role page at the <em>Roles</em> list in the <em>IAM</em> section (e.g. <code class="docutils literal notranslate"><span class="pre">arn:aws:iam::1234567890:role/lithops-execution-role</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>aws_lambda</p></td>
+<td><p>region</p></td>
+<td><p></p></td>
+<td><p>no</p></td>
+<td><p>Region where the S3 bucket is located and where Lambda functions will be invoked (e.g. <code class="docutils literal notranslate"><span class="pre">us-east-1</span></code>). Lithops will use the <code class="docutils literal notranslate"><span class="pre">region</span></code> set under the <code class="docutils literal notranslate"><span class="pre">aws</span></code> section if it is not set here</p></td>
 </tr>
 <tr class="row-even"><td><p>aws_lambda</p></td>
 <td><p>max_workers</p></td>
@@ -957,18 +937,18 @@ title="Print to PDF"
 <section id="vpc">
 <h3>VPC<a class="headerlink" href="#vpc" title="Permalink to this headline">#</a></h3>
 <p>To connect the Lithops lambda to a VPC, add the following configuration to the <code class="docutils literal notranslate"><span class="pre">aws_lambda</span></code> configuration section:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">aws_lambda</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">execution_role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;EXECUTION_ROLE_ARN&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">region_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">vpc</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="nt">subnets</span><span class="p">:</span><span class="w"></span>
-<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SUBNET_ID_1&gt;</span><span class="w"></span>
-<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SUBNET_ID_2&gt;</span><span class="w"></span>
-<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
-<span class="w">        </span><span class="nt">security_groups</span><span class="p">:</span><span class="w"></span>
-<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SECURITY_GROUP_1&gt;</span><span class="w"></span>
-<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SECURITY_GROUP_2&gt;</span><span class="w"></span>
-<span class="w">                </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">aws_lambda</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">execution_role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;EXECUTION_ROLE_ARN&gt;</span>
+<span class="w">    </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span>
+<span class="w">    </span><span class="nt">vpc</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">subnets</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SUBNET_ID_1&gt;</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SUBNET_ID_2&gt;</span>
+<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">        </span><span class="nt">security_groups</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SECURITY_GROUP_1&gt;</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SECURITY_GROUP_2&gt;</span>
+<span class="w">                </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -981,17 +961,17 @@ title="Print to PDF"
 <section id="efs">
 <h3>EFS<a class="headerlink" href="#efs" title="Permalink to this headline">#</a></h3>
 <p>To attach EFS volumes to the Lithops lambda, add the following configuration to the <code class="docutils literal notranslate"><span class="pre">aws_lambda</span></code> configuration section:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">aws_lambda</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">execution_role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;EXECUTION_ROLE_ARN&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">region_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">vpc</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
-<span class="w">    </span><span class="nt">efs</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">access_point</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;EFS_ACCESS_POINT_1&gt;</span><span class="w"></span>
-<span class="w">          </span><span class="nt">mount_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;LAMBDA_VOLUME_MOUNT_PATH_1&gt;</span><span class="w"></span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">access_point</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;EFS_ACCESS_POINT_2&gt;</span><span class="w"></span>
-<span class="w">          </span><span class="nt">mount_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;LAMBDA_VOLUME_MOUNT_PATH_2&gt;</span><span class="w"></span>
-<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">aws_lambda</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">execution_role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;EXECUTION_ROLE_ARN&gt;</span>
+<span class="w">    </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span>
+<span class="w">    </span><span class="nt">vpc</span><span class="p">:</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">    </span><span class="nt">efs</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">access_point</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;EFS_ACCESS_POINT_1&gt;</span>
+<span class="w">          </span><span class="nt">mount_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;LAMBDA_VOLUME_MOUNT_PATH_1&gt;</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">access_point</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;EFS_ACCESS_POINT_2&gt;</span>
+<span class="w">          </span><span class="nt">mount_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;LAMBDA_VOLUME_MOUNT_PATH_2&gt;</span>
+<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -1005,14 +985,14 @@ title="Print to PDF"
 <section id="test-lithops">
 <h2>Test Lithops<a class="headerlink" href="#test-lithops" title="Permalink to this headline">#</a></h2>
 <p>Once you have your compute and storage backends configured, you can run a hello world function with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops <span class="nb">test</span> -b aws_lambda -s aws_s3
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops<span class="w"> </span>hello<span class="w"> </span>-b<span class="w"> </span>aws_lambda<span class="w"> </span>-s<span class="w"> </span>aws_s3
 </pre></div>
 </div>
 </section>
 <section id="viewing-the-execution-logs">
 <h2>Viewing the execution logs<a class="headerlink" href="#viewing-the-execution-logs" title="Permalink to this headline">#</a></h2>
 <p>You can view the function executions logs in your local machine using the <em>lithops client</em>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops logs poll
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops<span class="w"> </span>logs<span class="w"> </span>poll
 </pre></div>
 </div>
 </section>

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Azure Blob Storage &#8212; Lithops v2.9.0</title>
+    <title>Azure Blob Storage &#8212; Lithops v3.0.1.dev0</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -91,7 +91,7 @@
       <img src="../../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Lithops v2.9.0</h1>
+      <h1 class="site-logo" id="site-title">Lithops v3.0.1.dev0</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
@@ -239,6 +239,11 @@
      AWS Elastic Compute Cloud (EC2)
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../compute_config/azure_vms.html">
+     Azure Virtual Machines (Beta)
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 current active has-children">
@@ -322,7 +327,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../functions.html">
-   Lithops Functions and Parameters
+   Functions and Parameters
   </a>
  </li>
  <li class="toctree-l1">
@@ -344,7 +349,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../api_storage.html">
-   Storage API Deatils
+   Storage API Details
   </a>
  </li>
 </ul>
@@ -405,7 +410,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../monitoring.html">
-   Lithops Monitoring
+   Monitoring
   </a>
  </li>
  <li class="toctree-l1">
@@ -512,19 +517,10 @@ title="Toggle navigation"
 
         
     </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/lithops-cloud/lithops"
+    <div class="header-article__right"><a href="https://github.com/lithops-cloud/lithops"
    class="headerbtn"
    data-toggle="tooltip"
-data-placement="left"
+data-placement="bottom"
 title="Source repository"
 >
   
@@ -532,31 +528,8 @@ title="Source repository"
 <span class="headerbtn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-<span class="headerbtn__text-container">repository</span>
+
 </a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/lithops-cloud/lithops/issues/new?title=Issue%20on%20page%20%2Fsource/storage_config/azure_blob.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
 
 <div class="menu-dropdown menu-dropdown-download-buttons">
   <button class="headerbtn menu-dropdown__trigger"
@@ -707,22 +680,22 @@ title="Print to PDF"
 <li><p>Install <a class="reference external" href="https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest">Azure CLI</a></p></li>
 <li><p>Sign in with the Azure CLI:</p></li>
 </ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>  $ az login
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">  </span>$<span class="w"> </span>az<span class="w"> </span>login
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
 <li><p>Create a Resource Group in your preferred region. If you already have a resource group, omit this step.</p></li>
 </ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>  $ az group create --name LithopsResourceGroup --location westeurope
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">  </span>$<span class="w"> </span>az<span class="w"> </span>group<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>LithopsResourceGroup<span class="w"> </span>--location<span class="w"> </span>westeurope
 </pre></div>
 </div>
 <ol class="arabic simple" start="4">
 <li><p>Create a Storage Account with a unique name. If you already have a storage account, omit this step.</p></li>
 </ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>  $ <span class="nv">storage_account_name</span><span class="o">=</span>lithops<span class="k">$(</span>openssl rand -hex <span class="m">3</span><span class="k">)</span>
-  $ <span class="nb">echo</span> <span class="nv">$storage_account_name</span>
-  $ az storage account create --name <span class="nv">$storage_account_name</span> --location westeurope <span class="se">\</span>
-     --resource-group LithopsResourceGroup --sku Standard_LRS
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">  </span>$<span class="w"> </span><span class="nv">storage_account_name</span><span class="o">=</span>lithops<span class="k">$(</span>openssl<span class="w"> </span>rand<span class="w"> </span>-hex<span class="w"> </span><span class="m">3</span><span class="k">)</span>
+<span class="w">  </span>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$storage_account_name</span>
+<span class="w">  </span>$<span class="w"> </span>az<span class="w"> </span>storage<span class="w"> </span>account<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span><span class="nv">$storage_account_name</span><span class="w"> </span>--location<span class="w"> </span>westeurope<span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>--resource-group<span class="w"> </span>LithopsResourceGroup<span class="w"> </span>--sku<span class="w"> </span>Standard_LRS
 </pre></div>
 </div>
 </li>
@@ -732,17 +705,15 @@ title="Print to PDF"
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">#</a></h2>
 <ol class="arabic simple">
 <li><p>Access to the <a class="reference external" href="https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts">Storage Account</a></p></li>
-<li><p>In the left menu, click on <em>Access Keys</em> and copy the <em>Key 1</em> key</p></li>
-<li><p>In the left menu, navigate to <em>Blob service</em> –&gt; <em>Containers</em>, and create a *new container (e.g. <code class="docutils literal notranslate"><span class="pre">lithops-data</span></code>). Remember to update the <code class="docutils literal notranslate"><span class="pre">storage_bucket</span></code> Lithops config field with this container name.</p></li>
+<li><p>In the left menu, under the <em>Security + networking</em> section, click on <em>Access Keys</em> and copy the <em>Key 1</em></p></li>
 <li><p>Edit your lithops config and add the following keys:</p></li>
 </ol>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nt">lithops</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="nt">storage </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">azure_storage</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nt">lithops</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">storage </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">azure_storage</span>
 
-<span class="w">  </span><span class="nt">azure_storage</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="nt">storage_account_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;STORAGE_ACCOUNT_NAME&gt;</span><span class="w"></span>
-<span class="w">      </span><span class="nt">storage_account_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;STORAGE_ACCOUNT_KEY&gt;</span><span class="w"></span>
-<span class="w">      </span><span class="nt">storage_bucket</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;CONTAINER_NAME&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">azure_storage</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">storage_account_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;STORAGE_ACCOUNT_NAME&gt;</span>
+<span class="w">      </span><span class="nt">storage_account_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;STORAGE_ACCOUNT_KEY&gt;</span>
 </pre></div>
 </div>
 </section>
@@ -768,13 +739,13 @@ title="Print to PDF"
 <td><p>storage_account_key</p></td>
 <td><p></p></td>
 <td><p>yes</p></td>
-<td><p>An storage account key, found in <em>Storage Accounts</em> &gt; <code class="docutils literal notranslate"><span class="pre">account_name</span></code> &gt; <em>Settings</em> &gt; <em>Access Keys</em></p></td>
+<td><p>An Account Key, found in <em>Storage Accounts</em> &gt; <code class="docutils literal notranslate"><span class="pre">account_name</span></code> &gt; <em>Security + networking</em> &gt; <em>Access Keys</em></p></td>
 </tr>
 <tr class="row-even"><td><p>azure_storage</p></td>
 <td><p>storage_bucket</p></td>
 <td><p></p></td>
-<td><p>yes</p></td>
-<td><p>The name of a container that exists in you account. This will be used by Lithops for intermediate data. If set, this will overwrite the <code class="docutils literal notranslate"><span class="pre">storage_bucket</span></code> set in <code class="docutils literal notranslate"><span class="pre">lithops</span></code> section</p></td>
+<td><p>no</p></td>
+<td><p>The name of a container that exists in you account. This will be used by Lithops for intermediate data. Lithops will automatically create a new one if it is not provided</p></td>
 </tr>
 </tbody>
 </table>

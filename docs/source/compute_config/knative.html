@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Knative &#8212; Lithops v2.9.0</title>
+    <title>Knative &#8212; Lithops v3.0.1.dev0</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -91,7 +91,7 @@
       <img src="../../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Lithops v2.9.0</h1>
+      <h1 class="site-logo" id="site-title">Lithops v3.0.1.dev0</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
@@ -239,6 +239,11 @@
      AWS Elastic Compute Cloud (EC2)
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="azure_vms.html">
+     Azure Virtual Machines (Beta)
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -322,7 +327,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../functions.html">
-   Lithops Functions and Parameters
+   Functions and Parameters
   </a>
  </li>
  <li class="toctree-l1">
@@ -344,7 +349,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../api_storage.html">
-   Storage API Deatils
+   Storage API Details
   </a>
  </li>
 </ul>
@@ -405,7 +410,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../monitoring.html">
-   Lithops Monitoring
+   Monitoring
   </a>
  </li>
  <li class="toctree-l1">
@@ -512,19 +517,10 @@ title="Toggle navigation"
 
         
     </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/lithops-cloud/lithops"
+    <div class="header-article__right"><a href="https://github.com/lithops-cloud/lithops"
    class="headerbtn"
    data-toggle="tooltip"
-data-placement="left"
+data-placement="bottom"
 title="Source repository"
 >
   
@@ -532,31 +528,8 @@ title="Source repository"
 <span class="headerbtn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-<span class="headerbtn__text-container">repository</span>
+
 </a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/lithops-cloud/lithops/issues/new?title=Issue%20on%20page%20%2Fsource/compute_config/knative.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
 
 <div class="menu-dropdown menu-dropdown-download-buttons">
   <button class="headerbtn menu-dropdown__trigger"
@@ -799,7 +772,7 @@ title="Print to PDF"
 <ol class="arabic">
 <li><p><a class="reference external" href="https://docs.docker.com/get-docker/">Install the Docker CE version</a>.</p></li>
 <li><p>Login to your docker account:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker login
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>login
 </pre></div>
 </div>
 </li>
@@ -809,20 +782,20 @@ title="Print to PDF"
 <h3>Option 1 - Minikube:<a class="headerlink" href="#option-1-minikube" title="Permalink to this headline">#</a></h3>
 <ol class="arabic" start="4">
 <li><p>Start minikube with the ‘ingress’ addon:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>minikube start --addons<span class="o">=</span>ingress
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>minikube<span class="w"> </span>start<span class="w"> </span>--addons<span class="o">=</span>ingress
 </pre></div>
 </div>
 </li>
 <li><p><a class="reference external" href="https://knative.dev/docs/install/yaml-install/serving/install-serving-with-yaml/">Follow this instructions to install knative serving.</a></p></li>
 <li><p>Install a networking layer. Currently Lithops supports <strong>Kourier</strong>. <a class="reference external" href="https://knative.dev/docs/install/yaml-install/serving/install-serving-with-yaml/#install-a-networking-layer">Follow these instructions to install Kourier.</a></p></li>
 <li><p>Edit your lithops config and add:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">knative</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">ingress_endpoint </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://127.0.0.1:80</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">knative</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">ingress_endpoint </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://127.0.0.1:80</span>
 </pre></div>
 </div>
 </li>
 <li><p>On a separate terminal, keep running:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>minikube tunnel
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>minikube<span class="w"> </span>tunnel
 </pre></div>
 </div>
 </li>
@@ -850,13 +823,13 @@ title="Print to PDF"
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">#</a></h2>
 <ol class="arabic" start="8">
 <li><p>Make sure you have the ~/.kube/config file. Alternatively, you can set KUBECONFIG environment variable:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">KUBECONFIG</span><span class="o">=</span>&lt;path-to-kube-config-file&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">KUBECONFIG</span><span class="o">=</span>&lt;path-to-kube-config-file&gt;
 </pre></div>
 </div>
 </li>
 <li><p>Edit your lithops config and add the following keys:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">knative</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">knative</span>
 </pre></div>
 </div>
 </li>
@@ -866,22 +839,22 @@ title="Print to PDF"
 <section id="configure-docker-hub">
 <h4>Configure Docker hub<a class="headerlink" href="#configure-docker-hub" title="Permalink to this headline">#</a></h4>
 <p>To configure Lithops to access a private repository in your docker hub account, you need to extend the Knative config and add the following keys:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">knative</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">....</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">docker_server</span><span class="w">    </span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker.io</span><span class="w"></span>
-<span class="w">    </span><span class="nt">docker_user      </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;Docker hub Username&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">docker_password  </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;DOcker hub access TOEKN&gt;</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">knative</span><span class="p">:</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">....</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">docker_server</span><span class="w">    </span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker.io</span>
+<span class="w">    </span><span class="nt">docker_user      </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;Docker hub Username&gt;</span>
+<span class="w">    </span><span class="nt">docker_password  </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;DOcker hub access TOEKN&gt;</span>
 </pre></div>
 </div>
 </section>
 <section id="configure-ibm-container-registry">
 <h4>Configure IBM Container Registry<a class="headerlink" href="#configure-ibm-container-registry" title="Permalink to this headline">#</a></h4>
 <p>To configure Lithops to access to a private repository in your IBM Container Registry, you need to extend the Knative config and add the following keys:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">knative</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">....</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">docker_server</span><span class="w">    </span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">us.icr.io</span><span class="w"></span>
-<span class="w">    </span><span class="nt">docker_user      </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iamapikey</span><span class="w"></span>
-<span class="w">    </span><span class="nt">docker_password  </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;IBM IAM API KEY&gt;</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">knative</span><span class="p">:</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">....</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">docker_server</span><span class="w">    </span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">us.icr.io</span>
+<span class="w">    </span><span class="nt">docker_user      </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iamapikey</span>
+<span class="w">    </span><span class="nt">docker_password  </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;IBM IAM API KEY&gt;</span>
 </pre></div>
 </div>
 </section>
@@ -995,12 +968,12 @@ title="Print to PDF"
 <h3>Verify<a class="headerlink" href="#verify" title="Permalink to this headline">#</a></h3>
 <ol class="arabic" start="10">
 <li><p>Verify that all the pods from the following namespaces are in <em>Running</em> status:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl get pods -n knative-serving
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-n<span class="w"> </span>knative-serving
 </pre></div>
 </div>
 </li>
 <li><p>Monitor how pods and other resources are created:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>watch kubectl get pod,service,revision,deployment -o wide
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>watch<span class="w"> </span>kubectl<span class="w"> </span>get<span class="w"> </span>pod,service,revision,deployment<span class="w"> </span>-o<span class="w"> </span>wide
 </pre></div>
 </div>
 </li>
@@ -1010,14 +983,14 @@ title="Print to PDF"
 <section id="test-lithops">
 <h2>Test Lithops<a class="headerlink" href="#test-lithops" title="Permalink to this headline">#</a></h2>
 <p>Once you have your compute and storage backends configured, you can run a hello world function with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops <span class="nb">test</span> -b knative -s ibm_cos
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops<span class="w"> </span>hello<span class="w"> </span>-b<span class="w"> </span>knative<span class="w"> </span>-s<span class="w"> </span>ibm_cos
 </pre></div>
 </div>
 </section>
 <section id="viewing-the-execution-logs">
 <h2>Viewing the execution logs<a class="headerlink" href="#viewing-the-execution-logs" title="Permalink to this headline">#</a></h2>
 <p>You can view the function executions logs in your local machine using the <em>lithops client</em>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops logs poll
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops<span class="w"> </span>logs<span class="w"> </span>poll
 </pre></div>
 </div>
 </section>

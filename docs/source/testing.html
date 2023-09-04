@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Testing Guidelines &#8212; Lithops v2.9.0</title>
+    <title>Testing Guidelines &#8212; Lithops v3.0.1.dev0</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -90,7 +90,7 @@
       <img src="../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Lithops v2.9.0</h1>
+      <h1 class="site-logo" id="site-title">Lithops v3.0.1.dev0</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -238,6 +238,11 @@
      AWS Elastic Compute Cloud (EC2)
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/azure_vms.html">
+     Azure Virtual Machines (Beta)
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -321,7 +326,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="functions.html">
-   Lithops Functions and Parameters
+   Functions and Parameters
   </a>
  </li>
  <li class="toctree-l1">
@@ -343,7 +348,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="api_storage.html">
-   Storage API Deatils
+   Storage API Details
   </a>
  </li>
 </ul>
@@ -404,7 +409,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="monitoring.html">
-   Lithops Monitoring
+   Monitoring
   </a>
  </li>
  <li class="toctree-l1">
@@ -511,19 +516,10 @@ title="Toggle navigation"
 
         
     </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/lithops-cloud/lithops"
+    <div class="header-article__right"><a href="https://github.com/lithops-cloud/lithops"
    class="headerbtn"
    data-toggle="tooltip"
-data-placement="left"
+data-placement="bottom"
 title="Source repository"
 >
   
@@ -531,31 +527,8 @@ title="Source repository"
 <span class="headerbtn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-<span class="headerbtn__text-container">repository</span>
+
 </a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/lithops-cloud/lithops/issues/new?title=Issue%20on%20page%20%2Fsource/testing.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
 
 <div class="menu-dropdown menu-dropdown-download-buttons">
   <button class="headerbtn menu-dropdown__trigger"
@@ -721,21 +694,21 @@ title="Print to PDF"
 <span id="testing"></span><h1>Testing Guidelines<a class="headerlink" href="#testing-guidelines" title="Permalink to this headline">#</a></h1>
 <section id="verify-current-lithops-status">
 <h2>Verify current Lithops status<a class="headerlink" href="#verify-current-lithops-status" title="Permalink to this headline">#</a></h2>
-<p>Run <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">verify</span></code> to run an extensive inspection, which simulates your lithops installation on a variety of tests.</p>
+<p>Run <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">test</span></code> to run an extensive inspection, which simulates your lithops installation on a variety of tests.</p>
 <ul class="simple">
-<li><p>Get all available options by running <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">verify</span> <span class="pre">--help</span></code>.</p></li>
-<li><p>Get all available test functions and their parent group by running <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">verify</span> <span class="pre">-t</span> <span class="pre">help</span></code>.</p></li>
-<li><p>Run all test instances named <code class="docutils literal notranslate"><span class="pre">&lt;test</span> <span class="pre">name&gt;</span></code>, via <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">verify</span> <span class="pre">-t</span> <span class="pre">&lt;test</span> <span class="pre">name&gt;</span></code>.
-Run a test from a specific group by prefixing the test name with group name, e.g. : <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">verify</span> <span class="pre">-t</span> <span class="pre">&lt;test</span> <span class="pre">group&gt;.&lt;test</span> <span class="pre">name&gt;</span></code>.
-Run multiple tests by separating them with a comma, e.g. <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">verify</span> <span class="pre">-t</span> <span class="pre">&lt;test</span> <span class="pre">name1&gt;,&lt;test</span> <span class="pre">name2&gt;</span></code>.</p></li>
-<li><p>To get all available groups, run <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">verify</span> <span class="pre">-g</span> <span class="pre">help</span></code>.</p></li>
-<li><p>Run a single group of tests via <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">verify</span> <span class="pre">-g</span> <span class="pre">&lt;group</span> <span class="pre">name&gt;</span></code>.
-Run multiple tests by separating them with a comma, e.g. <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">verify</span> <span class="pre">-g</span> <span class="pre">&lt;test</span> <span class="pre">group1&gt;,&lt;test</span> <span class="pre">group2&gt;</span></code>.</p></li>
-<li><p>To stop the test procedure upon first encountering a failed test, add the -f flag, e.g. <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">verify</span> <span class="pre">-f</span></code>.</p></li>
-<li><p>To remove datasets, uploaded during the test procedure, use the -r flag, <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">verify</span> <span class="pre">-r</span></code>.
+<li><p>Get all available options by running <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">test</span> <span class="pre">--help</span></code>.</p></li>
+<li><p>Get all available test functions and their parent group by running <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">test</span> <span class="pre">-t</span> <span class="pre">help</span></code>.</p></li>
+<li><p>Run all test instances named <code class="docutils literal notranslate"><span class="pre">&lt;test</span> <span class="pre">name&gt;</span></code>, via <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">test</span> <span class="pre">-t</span> <span class="pre">&lt;test</span> <span class="pre">name&gt;</span></code>.
+Run a test from a specific group by prefixing the test name with group name, e.g. : <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">test</span> <span class="pre">-t</span> <span class="pre">&lt;test</span> <span class="pre">group&gt;.&lt;test</span> <span class="pre">name&gt;</span></code>.
+Run multiple tests by separating them with a comma, e.g. <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">test</span> <span class="pre">-t</span> <span class="pre">&lt;test</span> <span class="pre">name1&gt;,&lt;test</span> <span class="pre">name2&gt;</span></code>.</p></li>
+<li><p>To get all available groups, run <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">test</span> <span class="pre">-g</span> <span class="pre">help</span></code>.</p></li>
+<li><p>Run a single group of tests via <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">test</span> <span class="pre">-g</span> <span class="pre">&lt;group</span> <span class="pre">name&gt;</span></code>.
+Run multiple tests by separating them with a comma, e.g. <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">test</span> <span class="pre">-g</span> <span class="pre">&lt;test</span> <span class="pre">group1&gt;,&lt;test</span> <span class="pre">group2&gt;</span></code>.</p></li>
+<li><p>To stop the test procedure upon first encountering a failed test, add the -f flag, e.g. <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">test</span> <span class="pre">-f</span></code>.</p></li>
+<li><p>To remove datasets, uploaded during the test procedure, use the -r flag, <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">test</span> <span class="pre">-r</span></code>.
 WARNING - do not use this flag on a github workflow, due to race condition issues.</p></li>
-<li><p>Get a complete list of the available flags by running <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">verify</span> <span class="pre">--help</span></code>.</p></li>
-<li><p>A summarizing example: <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">verify</span> <span class="pre">-t</span> <span class="pre">test_map,storage.test_cloudobject</span> <span class="pre">-g</span> <span class="pre">call_async</span> <span class="pre">-f</span></code>.</p></li>
+<li><p>Get a complete list of the available flags by running <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">test</span> <span class="pre">--help</span></code>.</p></li>
+<li><p>A summarizing example: <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">test</span> <span class="pre">-t</span> <span class="pre">test_map,storage.test_cloudobject</span> <span class="pre">-g</span> <span class="pre">call_async</span> <span class="pre">-f</span></code>.</p></li>
 </ul>
 <p>Alternatively, you may run the tests via <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">lithops.tests.tests_main</span></code>, followed by aforementioned flags.</p>
 </section>

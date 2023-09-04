@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>OpenWhisk &#8212; Lithops v2.9.0</title>
+    <title>OpenWhisk &#8212; Lithops v3.0.1.dev0</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -91,7 +91,7 @@
       <img src="../../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Lithops v2.9.0</h1>
+      <h1 class="site-logo" id="site-title">Lithops v3.0.1.dev0</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
@@ -239,6 +239,11 @@
      AWS Elastic Compute Cloud (EC2)
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="azure_vms.html">
+     Azure Virtual Machines (Beta)
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -322,7 +327,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../functions.html">
-   Lithops Functions and Parameters
+   Functions and Parameters
   </a>
  </li>
  <li class="toctree-l1">
@@ -344,7 +349,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../api_storage.html">
-   Storage API Deatils
+   Storage API Details
   </a>
  </li>
 </ul>
@@ -405,7 +410,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../monitoring.html">
-   Lithops Monitoring
+   Monitoring
   </a>
  </li>
  <li class="toctree-l1">
@@ -512,19 +517,10 @@ title="Toggle navigation"
 
         
     </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/lithops-cloud/lithops"
+    <div class="header-article__right"><a href="https://github.com/lithops-cloud/lithops"
    class="headerbtn"
    data-toggle="tooltip"
-data-placement="left"
+data-placement="bottom"
 title="Source repository"
 >
   
@@ -532,31 +528,8 @@ title="Source repository"
 <span class="headerbtn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-<span class="headerbtn__text-container">repository</span>
+
 </a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/lithops-cloud/lithops/issues/new?title=Issue%20on%20page%20%2Fsource/compute_config/openwhisk.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
 
 <div class="menu-dropdown menu-dropdown-download-buttons">
   <button class="headerbtn menu-dropdown__trigger"
@@ -735,14 +708,14 @@ title="Print to PDF"
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">#</a></h2>
 <ol class="arabic" start="3">
 <li><p>Edit your Lithops config and add the following keys:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="nt">lithops</span><span class="p">:</span><span class="w"></span>
-<span class="w">     </span><span class="nt">backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openwhisk</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="nt">lithops</span><span class="p">:</span>
+<span class="w">     </span><span class="nt">backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openwhisk</span>
 
-<span class="w"> </span><span class="nt">openwhisk</span><span class="p">:</span><span class="w"></span>
-<span class="w">     </span><span class="nt">endpoint    </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;OW_ENDPOINT&gt;</span><span class="w"></span>
-<span class="w">     </span><span class="nt">namespace   </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;NAMESPACE&gt;</span><span class="w"></span>
-<span class="w">     </span><span class="nt">api_key     </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;AUTH_KEY&gt;</span><span class="w"></span>
-<span class="w">     </span><span class="nt">insecure    </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;True/False&gt;</span><span class="w"></span>
+<span class="w"> </span><span class="nt">openwhisk</span><span class="p">:</span>
+<span class="w">     </span><span class="nt">endpoint    </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;OW_ENDPOINT&gt;</span>
+<span class="w">     </span><span class="nt">namespace   </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;NAMESPACE&gt;</span>
+<span class="w">     </span><span class="nt">api_key     </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;AUTH_KEY&gt;</span>
+<span class="w">     </span><span class="nt">insecure    </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;True/False&gt;</span>
 </pre></div>
 </div>
 <ul>
@@ -754,11 +727,11 @@ title="Print to PDF"
 </pre></div>
 </div>
 <p>Copy all the values into the lithops config file as:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">openwhisk</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">endpoint    </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://192.168.1.30</span><span class="w"></span>
-<span class="w">    </span><span class="nt">namespace   </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">guest</span><span class="w"></span>
-<span class="w">    </span><span class="nt">api_key     </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">23bc46b1-71f6-4ed5-8c54-816aa4f8c50:123zO3xZCLrMN6v2BKK1dXYFpXlPkccOFqm12CdAsMgRU4VrNZ9lyGVCG</span><span class="w"></span>
-<span class="w">    </span><span class="nt">insecure    </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">openwhisk</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">endpoint    </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://192.168.1.30</span>
+<span class="w">    </span><span class="nt">namespace   </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">guest</span>
+<span class="w">    </span><span class="nt">api_key     </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">23bc46b1-71f6-4ed5-8c54-816aa4f8c50:123zO3xZCLrMN6v2BKK1dXYFpXlPkccOFqm12CdAsMgRU4VrNZ9lyGVCG</span>
+<span class="w">    </span><span class="nt">insecure    </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
 </pre></div>
 </div>
 </li>
@@ -844,14 +817,14 @@ title="Print to PDF"
 <section id="test-lithops">
 <h2>Test Lithops<a class="headerlink" href="#test-lithops" title="Permalink to this headline">#</a></h2>
 <p>Once you have your compute and storage backends configured, you can run a hello world function with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops <span class="nb">test</span> -b openwhisk -s ibm_cos
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops<span class="w"> </span>hello<span class="w"> </span>-b<span class="w"> </span>openwhisk<span class="w"> </span>-s<span class="w"> </span>ibm_cos
 </pre></div>
 </div>
 </section>
 <section id="viewing-the-execution-logs">
 <h2>Viewing the execution logs<a class="headerlink" href="#viewing-the-execution-logs" title="Permalink to this headline">#</a></h2>
 <p>You can view the function executions logs in your local machine using the <em>lithops client</em>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops logs poll
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops<span class="w"> </span>logs<span class="w"> </span>poll
 </pre></div>
 </div>
 </section>

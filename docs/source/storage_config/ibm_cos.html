@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>IBM Cloud Object Storage &#8212; Lithops v2.9.0</title>
+    <title>IBM Cloud Object Storage &#8212; Lithops v3.0.1.dev0</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -91,7 +91,7 @@
       <img src="../../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Lithops v2.9.0</h1>
+      <h1 class="site-logo" id="site-title">Lithops v3.0.1.dev0</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
@@ -239,6 +239,11 @@
      AWS Elastic Compute Cloud (EC2)
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../compute_config/azure_vms.html">
+     Azure Virtual Machines (Beta)
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 current active has-children">
@@ -322,7 +327,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../functions.html">
-   Lithops Functions and Parameters
+   Functions and Parameters
   </a>
  </li>
  <li class="toctree-l1">
@@ -344,7 +349,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../api_storage.html">
-   Storage API Deatils
+   Storage API Details
   </a>
  </li>
 </ul>
@@ -405,7 +410,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../monitoring.html">
-   Lithops Monitoring
+   Monitoring
   </a>
  </li>
  <li class="toctree-l1">
@@ -512,19 +517,10 @@ title="Toggle navigation"
 
         
     </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/lithops-cloud/lithops"
+    <div class="header-article__right"><a href="https://github.com/lithops-cloud/lithops"
    class="headerbtn"
    data-toggle="tooltip"
-data-placement="left"
+data-placement="bottom"
 title="Source repository"
 >
   
@@ -532,31 +528,8 @@ title="Source repository"
 <span class="headerbtn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-<span class="headerbtn__text-container">repository</span>
+
 </a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/lithops-cloud/lithops/issues/new?title=Issue%20on%20page%20%2Fsource/storage_config/ibm_cos.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
 
 <div class="menu-dropdown menu-dropdown-download-buttons">
   <button class="headerbtn menu-dropdown__trigger"
@@ -799,13 +772,13 @@ title="Print to PDF"
 <li><p>Click <code class="docutils literal notranslate"><span class="pre">Add</span></code> to generate service credential.</p></li>
 <li><p>Click <code class="docutils literal notranslate"><span class="pre">View</span> <span class="pre">credentials</span></code> and copy the <em>apikey</em> value.</p></li>
 <li><p>Edit your lithops config file and add the following keys:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">storage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ibm_cos</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">storage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ibm_cos</span>
 <span class="w">   </span>
-<span class="nt">ibm_cos</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">storage_bucket</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;BUCKET_NAME&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">region   </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">api_key  </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;API_KEY&gt;</span><span class="w"></span>
+<span class="nt">ibm_cos</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">region   </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION&gt;</span>
+<span class="w">    </span><span class="nt">api_key  </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;API_KEY&gt;</span>
+<span class="w">    </span><span class="nt">storage_bucket</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;BUCKET_NAME&gt;</span>
 </pre></div>
 </div>
 </li>
@@ -819,15 +792,15 @@ title="Print to PDF"
 <li><p>Click on advanced options and enable <code class="docutils literal notranslate"><span class="pre">Include</span> <span class="pre">HMAC</span> <span class="pre">Credential</span></code> button.</p></li>
 <li><p>Click <code class="docutils literal notranslate"><span class="pre">Add</span></code> to generate service credential.</p></li>
 <li><p>Click <code class="docutils literal notranslate"><span class="pre">View</span> <span class="pre">credentials</span></code> and copy the <em>access_key_id</em> and <em>secret_access_key</em> values.</p></li>
+<li><p>When using HMAC credentials, you can omit providing an storage bucket, since Lithops will be able to create it automatically.</p></li>
 <li><p>Edit your lithops config file and add the following keys:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">storage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ibm_cos</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">storage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ibm_cos</span>
 <span class="w">   </span>
-<span class="nt">ibm_cos</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">storage_bucket</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;BUCKET_NAME&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">region </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION&gt;</span><span class="w">  </span>
-<span class="w">    </span><span class="nt">access_key  </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;ACCESS_KEY_ID&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">secret_key  </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SECRET_KEY_ID&gt;</span><span class="w"></span>
+<span class="nt">ibm_cos</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION&gt;</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">access_key_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;ACCESS_KEY_ID&gt;</span>
+<span class="w">    </span><span class="nt">secret_access_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SECRET_ACCESS_KEY_ID&gt;</span>
 </pre></div>
 </div>
 </li>
@@ -840,15 +813,14 @@ title="Print to PDF"
 <li><p>Click <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">an</span> <span class="pre">IBM</span> <span class="pre">Cloud</span> <span class="pre">API</span> <span class="pre">Key</span></code> and provide the necessary information.</p></li>
 <li><p>Copy the generated IAM API key (You can only see the key the first time you create it, so make sure to copy it).</p></li>
 <li><p>Edit your lithops config file and add the following keys:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">storage_backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ibm_cos</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">storage_backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ibm_cos</span>
+<span class="nt">ibm</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">iam_api_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;IAM_API_KEY&gt;</span>
 
-<span class="nt">ibm</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">iam_api_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;IAM_API_KEY&gt;</span><span class="w"></span>
-<span class="w">   </span>
-<span class="nt">ibm_cos</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">storage_bucket</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;BUCKET_NAME&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">region </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION&gt;</span><span class="w"></span>
+<span class="nt">ibm_cos</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION&gt;</span>
+<span class="w">    </span><span class="nt">storage_bucket</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;BUCKET_NAME&gt;</span>
 </pre></div>
 </div>
 </li>
@@ -860,11 +832,11 @@ title="Print to PDF"
 <section id="using-region">
 <h3>Using region<a class="headerlink" href="#using-region" title="Permalink to this headline">#</a></h3>
 <p>The easiest apporach is to let Lithops to choose the right endpoint by itself. To enable this, just configure Lithops with the region name of your <code class="docutils literal notranslate"><span class="pre">storage_bucket</span></code>, as follows:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">ibm_cos</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="nt">region   </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION&gt;</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">ibm_cos</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">region   </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION&gt;</span>
 </pre></div>
 </div>
-<p>Valid region names are: us-east, us-south, eu-gb, eu-de, etc..</p>
+<p>Valid region names are: <code class="docutils literal notranslate"><span class="pre">us-east</span></code>, <code class="docutils literal notranslate"><span class="pre">us-south</span></code>, <code class="docutils literal notranslate"><span class="pre">eu-gb</span></code>, <code class="docutils literal notranslate"><span class="pre">eu-de</span></code>, etc..</p>
 </section>
 <section id="using-endpoints-path">
 <h3>Using endpoints path<a class="headerlink" href="#using-endpoints-path" title="Permalink to this headline">#</a></h3>
@@ -873,8 +845,8 @@ title="Print to PDF"
 <li><p>Login to IBM Cloud and open up your dashboard. Then navigate to your instance of Object Storage.</p></li>
 <li><p>In the side navigation, click <code class="docutils literal notranslate"><span class="pre">Endpoints</span></code> to find your COS endpoints. You must copy both <code class="docutils literal notranslate"><span class="pre">public</span></code> and <code class="docutils literal notranslate"><span class="pre">private</span></code> endpoints of the region where you created your bucket.</p></li>
 </ol>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">ibm_cos</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="nt">endpoint</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://s3.&lt;region&gt;.cloud-object-storage_config.appdomain.cloud</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">ibm_cos</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">endpoint</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://s3.&lt;region&gt;.cloud-object-storage_config.appdomain.cloud</span>
 <span class="w">        </span><span class="nt">private_endpoint</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://s3.private.&lt;region&gt;.cloud-object-storage_config.appdomain.cloud</span><span class="w"> </span>
 </pre></div>
 </div>
@@ -898,13 +870,19 @@ title="Print to PDF"
 <td><p>iam_api_key</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
-<td><p>IBM Cloud IAM API key to authenticate against IBM COS and IBM Cloud Functions. Obtain the key <a class="reference external" href="https://cloud.ibm.com/iam/apikeys">here</a></p></td>
+<td><p>IBM Cloud IAM API key to authenticate against IBM services. Obtain the key <a class="reference external" href="https://cloud.ibm.com/iam/apikeys">here</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>ibm</p></td>
-<td><p>iam_endpoint</p></td>
-<td><p>https://iam.cloud.ibm.com</p></td>
+<td><p>region</p></td>
+<td><p></p></td>
 <td><p>no</p></td>
-<td><p>IAM Identity Services API global endpoint URL.</p></td>
+<td><p>IBM Region.  One of: <code class="docutils literal notranslate"><span class="pre">eu-gb</span></code>, <code class="docutils literal notranslate"><span class="pre">eu-de</span></code>, <code class="docutils literal notranslate"><span class="pre">us-south</span></code>, <code class="docutils literal notranslate"><span class="pre">us-east</span></code>, <code class="docutils literal notranslate"><span class="pre">br-sao</span></code>, <code class="docutils literal notranslate"><span class="pre">ca-tor</span></code>, <code class="docutils literal notranslate"><span class="pre">jp-tok</span></code>, <code class="docutils literal notranslate"><span class="pre">jp-osa</span></code>, <code class="docutils literal notranslate"><span class="pre">au-syd</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>ibm</p></td>
+<td><p>resource_group_id</p></td>
+<td><p></p></td>
+<td><p>no</p></td>
+<td><p>Resource group id from your IBM Cloud account. Get it from <a class="reference external" href="https://cloud.ibm.com/account/resource-groups">here</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -922,52 +900,46 @@ title="Print to PDF"
 </thead>
 <tbody>
 <tr class="row-even"><td><p>ibm_cos</p></td>
+<td><p>region</p></td>
+<td><p></p></td>
+<td><p>yes</p></td>
+<td><p>Region of your bucket. One of: <code class="docutils literal notranslate"><span class="pre">eu-gb</span></code>, <code class="docutils literal notranslate"><span class="pre">eu-de</span></code>, <code class="docutils literal notranslate"><span class="pre">us-south</span></code>, <code class="docutils literal notranslate"><span class="pre">us-east</span></code>, <code class="docutils literal notranslate"><span class="pre">br-sao</span></code>, <code class="docutils literal notranslate"><span class="pre">ca-tor</span></code>, <code class="docutils literal notranslate"><span class="pre">jp-tok</span></code>, <code class="docutils literal notranslate"><span class="pre">jp-osa</span></code>, <code class="docutils literal notranslate"><span class="pre">au-syd</span></code>. Lithops will use the region set under the <code class="docutils literal notranslate"><span class="pre">ibm</span></code> section if it is not set here</p></td>
+</tr>
+<tr class="row-odd"><td><p>ibm_cos</p></td>
+<td><p>api_key</p></td>
+<td><p></p></td>
+<td><p>yes</p></td>
+<td><p>API Key to your COS account. Not needed if using IAM API Key</p></td>
+</tr>
+<tr class="row-even"><td><p>ibm_cos</p></td>
 <td><p>storage_bucket</p></td>
 <td><p></p></td>
 <td><p>yes</p></td>
-<td><p>The name of a bucket that exists in you account. This will be used by Lithops for intermediate data. If set, this will overwrite the <code class="docutils literal notranslate"><span class="pre">storage_bucket</span></code> set in <code class="docutils literal notranslate"><span class="pre">lithops</span></code> section</p></td>
+<td><p>The name of a bucket that exists in you account. This will be used by Lithops for intermediate data. You must provide HMAC Credentials if you want the bucket to be automatically created</p></td>
 </tr>
 <tr class="row-odd"><td><p>ibm_cos</p></td>
-<td><p>region</p></td>
+<td><p>access_key_id</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
-<td><p>Region of your bucket. <strong>Mandatory</strong> if no endpoint. For example: us-east, us-south, eu-gb, eu-de, etc..</p></td>
+<td><p>HMAC Credentials. <strong>Mandatory</strong> if no api_key. Not needed if using IAM API Key</p></td>
 </tr>
 <tr class="row-even"><td><p>ibm_cos</p></td>
+<td><p>secret_access_key</p></td>
+<td><p></p></td>
+<td><p>no</p></td>
+<td><p>HMAC Credentials. <strong>Mandatory</strong> if no api_key. Not needed if using IAM API Key</p></td>
+</tr>
+<tr class="row-odd"><td><p>ibm_cos</p></td>
 <td><p>endpoint</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
-<td><p>Endpoint to your COS account. <strong>Mandatory</strong> if no region. Make sure to use the full path with ‘https://’ as prefix.</p></td>
+<td><p>Endpoint to your COS account. <strong>Mandatory</strong> if no region. Make sure to use the full path with ‘https://’ as prefix</p></td>
 </tr>
-<tr class="row-odd"><td><p>ibm_cos</p></td>
+<tr class="row-even"><td><p>ibm_cos</p></td>
 <td><p>private_endpoint</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
-<td><p>Private endpoint to your COS account. <strong>Mandatory</strong> if no region. Make sure to use the full path with ‘https://’ or http:// as prefix.</p></td>
-</tr>
-<tr class="row-even"><td><p>ibm_cos</p></td>
-<td><p>api_key</p></td>
-<td><p></p></td>
-<td><p>no</p></td>
-<td><p>API Key to your COS account. <strong>Mandatory</strong> if no access_key and secret_key. Not needed if using IAM API Key</p></td>
-</tr>
-<tr class="row-odd"><td><p>ibm_cos</p></td>
-<td><p>access_key</p></td>
-<td><p></p></td>
-<td><p>no</p></td>
-<td><p>HMAC Credentials. <strong>Mandatory</strong> if no api_key. Not needed if using IAM API Key</p></td>
-</tr>
-<tr class="row-even"><td><p>ibm_cos</p></td>
-<td><p>secret_key</p></td>
-<td><p></p></td>
-<td><p>no</p></td>
-<td><p>HMAC Credentials. <strong>Mandatory</strong> if no api_key. Not needed if using IAM API Key</p></td>
-</tr>
-<tr class="row-odd"><td><p>ibm_cos</p></td>
-<td><p>iam_api_key</p></td>
-<td><p></p></td>
-<td><p>no</p></td>
-<td><p>IBM Cloud IAM API key to authenticate against IBM COS. <strong>Used</strong> in case separate authorization for storage and compute required</p></td>
+<td><p>Private endpoint to your COS account. <strong>Mandatory</strong> if no region. Make sure to use the full path with ‘https://’ or http:// as prefix</p></td>
 </tr>
 </tbody>
 </table>

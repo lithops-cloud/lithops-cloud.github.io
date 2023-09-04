@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Lithops Monitoring &#8212; Lithops v2.9.0</title>
+    <title>Monitoring &#8212; Lithops v3.0.1.dev0</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -91,7 +91,7 @@
       <img src="../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Lithops v2.9.0</h1>
+      <h1 class="site-logo" id="site-title">Lithops v3.0.1.dev0</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -239,6 +239,11 @@
      AWS Elastic Compute Cloud (EC2)
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/azure_vms.html">
+     Azure Virtual Machines (Beta)
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -322,7 +327,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="functions.html">
-   Lithops Functions and Parameters
+   Functions and Parameters
   </a>
  </li>
  <li class="toctree-l1">
@@ -344,7 +349,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="api_storage.html">
-   Storage API Deatils
+   Storage API Details
   </a>
  </li>
 </ul>
@@ -405,7 +410,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Lithops Monitoring
+   Monitoring
   </a>
  </li>
  <li class="toctree-l1">
@@ -512,19 +517,10 @@ title="Toggle navigation"
 
         
     </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/lithops-cloud/lithops"
+    <div class="header-article__right"><a href="https://github.com/lithops-cloud/lithops"
    class="headerbtn"
    data-toggle="tooltip"
-data-placement="left"
+data-placement="bottom"
 title="Source repository"
 >
   
@@ -532,31 +528,8 @@ title="Source repository"
 <span class="headerbtn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-<span class="headerbtn__text-container">repository</span>
+
 </a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/lithops-cloud/lithops/issues/new?title=Issue%20on%20page%20%2Fsource/monitoring.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
 
 <div class="menu-dropdown menu-dropdown-download-buttons">
   <button class="headerbtn menu-dropdown__trigger"
@@ -615,7 +588,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Lithops Monitoring</h1>
+                <h1>Monitoring</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -627,8 +600,8 @@ title="Print to PDF"
                 
               <div>
                 
-  <section id="lithops-monitoring">
-<h1>Lithops Monitoring<a class="headerlink" href="#lithops-monitoring" title="Permalink to this headline">#</a></h1>
+  <section id="monitoring">
+<h1>Monitoring<a class="headerlink" href="#monitoring" title="Permalink to this headline">#</a></h1>
 <p>By default, Lithops uses the storage backend to monitor function activations: Each function activation stores a file
 named <em>{id}/status.json</em> to the Object Storage when it finishes its execution. This file contains some statistics about
 the execution, including if the function activation ran successfully or not. Having these files, the default monitoring
@@ -641,17 +614,17 @@ time, since Lithops only needs one connection to the messaging service to monito
 support the AMQP protocol.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The RabbitMQ server has to be accessible from both the client and the functions. For example, it could be deployed in a cloud server with a public IP with AMQP port open (5672).</p>
+<p>The RabbitMQ server has to be accessible from both the client and the functions. For example, it could be deployed in a cloud server with a public IP address and with the AMQP port open (5672).</p>
 </div>
 <p>To enable Lithops to use this service, add the <em>AMQP_URL</em> key into the <em>rabbitmq</em> section in
 the configuration, for example:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">rabbitmq</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">amqp_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;AMQP_URL&gt;</span><span class="w">  </span><span class="c1"># amqp://</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">rabbitmq</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">amqp_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;AMQP_URL&gt;</span><span class="w">  </span><span class="c1"># amqp://</span>
 </pre></div>
 </div>
 <p>In addition, activate the monitoring service by setting <code class="docutils literal notranslate"><span class="pre">monitoring:</span> <span class="pre">rabbitmq</span></code> in the configuration (Lithops section):</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span><span class="w"></span>
-<span class="w">   </span><span class="nt">monitoring</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rabbitmq</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
+<span class="w">   </span><span class="nt">monitoring</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rabbitmq</span>
 </pre></div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">(</span><span class="n">monitoring</span><span class="o">=</span><span class="s1">&#39;rabbitmq&#39;</span><span class="p">)</span>

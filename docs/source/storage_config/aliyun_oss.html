@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Aliyun Object Storage Service &#8212; Lithops v2.9.0</title>
+    <title>Aliyun Object Storage Service &#8212; Lithops v3.0.1.dev0</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -91,7 +91,7 @@
       <img src="../../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Lithops v2.9.0</h1>
+      <h1 class="site-logo" id="site-title">Lithops v3.0.1.dev0</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
@@ -239,6 +239,11 @@
      AWS Elastic Compute Cloud (EC2)
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../compute_config/azure_vms.html">
+     Azure Virtual Machines (Beta)
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 current active has-children">
@@ -322,7 +327,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../functions.html">
-   Lithops Functions and Parameters
+   Functions and Parameters
   </a>
  </li>
  <li class="toctree-l1">
@@ -344,7 +349,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../api_storage.html">
-   Storage API Deatils
+   Storage API Details
   </a>
  </li>
 </ul>
@@ -405,7 +410,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../monitoring.html">
-   Lithops Monitoring
+   Monitoring
   </a>
  </li>
  <li class="toctree-l1">
@@ -512,19 +517,10 @@ title="Toggle navigation"
 
         
     </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/lithops-cloud/lithops"
+    <div class="header-article__right"><a href="https://github.com/lithops-cloud/lithops"
    class="headerbtn"
    data-toggle="tooltip"
-data-placement="left"
+data-placement="bottom"
 title="Source repository"
 >
   
@@ -532,31 +528,8 @@ title="Source repository"
 <span class="headerbtn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-<span class="headerbtn__text-container">repository</span>
+
 </a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/lithops-cloud/lithops/issues/new?title=Issue%20on%20page%20%2Fsource/storage_config/aliyun_oss.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
 
 <div class="menu-dropdown menu-dropdown-download-buttons">
   <button class="headerbtn menu-dropdown__trigger"
@@ -626,12 +599,12 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#configuration">
-   Configuration
+  <a class="reference internal nav-link" href="#installation">
+   Installation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
+  <a class="reference internal nav-link" href="#configuration">
    Configuration
   </a>
  </li>
@@ -665,12 +638,12 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#configuration">
-   Configuration
+  <a class="reference internal nav-link" href="#installation">
+   Installation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
+  <a class="reference internal nav-link" href="#configuration">
    Configuration
   </a>
  </li>
@@ -697,35 +670,29 @@ title="Print to PDF"
   <section id="aliyun-object-storage-service">
 <h1>Aliyun Object Storage Service<a class="headerlink" href="#aliyun-object-storage-service" title="Permalink to this headline">#</a></h1>
 <p>Lithops with Aliyun Object Storage Service as storage backend.</p>
-<section id="configuration">
-<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">#</a></h2>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">#</a></h2>
 <ol class="arabic simple">
 <li><p>Install Alibaba Cloud backend dependencies:</p></li>
 </ol>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 -m pip install lithops[aliyun]
 </pre></div>
 </div>
-<ol class="arabic simple" start="2">
-<li><p><a class="reference external" href="https://ram.console.aliyun.com/manage/ak">Navigate to the Cloud Console</a> and create a new AccessKey (If you don’t have one)</p></li>
-</ol>
 </section>
-<section id="id1">
-<h2>Configuration<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">#</a></h2>
 <ol class="arabic simple">
-<li><p>Navigate to your storage account and create a new bucket (e.g. <code class="docutils literal notranslate"><span class="pre">lithops-data</span></code>). Remember to update the corresponding Lithops config field with this bucket name.</p></li>
+<li><p><a class="reference external" href="https://ram.console.aliyun.com/manage/ak">Navigate to the Cloud Console</a> and create a new AccessKey (If you don’t have one)</p></li>
 <li><p>Edit your lithops config and add the following keys:</p></li>
 </ol>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nt">lithops</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">storage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aliyun_oss</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">storage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aliyun_oss</span>
 
-<span class="w">  </span><span class="nt">aliyun</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">access_key_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;ACCESS_KEY_ID&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">access_key_secret</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;ACCESS_KEY_SECRET&gt;</span><span class="w"></span>
-
-<span class="w">  </span><span class="nt">aliyun_oss</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">storage_bucket</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;BUCKET_NAME&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">public_endpoint</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;PUBLIC_ENDPOINT&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">internal_endpoint</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;INTRANET_ENDPOINT&gt;</span><span class="w"></span>
+<span class="nt">aliyun</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">account_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;ACCOUNT_ID&gt;</span>
+<span class="w">    </span><span class="nt">access_key_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;ACCESS_KEY_ID&gt;</span>
+<span class="w">    </span><span class="nt">access_key_secret</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;ACCESS_KEY_SECRET&gt;</span>
+<span class="w">    </span><span class="nt">region </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span>
 </pre></div>
 </div>
 </section>
@@ -742,16 +709,28 @@ title="Print to PDF"
 </thead>
 <tbody>
 <tr class="row-even"><td><p>aliyun</p></td>
+<td><p>account_id</p></td>
+<td><p></p></td>
+<td><p>yes</p></td>
+<td><p>Alibaba Cloud Account ID</p></td>
+</tr>
+<tr class="row-odd"><td><p>aliyun</p></td>
 <td><p>access_key_id</p></td>
 <td><p></p></td>
 <td><p>yes</p></td>
 <td><p>Access Key Id</p></td>
 </tr>
-<tr class="row-odd"><td><p>aliyun</p></td>
+<tr class="row-even"><td><p>aliyun</p></td>
 <td><p>access_key_secret</p></td>
 <td><p></p></td>
 <td><p>yes</p></td>
 <td><p>Access Key Secret</p></td>
+</tr>
+<tr class="row-odd"><td><p>aliyun</p></td>
+<td><p>region</p></td>
+<td><p></p></td>
+<td><p>yes</p></td>
+<td><p>Region name. For example: <code class="docutils literal notranslate"><span class="pre">eu-west-1</span></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -769,22 +748,16 @@ title="Print to PDF"
 </thead>
 <tbody>
 <tr class="row-even"><td><p>aliyun_oss</p></td>
-<td><p>storage_bucket</p></td>
+<td><p>region</p></td>
 <td><p></p></td>
-<td><p>yes</p></td>
-<td><p>The name of a bucket that exists in you account. This will be used by Lithops for intermediate data.</p></td>
+<td><p>no</p></td>
+<td><p>Region Name from <a class="reference external" href="https://www.alibabacloud.com/help/en/object-storage-service/latest/regions-and-endpoints">here</a>. Ommit the <code class="docutils literal notranslate"><span class="pre">oss-</span></code> prefix. For example: <code class="docutils literal notranslate"><span class="pre">eu-west-1</span></code>. Lithops will use the region set under the <code class="docutils literal notranslate"><span class="pre">aliyun</span></code> section if it is not set here</p></td>
 </tr>
 <tr class="row-odd"><td><p>aliyun_oss</p></td>
-<td><p>public_endpoint</p></td>
+<td><p>storage_bucket</p></td>
 <td><p></p></td>
-<td><p>yes</p></td>
-<td><p>public endpoint (URL) to the service. OSS and FC endpoints are different</p></td>
-</tr>
-<tr class="row-even"><td><p>aliyun_oss</p></td>
-<td><p>internal_endpoint</p></td>
-<td><p></p></td>
-<td><p>yes</p></td>
-<td><p>internal endpoint (URL) to the service. Provides cost-free inbound and outbound traffic among services from the same intranet (region)</p></td>
+<td><p>no</p></td>
+<td><p>The name of a bucket that exists in you account. This will be used by Lithops for intermediate data. Lithops will automatically create a new one if it is not provided</p></td>
 </tr>
 </tbody>
 </table>

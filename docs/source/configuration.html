@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Configuration &#8212; Lithops v2.9.0</title>
+    <title>Configuration &#8212; Lithops v3.0.1.dev0</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -91,7 +91,7 @@
       <img src="../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Lithops v2.9.0</h1>
+      <h1 class="site-logo" id="site-title">Lithops v3.0.1.dev0</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -239,6 +239,11 @@
      AWS Elastic Compute Cloud (EC2)
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/azure_vms.html">
+     Azure Virtual Machines (Beta)
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -322,7 +327,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="functions.html">
-   Lithops Functions and Parameters
+   Functions and Parameters
   </a>
  </li>
  <li class="toctree-l1">
@@ -344,7 +349,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="api_storage.html">
-   Storage API Deatils
+   Storage API Details
   </a>
  </li>
 </ul>
@@ -405,7 +410,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="monitoring.html">
-   Lithops Monitoring
+   Monitoring
   </a>
  </li>
  <li class="toctree-l1">
@@ -512,19 +517,10 @@ title="Toggle navigation"
 
         
     </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/lithops-cloud/lithops"
+    <div class="header-article__right"><a href="https://github.com/lithops-cloud/lithops"
    class="headerbtn"
    data-toggle="tooltip"
-data-placement="left"
+data-placement="bottom"
 title="Source repository"
 >
   
@@ -532,31 +528,8 @@ title="Source repository"
 <span class="headerbtn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-<span class="headerbtn__text-container">repository</span>
+
 </a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/lithops-cloud/lithops/issues/new?title=Issue%20on%20page%20%2Fsource/configuration.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
 
 <div class="menu-dropdown menu-dropdown-download-buttons">
   <button class="headerbtn menu-dropdown__trigger"
@@ -749,6 +722,7 @@ You have multiple options to choose compute and storage backends based on your n
 <div class="line"><a class="reference external" href="compute_config/vm.html">Remote Host / Virtual Machine</a></div>
 <div class="line"><a class="reference external" href="compute_config/ibm_vpc.html">IBM Virtual Private Cloud</a></div>
 <div class="line"><a class="reference external" href="compute_config/aws_ec2.html">AWS Elastic Compute Cloud (EC2)</a></div>
+<div class="line"><a class="reference external" href="compute_config/azure_vms.html">Azure Virtual Machines</a></div>
 </div>
 </td>
 <td><div class="line-block">
@@ -762,6 +736,7 @@ You have multiple options to choose compute and storage backends based on your n
 <div class="line"><a class="reference external" href="storage_config/minio.html">MinIO</a></div>
 <div class="line"><a class="reference external" href="storage_config/redis.html">Redis</a></div>
 <div class="line"><a class="reference external" href="storage_config/swift.html">OpenStack Swift</a></div>
+<div class="line"><br /></div>
 <div class="line"><br /></div>
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -797,13 +772,13 @@ details as part of the Lithops invocation in runtime. You can see an entire list
 <p>Here is an example of providing configuration keys for IBM Cloud Functions and IBM Cloud Object Storage:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lithops</span>
 
+
 <span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;lithops&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;backend&#39;</span><span class="p">:</span> <span class="s1">&#39;ibm_cf&#39;</span><span class="p">,</span> <span class="s1">&#39;storage&#39;</span><span class="p">:</span> <span class="s1">&#39;ibm_cos&#39;</span><span class="p">},</span>
-          <span class="s1">&#39;ibm_cf&#39;</span><span class="p">:</span>  <span class="p">{</span><span class="s1">&#39;endpoint&#39;</span><span class="p">:</span> <span class="s1">&#39;ENDPOINT&#39;</span><span class="p">,</span>
-                      <span class="s1">&#39;namespace&#39;</span><span class="p">:</span> <span class="s1">&#39;NAMESPACE&#39;</span><span class="p">,</span>
-                      <span class="s1">&#39;api_key&#39;</span><span class="p">:</span> <span class="s1">&#39;API_KEY&#39;</span><span class="p">},</span>
-          <span class="s1">&#39;ibm_cos&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;storage_bucket&#39;</span><span class="p">:</span> <span class="s1">&#39;BUCKET_NAME&#39;</span><span class="p">,</span>
-                      <span class="s1">&#39;region&#39;</span><span class="p">:</span> <span class="s1">&#39;REGION&#39;</span><span class="p">,</span>
-                      <span class="s1">&#39;api_key&#39;</span><span class="p">:</span> <span class="s1">&#39;API_KEY&#39;</span><span class="p">}}</span>
+          <span class="s1">&#39;ibm&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;region&#39;</span><span class="p">:</span> <span class="s1">&#39;REGION&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;iam_api_key&#39;</span><span class="p">:</span> <span class="s1">&#39;IAM_API_KEY&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;resource_group_id&#39;</span><span class="p">:</span> <span class="s1">&#39;RESOURCE_GROUP_ID&#39;</span><span class="p">}</span>
+          <span class="s1">&#39;ibm_cos&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;api_key&#39;</span><span class="p">:</span> <span class="s1">&#39;API_KEY&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;storage_bucket&#39;</span><span class="p">:</span> <span class="s1">&#39;STORAGE_BUCKET&#39;</span><span class="p">}}</span>
 
 <span class="k">def</span> <span class="nf">hello_world</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
     <span class="k">return</span> <span class="s1">&#39;Hello </span><span class="si">{}</span><span class="s1">!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>

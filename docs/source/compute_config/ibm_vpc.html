@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>IBM Virtual Private Cloud &#8212; Lithops v2.9.0</title>
+    <title>IBM Virtual Private Cloud &#8212; Lithops v3.0.1.dev0</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -91,7 +91,7 @@
       <img src="../../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Lithops v2.9.0</h1>
+      <h1 class="site-logo" id="site-title">Lithops v3.0.1.dev0</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
@@ -239,6 +239,11 @@
      AWS Elastic Compute Cloud (EC2)
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="azure_vms.html">
+     Azure Virtual Machines (Beta)
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -322,7 +327,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../functions.html">
-   Lithops Functions and Parameters
+   Functions and Parameters
   </a>
  </li>
  <li class="toctree-l1">
@@ -344,7 +349,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../api_storage.html">
-   Storage API Deatils
+   Storage API Details
   </a>
  </li>
 </ul>
@@ -405,7 +410,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../monitoring.html">
-   Lithops Monitoring
+   Monitoring
   </a>
  </li>
  <li class="toctree-l1">
@@ -512,19 +517,10 @@ title="Toggle navigation"
 
         
     </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/lithops-cloud/lithops"
+    <div class="header-article__right"><a href="https://github.com/lithops-cloud/lithops"
    class="headerbtn"
    data-toggle="tooltip"
-data-placement="left"
+data-placement="bottom"
 title="Source repository"
 >
   
@@ -532,31 +528,8 @@ title="Source repository"
 <span class="headerbtn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-<span class="headerbtn__text-container">repository</span>
+
 </a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/lithops-cloud/lithops/issues/new?title=Issue%20on%20page%20%2Fsource/compute_config/ibm_vpc.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
 
 <div class="menu-dropdown menu-dropdown-download-buttons">
   <button class="headerbtn menu-dropdown__trigger"
@@ -626,18 +599,6 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#configure-a-container-registry">
-   Configure a Container registry
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#configure-ibm-container-registry">
-     Configure IBM Container Registry
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#ibm-vpc">
    IBM VPC
   </a>
@@ -648,16 +609,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#lithops-and-the-vsi-create-and-reuse-mode">
-   Lithops and the VSI
-   <em>
-    create
-   </em>
-   and
-   <em>
-    reuse
-   </em>
-   mode
+  <a class="reference internal nav-link" href="#lithops-and-the-vm-auto-create-reuse-mode">
+   Lithops and the VM auto create|reuse mode
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -673,17 +626,33 @@ title="Print to PDF"
      mode
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#configure-a-container-registry">
+   Configure a Container registry
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#summary-of-the-configuration-keys-for-the-create-and-reuse-mode">
-     Summary of the configuration keys for the
-     <em>
-      create
-     </em>
-     and
-     <em>
-      reuse
-     </em>
-     mode
+    <a class="reference internal nav-link" href="#configure-ibm-container-registry">
+     Configure IBM Container Registry
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary-of-configuration-keys-for-ibm-cloud">
+   Summary of configuration keys for IBM Cloud:
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ibm">
+     IBM:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ibm-vpc-create-and-reuse-modes">
+     IBM VPC - Create and Reuse modes
     </a>
    </li>
   </ul>
@@ -698,9 +667,21 @@ title="Print to PDF"
      Lithops configuration for the consume mode
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Summary of configuration keys for IBM Cloud:
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#summary-of-the-configuration-keys-for-the-consume-mode">
-     Summary of the configuration keys for the consume mode
+    <a class="reference internal nav-link" href="#ibm-iam">
+     IBM IAM:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ibm-vpc-consume-mode">
+     IBM VPC - Consume Mode
     </a>
    </li>
   </ul>
@@ -735,18 +716,6 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#configure-a-container-registry">
-   Configure a Container registry
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#configure-ibm-container-registry">
-     Configure IBM Container Registry
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#ibm-vpc">
    IBM VPC
   </a>
@@ -757,16 +726,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#lithops-and-the-vsi-create-and-reuse-mode">
-   Lithops and the VSI
-   <em>
-    create
-   </em>
-   and
-   <em>
-    reuse
-   </em>
-   mode
+  <a class="reference internal nav-link" href="#lithops-and-the-vm-auto-create-reuse-mode">
+   Lithops and the VM auto create|reuse mode
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -782,17 +743,33 @@ title="Print to PDF"
      mode
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#configure-a-container-registry">
+   Configure a Container registry
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#summary-of-the-configuration-keys-for-the-create-and-reuse-mode">
-     Summary of the configuration keys for the
-     <em>
-      create
-     </em>
-     and
-     <em>
-      reuse
-     </em>
-     mode
+    <a class="reference internal nav-link" href="#configure-ibm-container-registry">
+     Configure IBM Container Registry
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary-of-configuration-keys-for-ibm-cloud">
+   Summary of configuration keys for IBM Cloud:
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ibm">
+     IBM:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ibm-vpc-create-and-reuse-modes">
+     IBM VPC - Create and Reuse modes
     </a>
    </li>
   </ul>
@@ -807,9 +784,21 @@ title="Print to PDF"
      Lithops configuration for the consume mode
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Summary of configuration keys for IBM Cloud:
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#summary-of-the-configuration-keys-for-the-consume-mode">
-     Summary of the configuration keys for the consume mode
+    <a class="reference internal nav-link" href="#ibm-iam">
+     IBM IAM:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ibm-vpc-consume-mode">
+     IBM VPC - Consume Mode
     </a>
    </li>
   </ul>
@@ -837,7 +826,66 @@ title="Print to PDF"
   <section id="ibm-virtual-private-cloud">
 <h1>IBM Virtual Private Cloud<a class="headerlink" href="#ibm-virtual-private-cloud" title="Permalink to this headline">#</a></h1>
 <p>The IBM VPC client of Lithops can provide a truely serverless user experience on top of IBM VPC where Lithops creates new VSIs (Virtual Server Instance) dynamically in runtime, and scale Lithops jobs against them. Alternatively Lithops can start and stop an existing VSI instances.</p>
-<p>Note that IBM VPC is a <strong>standalone backend</strong>, and as such, you can configure extra parameters in the ‘standalone’ section of the configuration:</p>
+<section id="ibm-vpc">
+<h2>IBM VPC<a class="headerlink" href="#ibm-vpc" title="Permalink to this headline">#</a></h2>
+<p>The assumption that you already familiar with IBM Cloud, have your IBM IAM API key created (you can create new keys <a class="reference external" href="https://cloud.ibm.com/iam/apikeys">here</a>), have valid IBM COS account, region and resource group.</p>
+<p>Follow <a class="reference external" href="https://cloud.ibm.com/vpc-ext/overview">IBM VPC setup</a> if you need to create IBM Virtual Private Cloud. Decide the region for your VPC. The best practice is to use the same region both for VPC and IBM COS, hoewever there is no requirement to keep them in the same region.</p>
+</section>
+<section id="choose-an-operating-system-image-for-vsi">
+<h2>Choose an operating system image for VSI<a class="headerlink" href="#choose-an-operating-system-image-for-vsi" title="Permalink to this headline">#</a></h2>
+<p>Any Virtual Service Instance (VSI) need to define the instance’s operating system and version. Lithops support both standard Ubuntu operting system choices provided by the VPC and using pre-defined custom images that already contains all dependencies required by Lithops.</p>
+<ul class="simple">
+<li><p>Option 1: Lithops is compatible with any Ubuntu 22.04 image provided in IBM Cloud. In this case, no further action is required and you can continue to the next step. Lithops will install all required dependencies in the VSI by itself. Notice this can consume about 3 min to complete all installations.</p></li>
+<li><p>Option 2: Alternatively, you can use a pre-built custom image (based on Ubuntu) that will greatly improve VSI creation time for Lithops jobs. To benefit from this approach, navigate to <a class="reference external" href="https://github.com/lithops-cloud/lithops/tree/master/runtime/ibm_vpc">runtime/ibm_vpc</a>, and follow the instructions.</p></li>
+</ul>
+</section>
+<section id="lithops-and-the-vm-auto-create-reuse-mode">
+<h2>Lithops and the VM auto create|reuse mode<a class="headerlink" href="#lithops-and-the-vm-auto-create-reuse-mode" title="Permalink to this headline">#</a></h2>
+<p>In the <code class="docutils literal notranslate"><span class="pre">create</span></code> mode, Lithops will automatically create new worker VM instances in runtime, scale Lithops job against generated VMs, and automatically delete the VMs when the job is completed.
+Alternatively, you can set the <code class="docutils literal notranslate"><span class="pre">reuse</span></code> mode to keep running the started worker VMs, and reuse them for further executions. In the <code class="docutils literal notranslate"><span class="pre">reuse</span></code> mode, Lithops checks all the available worker VMs and start new workers only if necessary.</p>
+<section id="lithops-configuration-for-the-create-and-reuse-mode">
+<h3>Lithops configuration for the <em>create</em> and <em>reuse</em> mode<a class="headerlink" href="#lithops-configuration-for-the-create-and-reuse-mode" title="Permalink to this headline">#</a></h3>
+<p>Edit your lithops config and add the relevant keys:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ibm_vpc</span>
+
+<span class="nt">ibm</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">iam_api_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;iam-api-key&gt;</span>
+<span class="w">    </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION&gt;</span>
+<span class="w">    </span><span class="nt">resource_group_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;RESOURCE_GROUP_ID&gt;</span>
+
+<span class="nt">ibm_vpc</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">exec_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reuse</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="configure-a-container-registry">
+<h2>Configure a Container registry<a class="headerlink" href="#configure-a-container-registry" title="Permalink to this headline">#</a></h2>
+<p>To configure Lithops to access a private container registry, you need to add the following keys to the <strong>standalone</strong> section in config:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">ibm_vpc</span><span class="p">:</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">....</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">docker_server</span><span class="w">    </span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;Container registry server&gt;</span>
+<span class="w">    </span><span class="nt">docker_user      </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;Container registry username&gt;</span>
+<span class="w">    </span><span class="nt">docker_password  </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;Container registry access token&gt;</span>
+</pre></div>
+</div>
+<section id="configure-ibm-container-registry">
+<h3>Configure IBM Container Registry<a class="headerlink" href="#configure-ibm-container-registry" title="Permalink to this headline">#</a></h3>
+<p>To configure Lithops to access to a private docker repository in your IBM Container Registry, you need to extend the <strong>standalone</strong> config and add the following keys:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">ibm_vpc</span><span class="p">:</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">....</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">docker_server</span><span class="w">    </span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">us.icr.io</span><span class="w">  </span><span class="c1"># Change-me if you have the CR in another region</span>
+<span class="w">    </span><span class="nt">docker_user      </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iamapikey</span>
+<span class="w">    </span><span class="nt">docker_password  </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;IBM IAM API KEY&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="summary-of-configuration-keys-for-ibm-cloud">
+<h2>Summary of configuration keys for IBM Cloud:<a class="headerlink" href="#summary-of-configuration-keys-for-ibm-cloud" title="Permalink to this headline">#</a></h2>
+<section id="ibm">
+<h3>IBM:<a class="headerlink" href="#ibm" title="Permalink to this headline">#</a></h3>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Group</p></th>
@@ -848,114 +896,29 @@ title="Print to PDF"
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>standalone</p></td>
-<td><p>runtime</p></td>
-<td><p>python3</p></td>
-<td><p>no</p></td>
-<td><p>Runtime name to run the functions. Can be a Docker image name</p></td>
+<tr class="row-even"><td><p>ibm</p></td>
+<td><p>iam_api_key</p></td>
+<td><p></p></td>
+<td><p>yes</p></td>
+<td><p>IBM Cloud IAM API key to authenticate against IBM services. Obtain the key <a class="reference external" href="https://cloud.ibm.com/iam/apikeys">here</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>standalone</p></td>
-<td><p>auto_dismantle</p></td>
-<td><p>True</p></td>
-<td><p>no</p></td>
-<td><p>If False then the VM is not stopped automatically.</p></td>
+<tr class="row-odd"><td><p>ibm</p></td>
+<td><p>region</p></td>
+<td><p></p></td>
+<td><p>yes</p></td>
+<td><p>IBM Region.  One of: <code class="docutils literal notranslate"><span class="pre">eu-gb</span></code>, <code class="docutils literal notranslate"><span class="pre">eu-de</span></code>, <code class="docutils literal notranslate"><span class="pre">us-south</span></code>, <code class="docutils literal notranslate"><span class="pre">us-east</span></code>, <code class="docutils literal notranslate"><span class="pre">br-sao</span></code>, <code class="docutils literal notranslate"><span class="pre">ca-tor</span></code>, <code class="docutils literal notranslate"><span class="pre">jp-tok</span></code>, <code class="docutils literal notranslate"><span class="pre">jp-osa</span></code>, <code class="docutils literal notranslate"><span class="pre">au-syd</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p>standalone</p></td>
-<td><p>soft_dismantle_timeout</p></td>
-<td><p>300</p></td>
-<td><p>no</p></td>
-<td><p>Time in seconds to stop the VM instance after a job <strong>completed</strong> its execution</p></td>
-</tr>
-<tr class="row-odd"><td><p>standalone</p></td>
-<td><p>hard_dismantle_timeout</p></td>
-<td><p>3600</p></td>
-<td><p>no</p></td>
-<td><p>Time in seconds to stop the VM instance after a job <strong>started</strong> its execution</p></td>
-</tr>
-<tr class="row-even"><td><p>standalone</p></td>
-<td><p>exec_mode</p></td>
-<td><p>consume</p></td>
-<td><p>no</p></td>
-<td><p>One of: <strong>consume</strong>, <strong>create</strong> or <strong>reuse</strong>. If set to  <strong>create</strong>, Lithops will automatically create new VMs for each map() call based on the number of elements in iterdata. If set to <strong>reuse</strong> will try to reuse running workers if exist</p></td>
-</tr>
-<tr class="row-odd"><td><p>standalone</p></td>
-<td><p>pull_runtime</p></td>
-<td><p>False</p></td>
-<td><p>no</p></td>
-<td><p>If set to True, Lithops will execute the command <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">pull</span> <span class="pre">&lt;runtime_name&gt;</span></code> in each VSI before executing the a job (in case of using a docker runtime)</p></td>
-</tr>
-<tr class="row-even"><td><p>standalone</p></td>
-<td><p>workers_policy</p></td>
-<td><p>permissive</p></td>
-<td><p>no</p></td>
-<td><p>One of: <strong>permissive</strong>, <strong>strict</strong>. If set to <strong>strict</strong> will force creation of required workers number</p></td>
-</tr>
-<tr class="row-odd"><td><p>standalone</p></td>
-<td><p>gpu</p></td>
-<td><p>False</p></td>
-<td><p>no</p></td>
-<td><p>If True docker started with gpu support. Requires host to have neccessary hardware and software preconfigured and docker image runtime with gpu support specified</p></td>
+<tr class="row-even"><td><p>ibm</p></td>
+<td><p>resource_group_id</p></td>
+<td><p></p></td>
+<td><p>yes</p></td>
+<td><p>Resource group id from your IBM Cloud account. Get it from <a class="reference external" href="https://cloud.ibm.com/account/resource-groups">here</a></p></td>
 </tr>
 </tbody>
 </table>
-<section id="configure-a-container-registry">
-<h2>Configure a Container registry<a class="headerlink" href="#configure-a-container-registry" title="Permalink to this headline">#</a></h2>
-<p>To configure Lithops to access a private container registry, you need to add the following keys to the <strong>standalone</strong> section in config:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">standalone</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">....</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">docker_server</span><span class="w">    </span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;Container registry server&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">docker_user      </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;Container registry username&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">docker_password  </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;Container registry access token&gt;</span><span class="w"></span>
-</pre></div>
-</div>
-<section id="configure-ibm-container-registry">
-<h3>Configure IBM Container Registry<a class="headerlink" href="#configure-ibm-container-registry" title="Permalink to this headline">#</a></h3>
-<p>To configure Lithops to access to a private docker repository in your IBM Container Registry, you need to extend the <strong>standalone</strong> config and add the following keys:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">standalone</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">....</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">docker_server</span><span class="w">    </span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">us.icr.io</span><span class="w">  </span><span class="c1"># Change-me if you have the CR in another region</span><span class="w"></span>
-<span class="w">    </span><span class="nt">docker_user      </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iamapikey</span><span class="w"></span>
-<span class="w">    </span><span class="nt">docker_password  </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;IBM IAM API KEY&gt;</span><span class="w"></span>
-</pre></div>
-</div>
 </section>
-</section>
-<section id="ibm-vpc">
-<h2>IBM VPC<a class="headerlink" href="#ibm-vpc" title="Permalink to this headline">#</a></h2>
-<p>The assumption that you already familiar with IBM Cloud, have your IBM IAM API key created (you can create new keys <a class="reference external" href="https://cloud.ibm.com/iam/apikeys">here</a>), have valid IBM COS account, region and resource group.</p>
-<p>Follow <a class="reference external" href="https://cloud.ibm.com/vpc-ext/overview">IBM VPC setup</a> if you need to create IBM Virtual Private Cloud. Decide the region for your VPC. The best practice is to use the same region both for VPC and IBM COS, hoewever there is no requirement to keep them in the same region.</p>
-</section>
-<section id="choose-an-operating-system-image-for-vsi">
-<h2>Choose an operating system image for VSI<a class="headerlink" href="#choose-an-operating-system-image-for-vsi" title="Permalink to this headline">#</a></h2>
-<p>Any Virtual Service Instance (VSI) need to define the instance’s operating system and version. Lithops support both standard operting system choices provided by the VPC or using pre-defined custom images that already contains all dependencies required by Lithops.</p>
-<ul class="simple">
-<li><p>Option 1: Lithops is compatible with any Ubuntu 22.04 image provided in IBM Cloud. In this case, no further action is required and you can continue to the next step. Lithops will install all required dependencies in the VSI by itself. Notice this can consume about 3 min to complete all installations.</p></li>
-<li><p>Option 2: Alternatively, you can use a pre-built custom image that will greatly improve VSI creation time for Lithops jobs. To benefit from this approach, navigate to <a class="reference external" href="https://github.com/lithops-cloud/lithops/tree/master/runtime/ibm_vpc">runtime/ibm_vpc</a>, and follow the instructions.</p></li>
-</ul>
-</section>
-<section id="lithops-and-the-vsi-create-and-reuse-mode">
-<h2>Lithops and the VSI <em>create</em> and <em>reuse</em> mode<a class="headerlink" href="#lithops-and-the-vsi-create-and-reuse-mode" title="Permalink to this headline">#</a></h2>
-<p>In this mode, Lithops will automatically create new worker VM instances in runtime, scale Lithops job against generated VMs, and automatically delete VMs when the job is completed.</p>
-<section id="lithops-configuration-for-the-create-and-reuse-mode">
-<h3>Lithops configuration for the <em>create</em> and <em>reuse</em> mode<a class="headerlink" href="#lithops-configuration-for-the-create-and-reuse-mode" title="Permalink to this headline">#</a></h3>
-<p>Edit your lithops config and add the relevant keys:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ibm_vpc</span><span class="w"></span>
-
-<span class="nt">ibm</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">iam_api_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;iam-api-key&gt;</span><span class="w"></span>
-
-<span class="nt">standalone</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">exec_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reuse</span><span class="w"></span>
-
-<span class="nt">ibm_vpc</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">resource_group_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;RESOURCE_GROUP_ID&gt;</span><span class="w"></span>
-</pre></div>
-</div>
-</section>
-<section id="summary-of-the-configuration-keys-for-the-create-and-reuse-mode">
-<h3>Summary of the configuration keys for the <em>create</em> and <em>reuse</em> mode<a class="headerlink" href="#summary-of-the-configuration-keys-for-the-create-and-reuse-mode" title="Permalink to this headline">#</a></h3>
+<section id="ibm-vpc-create-and-reuse-modes">
+<h3>IBM VPC - Create and Reuse modes<a class="headerlink" href="#ibm-vpc-create-and-reuse-modes" title="Permalink to this headline">#</a></h3>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Group</p></th>
@@ -969,50 +932,50 @@ title="Print to PDF"
 <tr class="row-even"><td><p>ibm_vpc</p></td>
 <td><p>region</p></td>
 <td><p></p></td>
-<td><p>yes</p></td>
-<td><p>VPC Region. For example <code class="docutils literal notranslate"><span class="pre">us-south</span></code>. Choose one region from <a class="reference external" href="https://cloud.ibm.com/docs/vpc?topic=vpc-service-endpoints-for-vpc">here</a></p></td>
+<td><p>no</p></td>
+<td><p>VPC Region. For example <code class="docutils literal notranslate"><span class="pre">us-south</span></code>. Choose one region from <a class="reference external" href="https://cloud.ibm.com/docs/vpc?topic=vpc-service-endpoints-for-vpc">here</a>. Lithops will use the <code class="docutils literal notranslate"><span class="pre">region</span></code> set under the <code class="docutils literal notranslate"><span class="pre">ibm</span></code> section if it is not set here</p></td>
 </tr>
 <tr class="row-odd"><td><p>ibm_vpc</p></td>
-<td><p>resource_group_id</p></td>
-<td><p></p></td>
-<td><p>yes</p></td>
-<td><p>Resource group id from your IBM Cloud account. Get it from https://cloud.ibm.com/account/resource-groups</p></td>
-</tr>
-<tr class="row-even"><td><p>ibm_vpc</p></td>
 <td><p>vpc_id</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
-<td><p>VPC id of an existing VPC. Get it from https://cloud.ibm.com/vpc-ext/network/vpcs</p></td>
+<td><p>VPC id of an existing VPC. Get it from <a class="reference external" href="https://cloud.ibm.com/vpc-ext/network/vpcs">here</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>ibm_vpc</p></td>
+<tr class="row-even"><td><p>ibm_vpc</p></td>
 <td><p>vpc_name</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
 <td><p>VPC name of an existing VPC (if <code class="docutils literal notranslate"><span class="pre">vpc_id</span></code> is not provided)</p></td>
 </tr>
-<tr class="row-even"><td><p>ibm_vpc</p></td>
+<tr class="row-odd"><td><p>ibm_vpc</p></td>
 <td><p>security_group_id</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
-<td><p>Security group id of an existing VPC. Get it from https://cloud.ibm.com/vpc-ext/network/securityGroups</p></td>
+<td><p>Security group id of an existing VPC. Get it from <a class="reference external" href="https://cloud.ibm.com/vpc-ext/network/securityGroups">here</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>ibm_vpc</p></td>
+<tr class="row-even"><td><p>ibm_vpc</p></td>
 <td><p>subnet_id</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
-<td><p>Subnet id of an existing VPC. Get it from https://cloud.ibm.com/vpc-ext/network/subnets</p></td>
+<td><p>Subnet id of an existing VPC. Get it from <a class="reference external" href="https://cloud.ibm.com/vpc-ext/network/subnets">here</a></p></td>
 </tr>
-<tr class="row-even"><td><p>ibm_vpc</p></td>
+<tr class="row-odd"><td><p>ibm_vpc</p></td>
 <td><p>ssh_key_id</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
-<td><p>SSH public key id. Get it from https://cloud.ibm.com/vpc-ext/compute/sshKeys</p></td>
+<td><p>SSH public key id. Get it from <a class="reference external" href="https://cloud.ibm.com/vpc-ext/compute/sshKeys">here</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>ibm_vpc</p></td>
+<tr class="row-even"><td><p>ibm_vpc</p></td>
 <td><p>gateway_id</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
-<td><p>Gateway id. Get it from https://cloud.ibm.com/vpc-ext/network/publicGateways</p></td>
+<td><p>Gateway id. Get it from <a class="reference external" href="https://cloud.ibm.com/vpc-ext/network/publicGateways">here</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>ibm_vpc</p></td>
+<td><p>image_name</p></td>
+<td><p>lithops-worker-default</p></td>
+<td><p>no</p></td>
+<td><p>Virtual machine image name</p></td>
 </tr>
 <tr class="row-even"><td><p>ibm_vpc</p></td>
 <td><p>image_id</p></td>
@@ -1024,7 +987,7 @@ title="Print to PDF"
 <td><p>ssh_username</p></td>
 <td><p>root</p></td>
 <td><p>no</p></td>
-<td><p>Username to access the VPC</p></td>
+<td><p>Username to access the VM</p></td>
 </tr>
 <tr class="row-even"><td><p>ibm_vpc</p></td>
 <td><p>ssh_password</p></td>
@@ -1034,7 +997,7 @@ title="Print to PDF"
 </tr>
 <tr class="row-odd"><td><p>ibm_vpc</p></td>
 <td><p>ssh_key_filename</p></td>
-<td><p></p></td>
+<td><p>~/.ssh/id_rsa</p></td>
 <td><p>no</p></td>
 <td><p>Path to the ssh key file provided to access the VPC. It will use the default path if not provided</p></td>
 </tr>
@@ -1086,26 +1049,74 @@ title="Print to PDF"
 <td><p>no</p></td>
 <td><p>Try to allocate workers with single socket CPU. If eventually running on multiple socket, a warning message printed to user. Is <strong>True</strong> standalone <strong>workers_policy</strong> must be set to <strong>strict</strong> to trace workers states</p></td>
 </tr>
+<tr class="row-even"><td><p>ibm_vpc</p></td>
+<td><p>runtime</p></td>
+<td><p>python3</p></td>
+<td><p>no</p></td>
+<td><p>Runtime name to run the functions. Can be a container image name. If not set Lithops will use the default python3 interpreter of the VM</p></td>
+</tr>
+<tr class="row-odd"><td><p>ibm_vpc</p></td>
+<td><p>auto_dismantle</p></td>
+<td><p>True</p></td>
+<td><p>no</p></td>
+<td><p>If False then the VM is not stopped automatically.</p></td>
+</tr>
+<tr class="row-even"><td><p>ibm_vpc</p></td>
+<td><p>soft_dismantle_timeout</p></td>
+<td><p>300</p></td>
+<td><p>no</p></td>
+<td><p>Time in seconds to stop the VM instance after a job <strong>completed</strong> its execution</p></td>
+</tr>
+<tr class="row-odd"><td><p>ibm_vpc</p></td>
+<td><p>hard_dismantle_timeout</p></td>
+<td><p>3600</p></td>
+<td><p>no</p></td>
+<td><p>Time in seconds to stop the VM instance after a job <strong>started</strong> its execution</p></td>
+</tr>
+<tr class="row-even"><td><p>ibm_vpc</p></td>
+<td><p>exec_mode</p></td>
+<td><p>consume</p></td>
+<td><p>no</p></td>
+<td><p>One of: <strong>consume</strong>, <strong>create</strong> or <strong>reuse</strong>. If set to  <strong>create</strong>, Lithops will automatically create new VMs for each map() call based on the number of elements in iterdata. If set to <strong>reuse</strong> will try to reuse running workers if exist</p></td>
+</tr>
+<tr class="row-odd"><td><p>ibm_vpc</p></td>
+<td><p>pull_runtime</p></td>
+<td><p>False</p></td>
+<td><p>no</p></td>
+<td><p>If set to True, Lithops will execute the command <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">pull</span> <span class="pre">&lt;runtime_name&gt;</span></code> in each VSI before executing the a job (in case of using a docker runtime)</p></td>
+</tr>
+<tr class="row-even"><td><p>ibm_vpc</p></td>
+<td><p>workers_policy</p></td>
+<td><p>permissive</p></td>
+<td><p>no</p></td>
+<td><p>One of: <strong>permissive</strong>, <strong>strict</strong>. If set to <strong>strict</strong> will force creation of required workers number</p></td>
+</tr>
+<tr class="row-odd"><td><p>ibm_vpc</p></td>
+<td><p>gpu</p></td>
+<td><p>False</p></td>
+<td><p>no</p></td>
+<td><p>If True docker started with gpu support. Requires host to have neccessary hardware and software preconfigured and docker image runtime with gpu support specified</p></td>
+</tr>
 </tbody>
 </table>
 </section>
 </section>
 <section id="lithops-and-the-vsi-consume-mode">
 <h2>Lithops and the VSI consume mode<a class="headerlink" href="#lithops-and-the-vsi-consume-mode" title="Permalink to this headline">#</a></h2>
-<p>In this mode, Lithops can start and stop an existing VM, and deploy an entire job to that VM. The partition logic in this scenario is different from the auto create mode, since entire job executed in the same VM.</p>
+<p>In this mode, Lithops can start and stop an existing VM, and deploy an entire job to that VM. The partition logic in this scenario is different from the <code class="docutils literal notranslate"><span class="pre">create/reuse</span></code> modes, since the entire job is executed in the same VM.</p>
 <section id="lithops-configuration-for-the-consume-mode">
 <h3>Lithops configuration for the consume mode<a class="headerlink" href="#lithops-configuration-for-the-consume-mode" title="Permalink to this headline">#</a></h3>
 <p>Edit your lithops config and add the relevant keys:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span><span class="w"></span>
-<span class="w">   </span><span class="nt">backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ibm_vpc</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
+<span class="w">   </span><span class="nt">backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ibm_vpc</span>
 
-<span class="nt">ibm</span><span class="p">:</span><span class="w"></span>
-<span class="w">   </span><span class="nt">iam_api_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;iam-api-key&gt;</span><span class="w"></span>
+<span class="nt">ibm</span><span class="p">:</span>
+<span class="w">   </span><span class="nt">iam_api_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;iam-api-key&gt;</span>
 
-<span class="nt">ibm_vpc</span><span class="p">:</span><span class="w"></span>
-<span class="w">   </span><span class="nt">region   </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION&gt;</span><span class="w"></span>
-<span class="w">   </span><span class="nt">instance_id </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;INSTANCE ID OF THE VM&gt;</span><span class="w"></span>
-<span class="w">   </span><span class="nt">floating_ip  </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;FLOATING IP ADDRESS OF THE VM&gt;</span><span class="w"></span>
+<span class="nt">ibm_vpc</span><span class="p">:</span>
+<span class="w">   </span><span class="nt">region   </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION&gt;</span>
+<span class="w">   </span><span class="nt">instance_id </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;INSTANCE ID OF THE VM&gt;</span>
+<span class="w">   </span><span class="nt">floating_ip  </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;FLOATING IP ADDRESS OF THE VM&gt;</span>
 </pre></div>
 </div>
 <p>If you need to create new VM, then follow the steps to create and update Lithops configuration:</p>
@@ -1117,8 +1128,38 @@ title="Print to PDF"
 <li><p>Get the virtual server instance ID by selecting on your instance in <a class="reference external" href="https://cloud.ibm.com/vpc-ext/compute/vs">IBM VPC virtual server instances UI</a> and then extracting from the instance’s details.</p></li>
 </ol>
 </section>
-<section id="summary-of-the-configuration-keys-for-the-consume-mode">
-<h3>Summary of the configuration keys for the consume mode<a class="headerlink" href="#summary-of-the-configuration-keys-for-the-consume-mode" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="id1">
+<h2>Summary of configuration keys for IBM Cloud:<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<section id="ibm-iam">
+<h3>IBM IAM:<a class="headerlink" href="#ibm-iam" title="Permalink to this headline">#</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Group</p></th>
+<th class="head"><p>Key</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Mandatory</p></th>
+<th class="head"><p>Additional info</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ibm</p></td>
+<td><p>iam_api_key</p></td>
+<td><p></p></td>
+<td><p>no</p></td>
+<td><p>IBM Cloud IAM API key to authenticate against IBM COS and IBM Cloud Functions. Obtain the key <a class="reference external" href="https://cloud.ibm.com/iam/apikeys">here</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>ibm</p></td>
+<td><p>region</p></td>
+<td><p></p></td>
+<td><p>no</p></td>
+<td><p>IBM Region.  One of: <code class="docutils literal notranslate"><span class="pre">eu-gb</span></code>, <code class="docutils literal notranslate"><span class="pre">eu-de</span></code>, <code class="docutils literal notranslate"><span class="pre">us-south</span></code>, <code class="docutils literal notranslate"><span class="pre">us-east</span></code>, <code class="docutils literal notranslate"><span class="pre">br-sao</span></code>, <code class="docutils literal notranslate"><span class="pre">ca-tor</span></code>, <code class="docutils literal notranslate"><span class="pre">jp-tok</span></code>, <code class="docutils literal notranslate"><span class="pre">jp-osa</span></code>, <code class="docutils literal notranslate"><span class="pre">au-syd</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ibm-vpc-consume-mode">
+<h3>IBM VPC - Consume Mode<a class="headerlink" href="#ibm-vpc-consume-mode" title="Permalink to this headline">#</a></h3>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Group</p></th>
@@ -1133,7 +1174,7 @@ title="Print to PDF"
 <td><p>region</p></td>
 <td><p></p></td>
 <td><p>yes</p></td>
-<td><p>VPC Region. For example <code class="docutils literal notranslate"><span class="pre">us-south</span></code>. Choose one region from <a class="reference external" href="https://cloud.ibm.com/docs/vpc?topic=vpc-service-endpoints-for-vpc">here</a></p></td>
+<td><p>VPC Region. For example <code class="docutils literal notranslate"><span class="pre">us-south</span></code>. Choose one region from <a class="reference external" href="https://cloud.ibm.com/docs/vpc?topic=vpc-service-endpoints-for-vpc">here</a>. Lithops will use the region set under the <code class="docutils literal notranslate"><span class="pre">ibm</span></code> section if it is not set here</p></td>
 </tr>
 <tr class="row-odd"><td><p>ibm_vpc</p></td>
 <td><p>instance_id</p></td>
@@ -1148,16 +1189,52 @@ title="Print to PDF"
 <td><p>Floatting IP address atached to your VM instance</p></td>
 </tr>
 <tr class="row-odd"><td><p>ibm_vpc</p></td>
+<td><p>ssh_username</p></td>
+<td><p>root</p></td>
+<td><p>no</p></td>
+<td><p>Username to access the VM</p></td>
+</tr>
+<tr class="row-even"><td><p>ibm_vpc</p></td>
 <td><p>ssh_key_filename</p></td>
-<td><p></p></td>
+<td><p>~/.ssh/id_rsa</p></td>
 <td><p>no</p></td>
 <td><p>Path to the ssh key file provided to create the VM. It will use the default path if not provided</p></td>
 </tr>
-<tr class="row-even"><td><p>ibm_vpc</p></td>
+<tr class="row-odd"><td><p>ibm_vpc</p></td>
 <td><p>worker_processes</p></td>
 <td><p>2</p></td>
 <td><p>no</p></td>
 <td><p>Number of Lithops processes within a given worker. This can be used to parallelize function activations within a worker. It is recommendable to set this value to the same number of CPUs of the VM.</p></td>
+</tr>
+<tr class="row-even"><td><p>ibm_vpc</p></td>
+<td><p>runtime</p></td>
+<td><p>python3</p></td>
+<td><p>no</p></td>
+<td><p>Runtime name to run the functions. Can be a container image name. If not set Lithops will use the defeuv python3 interpreter of the VM</p></td>
+</tr>
+<tr class="row-odd"><td><p>ibm_vpc</p></td>
+<td><p>auto_dismantle</p></td>
+<td><p>True</p></td>
+<td><p>no</p></td>
+<td><p>If False then the VM is not stopped automatically.</p></td>
+</tr>
+<tr class="row-even"><td><p>ibm_vpc</p></td>
+<td><p>soft_dismantle_timeout</p></td>
+<td><p>300</p></td>
+<td><p>no</p></td>
+<td><p>Time in seconds to stop the VM instance after a job <strong>completed</strong> its execution</p></td>
+</tr>
+<tr class="row-odd"><td><p>ibm_vpc</p></td>
+<td><p>hard_dismantle_timeout</p></td>
+<td><p>3600</p></td>
+<td><p>no</p></td>
+<td><p>Time in seconds to stop the VM instance after a job <strong>started</strong> its execution</p></td>
+</tr>
+<tr class="row-even"><td><p>ibm_vpc</p></td>
+<td><p>pull_runtime</p></td>
+<td><p>False</p></td>
+<td><p>no</p></td>
+<td><p>If set to True, Lithops will execute the command <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">pull</span> <span class="pre">&lt;runtime_name&gt;</span></code> in each VSI before executing the a job (in case of using a docker runtime)</p></td>
 </tr>
 </tbody>
 </table>
@@ -1166,19 +1243,19 @@ title="Print to PDF"
 <section id="test-lithops">
 <h2>Test Lithops<a class="headerlink" href="#test-lithops" title="Permalink to this headline">#</a></h2>
 <p>Once you have your compute and storage backends configured, you can run a hello world function with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops <span class="nb">test</span> -b ibm_vpc -s ibm_cos
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops<span class="w"> </span>hello<span class="w"> </span>-b<span class="w"> </span>ibm_vpc<span class="w"> </span>-s<span class="w"> </span>ibm_cos
 </pre></div>
 </div>
 </section>
 <section id="viewing-the-execution-logs">
 <h2>Viewing the execution logs<a class="headerlink" href="#viewing-the-execution-logs" title="Permalink to this headline">#</a></h2>
 <p>You can view the function executions logs in your local machine using the <em>lithops client</em>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops logs poll
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops<span class="w"> </span>logs<span class="w"> </span>poll
 </pre></div>
 </div>
-<p>The master and worker VMs contains the Lithops service logs in <code class="docutils literal notranslate"><span class="pre">/tmp/lithops/service.log</span></code></p>
+<p>The master and worker VMs contain the Lithops service logs in <code class="docutils literal notranslate"><span class="pre">/tmp/lithops-root/service.log</span></code></p>
 <p>You can login to the master VM and get a live ssh connection with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops attach -b ibm_vpc
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops<span class="w"> </span>attach<span class="w"> </span>-b<span class="w"> </span>ibm_vpc
 </pre></div>
 </div>
 </section>

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Google Cloud Run &#8212; Lithops v2.9.0</title>
+    <title>Google Cloud Run &#8212; Lithops v3.0.1.dev0</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -91,7 +91,7 @@
       <img src="../../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Lithops v2.9.0</h1>
+      <h1 class="site-logo" id="site-title">Lithops v3.0.1.dev0</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
@@ -239,6 +239,11 @@
      AWS Elastic Compute Cloud (EC2)
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="azure_vms.html">
+     Azure Virtual Machines (Beta)
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -322,7 +327,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../functions.html">
-   Lithops Functions and Parameters
+   Functions and Parameters
   </a>
  </li>
  <li class="toctree-l1">
@@ -344,7 +349,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../api_storage.html">
-   Storage API Deatils
+   Storage API Details
   </a>
  </li>
 </ul>
@@ -405,7 +410,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../monitoring.html">
-   Lithops Monitoring
+   Monitoring
   </a>
  </li>
  <li class="toctree-l1">
@@ -512,19 +517,10 @@ title="Toggle navigation"
 
         
     </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/lithops-cloud/lithops"
+    <div class="header-article__right"><a href="https://github.com/lithops-cloud/lithops"
    class="headerbtn"
    data-toggle="tooltip"
-data-placement="left"
+data-placement="bottom"
 title="Source repository"
 >
   
@@ -532,31 +528,8 @@ title="Source repository"
 <span class="headerbtn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-<span class="headerbtn__text-container">repository</span>
+
 </a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/lithops-cloud/lithops/issues/new?title=Issue%20on%20page%20%2Fsource/compute_config/gcp_cloudrun.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
 
 <div class="menu-dropdown menu-dropdown-download-buttons">
   <button class="headerbtn menu-dropdown__trigger"
@@ -736,7 +709,7 @@ title="Print to PDF"
 <ol class="arabic simple">
 <li><p>Install Google Cloud Platform backend dependencies:</p></li>
 </ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m install lithops<span class="o">[</span>gcp<span class="o">]</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>install<span class="w"> </span>lithops<span class="o">[</span>gcp<span class="o">]</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
@@ -762,12 +735,12 @@ title="Print to PDF"
 <ol class="arabic simple">
 <li><p>Edit your lithops config and add the following keys:</p></li>
 </ol>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">lithops</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="nt">backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gcp_cloudrun</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">lithops</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gcp_cloudrun</span>
 
-<span class="w">    </span><span class="nt">gcp</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="nt">region </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span><span class="w"></span>
-<span class="w">        </span><span class="nt">credentials_path </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;FULL_PATH_TO_CREDENTIALS_JSON&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">gcp</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">region </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span>
+<span class="w">        </span><span class="nt">credentials_path </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;FULL_PATH_TO_CREDENTIALS_JSON&gt;</span>
 </pre></div>
 </div>
 </section>
@@ -789,7 +762,7 @@ title="Print to PDF"
 <td><p>region</p></td>
 <td><p></p></td>
 <td><p>yes</p></td>
-<td><p>Region name of the bucket created at step 8 of the gcp_storage config. Cloud Run containers will be created in the same region (e.g. <code class="docutils literal notranslate"><span class="pre">us-east1</span></code>)</p></td>
+<td><p>Region name of the GCP services (e.g. <code class="docutils literal notranslate"><span class="pre">us-east1</span></code>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>gcp</p></td>
 <td><p>credentials_path</p></td>
@@ -813,54 +786,60 @@ title="Print to PDF"
 </thead>
 <tbody>
 <tr class="row-even"><td><p>gcp_cloudrun</p></td>
+<td><p>region</p></td>
+<td><p></p></td>
+<td><p>no</p></td>
+<td><p>Region name (e.g. <code class="docutils literal notranslate"><span class="pre">us-east1</span></code>). Lithops will use the region set under the <code class="docutils literal notranslate"><span class="pre">gcp</span></code> section if it is not set here</p></td>
+</tr>
+<tr class="row-odd"><td><p>gcp_cloudrun</p></td>
 <td><p>min_workers</p></td>
 <td><p>0</p></td>
 <td><p>no</p></td>
 <td><p>Minimum number of workers of a given runtime to keep in warm status</p></td>
 </tr>
-<tr class="row-odd"><td><p>gcp_cloudrun</p></td>
+<tr class="row-even"><td><p>gcp_cloudrun</p></td>
 <td><p>max_workers</p></td>
 <td><p>1000</p></td>
 <td><p>no</p></td>
 <td><p>Maximum number of workers to scale a given runtime</p></td>
 </tr>
-<tr class="row-even"><td><p>gcp_cloudrun</p></td>
+<tr class="row-odd"><td><p>gcp_cloudrun</p></td>
 <td><p>worker_processes</p></td>
 <td><p>1</p></td>
 <td><p>no</p></td>
 <td><p>Number of Lithops processes within a given worker. This can be used to parallelize function activations within a worker. It is recommendable to set this value to the same number of CPUs of the container.</p></td>
 </tr>
-<tr class="row-odd"><td><p>gcp_cloudrun</p></td>
+<tr class="row-even"><td><p>gcp_cloudrun</p></td>
 <td><p>runtime</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
 <td><p>Container image name</p></td>
 </tr>
-<tr class="row-even"><td><p>gcp_cloudrun</p></td>
+<tr class="row-odd"><td><p>gcp_cloudrun</p></td>
 <td><p>runtime_cpu</p></td>
 <td><p>0.25</p></td>
 <td><p>no</p></td>
 <td><p>CPU limit. Default 0.25vCPU</p></td>
 </tr>
-<tr class="row-odd"><td><p>gcp_cloudrun</p></td>
+<tr class="row-even"><td><p>gcp_cloudrun</p></td>
 <td><p>runtime_memory</p></td>
 <td><p>256</p></td>
 <td><p>no</p></td>
 <td><p>Memory limit in MB. Default 256Mi</p></td>
 </tr>
-<tr class="row-even"><td><p>gcp_cloudrun</p></td>
+<tr class="row-odd"><td><p>gcp_cloudrun</p></td>
 <td><p>runtime_timeout</p></td>
 <td><p>300</p></td>
 <td><p>no</p></td>
 <td><p>Runtime timeout in seconds. Default 5 minutes</p></td>
 </tr>
-<tr class="row-odd"><td><p>gcp_cloudrun</p></td>
+<tr class="row-even"><td><p>gcp_cloudrun</p></td>
 <td><p>trigger</p></td>
 <td><p>https</p></td>
 <td><p>no</p></td>
 <td><p>Currently it supports ‘https’ trigger</p></td>
 </tr>
-<tr class="row-even"><td><p>gcp_cloudrun</p></td>
+<tr class="row-odd"><td><p>gcp_cloudrun</p></td>
 <td><p>invoke_pool_threads</p></td>
 <td><p>100</p></td>
 <td><p>no</p></td>
@@ -873,14 +852,14 @@ title="Print to PDF"
 <section id="test-lithops">
 <h2>Test Lithops<a class="headerlink" href="#test-lithops" title="Permalink to this headline">#</a></h2>
 <p>Once you have your compute and storage backends configured, you can run a hello world function with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops <span class="nb">test</span> -b gcp_cloudrun -s gcp_storage
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops<span class="w"> </span>hello<span class="w"> </span>-b<span class="w"> </span>gcp_cloudrun<span class="w"> </span>-s<span class="w"> </span>gcp_storage
 </pre></div>
 </div>
 </section>
 <section id="viewing-the-execution-logs">
 <h2>Viewing the execution logs<a class="headerlink" href="#viewing-the-execution-logs" title="Permalink to this headline">#</a></h2>
 <p>You can view the function executions logs in your local machine using the <em>lithops client</em>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops logs poll
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops<span class="w"> </span>logs<span class="w"> </span>poll
 </pre></div>
 </div>
 </section>
