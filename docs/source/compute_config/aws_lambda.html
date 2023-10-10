@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>AWS Lambda &#8212; Lithops v3.0.0</title>
+    <title>AWS Lambda</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -38,8 +38,8 @@
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="AWS Batch" href="aws_batch.html" />
-    <link rel="prev" title="OpenWhisk" href="openwhisk.html" />
+    <link rel="next" title="Google Cloud Functions" href="gcp_functions.html" />
+    <link rel="prev" title="IBM Cloud Functions" href="ibm_cf.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -90,8 +90,6 @@
       
       <img src="../../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
-      
-      <h1 class="site-logo" id="site-title">Lithops v3.0.0</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
@@ -174,34 +172,9 @@
      IBM Cloud Functions
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="code_engine.html">
-     IBM Cloud Code Engine
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="k8s_job.html">
-     Kubernetes (batch/job)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="knative.html">
-     Knative
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="openwhisk.html">
-     OpenWhisk
-    </a>
-   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      AWS Lambda
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="aws_batch.html">
-     AWS Batch
     </a>
    </li>
    <li class="toctree-l2">
@@ -210,18 +183,53 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="gcp_cloudrun.html">
-     Google Cloud Run
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="azure_functions.html">
      Azure Functions
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="oracle_functions.html">
+     Oracle Functions (beta)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="aliyun_functions.html">
+     Aliyun Function Compute
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="openwhisk.html">
+     OpenWhisk
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="code_engine.html">
+     IBM Cloud Code Engine
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="aws_batch.html">
+     AWS Batch
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="gcp_cloudrun.html">
+     Google Cloud Run
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="azure_containers.html">
      Azure Container Apps
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="kubernetes.html">
+     Kubernetes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="knative.html">
+     Knative
     </a>
    </li>
    <li class="toctree-l2">
@@ -287,6 +295,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../storage_config/oracle_oss.html">
+     Oracle Object Storage (beta)
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../storage_config/ceph.html">
      Ceph
     </a>
@@ -328,6 +341,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../functions.html">
    Functions and Parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../worker_granularity.html">
+   Worker Granularity
   </a>
  </li>
  <li class="toctree-l1">
@@ -403,11 +421,6 @@
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../worker_granularity.html">
-   Customize Worker Granularity
-  </a>
- </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../monitoring.html">
    Monitoring
@@ -599,11 +612,6 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#installation">
-   Installation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#configuration">
    Configuration
   </a>
@@ -672,11 +680,6 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#installation">
-   Installation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#configuration">
    Configuration
   </a>
@@ -738,15 +741,9 @@ title="Print to PDF"
   <section id="aws-lambda">
 <h1>AWS Lambda<a class="headerlink" href="#aws-lambda" title="Permalink to this headline">#</a></h1>
 <p>Lithops with <em>AWS Lambda</em> as serverless compute backend.</p>
-<section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">#</a></h2>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">#</a></h2>
 <ol class="arabic simple">
-<li><p>Install Amazon Web Services backend dependencies:</p></li>
-</ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">lithops</span><span class="p">[</span><span class="n">aws</span><span class="p">]</span>
-</pre></div>
-</div>
-<ol class="arabic simple" start="2">
 <li><p><a class="reference external" href="https://console.aws.amazon.com/?nc2=h_m_mc">Login</a> to Amazon Web Services Console (or signup if you don’t have an account)</p></li>
 <li><p>Navigate to <strong>IAM &gt; Policies</strong>. Click on <strong>Create policy</strong>.</p></li>
 <li><p>Select <strong>JSON</strong> tab and paste the following JSON policy:</p></li>
@@ -755,7 +752,6 @@ title="Print to PDF"
 <span class="w">    </span><span class="nt">&quot;Version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;Statement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;Sid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VisualEditor0&quot;</span><span class="p">,</span>
 <span class="w">            </span><span class="nt">&quot;Effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
 <span class="w">            </span><span class="nt">&quot;Action&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">                </span><span class="s2">&quot;s3:*&quot;</span><span class="p">,</span>
@@ -773,15 +769,10 @@ title="Print to PDF"
 <span class="p">}</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="5">
+<ol class="arabic simple" start="4">
 <li><p>Click <strong>Next: Tags</strong> and <strong>Next: Review</strong>. Fill the policy name field (you can name it <code class="docutils literal notranslate"><span class="pre">lithops-policy</span></code> or simmilar) and create the policy.</p></li>
 <li><p>Go back to <strong>IAM</strong> and navigate to <strong>Roles</strong> tab. Click <strong>Create role</strong>.</p></li>
 <li><p>Choose <strong>Lambda</strong> on the use case list and click <strong>Next: Permissions</strong>. Select the policy created before (<code class="docutils literal notranslate"><span class="pre">lithops-policy</span></code>). Click <strong>Next: Tags</strong> and <strong>Next: Review</strong>. Type a role name, for example <code class="docutils literal notranslate"><span class="pre">lithops-execution-role</span></code>. Click on <em>Create Role</em>.</p></li>
-</ol>
-</section>
-<section id="configuration">
-<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">#</a></h2>
-<ol class="arabic simple" start="6">
 <li><p>Edit your lithops config and add the following keys:</p></li>
 </ol>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
@@ -866,7 +857,7 @@ title="Print to PDF"
 <td><p>region</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
-<td><p>Region where the S3 bucket is located and where Lambda functions will be invoked (e.g. <code class="docutils literal notranslate"><span class="pre">us-east-1</span></code>). Lithops will use the <code class="docutils literal notranslate"><span class="pre">region</span></code> set under the <code class="docutils literal notranslate"><span class="pre">aws</span></code> section if it is not set here</p></td>
+<td><p>Region where Lambda functions will be invoked (e.g. <code class="docutils literal notranslate"><span class="pre">us-east-1</span></code>). Lithops will use the <code class="docutils literal notranslate"><span class="pre">region</span></code> set under the <code class="docutils literal notranslate"><span class="pre">aws</span></code> section if it is not set here</p></td>
 </tr>
 <tr class="row-even"><td><p>aws_lambda</p></td>
 <td><p>max_workers</p></td>
@@ -1006,17 +997,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="openwhisk.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="ibm_cf.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">OpenWhisk</p>
+            <p class="prev-next-title">IBM Cloud Functions</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="aws_batch.html" title="next page">
+    <a class='right-next' id="next-link" href="gcp_functions.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">AWS Batch</p>
+        <p class="prev-next-title">Google Cloud Functions</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

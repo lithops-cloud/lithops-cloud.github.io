@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Kubernetes (batch/job) &#8212; Lithops v3.0.0</title>
+    <title>Kubernetes</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -39,7 +39,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Knative" href="knative.html" />
-    <link rel="prev" title="IBM Cloud Code Engine" href="code_engine.html" />
+    <link rel="prev" title="Azure Container Apps" href="azure_containers.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -90,8 +90,6 @@
       
       <img src="../../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
-      
-      <h1 class="site-logo" id="site-title">Lithops v3.0.0</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
@@ -175,33 +173,8 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="code_engine.html">
-     IBM Cloud Code Engine
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Kubernetes (batch/job)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="knative.html">
-     Knative
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="openwhisk.html">
-     OpenWhisk
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="aws_lambda.html">
      AWS Lambda
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="aws_batch.html">
-     AWS Batch
     </a>
    </li>
    <li class="toctree-l2">
@@ -210,18 +183,53 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="gcp_cloudrun.html">
-     Google Cloud Run
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="azure_functions.html">
      Azure Functions
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="oracle_functions.html">
+     Oracle Functions (beta)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="aliyun_functions.html">
+     Aliyun Function Compute
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="openwhisk.html">
+     OpenWhisk
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="code_engine.html">
+     IBM Cloud Code Engine
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="aws_batch.html">
+     AWS Batch
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="gcp_cloudrun.html">
+     Google Cloud Run
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="azure_containers.html">
      Azure Container Apps
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Kubernetes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="knative.html">
+     Knative
     </a>
    </li>
    <li class="toctree-l2">
@@ -287,6 +295,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../storage_config/oracle_oss.html">
+     Oracle Object Storage (beta)
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../storage_config/ceph.html">
      Ceph
     </a>
@@ -328,6 +341,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../functions.html">
    Functions and Parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../worker_granularity.html">
+   Worker Granularity
   </a>
  </li>
  <li class="toctree-l1">
@@ -403,11 +421,6 @@
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../worker_granularity.html">
-   Customize Worker Granularity
-  </a>
- </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../monitoring.html">
    Monitoring
@@ -539,7 +552,7 @@ title="Source repository"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/source/compute_config/k8s_job.md.txt"
+        <a href="../../_sources/source/compute_config/kubernetes.md.txt"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -644,7 +657,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Kubernetes (batch/job)</h1>
+                <h1>Kubernetes</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -701,8 +714,8 @@ title="Print to PDF"
                 
               <div>
                 
-  <section id="kubernetes-batch-job">
-<h1>Kubernetes (batch/job)<a class="headerlink" href="#kubernetes-batch-job" title="Permalink to this headline">#</a></h1>
+  <section id="kubernetes">
+<h1>Kubernetes<a class="headerlink" href="#kubernetes" title="Permalink to this headline">#</a></h1>
 <p>Lithops with kubernetes as serverless compute backend.</p>
 <section id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">#</a></h2>
@@ -776,26 +789,38 @@ title="Print to PDF"
 <td><p>Path to kubecfg file. Mandatory if config file not in <code class="docutils literal notranslate"><span class="pre">~/.kube/config</span></code> or KUBECONFIG env var not present</p></td>
 </tr>
 <tr class="row-odd"><td><p>k8s</p></td>
+<td><p>kubecfg_context</p></td>
+<td><p></p></td>
+<td><p>no</p></td>
+<td><p>kubernetes context to use from your kubeconfig file. It will use the default active context if not provided</p></td>
+</tr>
+<tr class="row-even"><td><p>k8s</p></td>
+<td><p>namespace</p></td>
+<td><p>default</p></td>
+<td><p>no</p></td>
+<td><p>Kubernetes namespace to use for lithops execution</p></td>
+</tr>
+<tr class="row-odd"><td><p>k8s</p></td>
 <td><p>docker_server</p></td>
 <td><p>docker.io</p></td>
 <td><p>no</p></td>
-<td><p>Docker server URL</p></td>
+<td><p>Container registry URL</p></td>
 </tr>
 <tr class="row-even"><td><p>k8s</p></td>
 <td><p>docker_user</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
-<td><p>Docker hub username</p></td>
+<td><p>Container registry user name</p></td>
 </tr>
 <tr class="row-odd"><td><p>k8s</p></td>
 <td><p>docker_password</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
-<td><p>Login to your docker hub account and generate a new access token <a class="reference external" href="https://hub.docker.com/settings/security">here</a></p></td>
+<td><p>Container registry password/token. In case of Docker hub, login to your docker hub account and generate a new access token <a class="reference external" href="https://hub.docker.com/settings/security">here</a></p></td>
 </tr>
 <tr class="row-even"><td><p>k8s</p></td>
 <td><p>max_workers</p></td>
-<td><p>200</p></td>
+<td><p>100</p></td>
 <td><p>no</p></td>
 <td><p>Max number of workers per <code class="docutils literal notranslate"><span class="pre">FunctionExecutor()</span></code></p></td>
 </tr>
@@ -813,15 +838,15 @@ title="Print to PDF"
 </tr>
 <tr class="row-odd"><td><p>k8s</p></td>
 <td><p>runtime_cpu</p></td>
-<td><p>0.5</p></td>
+<td><p>1</p></td>
 <td><p>no</p></td>
-<td><p>CPU limit. Default 0.5vCPU</p></td>
+<td><p>CPU limit. Default 1vCPU</p></td>
 </tr>
 <tr class="row-even"><td><p>k8s</p></td>
 <td><p>runtime_memory</p></td>
-<td><p>256</p></td>
+<td><p>512</p></td>
 <td><p>no</p></td>
-<td><p>Memory limit in MB. Default 256Mi</p></td>
+<td><p>Memory limit in MB. Default 512MB</p></td>
 </tr>
 <tr class="row-odd"><td><p>k8s</p></td>
 <td><p>runtime_timeout</p></td>
@@ -856,11 +881,11 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="code_engine.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="azure_containers.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">IBM Cloud Code Engine</p>
+            <p class="prev-next-title">Azure Container Apps</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="knative.html" title="next page">

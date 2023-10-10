@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>IBM Cloud Code Engine &#8212; Lithops v3.0.0</title>
+    <title>IBM Cloud Code Engine</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -38,8 +38,8 @@
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Kubernetes (batch/job)" href="k8s_job.html" />
-    <link rel="prev" title="IBM Cloud Functions" href="ibm_cf.html" />
+    <link rel="next" title="AWS Batch" href="aws_batch.html" />
+    <link rel="prev" title="OpenWhisk" href="openwhisk.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -90,8 +90,6 @@
       
       <img src="../../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
-      
-      <h1 class="site-logo" id="site-title">Lithops v3.0.0</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
@@ -174,34 +172,9 @@
      IBM Cloud Functions
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     IBM Cloud Code Engine
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="k8s_job.html">
-     Kubernetes (batch/job)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="knative.html">
-     Knative
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="openwhisk.html">
-     OpenWhisk
-    </a>
-   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="aws_lambda.html">
      AWS Lambda
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="aws_batch.html">
-     AWS Batch
     </a>
    </li>
    <li class="toctree-l2">
@@ -210,18 +183,53 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="gcp_cloudrun.html">
-     Google Cloud Run
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="azure_functions.html">
      Azure Functions
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="oracle_functions.html">
+     Oracle Functions (beta)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="aliyun_functions.html">
+     Aliyun Function Compute
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="openwhisk.html">
+     OpenWhisk
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     IBM Cloud Code Engine
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="aws_batch.html">
+     AWS Batch
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="gcp_cloudrun.html">
+     Google Cloud Run
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="azure_containers.html">
      Azure Container Apps
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="kubernetes.html">
+     Kubernetes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="knative.html">
+     Knative
     </a>
    </li>
    <li class="toctree-l2">
@@ -287,6 +295,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../storage_config/oracle_oss.html">
+     Oracle Object Storage (beta)
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../storage_config/ceph.html">
      Ceph
     </a>
@@ -328,6 +341,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../functions.html">
    Functions and Parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../worker_granularity.html">
+   Worker Granularity
   </a>
  </li>
  <li class="toctree-l1">
@@ -403,11 +421,6 @@
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../worker_granularity.html">
-   Customize Worker Granularity
-  </a>
- </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../monitoring.html">
    Monitoring
@@ -899,7 +912,7 @@ title="Print to PDF"
 <td><p>namespace</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
-<td><p>Alternatively to project_name, you can provide ‘namespace’. Get it from you code engine k8s config file.</p></td>
+<td><p>Alternatively to <code class="docutils literal notranslate"><span class="pre">project_name</span></code>, you can provide <code class="docutils literal notranslate"><span class="pre">namespace</span></code>. Get it from you code engine k8s config file.</p></td>
 </tr>
 <tr class="row-even"><td><p>code_engine</p></td>
 <td><p>region</p></td>
@@ -911,19 +924,19 @@ title="Print to PDF"
 <td><p>docker_server</p></td>
 <td><p>docker.io</p></td>
 <td><p>no</p></td>
-<td><p>Docker server URL</p></td>
+<td><p>Container registry URL</p></td>
 </tr>
 <tr class="row-even"><td><p>code_engine</p></td>
 <td><p>docker_user</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
-<td><p>Docker hub username</p></td>
+<td><p>Container registry user name</p></td>
 </tr>
 <tr class="row-odd"><td><p>code_engine</p></td>
 <td><p>docker_password</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
-<td><p>Login to your docker hub account and generate a new access token <a class="reference external" href="https://hub.docker.com/settings/security">here</a></p></td>
+<td><p>Container registry password/token. In case of Docker hub, login to your docker hub account and generate a new access token <a class="reference external" href="https://hub.docker.com/settings/security">here</a></p></td>
 </tr>
 <tr class="row-even"><td><p>code_engine</p></td>
 <td><p>max_workers</p></td>
@@ -998,17 +1011,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="ibm_cf.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="openwhisk.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">IBM Cloud Functions</p>
+            <p class="prev-next-title">OpenWhisk</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="k8s_job.html" title="next page">
+    <a class='right-next' id="next-link" href="aws_batch.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Kubernetes (batch/job)</p>
+        <p class="prev-next-title">AWS Batch</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

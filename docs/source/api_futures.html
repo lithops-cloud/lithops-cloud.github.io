@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Lithops Futures API &#8212; Lithops v3.0.0</title>
+    <title>Lithops Futures API</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -91,8 +91,6 @@
       <img src="../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Lithops v3.0.0</h1>
-      
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
@@ -175,33 +173,8 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/code_engine.html">
-     IBM Cloud Code Engine
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/k8s_job.html">
-     Kubernetes (batch/job)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/knative.html">
-     Knative
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/openwhisk.html">
-     OpenWhisk
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="compute_config/aws_lambda.html">
      AWS Lambda
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/aws_batch.html">
-     AWS Batch
     </a>
    </li>
    <li class="toctree-l2">
@@ -210,18 +183,53 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/gcp_cloudrun.html">
-     Google Cloud Run
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="compute_config/azure_functions.html">
      Azure Functions
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/oracle_functions.html">
+     Oracle Functions (beta)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/aliyun_functions.html">
+     Aliyun Function Compute
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/openwhisk.html">
+     OpenWhisk
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/code_engine.html">
+     IBM Cloud Code Engine
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/aws_batch.html">
+     AWS Batch
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/gcp_cloudrun.html">
+     Google Cloud Run
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="compute_config/azure_containers.html">
      Azure Container Apps
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/kubernetes.html">
+     Kubernetes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/knative.html">
+     Knative
     </a>
    </li>
    <li class="toctree-l2">
@@ -287,6 +295,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="storage_config/oracle_oss.html">
+     Oracle Object Storage (beta)
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="storage_config/ceph.html">
      Ceph
     </a>
@@ -328,6 +341,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="functions.html">
    Functions and Parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="worker_granularity.html">
+   Worker Granularity
   </a>
  </li>
  <li class="toctree-l1">
@@ -403,11 +421,6 @@
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="worker_granularity.html">
-   Customize Worker Granularity
-  </a>
- </li>
  <li class="toctree-l1">
   <a class="reference internal" href="monitoring.html">
    Monitoring
@@ -863,7 +876,7 @@ seconds to wait before returning.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="lithops.executors.LocalhostExecutor">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lithops.executors.</span></span><span class="sig-name descname"><span class="pre">LocalhostExecutor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">monitoring</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.executors.LocalhostExecutor" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lithops.executors.</span></span><span class="sig-name descname"><span class="pre">LocalhostExecutor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">monitoring</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.executors.LocalhostExecutor" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#lithops.executors.FunctionExecutor" title="lithops.executors.FunctionExecutor"><code class="xref py py-class docutils literal notranslate"><span class="pre">lithops.executors.FunctionExecutor</span></code></a></p>
 <p>Initialize a LocalhostExecutor class.</p>
 <dl class="field-list simple">
@@ -874,7 +887,7 @@ seconds to wait before returning.</p>
 <li><p><strong>storage</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Name of the storage backend to use.</p></li>
 <li><p><strong>monitoring</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – monitoring system.</p></li>
 <li><p><strong>log_level</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – log level to use during the execution.</p></li>
-<li><p><strong>kwargs</strong> – Any parameter that can be set in the compute backend section of the config file, can be set here</p></li>
+<li><p><strong>kwargs</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – Any parameter that can be set in the compute backend section of the config file, can be set here</p></li>
 </ul>
 </dd>
 </dl>

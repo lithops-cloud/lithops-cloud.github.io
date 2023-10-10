@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Customize Worker Granularity &#8212; Lithops v3.0.0</title>
+    <title>Worker Granularity</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -38,8 +38,8 @@
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Monitoring" href="monitoring.html" />
-    <link rel="prev" title="Apache Airflow" href="airflow.html" />
+    <link rel="next" title="Function chaining" href="notebooks/function_chaining.html" />
+    <link rel="prev" title="Functions and Parameters" href="functions.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -90,8 +90,6 @@
       
       <img src="../_static/lithops_logo_readme.png" class="logo" alt="logo">
       
-      
-      <h1 class="site-logo" id="site-title">Lithops v3.0.0</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -175,33 +173,8 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/code_engine.html">
-     IBM Cloud Code Engine
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/k8s_job.html">
-     Kubernetes (batch/job)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/knative.html">
-     Knative
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/openwhisk.html">
-     OpenWhisk
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="compute_config/aws_lambda.html">
      AWS Lambda
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/aws_batch.html">
-     AWS Batch
     </a>
    </li>
    <li class="toctree-l2">
@@ -210,18 +183,53 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="compute_config/gcp_cloudrun.html">
-     Google Cloud Run
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="compute_config/azure_functions.html">
      Azure Functions
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/oracle_functions.html">
+     Oracle Functions (beta)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/aliyun_functions.html">
+     Aliyun Function Compute
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/openwhisk.html">
+     OpenWhisk
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/code_engine.html">
+     IBM Cloud Code Engine
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/aws_batch.html">
+     AWS Batch
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/gcp_cloudrun.html">
+     Google Cloud Run
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="compute_config/azure_containers.html">
      Azure Container Apps
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/kubernetes.html">
+     Kubernetes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="compute_config/knative.html">
+     Knative
     </a>
    </li>
    <li class="toctree-l2">
@@ -287,6 +295,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="storage_config/oracle_oss.html">
+     Oracle Object Storage (beta)
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="storage_config/ceph.html">
      Ceph
     </a>
@@ -319,7 +332,7 @@
   Lithops Compute API
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="api_futures.html">
    Lithops Futures API
@@ -328,6 +341,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="functions.html">
    Functions and Parameters
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Worker Granularity
   </a>
  </li>
  <li class="toctree-l1">
@@ -402,12 +420,7 @@
   Advanced Features
  </span>
 </p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Customize Worker Granularity
-  </a>
- </li>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="monitoring.html">
    Monitoring
@@ -576,23 +589,60 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-customize-worker-granularity">
+   How to customize worker granularity?
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Customize Worker Granularity</h1>
+                <h1>Worker Granularity</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-customize-worker-granularity">
+   How to customize worker granularity?
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -600,14 +650,67 @@ title="Print to PDF"
                 
               <div>
                 
-  <section id="customize-worker-granularity">
-<h1>Customize Worker Granularity<a class="headerlink" href="#customize-worker-granularity" title="Permalink to this headline">#</a></h1>
-<p>By default, Lithops worker granularity is et to 1. That is, each function activations is run in a different runtime instance.
-You can change this by using the <code class="docutils literal notranslate"><span class="pre">chunksize</span></code> parameter of the map and map_reduce calls.</p>
-<p>By default, Lithops uses one process in each runtime instance.
-You can change this by using the <code class="docutils literal notranslate"><span class="pre">worker_processes</span></code> parameter in the configuration of your backend.
-This parameter allows to start multiple processes within the same runtime instance.
-This is convenient if your runtime have access to more than one CPU.</p>
+  <section id="worker-granularity">
+<h1>Worker Granularity<a class="headerlink" href="#worker-granularity" title="Permalink to this headline">#</a></h1>
+<p>Lithops was initially designed with Function as a Service (FaaS) platforms in mind. As such, its default worker
+granularity is set to 1. This means that each function activation is executed within its own isolated
+runtime instance. This design choice aligns with the nature of FaaS, where functions are typically short-lived
+and stateless, making it well-suited for tasks like event-driven processing and serverless computing.</p>
+<p>However, it’s essential to understand the distinctions between FaaS and Container as a Service (CaaS) platforms.
+In CaaS, you have greater flexibility in selecting the appropriate resources (CPU and memory) for each worker.
+This flexibility allows you to fine-tune the execution environment to your specific requirements. In contrast
+to FaaS, where the granularity is often fixed at 1, CaaS platforms enable you to adjust the number of CPUs
+allocated to a container.</p>
+<p>When using Lithops on a CaaS platform, it can be more advantageous to increase the number of CPUs assigned to each
+worker and subsequently adjust the granularity, rather than adhering to a 1:1 granularity ratio. This approach
+significantly reduces cold start times. For instance, if you need to execute 100 tasks with a 1:1 granularity,
+it would attempt to initiate all 100 containers simultaneously, potentially overloading the CaaS platform. However,
+by configuring each worker to utilize 4 CPUs and updating Lithops accordingly, it would only need to start 25 containers.
+This allows you to leverage the resource flexibility provided by CaaS without attempting to impose FaaS-like granularity.
+Understanding these distinctions between FaaS and CaaS platforms is crucial for optimizing the performance and efficient
+resource utilization of your Lithops-based applications.</p>
+<p>In addition to supporting FaaS and CaaS platforms, Lithops also extends its compatibility to Virtual Machine (VM) backends,
+such as EC2. Similar to CaaS environments, VMs offer a high degree of resource customization. When utilizing VMs with Lithops,
+you gain the ability to tailor your VM instance with the appropriate resources, including CPU cores. In scenarios where
+parallelism is crucial, it may be more efficient to configure a VM with a higher core count, such as 8 CPUs, rather than
+attempting to manage and coordinate eight separate VM instances with single cores each. This approach simplifies resource
+management and optimizes the performance of your Lithops-based applications running on VM backends. As with CaaS,
+understanding the flexibility VMs provide is essential for effectively utilizing your compute resources.</p>
+<section id="how-to-customize-worker-granularity">
+<h2>How to customize worker granularity?<a class="headerlink" href="#how-to-customize-worker-granularity" title="Permalink to this headline">#</a></h2>
+<p>To customize the worker granularity, you have to edit your Lithops config and add the <code class="docutils literal notranslate"><span class="pre">worker_processes</span></code> parameter into
+your backend section. The <code class="docutils literal notranslate"><span class="pre">worker_processes</span></code> config parameter is employed to define the number of parallel sub-workers
+initiated within a single worker. To fully utilize the allocated resources for your containers, it is advisable to set
+this parameter to a value that matches or exceeds the number of CPUs in your container. For example:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">gcp_cloudrun</span><span class="p">:</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">....</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">worker_processes</span><span class="w"> </span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
+</pre></div>
+</div>
+<p>Alongside the <code class="docutils literal notranslate"><span class="pre">worker_processes</span></code> configuration parameter, it is possible to specify the <code class="docutils literal notranslate"><span class="pre">chunksize</span></code> parameter.
+The <code class="docutils literal notranslate"><span class="pre">chunksize</span></code> parameter determines the number of functions allocated to each worker for processing.
+By default, the <code class="docutils literal notranslate"><span class="pre">chunksize</span></code> parameter is automatically configured to match the <code class="docutils literal notranslate"><span class="pre">worker_processes</span></code>. However, you have the
+flexibility to customize it by setting it to a higher value. For example, if you have 200 tasks to execute and you set
+<code class="docutils literal notranslate"><span class="pre">worker_processes</span></code> to 4 and <code class="docutils literal notranslate"><span class="pre">chunksize</span></code> to 8, this configuration will result in the initiation of 25 workers (instead of 50).
+Within each worker, 4 parallel sub-workers will start execution. Each worker will receive 8 tasks to process. The first 4
+tasks will begin immediately since there are 4 available sub-workers per worker. Meanwhile, the remaining 4 tasks will be
+queued for execution as the initial tasks start to complete.</p>
+<p>To customize the <code class="docutils literal notranslate"><span class="pre">chunksize</span></code> parameter, you have to edit your <code class="docutils literal notranslate"><span class="pre">map()</span></code> or <code class="docutils literal notranslate"><span class="pre">map_reduce()</span></code> calls and specify the desirde value, for example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lithops</span>
+
+
+<span class="k">def</span> <span class="nf">my_map_function</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;I&#39;m activation number </span><span class="si">{</span><span class="nb">id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">7</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">()</span>
+    <span class="n">fexec</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">my_map_function</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="p">),</span> <span class="n">chunksize</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fexec</span><span class="o">.</span><span class="n">get_result</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -618,17 +721,17 @@ This is convenient if your runtime have access to more than one CPU.</p>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="airflow.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="functions.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Apache Airflow</p>
+            <p class="prev-next-title">Functions and Parameters</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="monitoring.html" title="next page">
+    <a class='right-next' id="next-link" href="notebooks/function_chaining.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Monitoring</p>
+        <p class="prev-next-title">Function chaining</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
