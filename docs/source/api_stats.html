@@ -479,20 +479,19 @@ The user can obtain these statistics through the future object:</p>
  <span class="s1">&#39;worker_cold_start&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
  <span class="s1">&#39;worker_end_tstamp&#39;</span><span class="p">:</span> <span class="mf">1647526902.397567</span><span class="p">,</span>
  <span class="s1">&#39;worker_exec_time&#39;</span><span class="p">:</span> <span class="mf">0.23604679</span><span class="p">,</span>
- <span class="s1">&#39;worker_func_cpu_system_time&#39;</span><span class="p">:</span> <span class="mf">16418.34375</span><span class="p">,</span>
- <span class="s1">&#39;worker_func_cpu_total_time&#39;</span><span class="p">:</span> <span class="mf">86985.125</span><span class="p">,</span>
  <span class="s1">&#39;worker_func_cpu_usage&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">25.0</span><span class="p">],</span>
  <span class="s1">&#39;worker_func_cpu_user_time&#39;</span><span class="p">:</span> <span class="mf">70566.78125</span><span class="p">,</span>
+ <span class="s1">&#39;worker_func_cpu_system_time&#39;</span><span class="p">:</span> <span class="mf">16418.34375</span><span class="p">,</span>
  <span class="s1">&#39;worker_func_end_tstamp&#39;</span><span class="p">:</span> <span class="mf">1647526902.2985177</span><span class="p">,</span>
  <span class="s1">&#39;worker_func_exec_time&#39;</span><span class="p">:</span> <span class="mf">1.91e-06</span><span class="p">,</span>
- <span class="s1">&#39;worker_func_recv_net_io&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
- <span class="s1">&#39;worker_func_rss&#39;</span><span class="p">:</span> <span class="mi">60678144</span><span class="p">,</span>
- <span class="s1">&#39;worker_func_sent_net_io&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+ <span class="s1">&#39;worker_func_recv_net_io&#39;</span><span class="p">:</span> <span class="mi">5968</span><span class="p">,</span>
+ <span class="s1">&#39;worker_func_sent_net_io&#39;</span><span class="p">:</span> <span class="mi">1223</span><span class="p">,</span>
  <span class="s1">&#39;worker_func_start_tstamp&#39;</span><span class="p">:</span> <span class="mf">1647526902.2985158</span><span class="p">,</span>
+ <span class="s1">&#39;worker_func_rss&#39;</span><span class="p">:</span> <span class="mi">60678144</span><span class="p">,</span>
  <span class="s1">&#39;worker_func_uss&#39;</span><span class="p">:</span> <span class="mi">44838912</span><span class="p">,</span>
  <span class="s1">&#39;worker_func_vms&#39;</span><span class="p">:</span> <span class="mi">552267776</span><span class="p">,</span>
- <span class="s1">&#39;worker_peak_memory_end&#39;</span><span class="p">:</span> <span class="mi">126469504</span><span class="p">,</span>
  <span class="s1">&#39;worker_peak_memory_start&#39;</span><span class="p">:</span> <span class="mi">88469504</span><span class="p">,</span>
+ <span class="s1">&#39;worker_peak_memory_end&#39;</span><span class="p">:</span> <span class="mi">126469504</span><span class="p">,</span>
  <span class="s1">&#39;worker_result_upload_time&#39;</span><span class="p">:</span> <span class="mf">0.07001352</span><span class="p">,</span>
  <span class="s1">&#39;worker_start_tstamp&#39;</span><span class="p">:</span> <span class="mf">1647526902.1615202</span><span class="p">}</span>
 </pre></div>
@@ -556,29 +555,23 @@ The user can obtain these statistics through the future object:</p>
 <tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_exec_time</span></code></p></td>
 <td><p>Total execution time of the worker function (lithops wrapper + user defined funtion execution time).</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_cpu_system_time</span></code></p></td>
-<td><p>CPU system time during the execution of the user-defined function.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_cpu_total_time</span></code></p></td>
-<td><p>Total CPU time during the execution of the user-defined function (system time + user time).</p></td>
-</tr>
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_cpu_usage</span></code></p></td>
 <td><p>Array of CPU usage percentages, with each element representing the average usage of each CPU core during user-defined function execution.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_cpu_user_time</span></code></p></td>
 <td><p>CPU user time during the execution of the user-defined function.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_end_tstamp</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_cpu_system_time</span></code></p></td>
+<td><p>CPU system time during the execution of the user-defined function.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_end_tstamp</span></code></p></td>
 <td><p>Timestamp of the end of execution of the user-defined function.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_exec_time</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_exec_time</span></code></p></td>
 <td><p>Total execution time of the user-defined function.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_recv_net_io</span></code></p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_recv_net_io</span></code></p></td>
 <td><p>Network I/O bytes received during the execution of the user-defined function.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_rss</span></code></p></td>
-<td><p>Resident Set Size (RSS) in bytes, indicating the amount of physical memory occupied by the user-defined function during its execution.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_sent_net_io</span></code></p></td>
 <td><p>Network I/O bytes sent during the execution of the user-defined function.</p></td>
@@ -586,22 +579,25 @@ The user can obtain these statistics through the future object:</p>
 <tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_start_tstamp</span></code></p></td>
 <td><p>Timestamp of the start of execution of the user-defined function.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_uss</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_rss</span></code></p></td>
+<td><p>Resident Set Size (RSS) in bytes, indicating the amount of physical memory occupied by the user-defined function during its execution.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_uss</span></code></p></td>
 <td><p>Unique Set Size (USS) in bytes, representing the memory exclusively used by the function that is not shared with other processes.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_vms</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_vms</span></code></p></td>
 <td><p>Virtual Memory Size (VMS) in bytes used by the user-defined function. This metric quantifies the total virtual memory allocated.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_result_upload_time</span></code></p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_result_upload_time</span></code></p></td>
 <td><p>Total time taken for the function to upload the result to cloud object storage.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_start_tstamp</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_start_tstamp</span></code></p></td>
 <td><p>Timestamp of the start of the worker function.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_peak_memory_start</span></code></p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_peak_memory_start</span></code></p></td>
 <td><p>Peak memory usage in bytes before executing the function.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_peak_memory_end</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_peak_memory_end</span></code></p></td>
 <td><p>Peak memory usage in bytes after executing the function.</p></td>
 </tr>
 </tbody>
