@@ -148,7 +148,7 @@
     <script>document.write(`<img src="../../_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">Lithops v3.1.0</p>
+    <p class="title logo__title">Lithops v3.1.2</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -170,13 +170,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../compute_backends.html">Compute Backends</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="localhost.html">Localhost</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ibm_cf.html">IBM Cloud Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aws_lambda.html">AWS Lambda</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gcp_functions.html">Google Cloud Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="azure_functions.html">Azure Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="oracle_functions.html">Oracle Functions (beta)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aliyun_functions.html">Aliyun Function Compute</a></li>
 <li class="toctree-l2"><a class="reference internal" href="openwhisk.html">OpenWhisk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ibm_cf.html">IBM Cloud Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="code_engine.html">IBM Cloud Code Engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aws_batch.html">AWS Batch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gcp_cloudrun.html">Google Cloud Run</a></li>
@@ -232,8 +232,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Features</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../monitoring.html">Monitoring</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/lithops-cloud/lithops/tree/master/runtime">Custom Runtime</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../customized_runtime.html">Dynamic Runtime Customization</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/lithops-cloud/lithops/tree/master/runtime">Custom Runtimes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Features</span></p>
 <ul class="nav bd-sidenav">
@@ -541,7 +540,7 @@ Alternatively, you can set the <code class="docutils literal notranslate"><span 
 <td><p>region</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
-<td><p>VPC Region. For example <code class="docutils literal notranslate"><span class="pre">us-south</span></code>. Choose one region from <a class="reference external" href="https://cloud.ibm.com/docs/vpc?topic=vpc-service-endpoints-for-vpc">here</a>. Lithops will use the <code class="docutils literal notranslate"><span class="pre">region</span></code> set under the <code class="docutils literal notranslate"><span class="pre">ibm</span></code> section if it is not set here</p></td>
+<td><p>VPC Region. For example <code class="docutils literal notranslate"><span class="pre">us-south</span></code>. Choose one region from <a class="reference external" href="https://cloud.ibm.com/docs/vpc?topic=vpc-service-endpoints-for-vpc">here</a>. Lithops will use the <code class="docutils literal notranslate"><span class="pre">region</span></code> set under the <code class="docutils literal notranslate"><span class="pre">ibm</span></code> section if it is not set here. Alternatively you can specify a Zone, for example: <code class="docutils literal notranslate"><span class="pre">eu-gb-2</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p>ibm_vpc</p></td>
 <td><p>vpc_id</p></td>
@@ -580,16 +579,16 @@ Alternatively, you can set the <code class="docutils literal notranslate"><span 
 <td><p>Gateway id. Get it from <a class="reference external" href="https://cloud.ibm.com/vpc-ext/network/publicGateways">here</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>ibm_vpc</p></td>
-<td><p>image_name</p></td>
-<td><p>lithops-worker-default</p></td>
-<td><p>no</p></td>
-<td><p>Virtual machine image name</p></td>
-</tr>
-<tr class="row-even"><td><p>ibm_vpc</p></td>
 <td><p>image_id</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
-<td><p>Virtual machine image id</p></td>
+<td><p>Virtual machine image id. Default is Ubutnu Server 22.04</p></td>
+</tr>
+<tr class="row-even"><td><p>ibm_vpc</p></td>
+<td><p>runtime</p></td>
+<td><p>python3</p></td>
+<td><p>no</p></td>
+<td><p>Runtime name to run the functions. Can be a container image name. If not set Lithops will use the default python3 interpreter of the VM</p></td>
 </tr>
 <tr class="row-odd"><td><p>ibm_vpc</p></td>
 <td><p>ssh_username</p></td>
@@ -619,7 +618,7 @@ Alternatively, you can set the <code class="docutils literal notranslate"><span 
 <td><p>boot_volume_capacity</p></td>
 <td><p>100</p></td>
 <td><p>no</p></td>
-<td><p>Virtual machine boot volume capacity in GB. Set it to 10 if using a custom image.</p></td>
+<td><p>Virtual machine boot volume capacity in GB.</p></td>
 </tr>
 <tr class="row-even"><td><p>ibm_vpc</p></td>
 <td><p>worker_profile_name</p></td>
@@ -634,70 +633,70 @@ Alternatively, you can set the <code class="docutils literal notranslate"><span 
 <td><p>Profile name for the master VM</p></td>
 </tr>
 <tr class="row-even"><td><p>ibm_vpc</p></td>
+<td><p>verify_resources</p></td>
+<td><p>True</p></td>
+<td><p>no</p></td>
+<td><p>Verify the resources that are stored in the local cache, and expected to be already created (VPC, subnet, floating IP, etc.), exist every time a <code class="docutils literal notranslate"><span class="pre">FunctionExecutor()</span></code> is created</p></td>
+</tr>
+<tr class="row-odd"><td><p>ibm_vpc</p></td>
 <td><p>delete_on_dismantle</p></td>
 <td><p>True</p></td>
 <td><p>no</p></td>
 <td><p>Delete the worekr VMs when they are stopped</p></td>
 </tr>
-<tr class="row-odd"><td><p>ibm_vpc</p></td>
+<tr class="row-even"><td><p>ibm_vpc</p></td>
 <td><p>max_workers</p></td>
 <td><p>100</p></td>
 <td><p>no</p></td>
 <td><p>Max number of workers per <code class="docutils literal notranslate"><span class="pre">FunctionExecutor()</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p>ibm_vpc</p></td>
+<tr class="row-odd"><td><p>ibm_vpc</p></td>
 <td><p>worker_processes</p></td>
 <td><p>AUTO</p></td>
 <td><p>no</p></td>
 <td><p>Number of Lithops processes within a given worker. This is used to parallelize function activations within a worker. By default it detects the amount of CPUs in the worker VM</p></td>
 </tr>
-<tr class="row-odd"><td><p>ibm_vpc</p></td>
-<td><p>singlesocket</p></td>
-<td><p>False</p></td>
-<td><p>no</p></td>
-<td><p>Try to allocate workers with single socket CPU. If eventually running on multiple socket, a warning message printed to user. Is <strong>True</strong> standalone <strong>workers_policy</strong> must be set to <strong>strict</strong> to trace workers states</p></td>
-</tr>
 <tr class="row-even"><td><p>ibm_vpc</p></td>
-<td><p>runtime</p></td>
-<td><p>python3</p></td>
-<td><p>no</p></td>
-<td><p>Runtime name to run the functions. Can be a container image name. If not set Lithops will use the default python3 interpreter of the VM</p></td>
-</tr>
-<tr class="row-odd"><td><p>ibm_vpc</p></td>
 <td><p>auto_dismantle</p></td>
 <td><p>True</p></td>
 <td><p>no</p></td>
 <td><p>If False then the VM is not stopped automatically.</p></td>
 </tr>
-<tr class="row-even"><td><p>ibm_vpc</p></td>
+<tr class="row-odd"><td><p>ibm_vpc</p></td>
 <td><p>soft_dismantle_timeout</p></td>
 <td><p>300</p></td>
 <td><p>no</p></td>
 <td><p>Time in seconds to stop the VM instance after a job <strong>completed</strong> its execution</p></td>
 </tr>
-<tr class="row-odd"><td><p>ibm_vpc</p></td>
+<tr class="row-even"><td><p>ibm_vpc</p></td>
 <td><p>hard_dismantle_timeout</p></td>
 <td><p>3600</p></td>
 <td><p>no</p></td>
 <td><p>Time in seconds to stop the VM instance after a job <strong>started</strong> its execution</p></td>
 </tr>
-<tr class="row-even"><td><p>ibm_vpc</p></td>
+<tr class="row-odd"><td><p>ibm_vpc</p></td>
 <td><p>exec_mode</p></td>
 <td><p>reuse</p></td>
 <td><p>no</p></td>
 <td><p>One of: <strong>consume</strong>, <strong>create</strong> or <strong>reuse</strong>. If set to  <strong>create</strong>, Lithops will automatically create new VMs for each map() call based on the number of elements in iterdata. If set to <strong>reuse</strong> will try to reuse running workers if exist</p></td>
 </tr>
-<tr class="row-odd"><td><p>ibm_vpc</p></td>
+<tr class="row-even"><td><p>ibm_vpc</p></td>
 <td><p>pull_runtime</p></td>
 <td><p>False</p></td>
 <td><p>no</p></td>
 <td><p>If set to True, Lithops will execute the command <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">pull</span> <span class="pre">&lt;runtime_name&gt;</span></code> in each VSI before executing the a job (in case of using a docker runtime)</p></td>
 </tr>
-<tr class="row-even"><td><p>ibm_vpc</p></td>
+<tr class="row-odd"><td><p>ibm_vpc</p></td>
 <td><p>workers_policy</p></td>
 <td><p>permissive</p></td>
 <td><p>no</p></td>
-<td><p>One of: <strong>permissive</strong>, <strong>strict</strong>. If set to <strong>strict</strong> will force creation of required workers number</p></td>
+<td><p>One of: <strong>permissive</strong>, <strong>strict</strong>. If set to <strong>strict</strong> will force the creation of the required number of workers</p></td>
+</tr>
+<tr class="row-even"><td><p>ibm_vpc</p></td>
+<td><p>singlesocket</p></td>
+<td><p>False</p></td>
+<td><p>no</p></td>
+<td><p>Try to allocate workers with single socket CPU. If eventually running on multiple socket, a warning message printed to user. Is <strong>True</strong> standalone <strong>workers_policy</strong> must be set to <strong>strict</strong> to trace workers states</p></td>
 </tr>
 <tr class="row-odd"><td><p>ibm_vpc</p></td>
 <td><p>gpu</p></td>
@@ -964,7 +963,7 @@ By The Lithops Team
 
   <p class="copyright">
     
-      © Copyright 2023, The Lithops Team.
+      © Copyright 2024, The Lithops Team.
       <br/>
     
   </p>

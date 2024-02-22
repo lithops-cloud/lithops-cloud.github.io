@@ -148,7 +148,7 @@
     <script>document.write(`<img src="../../_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">Lithops v3.1.0</p>
+    <p class="title logo__title">Lithops v3.1.2</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -170,13 +170,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../compute_backends.html">Compute Backends</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="localhost.html">Localhost</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ibm_cf.html">IBM Cloud Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aws_lambda.html">AWS Lambda</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gcp_functions.html">Google Cloud Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="azure_functions.html">Azure Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="oracle_functions.html">Oracle Functions (beta)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aliyun_functions.html">Aliyun Function Compute</a></li>
 <li class="toctree-l2"><a class="reference internal" href="openwhisk.html">OpenWhisk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ibm_cf.html">IBM Cloud Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="code_engine.html">IBM Cloud Code Engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aws_batch.html">AWS Batch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gcp_cloudrun.html">Google Cloud Run</a></li>
@@ -232,8 +232,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Features</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../monitoring.html">Monitoring</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/lithops-cloud/lithops/tree/master/runtime">Custom Runtime</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../customized_runtime.html">Dynamic Runtime Customization</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/lithops-cloud/lithops/tree/master/runtime">Custom Runtimes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Features</span></p>
 <ul class="nav bd-sidenav">
@@ -637,6 +636,12 @@ az<span class="w"> </span>containerapp<span class="w"> </span>env<span class="w"
 <td><p>no</p></td>
 <td><p>Number of concurrent threads used for invocation</p></td>
 </tr>
+<tr class="row-odd"><td><p>azure_containers</p></td>
+<td><p>runtime_include_function</p></td>
+<td><p>False</p></td>
+<td><p>no</p></td>
+<td><p>If set to true, Lithops will automatically build a new runtime, including the function’s code, instead of transferring it through the storage backend at invocation time. This is useful when the function’s code size is large (in the order of 10s of MB) and the code does not change frequently</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -735,7 +740,7 @@ By The Lithops Team
 
   <p class="copyright">
     
-      © Copyright 2023, The Lithops Team.
+      © Copyright 2024, The Lithops Team.
       <br/>
     
   </p>

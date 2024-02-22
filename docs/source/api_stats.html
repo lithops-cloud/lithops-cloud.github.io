@@ -148,7 +148,7 @@
     <script>document.write(`<img src="../_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">Lithops v3.1.0</p>
+    <p class="title logo__title">Lithops v3.1.2</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -170,13 +170,13 @@
 <li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="compute_backends.html">Compute Backends</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/localhost.html">Localhost</a></li>
-<li class="toctree-l2"><a class="reference internal" href="compute_config/ibm_cf.html">IBM Cloud Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/aws_lambda.html">AWS Lambda</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/gcp_functions.html">Google Cloud Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/azure_functions.html">Azure Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/oracle_functions.html">Oracle Functions (beta)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/aliyun_functions.html">Aliyun Function Compute</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/openwhisk.html">OpenWhisk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compute_config/ibm_cf.html">IBM Cloud Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/code_engine.html">IBM Cloud Code Engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/aws_batch.html">AWS Batch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/gcp_cloudrun.html">Google Cloud Run</a></li>
@@ -232,8 +232,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Features</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="monitoring.html">Monitoring</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/lithops-cloud/lithops/tree/master/runtime">Custom Runtime</a></li>
-<li class="toctree-l1"><a class="reference internal" href="customized_runtime.html">Dynamic Runtime Customization</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/lithops-cloud/lithops/tree/master/runtime">Custom Runtimes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Features</span></p>
 <ul class="nav bd-sidenav">
@@ -480,13 +479,22 @@ The user can obtain these statistics through the future object:</p>
  <span class="s1">&#39;worker_cold_start&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
  <span class="s1">&#39;worker_end_tstamp&#39;</span><span class="p">:</span> <span class="mf">1647526902.397567</span><span class="p">,</span>
  <span class="s1">&#39;worker_exec_time&#39;</span><span class="p">:</span> <span class="mf">0.23604679</span><span class="p">,</span>
+ <span class="s1">&#39;worker_func_cpu_system_time&#39;</span><span class="p">:</span> <span class="mf">16418.34375</span><span class="p">,</span>
+ <span class="s1">&#39;worker_func_cpu_total_time&#39;</span><span class="p">:</span> <span class="mf">86985.125</span><span class="p">,</span>
+ <span class="s1">&#39;worker_func_cpu_usage&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">25.0</span><span class="p">],</span>
+ <span class="s1">&#39;worker_func_cpu_user_time&#39;</span><span class="p">:</span> <span class="mf">70566.78125</span><span class="p">,</span>
  <span class="s1">&#39;worker_func_end_tstamp&#39;</span><span class="p">:</span> <span class="mf">1647526902.2985177</span><span class="p">,</span>
  <span class="s1">&#39;worker_func_exec_time&#39;</span><span class="p">:</span> <span class="mf">1.91e-06</span><span class="p">,</span>
+ <span class="s1">&#39;worker_func_recv_net_io&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+ <span class="s1">&#39;worker_func_rss&#39;</span><span class="p">:</span> <span class="mi">60678144</span><span class="p">,</span>
+ <span class="s1">&#39;worker_func_sent_net_io&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
  <span class="s1">&#39;worker_func_start_tstamp&#39;</span><span class="p">:</span> <span class="mf">1647526902.2985158</span><span class="p">,</span>
- <span class="s1">&#39;worker_result_upload_time&#39;</span><span class="p">:</span> <span class="mf">0.07001352</span><span class="p">,</span>
- <span class="s1">&#39;worker_start_tstamp&#39;</span><span class="p">:</span> <span class="mf">1647526902.1615202</span><span class="p">,</span>
+ <span class="s1">&#39;worker_func_uss&#39;</span><span class="p">:</span> <span class="mi">44838912</span><span class="p">,</span>
+ <span class="s1">&#39;worker_func_vms&#39;</span><span class="p">:</span> <span class="mi">552267776</span><span class="p">,</span>
+ <span class="s1">&#39;worker_peak_memory_end&#39;</span><span class="p">:</span> <span class="mi">126469504</span><span class="p">,</span>
  <span class="s1">&#39;worker_peak_memory_start&#39;</span><span class="p">:</span> <span class="mi">88469504</span><span class="p">,</span>
- <span class="s1">&#39;worker_peak_memory_end&#39;</span><span class="p">:</span> <span class="mi">126469504</span><span class="p">}</span>
+ <span class="s1">&#39;worker_result_upload_time&#39;</span><span class="p">:</span> <span class="mf">0.07001352</span><span class="p">,</span>
+ <span class="s1">&#39;worker_start_tstamp&#39;</span><span class="p">:</span> <span class="mf">1647526902.1615202</span><span class="p">}</span>
 </pre></div>
 </div>
 <table class="table">
@@ -548,25 +556,52 @@ The user can obtain these statistics through the future object:</p>
 <tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_exec_time</span></code></p></td>
 <td><p>Total execution time of the worker function (lithops wrapper + user defined funtion execution time).</p></td>
 </tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_cpu_system_time</span></code></p></td>
+<td><p>CPU system time during the execution of the user-defined function.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_cpu_total_time</span></code></p></td>
+<td><p>Total CPU time during the execution of the user-defined function (system time + user time).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_cpu_usage</span></code></p></td>
+<td><p>Array of CPU usage percentages, with each element representing the average usage of each CPU core during user-defined function execution.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_cpu_user_time</span></code></p></td>
+<td><p>CPU user time during the execution of the user-defined function.</p></td>
+</tr>
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_end_tstamp</span></code></p></td>
 <td><p>Timestamp of the end of execution of the user-defined function.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_exec_time</span></code></p></td>
 <td><p>Total execution time of the user-defined function.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_start_tstamp</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_recv_net_io</span></code></p></td>
+<td><p>Network I/O bytes received during the execution of the user-defined function.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_rss</span></code></p></td>
+<td><p>Resident Set Size (RSS) in bytes, indicating the amount of physical memory occupied by the user-defined function during its execution.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_sent_net_io</span></code></p></td>
+<td><p>Network I/O bytes sent during the execution of the user-defined function.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_start_tstamp</span></code></p></td>
 <td><p>Timestamp of the start of execution of the user-defined function.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_result_upload_time</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_uss</span></code></p></td>
+<td><p>Unique Set Size (USS) in bytes, representing the memory exclusively used by the function that is not shared with other processes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_func_vms</span></code></p></td>
+<td><p>Virtual Memory Size (VMS) in bytes used by the user-defined function. This metric quantifies the total virtual memory allocated.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_result_upload_time</span></code></p></td>
 <td><p>Total time taken for the function to upload the result to cloud object storage.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_start_tstamp</span></code></p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_start_tstamp</span></code></p></td>
 <td><p>Timestamp of the start of the worker function.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_peak_memory_start</span></code></p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_peak_memory_start</span></code></p></td>
 <td><p>Peak memory usage in bytes before executing the function.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_peak_memory_end</span></code></p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">worker_peak_memory_end</span></code></p></td>
 <td><p>Peak memory usage in bytes after executing the function.</p></td>
 </tr>
 </tbody>
@@ -644,7 +679,7 @@ By The Lithops Team
 
   <p class="copyright">
     
-      © Copyright 2023, The Lithops Team.
+      © Copyright 2024, The Lithops Team.
       <br/>
     
   </p>
