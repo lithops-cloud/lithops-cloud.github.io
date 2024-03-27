@@ -148,7 +148,7 @@
     <script>document.write(`<img src="../../_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">Lithops v3.1.2</p>
+    <p class="title logo__title">Lithops v3.2.0</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -707,18 +707,6 @@ Alternatively, you can set the <code class="docutils literal notranslate"><span 
 <td><p>reuse</p></td>
 <td><p>no</p></td>
 <td><p>One of: <strong>consume</strong>, <strong>create</strong> or <strong>reuse</strong>. If set to  <strong>create</strong>, Lithops will automatically create new VMs for each map() call based on the number of elements in iterdata. If set to <strong>reuse</strong> will try to reuse running workers if exist</p></td>
-</tr>
-<tr class="row-odd"><td><p>azure_vms</p></td>
-<td><p>pull_runtime</p></td>
-<td><p>False</p></td>
-<td><p>no</p></td>
-<td><p>If set to True, Lithops will execute the command <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">pull</span> <span class="pre">&lt;runtime_name&gt;</span></code> in each VSI before executing the a job (in case of using a docker runtime)</p></td>
-</tr>
-<tr class="row-even"><td><p>azure_vms</p></td>
-<td><p>workers_policy</p></td>
-<td><p>permissive</p></td>
-<td><p>no</p></td>
-<td><p>One of: <strong>permissive</strong>, <strong>strict</strong>. If set to <strong>strict</strong> will force creation of required workers number</p></td>
 </tr>
 </tbody>
 </table>

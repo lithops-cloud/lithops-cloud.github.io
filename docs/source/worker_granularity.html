@@ -148,7 +148,7 @@
     <script>document.write(`<img src="../_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">Lithops v3.1.2</p>
+    <p class="title logo__title">Lithops v3.2.0</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -393,6 +393,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-customize-worker-granularity">How to customize worker granularity?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worker-granularity-in-the-standalone-mode-using-vms">Worker granularity in the standalone mode using VMs</a></li>
 </ul>
             </nav>
         </div>
@@ -423,13 +424,6 @@ by configuring each worker to utilize 4 CPUs and updating Lithops accordingly, i
 This allows you to leverage the resource flexibility provided by CaaS without attempting to impose FaaS-like granularity.
 Understanding these distinctions between FaaS and CaaS platforms is crucial for optimizing the performance and efficient
 resource utilization of your Lithops-based applications.</p>
-<p>In addition to supporting FaaS and CaaS platforms, Lithops also extends its compatibility to Virtual Machine (VM) backends,
-such as EC2. Similar to CaaS environments, VMs offer a high degree of resource customization. When utilizing VMs with Lithops,
-you gain the ability to tailor your VM instance with the appropriate resources, including CPU cores. In scenarios where
-parallelism is crucial, it may be more efficient to configure a VM with a higher core count, such as 8 CPUs, rather than
-attempting to manage and coordinate eight separate VM instances with single cores each. This approach simplifies resource
-management and optimizes the performance of your Lithops-based applications running on VM backends. As with CaaS,
-understanding the flexibility VMs provide is essential for effectively utilizing your compute resources.</p>
 <section id="how-to-customize-worker-granularity">
 <h2>How to customize worker granularity?<a class="headerlink" href="#how-to-customize-worker-granularity" title="Permalink to this heading">#</a></h2>
 <p>To customize the worker granularity, you first need to use the <code class="docutils literal notranslate"><span class="pre">worker_processes</span></code> parameter.
@@ -470,6 +464,44 @@ queued for execution as the initial tasks start to complete.</p>
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">(</span><span class="n">worker_processes</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
     <span class="n">fexec</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">my_map_function</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">200</span><span class="p">),</span> <span class="n">chunksize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fexec</span><span class="o">.</span><span class="n">get_result</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="worker-granularity-in-the-standalone-mode-using-vms">
+<h2>Worker granularity in the standalone mode using VMs<a class="headerlink" href="#worker-granularity-in-the-standalone-mode-using-vms" title="Permalink to this heading">#</a></h2>
+<p>In addition to supporting FaaS and CaaS platforms, Lithops also extends its compatibility to Virtual Machine (VM) backends,
+such as EC2. Similar to CaaS environments, VMs offer a high degree of resource customization. When utilizing VMs with Lithops,
+you gain the ability to tailor your VM instance with the appropriate resources, including CPU cores. In scenarios where
+parallelism is crucial, it may be more efficient to configure a VM with a higher core count, such as 16 CPUs, rather than
+attempting to manage and coordinate eight separate VM instances with single cores each. This approach simplifies resource
+management and optimizes the performance of your Lithops-based applications running on VM backends. As with CaaS,
+understanding the flexibility VMs provide is essential for effectively utilizing your compute resources.</p>
+<p>Unlike FaaS and CaaS platforms, when deploying Lithops on Virtual Machine backends, such as EC2, a master-worker architecture
+is adopted. In this paradigm, the master node holds a work queue containing tasks for a specific job, and workers pick up and
+process tasks one by one. In this sense, the chunksize parameter, which determines the number of functions allocated
+to each worker for parallel processing, is not applicable in this context.Consequently, the worker granularity is inherently
+determined by the number of worker processess in the VM setup. Adjusting the number of VM instances or the configuration of
+each VM, such as the CPU core count, becomes crucial for optimizing performance and resource utilization in this master-worker
+approach.</p>
+<p>In this scenario, specifying either the <code class="docutils literal notranslate"><span class="pre">worker_instance_type</span></code> or <code class="docutils literal notranslate"><span class="pre">worker_processes</span></code> config parameter is enough to achieve
+the desired parallelism inside worker VMs. By default, Lithops determines the total number of worker processes based on the
+number of CPUs in the specified instance type. For example, an AWS EC2 instance of type <code class="docutils literal notranslate"><span class="pre">t2.medium</span></code>, with 2 CPUs, would set
+<code class="docutils literal notranslate"><span class="pre">worker_processes</span></code> to 2. Additionally, users have the flexibility to manually adjust parallelism by setting a different
+value for <code class="docutils literal notranslate"><span class="pre">worker_processes</span></code>. Depenidng on the use case, it would be conveneint to set more <code class="docutils literal notranslate"><span class="pre">worker_processes</span></code> than CPUs,
+or less <code class="docutils literal notranslate"><span class="pre">worker_processes</span></code> than CPUs. For example, we can use a <code class="docutils literal notranslate"><span class="pre">t2.medium</span></code> instance types that has 2 CPUs, but
+set <code class="docutils literal notranslate"><span class="pre">worker_processes</span></code> to 4:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lithops</span>
+
+
+<span class="k">def</span> <span class="nf">my_map_function</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;I&#39;m activation number </span><span class="si">{</span><span class="nb">id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">7</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">(</span><span class="n">worker_instance_type</span><span class="o">=</span><span class="s1">&#39;t2.medium&#39;</span><span class="p">,</span> <span class="n">worker_processes</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">fexec</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">my_map_function</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">fexec</span><span class="o">.</span><span class="n">get_result</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -521,6 +553,7 @@ queued for execution as the initial tasks start to complete.</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-customize-worker-granularity">How to customize worker granularity?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worker-granularity-in-the-standalone-mode-using-vms">Worker granularity in the standalone mode using VMs</a></li>
 </ul>
   </nav></div>
 
