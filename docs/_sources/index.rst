@@ -1,12 +1,6 @@
 What is Lithops?
 ****************
 
-.. image:: source/images/lithops_logo_readme.png
-   :alt: Lithops
-   :align: center
-
-|
-
 **Lithops is a Python multi-cloud serverless computing framework. It allows to run unmodified local python code at massive scale in the main serverless computing platforms.**
 
 Lithops delivers the user’s code into the cloud without requiring knowledge of how it is deployed and run.
