@@ -32,6 +32,7 @@ In this sense, you can code your application in Python and run it unmodified whe
    :alt: Available backends
    :align: center
 
+|
 
 Quick Start
 ***********
