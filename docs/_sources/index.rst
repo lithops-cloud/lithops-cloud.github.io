@@ -22,6 +22,17 @@ analytics, to name a few.
 Lithops abstracts away the underlying cloud-specific APIs for accessing storage and provides an intuitive and easy to use interface to process high volumes of data.
 
 
+Use any Cloud
+*************
+**Lithops provides an extensible backend architecture that is designed to work with different compute and storage services available on Cloud providers and on-premise backends.**
+
+In this sense, you can code your application in Python and run it unmodified wherever your data is located at: IBM Cloud, AWS, Azure, Google Cloud and Alibaba Aliyun...
+
+.. image:: source/images/multicloud.jpg
+   :alt: Available backends
+   :align: center
+
+
 Quick Start
 ***********
 
@@ -44,17 +55,6 @@ You're ready to execute a simple example!
         fut = fexec.call_async(hello, 'World')
         print(fut.result())
 
-Use any Cloud
-*************
-**Lithops provides an extensible backend architecture that is designed to work with different compute and storage services available on Cloud providers and on-premise backends.**
-
-In this sense, you can code your application in Python and run it unmodified wherever your data is located at: IBM Cloud, AWS, Azure, Google Cloud and Alibaba Aliyun...
-
-.. image:: source/images/multicloud.jpg
-   :alt: Available backends
-   :align: center
-
-|
 
 Additional resources
 ********************

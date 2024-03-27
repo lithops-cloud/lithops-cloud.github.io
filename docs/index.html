@@ -391,8 +391,8 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">What is Lithops?</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start">Quick Start</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#use-any-cloud">Use any Cloud</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start">Quick Start</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional resources</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blogs-and-talks">Blogs and Talks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#papers">Papers</a><ul class="nav section-nav flex-column">
@@ -426,6 +426,12 @@ analytics, to name a few.</p>
 <p><strong>Lithops facilitates consuming data from object storage (like AWS S3, GCP Storage or IBM Cloud Object Storage) by providing automatic partitioning and data discovery for common data formats like CSV.</strong></p>
 <p>Lithops abstracts away the underlying cloud-specific APIs for accessing storage and provides an intuitive and easy to use interface to process high volumes of data.</p>
 </section>
+<section id="use-any-cloud">
+<h1>Use any Cloud<a class="headerlink" href="#use-any-cloud" title="Permalink to this heading">#</a></h1>
+<p><strong>Lithops provides an extensible backend architecture that is designed to work with different compute and storage services available on Cloud providers and on-premise backends.</strong></p>
+<p>In this sense, you can code your application in Python and run it unmodified wherever your data is located at: IBM Cloud, AWS, Azure, Google Cloud and Alibaba Aliyun…</p>
+<img alt="Available backends" class="align-center" src="_images/multicloud.jpg" />
+</section>
 <section id="quick-start">
 <h1>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this heading">#</a></h1>
 <p>Lithops is available for Python 3.6 and up. Install it using <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
@@ -442,15 +448,6 @@ analytics, to name a few.</p>
     <span class="n">fut</span> <span class="o">=</span> <span class="n">fexec</span><span class="o">.</span><span class="n">call_async</span><span class="p">(</span><span class="n">hello</span><span class="p">,</span> <span class="s1">&#39;World&#39;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">fut</span><span class="o">.</span><span class="n">result</span><span class="p">())</span>
 </pre></div>
-</div>
-</section>
-<section id="use-any-cloud">
-<h1>Use any Cloud<a class="headerlink" href="#use-any-cloud" title="Permalink to this heading">#</a></h1>
-<p><strong>Lithops provides an extensible backend architecture that is designed to work with different compute and storage services available on Cloud providers and on-premise backends.</strong></p>
-<p>In this sense, you can code your application in Python and run it unmodified wherever your data is located at: IBM Cloud, AWS, Azure, Google Cloud and Alibaba Aliyun…</p>
-<img alt="Available backends" class="align-center" src="_images/multicloud.jpg" />
-<div class="line-block">
-<div class="line"><br /></div>
 </div>
 </section>
 <section id="additional-resources">
@@ -540,8 +537,8 @@ analytics, to name a few.</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">What is Lithops?</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start">Quick Start</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#use-any-cloud">Use any Cloud</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start">Quick Start</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional resources</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blogs-and-talks">Blogs and Talks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#papers">Papers</a><ul class="nav section-nav flex-column">
