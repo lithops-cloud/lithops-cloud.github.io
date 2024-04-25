@@ -148,7 +148,7 @@
     <script>document.write(`<img src="../../_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">Lithops v3.2.0</p>
+    <p class="title logo__title">Lithops v3.3.0</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -242,7 +242,6 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference external" href="https://github.com/lithops-cloud/applications">Applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to Lithops</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing Guidelines</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/CHANGELOG.md">Changelog</a></li>
 </ul>
 
@@ -392,6 +391,11 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-ibm-cloud">Summary of configuration keys for IBM Cloud:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ibm-iam">IBM IAM:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-engine">Code Engine:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#runtime">Runtime</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-your-own-runtime">Use your own runtime</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-runtime">Custom runtime</a></li>
@@ -404,12 +408,6 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-ibm-cloud">Summary of configuration keys for IBM Cloud:</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ibm-iam">IBM IAM:</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-engine">Code Engine:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops-using-knative-api-of-code-engine">Lithops using Knative API of Code Engine</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-lithops">Test Lithops</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-the-execution-logs">Viewing the execution logs</a></li>
 </ul>
@@ -446,51 +444,6 @@ document.write(`
 </div>
 </li>
 </ol>
-</section>
-<section id="runtime">
-<h2>Runtime<a class="headerlink" href="#runtime" title="Permalink to this heading">#</a></h2>
-<section id="use-your-own-runtime">
-<h3>Use your own runtime<a class="headerlink" href="#use-your-own-runtime" title="Permalink to this heading">#</a></h3>
-<p>If a pre-built runtime is not provided, Lithops will automatically build the default runtime the first time you run a script. For this task it uses the <strong>docker</strong> command installed locally in your machine. To make this working, you need:</p>
-<ol class="arabic">
-<li><p><a class="reference external" href="https://docs.docker.com/get-docker/">Install the Docker CE version</a>.</p></li>
-<li><p>Login to your container registry account:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>login
-</pre></div>
-</div>
-</li>
-</ol>
-</section>
-<section id="custom-runtime">
-<h3>Custom runtime<a class="headerlink" href="#custom-runtime" title="Permalink to this heading">#</a></h3>
-<p>If you need to create a runtime with custom system packages and libraries, please follow <a class="reference external" href="https://github.com/lithops-cloud/lithops/tree/master/runtime/code_engine">Building and managing Lithops runtimes to run the functions</a></p>
-</section>
-</section>
-<section id="configure-a-private-container-registry-for-your-runtime">
-<h2>Configure a private container registry for your runtime<a class="headerlink" href="#configure-a-private-container-registry-for-your-runtime" title="Permalink to this heading">#</a></h2>
-<section id="configure-docker-hub">
-<h3>Configure Docker hub<a class="headerlink" href="#configure-docker-hub" title="Permalink to this heading">#</a></h3>
-<p>To configure Lithops to access a private repository in your docker hub account, you need to extend the Code Engine config and add the following keys:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">code_engine</span><span class="p">:</span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">....</span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">docker_server</span><span class="w">    </span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker.io</span>
-<span class="w">    </span><span class="nt">docker_user      </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;container registry username&gt;</span>
-<span class="w">    </span><span class="nt">docker_password  </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;container registry access TOEKN&gt;</span>
-</pre></div>
-</div>
-<section id="configure-ibm-container-registry">
-<h4>Configure IBM Container Registry<a class="headerlink" href="#configure-ibm-container-registry" title="Permalink to this heading">#</a></h4>
-<p>To configure Lithops to access to a private repository in your IBM Container Registry, you need to extend the Code Engine config and add the following keys:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">code_engine</span><span class="p">:</span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">....</span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">docker_server</span><span class="w">    </span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">us.icr.io</span><span class="w">  </span><span class="c1"># Change-me if you have the CR in another region</span>
-<span class="w">    </span><span class="nt">docker_user      </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iamapikey</span>
-<span class="w">    </span><span class="nt">docker_password  </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;IBM IAM API KEY&gt;</span>
-<span class="w">    </span><span class="nt">docker_namespace </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;namespace&gt;</span><span class="w">  </span><span class="c1"># namespace name from https://cloud.ibm.com/registry/namespaces</span>
-</pre></div>
-</div>
-</section>
-</section>
 </section>
 <section id="summary-of-configuration-keys-for-ibm-cloud">
 <h2>Summary of configuration keys for IBM Cloud:<a class="headerlink" href="#summary-of-configuration-keys-for-ibm-cloud" title="Permalink to this heading">#</a></h2>
@@ -627,9 +580,50 @@ document.write(`
 </tbody>
 </table>
 </section>
-<section id="lithops-using-knative-api-of-code-engine">
-<h2>Lithops using Knative API of Code Engine<a class="headerlink" href="#lithops-using-knative-api-of-code-engine" title="Permalink to this heading">#</a></h2>
-<p>The preferable way to run Lithops in Code Engine is by using the JOB API. However, Lithops can be also executed in Code Engine using the Knative API. To configure this mode of execution refer to the <a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/config/compute/knative.md#configuration">Knative documentation</a> and follow the steps to configure Knative.</p>
+<section id="runtime">
+<h2>Runtime<a class="headerlink" href="#runtime" title="Permalink to this heading">#</a></h2>
+<section id="use-your-own-runtime">
+<h3>Use your own runtime<a class="headerlink" href="#use-your-own-runtime" title="Permalink to this heading">#</a></h3>
+<p>If a pre-built runtime is not provided, Lithops will automatically build the default runtime the first time you run a script. For this task it uses the <strong>docker</strong> command installed locally in your machine. To make this working, you need:</p>
+<ol class="arabic">
+<li><p><a class="reference external" href="https://docs.docker.com/get-docker/">Install the Docker CE version</a>.</p></li>
+<li><p>Login to your container registry account:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>login
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="custom-runtime">
+<h3>Custom runtime<a class="headerlink" href="#custom-runtime" title="Permalink to this heading">#</a></h3>
+<p>If you need to create a runtime with custom system packages and libraries, please follow <a class="reference external" href="https://github.com/lithops-cloud/lithops/tree/master/runtime/code_engine">Building and managing Lithops runtimes to run the functions</a></p>
+</section>
+</section>
+<section id="configure-a-private-container-registry-for-your-runtime">
+<h2>Configure a private container registry for your runtime<a class="headerlink" href="#configure-a-private-container-registry-for-your-runtime" title="Permalink to this heading">#</a></h2>
+<section id="configure-docker-hub">
+<h3>Configure Docker hub<a class="headerlink" href="#configure-docker-hub" title="Permalink to this heading">#</a></h3>
+<p>To configure Lithops to access a private repository in your docker hub account, you need to extend the Code Engine config and add the following keys:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">code_engine</span><span class="p">:</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">....</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">docker_server</span><span class="w">    </span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker.io</span>
+<span class="w">    </span><span class="nt">docker_user      </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;container registry username&gt;</span>
+<span class="w">    </span><span class="nt">docker_password  </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;container registry access TOEKN&gt;</span>
+</pre></div>
+</div>
+<section id="configure-ibm-container-registry">
+<h4>Configure IBM Container Registry<a class="headerlink" href="#configure-ibm-container-registry" title="Permalink to this heading">#</a></h4>
+<p>To configure Lithops to access to a private repository in your IBM Container Registry, you need to extend the Code Engine config and add the following keys:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">code_engine</span><span class="p">:</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">....</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">docker_server</span><span class="w">    </span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">us.icr.io</span><span class="w">  </span><span class="c1"># Change-me if you have the CR in another region</span>
+<span class="w">    </span><span class="nt">docker_user      </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iamapikey</span>
+<span class="w">    </span><span class="nt">docker_password  </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;IBM IAM API KEY&gt;</span>
+<span class="w">    </span><span class="nt">docker_namespace </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;namespace&gt;</span><span class="w">  </span><span class="c1"># namespace name from https://cloud.ibm.com/registry/namespaces</span>
+</pre></div>
+</div>
+</section>
+</section>
 </section>
 <section id="test-lithops">
 <h2>Test Lithops<a class="headerlink" href="#test-lithops" title="Permalink to this heading">#</a></h2>
@@ -692,6 +686,11 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-ibm-cloud">Summary of configuration keys for IBM Cloud:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ibm-iam">IBM IAM:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-engine">Code Engine:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#runtime">Runtime</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-your-own-runtime">Use your own runtime</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-runtime">Custom runtime</a></li>
@@ -704,12 +703,6 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-ibm-cloud">Summary of configuration keys for IBM Cloud:</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ibm-iam">IBM IAM:</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-engine">Code Engine:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops-using-knative-api-of-code-engine">Lithops using Knative API of Code Engine</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-lithops">Test Lithops</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-the-execution-logs">Viewing the execution logs</a></li>
 </ul>

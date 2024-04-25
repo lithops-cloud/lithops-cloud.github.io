@@ -148,7 +148,7 @@
     <script>document.write(`<img src="../../_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">Lithops v3.2.0</p>
+    <p class="title logo__title">Lithops v3.3.0</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -242,7 +242,6 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference external" href="https://github.com/lithops-cloud/applications">Applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to Lithops</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing Guidelines</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/CHANGELOG.md">Changelog</a></li>
 </ul>
 
@@ -392,6 +391,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aws-credential-setup">AWS Credential setup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-aws">Summary of configuration keys for AWS</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aws">AWS</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">AWS Lambda</a></li>
@@ -450,20 +450,39 @@ document.write(`
 <li><p>Click <strong>Next: Tags</strong> and <strong>Next: Review</strong>. Fill the policy name field (you can name it <code class="docutils literal notranslate"><span class="pre">lithops-policy</span></code> or simmilar) and create the policy.</p></li>
 <li><p>Go back to <strong>IAM</strong> and navigate to <strong>Roles</strong> tab. Click <strong>Create role</strong>.</p></li>
 <li><p>Choose <strong>Lambda</strong> on the use case list and click <strong>Next: Permissions</strong>. Select the policy created before (<code class="docutils literal notranslate"><span class="pre">lithops-policy</span></code>). Click <strong>Next: Tags</strong> and <strong>Next: Review</strong>. Type a role name, for example <code class="docutils literal notranslate"><span class="pre">lithops-execution-role</span></code>. Click on <em>Create Role</em>.</p></li>
-<li><p>Edit your lithops config and add the following keys:</p></li>
 </ol>
+</section>
+<section id="aws-credential-setup">
+<h2>AWS Credential setup<a class="headerlink" href="#aws-credential-setup" title="Permalink to this heading">#</a></h2>
+<p>Lithops loads AWS credentials as specified in the <a class="reference external" href="https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html">boto3 configuration guide</a>.</p>
+<p>In summary, you can use one of the following settings:</p>
+<ol class="arabic">
+<li><p>Provide the credentials via the <code class="docutils literal notranslate"><span class="pre">~/.aws/config</span></code> file, or set the <code class="docutils literal notranslate"><span class="pre">AWS_ACCESS_KEY_ID</span></code> and <code class="docutils literal notranslate"><span class="pre">AWS_SECRET_ACCESS_KEY</span></code> environment variables.</p>
+<p>You can run <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">configure</span></code> command if the AWS CLI is installed to setup the credentials. Then set in the Lithops config file:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aws_lambda</span>
+
+<span class="nt">aws_lambda</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">execution_role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;EXECUTION_ROLE_ARN&gt;</span>
+<span class="w">    </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Provide the credentials in the <code class="docutils literal notranslate"><span class="pre">aws</span></code> section of the Lithops config file:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aws_lambda</span>
 
 <span class="nt">aws</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span>
 <span class="w">    </span><span class="nt">access_key_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;AWS_ACCESS_KEY_ID&gt;</span>
 <span class="w">    </span><span class="nt">secret_access_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;AWS_SECRET_ACCESS_KEY&gt;</span>
+<span class="w">    </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span>
 
 <span class="nt">aws_lambda</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">execution_role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;EXECUTION_ROLE_ARN&gt;</span>
 </pre></div>
 </div>
+</li>
+</ol>
 </section>
 <section id="summary-of-configuration-keys-for-aws">
 <h2>Summary of configuration keys for AWS<a class="headerlink" href="#summary-of-configuration-keys-for-aws" title="Permalink to this heading">#</a></h2>
@@ -488,13 +507,13 @@ document.write(`
 <tr class="row-odd"><td><p>aws</p></td>
 <td><p>access_key_id</p></td>
 <td><p></p></td>
-<td><p>yes</p></td>
+<td><p>no</p></td>
 <td><p>Account access key to AWS services. To find them, navigate to <em>My Security Credentials</em> and click <em>Create Access Key</em> if you don’t already have one.</p></td>
 </tr>
 <tr class="row-even"><td><p>aws</p></td>
 <td><p>secret_access_key</p></td>
 <td><p></p></td>
-<td><p>yes</p></td>
+<td><p>no</p></td>
 <td><p>Account secret access key to AWS services. To find them, navigate to <em>My Security Credentials</em> and click <em>Create Access Key</em> if you don’t already have one.</p></td>
 </tr>
 <tr class="row-odd"><td><p>aws</p></td>
@@ -600,7 +619,7 @@ document.write(`
 <td><p>namespace</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
-<td><p>Virtual namesapce. This can be usefull to virtually group Lithops function workers. The functions deployed by lithops will be prefixed by this namespace. For example you can set it to differentiate between <code class="docutils literal notranslate"><span class="pre">prod</span></code>, <code class="docutils literal notranslate"><span class="pre">dev</span></code> and <code class="docutils literal notranslate"><span class="pre">stage</span></code> environments.</p></td>
+<td><p>Virtual namespace. This can be usefull to virtually group Lithops function workers. The functions deployed by lithops will be prefixed by this namespace. For example you can set it to differentiate between <code class="docutils literal notranslate"><span class="pre">prod</span></code>, <code class="docutils literal notranslate"><span class="pre">dev</span></code> and <code class="docutils literal notranslate"><span class="pre">stage</span></code> environments.</p></td>
 </tr>
 <tr class="row-odd"><td><p>aws_lambda</p></td>
 <td><p>runtime_include_function</p></td>
@@ -723,6 +742,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aws-credential-setup">AWS Credential setup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-aws">Summary of configuration keys for AWS</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aws">AWS</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">AWS Lambda</a></li>

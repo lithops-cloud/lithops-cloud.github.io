@@ -148,7 +148,7 @@
     <script>document.write(`<img src="../../_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">Lithops v3.2.0</p>
+    <p class="title logo__title">Lithops v3.3.0</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -242,7 +242,6 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference external" href="https://github.com/lithops-cloud/applications">Applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to Lithops</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing Guidelines</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/CHANGELOG.md">Changelog</a></li>
 </ul>
 
@@ -391,6 +390,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-an-operating-system-image-for-the-vm">Choose an operating system image for the VM</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops-and-the-vm-consume-mode">Lithops and the VM consume mode</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops-configuration-for-the-consume-mode">Lithops configuration for the consume mode</a></li>
@@ -406,6 +406,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-lithops">Test Lithops</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-the-execution-logs">Viewing the execution logs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vm-management">VM Management</a></li>
 </ul>
             </nav>
         </div>
@@ -420,6 +421,47 @@ document.write(`
   <section id="azure-virtual-machines">
 <h1>Azure Virtual Machines<a class="headerlink" href="#azure-virtual-machines" title="Permalink to this heading">#</a></h1>
 <p>The Azure Virtual Machines client of Lithops can provide a truely serverless user experience on top of Azure VMs where Lithops creates new Virtual Machines (VMs) dynamically in runtime and scale Lithops jobs against them. Alternatively Lithops can start and stop an existing VM instances.</p>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Install Microsoft Azure backend dependencies:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">lithops</span><span class="p">[</span><span class="n">azure</span><span class="p">]</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Install <a class="reference external" href="https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest">Azure CLI</a></p></li>
+<li><p>Sign in with the Azure CLI:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>az<span class="w"> </span>login
+</pre></div>
+</div>
+<ol class="arabic" start="4">
+<li><p>Create a Resource Group and a Storage Account:</p>
+<p>Option 1:</p>
+<ol class="arabic simple">
+<li><p>Access to the <a class="reference external" href="https://portal.azure.com/#view/HubsExtension/BrowseResourceGroups">Azure portal Resource Groups</a> and create a new Resource group named <strong>LithopsResourceGroup</strong> (or similar) in your preferred region. If you already have a resource group, omit this step.</p></li>
+<li><p>Access to the <a class="reference external" href="https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts">Azure portal Storage Accounts</a> and create a new Storage Account with a unique name, for example: <strong>lithops0sa25s1</strong>. If you already have a storage account, omit this step.</p></li>
+</ol>
+<p>Option 2:</p>
+<ol class="arabic simple">
+<li><p>Create a Resource Group in a specific location. If you already have a resource group, omit this step.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>az<span class="w"> </span>group<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>LithopsResourceGroup<span class="w"> </span>--location<span class="w"> </span>westeurope
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Create a Storage Account with a unique name. If you already have a storage account, omit this step.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">storage_account_name</span><span class="o">=</span>lithops<span class="k">$(</span>openssl<span class="w"> </span>rand<span class="w"> </span>-hex<span class="w"> </span><span class="m">3</span><span class="k">)</span>
+<span class="nb">echo</span><span class="w"> </span><span class="nv">$storage_account_name</span>
+az<span class="w"> </span>storage<span class="w"> </span>account<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span><span class="nv">$storage_account_name</span><span class="w"> </span>--location<span class="w"> </span>westeurope<span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>--resource-group<span class="w"> </span>LithopsResourceGroup<span class="w"> </span>--sku<span class="w"> </span>Standard_LRS
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
 <section id="choose-an-operating-system-image-for-the-vm">
 <h2>Choose an operating system image for the VM<a class="headerlink" href="#choose-an-operating-system-image-for-the-vm" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
@@ -724,9 +766,30 @@ Alternatively, you can set the <code class="docutils literal notranslate"><span 
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops<span class="w"> </span>logs<span class="w"> </span>poll
 </pre></div>
 </div>
-<p>The master and worker VMs contain the Lithops service logs in <code class="docutils literal notranslate"><span class="pre">/tmp/lithops-root/service.log</span></code></p>
+</section>
+<section id="vm-management">
+<h2>VM Management<a class="headerlink" href="#vm-management" title="Permalink to this heading">#</a></h2>
+<p>Lithops for Azure VMs follows a Mater-Worker architecrue (1:N).</p>
+<p>All the VMs, including the master VM, are automatically stopped after a configurable timeout (see hard/soft dismantle timeouts).</p>
 <p>You can login to the master VM and get a live ssh connection with:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops<span class="w"> </span>attach<span class="w"> </span>-b<span class="w"> </span>azure_vms
+</pre></div>
+</div>
+<p>The master and worker VMs contain the Lithops service logs in <code class="docutils literal notranslate"><span class="pre">/tmp/lithops-root/*-service.log</span></code></p>
+<p>To list all the available workers in the current moment, use the next command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops<span class="w"> </span>worker<span class="w"> </span>list<span class="w"> </span>-b<span class="w"> </span>azure_vms
+</pre></div>
+</div>
+<p>You can also list all the submitted jobs with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops<span class="w"> </span>job<span class="w"> </span>list<span class="w"> </span>-b<span class="w"> </span>azure_vms
+</pre></div>
+</div>
+<p>You can delete all the workers with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops<span class="w"> </span>clean<span class="w"> </span>-b<span class="w"> </span>azure_vms<span class="w"> </span>-s<span class="w"> </span>azure_storage
+</pre></div>
+</div>
+<p>You can delete all the workers including the Master VM with the <code class="docutils literal notranslate"><span class="pre">--all</span></code> flag:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops<span class="w"> </span>clean<span class="w"> </span>-b<span class="w"> </span>azure_vms<span class="w"> </span>-s<span class="w"> </span>azure_storage<span class="w"> </span>--all
 </pre></div>
 </div>
 </section>
@@ -776,6 +839,7 @@ Alternatively, you can set the <code class="docutils literal notranslate"><span 
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-an-operating-system-image-for-the-vm">Choose an operating system image for the VM</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops-and-the-vm-consume-mode">Lithops and the VM consume mode</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops-configuration-for-the-consume-mode">Lithops configuration for the consume mode</a></li>
@@ -791,6 +855,7 @@ Alternatively, you can set the <code class="docutils literal notranslate"><span 
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-lithops">Test Lithops</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-the-execution-logs">Viewing the execution logs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vm-management">VM Management</a></li>
 </ul>
   </nav></div>
 

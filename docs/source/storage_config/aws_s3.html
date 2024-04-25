@@ -148,7 +148,7 @@
     <script>document.write(`<img src="../../_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">Lithops v3.2.0</p>
+    <p class="title logo__title">Lithops v3.3.0</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -242,7 +242,6 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference external" href="https://github.com/lithops-cloud/applications">Applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to Lithops</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing Guidelines</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/CHANGELOG.md">Changelog</a></li>
 </ul>
 
@@ -391,8 +390,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aws-credential-setup">AWS Credential setup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-aws">Summary of configuration keys for AWS:</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aws">AWS:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-aws-s3">Summary of configuration keys for AWS S3:</a></li>
@@ -412,29 +411,37 @@ document.write(`
   <section id="aws-s3">
 <h1>AWS S3<a class="headerlink" href="#aws-s3" title="Permalink to this heading">#</a></h1>
 <p>Lithops with AWS S3 as storage backend.</p>
-<section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h2>
-<ol class="arabic">
-<li><p>Install Amazon Web Services backend dependencies:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 -m pip install lithops[aws]
-</pre></div>
-</div>
-</li>
-<li><p><a class="reference external" href="https://console.aws.amazon.com/?nc2=h_m_mc">Login</a> to Amazon Web Services Console (or signup if you don’t have an account)</p></li>
-<li><p>Navigate to <em>S3</em> and <em>create a bucket</em>. Type a name (e.g. <code class="docutils literal notranslate"><span class="pre">lithops-data</span></code>). The bucket should be created in the same region as the Lambda functions are expected to be run (mainly to avoid inter-region data transfer charges).</p></li>
-</ol>
-</section>
 <section id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this heading">#</a></h2>
-<ol class="arabic" start="4">
-<li><p>Edit your lithopsa config and add the following keys:</p>
+<p>Lithops automatically creates a bucket with a unique name for your user. If you want to use a different bucket, you can create it manually and provide the name in the lithops config file. For this:</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://console.aws.amazon.com/?nc2=h_m_mc">Login</a> to Amazon Web Services Console (or signup if you don’t have an account)</p></li>
+<li><p>Navigate to <em>S3</em> and <em>create a bucket</em>. Type a name (e.g. <code class="docutils literal notranslate"><span class="pre">lithops-data-mysuer</span></code>). The bucket should be created in the same region as the Lambda functions are expected to be run (mainly to avoid inter-region data transfer charges).</p></li>
+</ol>
+</section>
+<section id="aws-credential-setup">
+<h2>AWS Credential setup<a class="headerlink" href="#aws-credential-setup" title="Permalink to this heading">#</a></h2>
+<p>Lithops loads AWS credentials as specified in the <a class="reference external" href="https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html">boto3 configuration guide</a>.</p>
+<p>In summary, you can use one of the following settings:</p>
+<ol class="arabic">
+<li><p>Provide the credentials via the <code class="docutils literal notranslate"><span class="pre">~/.aws/config</span></code> file, or set the <code class="docutils literal notranslate"><span class="pre">AWS_ACCESS_KEY_ID</span></code> and <code class="docutils literal notranslate"><span class="pre">AWS_SECRET_ACCESS_KEY</span></code> environment variables.</p>
+<p>You can run <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">configure</span></code> command if the AWS CLI is installed to setup the credentials. Then set in the Lithops config file:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">storage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aws_s3</span>
 
 <span class="nt">aws</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">region </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span>
-<span class="w">    </span><span class="nt">access_key_id </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;ACCESS_KEY_ID&gt;</span>
-<span class="w">    </span><span class="nt">secret_access_key </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SECRET_ACCESS_KEY&gt;</span>
+<span class="w">    </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Provide the credentials in the <code class="docutils literal notranslate"><span class="pre">aws</span></code> section of the Lithops config file:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">storage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aws_s3</span>
+
+<span class="nt">aws</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">access_key_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;AWS_ACCESS_KEY_ID&gt;</span>
+<span class="w">    </span><span class="nt">secret_access_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;AWS_SECRET_ACCESS_KEY&gt;</span>
+<span class="w">    </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span>
 </pre></div>
 </div>
 </li>
@@ -463,13 +470,13 @@ document.write(`
 <tr class="row-odd"><td><p>aws</p></td>
 <td><p>access_key_id</p></td>
 <td><p></p></td>
-<td><p>yes</p></td>
+<td><p>no</p></td>
 <td><p>Account access key to AWS services. To find them, navigate to <em>My Security Credentials</em> and click <em>Create Access Key</em> if you don’t already have one.</p></td>
 </tr>
 <tr class="row-even"><td><p>aws</p></td>
 <td><p>secret_access_key</p></td>
 <td><p></p></td>
-<td><p>yes</p></td>
+<td><p>no</p></td>
 <td><p>Account secret access key to AWS services. To find them, navigate to <em>My Security Credentials</em> and click <em>Create Access Key</em> if you don’t already have one.</p></td>
 </tr>
 <tr class="row-odd"><td><p>aws</p></td>
@@ -555,8 +562,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aws-credential-setup">AWS Credential setup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-aws">Summary of configuration keys for AWS:</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aws">AWS:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-aws-s3">Summary of configuration keys for AWS S3:</a></li>

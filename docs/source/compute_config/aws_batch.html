@@ -148,7 +148,7 @@
     <script>document.write(`<img src="../../_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">Lithops v3.2.0</p>
+    <p class="title logo__title">Lithops v3.3.0</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -242,7 +242,6 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference external" href="https://github.com/lithops-cloud/applications">Applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to Lithops</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing Guidelines</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/CHANGELOG.md">Changelog</a></li>
 </ul>
 
@@ -392,6 +391,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aws-credential-setup">AWS Credential setup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-aws">Summary of configuration keys for AWS</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aws">AWS</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">AWS Batch</a></li>
@@ -430,24 +430,22 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">AmazonEC2ContainerServiceforEC2Role</span></code></p></li>
 </ul>
 </li>
-<li><p>Edit your lithops config and add the following keys:</p></li>
 </ol>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">aws</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span>
-<span class="w">    </span><span class="nt">access_key_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;AWS_ACCESS_KEY_ID&gt;</span>
-<span class="w">    </span><span class="nt">secret_access_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;AWS_SECRET_ACCESS_KEY&gt;</span>
+</section>
+<section id="aws-credential-setup">
+<h2>AWS Credential setup<a class="headerlink" href="#aws-credential-setup" title="Permalink to this heading">#</a></h2>
+<p>Lithops loads AWS credentials as specified in the <a class="reference external" href="https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html">boto3 configuration guide</a>.</p>
+<p>In summary, you can use one of the following settings:</p>
+<ol class="arabic">
+<li><p>Provide the credentials via the <code class="docutils literal notranslate"><span class="pre">~/.aws/config</span></code> file, or set the <code class="docutils literal notranslate"><span class="pre">AWS_ACCESS_KEY_ID</span></code> and <code class="docutils literal notranslate"><span class="pre">AWS_SECRET_ACCESS_KEY</span></code> environment variables.</p>
+<p>You can run <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">configure</span></code> command if the AWS CLI is installed to setup the credentials. Then set in the Lithops config file:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aws_batch</span>
 
 <span class="nt">aws_batch</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">runtime </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;RUNTIME_NAME&gt;</span>
-<span class="w">    </span><span class="nt">runtime_timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;RUNTIME_TIMEOUT&gt;</span>
-<span class="w">    </span><span class="nt">runtime_memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;RUNTIME_MEMORY&gt;</span>
-<span class="w">    </span><span class="nt">worker_processes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;WORKER_PROCESSES&gt;</span>
-<span class="w">    </span><span class="nt">container_vcpus</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;CONTAINER_VCPUS&gt;</span>
+<span class="w">    </span><span class="nt">region </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span>
 <span class="w">    </span><span class="nt">execution_role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;EXECUTION_ROLE_ARN&gt;</span>
 <span class="w">    </span><span class="nt">instance_role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;INSTANCE_ROLE_ARN&gt;</span>
-<span class="w">    </span><span class="nt">env_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;COMPUTE_ENVIRONMENT_TYPE&gt;</span>
-<span class="w">    </span><span class="nt">env_max_cpus</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;COMPUTE_ENVIRONMENT_MAX_CPUS&gt;</span>
-<span class="w">    </span><span class="nt">assign_public_ip</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;ASSING_PUBLIC_IP_TO_CONTAINERS&gt;</span>
 <span class="w">    </span><span class="nt">subnets</span><span class="p">:</span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SUBNET_ID_1&gt;</span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SUBNET_ID_2&gt;</span>
@@ -458,6 +456,31 @@ document.write(`
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 </pre></div>
 </div>
+</li>
+<li><p>Provide the credentials in the <code class="docutils literal notranslate"><span class="pre">aws</span></code> section of the Lithops config file:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aws_batch</span>
+
+<span class="nt">aws</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">access_key_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;AWS_ACCESS_KEY_ID&gt;</span>
+<span class="w">    </span><span class="nt">secret_access_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;AWS_SECRET_ACCESS_KEY&gt;</span>
+<span class="w">    </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span>
+
+<span class="nt">aws_batch</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">execution_role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;EXECUTION_ROLE_ARN&gt;</span>
+<span class="w">    </span><span class="nt">instance_role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;INSTANCE_ROLE_ARN&gt;</span>
+<span class="w">    </span><span class="nt">subnets</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SUBNET_ID_1&gt;</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SUBNET_ID_2&gt;</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">    </span><span class="nt">security_groups</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SECURITY_GROUP_1&gt;</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SECURITY_GROUP_2&gt;</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+</pre></div>
+</div>
+</li>
+</ol>
 </section>
 <section id="summary-of-configuration-keys-for-aws">
 <h2>Summary of configuration keys for AWS<a class="headerlink" href="#summary-of-configuration-keys-for-aws" title="Permalink to this heading">#</a></h2>
@@ -482,13 +505,13 @@ document.write(`
 <tr class="row-odd"><td><p>aws</p></td>
 <td><p>access_key_id</p></td>
 <td><p></p></td>
-<td><p>yes</p></td>
+<td><p>no</p></td>
 <td><p>Account access key to AWS services. To find them, navigate to <em>My Security Credentials</em> and click <em>Create Access Key</em> if you don’t already have one.</p></td>
 </tr>
 <tr class="row-even"><td><p>aws</p></td>
 <td><p>secret_access_key</p></td>
 <td><p></p></td>
-<td><p>yes</p></td>
+<td><p>no</p></td>
 <td><p>Account secret access key to AWS services. To find them, navigate to <em>My Security Credentials</em> and click <em>Create Access Key</em> if you don’t already have one.</p></td>
 </tr>
 <tr class="row-odd"><td><p>aws</p></td>
@@ -667,6 +690,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aws-credential-setup">AWS Credential setup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-aws">Summary of configuration keys for AWS</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aws">AWS</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">AWS Batch</a></li>
