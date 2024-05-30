@@ -148,7 +148,7 @@
     <script>document.write(`<img src="../_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">Lithops v3.3.0</p>
+    <p class="title logo__title">Lithops v3.4.0</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -195,7 +195,7 @@
 <li class="toctree-l2"><a class="reference internal" href="storage_config/gcp_storage.html">GCP Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage_config/azure_blob.html">Azure Blob Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage_config/aliyun_oss.html">Aliyun Object Storage Service</a></li>
-<li class="toctree-l2"><a class="reference internal" href="storage_config/oracle_oss.html">Oracle Object Storage (beta)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage_config/oracle_oss.html">Oracle Object Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage_config/ceph.html">Ceph</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage_config/minio.html">MinIO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage_config/swift.html">Swift</a></li>
@@ -410,6 +410,10 @@ document.write(`
   <section id="multiprocessing-api">
 <h1>Multiprocessing API<a class="headerlink" href="#multiprocessing-api" title="Permalink to this heading">#</a></h1>
 <p>Lithops implements Python’s <a class="reference external" href="https://docs.python.org/3/library/multiprocessing.html">multiprocessing API</a> to transparently run local-parallel applications but using serverless functions for Processes and a Redis instance for shared state and Inter-Process Communication (IPC).</p>
+<p>Before utilizing this API, you will need to install its dependencies:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>lithops<span class="o">[</span>multiprocessing<span class="o">]</span>
+</pre></div>
+</div>
 <section id="process-and-pool">
 <h2>Process and Pool<a class="headerlink" href="#process-and-pool" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://docs.python.org/3/library/multiprocessing.html#the-process-class">Processes</a> and <a class="reference external" href="https://docs.python.org/3/library/multiprocessing.html#using-a-pool-of-workers">Pool</a> are the abstractions used in multiprocessing to parallelize computation. They interact directly with Lithop’s Futures API.</p>
@@ -451,7 +455,7 @@ document.write(`
 </div>
 <p>The Redis credentials (host, password…) is loaded from the <code class="docutils literal notranslate"><span class="pre">redis</span></code> section of the Lithops configuration.</p>
 <p>The fastest way to deploy a Redis instance is using Docker in a VM located in the cloud of your choice:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ docker run --rm -d --network host --name redis redis:6.2.1 --requirepass redispassword
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-d<span class="w"> </span>--network<span class="w"> </span>host<span class="w"> </span>--name<span class="w"> </span>redis<span class="w"> </span>redis:6.2.1<span class="w"> </span>--requirepass<span class="w"> </span>redispassword
 </pre></div>
 </div>
 <p>To have lower latency, you can deploy the functions and the VM in the same VPC and use route through internal traffic instead of the internet.
@@ -475,7 +479,7 @@ For this reason, to set specific configuration in runtime, the <code class="docu
 
     <span class="c1"># To set a config parameter, use the set_parameter</span>
     <span class="c1"># function and specify the parameter and the desired value</span>
-    <span class="n">mp_config</span><span class="o">.</span><span class="n">set_parameter</span><span class="p">(</span><span class="n">mp_config</span><span class="o">.</span><span class="n">LITHOPS_CONFIG</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;lithops&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;mode&#39;</span><span class="p">:</span> <span class="s1">&#39;localhost&#39;</span><span class="p">}})</span>
+    <span class="n">mp_config</span><span class="o">.</span><span class="n">set_parameter</span><span class="p">(</span><span class="n">mp_config</span><span class="o">.</span><span class="n">LITHOPS_CONFIG</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;lithops&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;backend&#39;</span><span class="p">:</span> <span class="s1">&#39;localhost&#39;</span><span class="p">}})</span>
     <span class="n">mp_config</span><span class="o">.</span><span class="n">set_parameter</span><span class="p">(</span><span class="n">mp_config</span><span class="o">.</span><span class="n">STREAM_STDOUT</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
     <span class="n">mp_config</span><span class="o">.</span><span class="n">set_parameter</span><span class="p">(</span><span class="n">mp_config</span><span class="o">.</span><span class="n">REDIS_EXPIRY_TIME</span><span class="p">,</span> <span class="mi">1800</span><span class="p">)</span>
     <span class="n">mp_config</span><span class="o">.</span><span class="n">set_parameter</span><span class="p">(</span><span class="n">mp_config</span><span class="o">.</span><span class="n">PIPE_CONNECTION_TYPE</span><span class="p">,</span> <span class="s1">&#39;redislist&#39;</span><span class="p">)</span>

@@ -148,7 +148,7 @@
     <script>document.write(`<img src="../../_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">Lithops v3.3.0</p>
+    <p class="title logo__title">Lithops v3.4.0</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -195,7 +195,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/gcp_storage.html">GCP Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/azure_blob.html">Azure Blob Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/aliyun_oss.html">Aliyun Object Storage Service</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../storage_config/oracle_oss.html">Oracle Object Storage (beta)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage_config/oracle_oss.html">Oracle Object Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/ceph.html">Ceph</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/minio.html">MinIO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/swift.html">Swift</a></li>
@@ -390,6 +390,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aws-credential-setup">AWS Credential setup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-aws">Summary of configuration keys for AWS</a><ul class="nav section-nav flex-column">
@@ -418,6 +419,15 @@ document.write(`
   <section id="aws-lambda">
 <h1>AWS Lambda<a class="headerlink" href="#aws-lambda" title="Permalink to this heading">#</a></h1>
 <p>Lithops with <em>AWS Lambda</em> as serverless compute backend.</p>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Install AWS backend dependencies:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>lithops<span class="o">[</span>aws<span class="o">]</span>
+</pre></div>
+</div>
+</section>
 <section id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
@@ -447,9 +457,9 @@ document.write(`
 </pre></div>
 </div>
 <ol class="arabic simple" start="4">
-<li><p>Click <strong>Next: Tags</strong> and <strong>Next: Review</strong>. Fill the policy name field (you can name it <code class="docutils literal notranslate"><span class="pre">lithops-policy</span></code> or simmilar) and create the policy.</p></li>
+<li><p>Click <strong>Next: Tags</strong> and <strong>Next: Review</strong>. Fill the policy name field (you can name it <code class="docutils literal notranslate"><span class="pre">lithops-policy</span></code> or similar) and create the policy.</p></li>
 <li><p>Go back to <strong>IAM</strong> and navigate to <strong>Roles</strong> tab. Click <strong>Create role</strong>.</p></li>
-<li><p>Choose <strong>Lambda</strong> on the use case list and click <strong>Next: Permissions</strong>. Select the policy created before (<code class="docutils literal notranslate"><span class="pre">lithops-policy</span></code>). Click <strong>Next: Tags</strong> and <strong>Next: Review</strong>. Type a role name, for example <code class="docutils literal notranslate"><span class="pre">lithops-execution-role</span></code>. Click on <em>Create Role</em>.</p></li>
+<li><p>Choose <strong>Lambda</strong> on the use case list and click <strong>Next: Permissions</strong>. Select the policy created before (<code class="docutils literal notranslate"><span class="pre">lithops-policy</span></code>). Click <strong>Next: Tags</strong> and <strong>Next: Review</strong>. Type a role name, for example <code class="docutils literal notranslate"><span class="pre">lambdaLithopsExecutionRole</span></code>. Click on <em>Create Role</em>.</p></li>
 </ol>
 </section>
 <section id="aws-credential-setup">
@@ -547,7 +557,7 @@ document.write(`
 <td><p>execution_role</p></td>
 <td><p></p></td>
 <td><p>yes</p></td>
-<td><p>ARN of the execution role created at step 3. You can find it in the Role page at the <em>Roles</em> list in the <em>IAM</em> section (e.g. <code class="docutils literal notranslate"><span class="pre">arn:aws:iam::1234567890:role/lithops-execution-role</span></code></p></td>
+<td><p>ARN of the execution role created at step 3. You can find it in the Role page at the <em>Roles</em> list in the <em>IAM</em> section (e.g. <code class="docutils literal notranslate"><span class="pre">arn:aws:iam::1234567890:role/lambdaLithopsExecutionRole</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p>aws_lambda</p></td>
 <td><p>region</p></td>
@@ -619,7 +629,7 @@ document.write(`
 <td><p>namespace</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
-<td><p>Virtual namespace. This can be usefull to virtually group Lithops function workers. The functions deployed by lithops will be prefixed by this namespace. For example you can set it to differentiate between <code class="docutils literal notranslate"><span class="pre">prod</span></code>, <code class="docutils literal notranslate"><span class="pre">dev</span></code> and <code class="docutils literal notranslate"><span class="pre">stage</span></code> environments.</p></td>
+<td><p>Virtual namespace. This can be useful to virtually group Lithops function workers. The functions deployed by lithops will be prefixed by this namespace. For example you can set it to differentiate between <code class="docutils literal notranslate"><span class="pre">prod</span></code>, <code class="docutils literal notranslate"><span class="pre">dev</span></code> and <code class="docutils literal notranslate"><span class="pre">stage</span></code> environments.</p></td>
 </tr>
 <tr class="row-odd"><td><p>aws_lambda</p></td>
 <td><p>runtime_include_function</p></td>
@@ -741,6 +751,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aws-credential-setup">AWS Credential setup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-aws">Summary of configuration keys for AWS</a><ul class="nav section-nav flex-column">

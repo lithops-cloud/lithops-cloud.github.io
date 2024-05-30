@@ -148,7 +148,7 @@
     <script>document.write(`<img src="../../_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">Lithops v3.3.0</p>
+    <p class="title logo__title">Lithops v3.4.0</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -195,7 +195,7 @@
 <li class="toctree-l2"><a class="reference internal" href="gcp_storage.html">GCP Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="azure_blob.html">Azure Blob Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aliyun_oss.html">Aliyun Object Storage Service</a></li>
-<li class="toctree-l2"><a class="reference internal" href="oracle_oss.html">Oracle Object Storage (beta)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oracle_oss.html">Oracle Object Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ceph.html">Ceph</a></li>
 <li class="toctree-l2"><a class="reference internal" href="minio.html">MinIO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="swift.html">Swift</a></li>
@@ -410,15 +410,19 @@ document.write(`
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
+<li><p>Install Redis backend dependencies:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>lithops<span class="o">[</span>redis<span class="o">]</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
 <li><p>Install Redis &gt;= 5.</p></li>
 <li><p>Secure your installation by setting a password in the redis configuration file.</p></li>
 </ol>
 </section>
 <section id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this heading">#</a></h2>
-<ol class="arabic simple" start="3">
-<li><p>Edit your lithops config file and add the following keys:</p></li>
-</ol>
+<p>Edit your lithops config file and add the following keys:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">lithops</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">storage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">redis</span>
 
@@ -445,7 +449,7 @@ document.write(`
 <td><p>host</p></td>
 <td><p>localhost</p></td>
 <td><p>no</p></td>
-<td><p>The host ip adress where you installed the Redis server.</p></td>
+<td><p>The host ip address where you installed the Redis server.</p></td>
 </tr>
 <tr class="row-odd"><td><p>redis</p></td>
 <td><p>port</p></td>
@@ -475,7 +479,7 @@ document.write(`
 <td><p>ssl</p></td>
 <td><p>False</p></td>
 <td><p>no</p></td>
-<td><p>Activate ssl conection</p></td>
+<td><p>Activate ssl connection</p></td>
 </tr>
 <tr class="row-even"><td><p>redis</p></td>
 <td><p>…</p></td>

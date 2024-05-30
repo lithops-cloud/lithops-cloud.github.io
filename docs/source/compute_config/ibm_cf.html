@@ -146,7 +146,7 @@
     <script>document.write(`<img src="../../_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">Lithops v3.3.0</p>
+    <p class="title logo__title">Lithops v3.4.0</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -193,7 +193,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/gcp_storage.html">GCP Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/azure_blob.html">Azure Blob Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/aliyun_oss.html">Aliyun Object Storage Service</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../storage_config/oracle_oss.html">Oracle Object Storage (beta)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage_config/oracle_oss.html">Oracle Object Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/ceph.html">Ceph</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/minio.html">MinIO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/swift.html">Swift</a></li>
@@ -388,6 +388,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-ibm-cloud">Summary of configuration keys for IBM Cloud:</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ibm-iam">IBM IAM:</a></li>
@@ -411,6 +412,15 @@ document.write(`
 <h1>IBM Cloud Functions<a class="headerlink" href="#ibm-cloud-functions" title="Permalink to this heading">#</a></h1>
 <p>Lithops with <em>IBM Cloud Functions</em> as compute backend.</p>
 <p><strong>Note</strong>: This backend is deprecated. See the <a class="reference external" href="https://cloud.ibm.com/docs/openwhisk?topic=openwhisk-dep-overview">deprecation overview</a></p>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Install IBM Cloud backend dependencies:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>lithops<span class="o">[</span>ibm<span class="o">]</span>
+</pre></div>
+</div>
+</section>
 <section id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this heading">#</a></h2>
 <ol class="arabic">
@@ -418,7 +428,7 @@ document.write(`
 <li><p>If you don’t have an IAM API key created, navigate to the <a class="reference external" href="https://cloud.ibm.com/iam/apikeys">IBM IAM dashboard</a>.</p></li>
 <li><p>Click <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">an</span> <span class="pre">IBM</span> <span class="pre">Cloud</span> <span class="pre">API</span> <span class="pre">Key</span></code> and provide the necessary information.</p></li>
 <li><p>Copy the generated IAM API key (You can only see the key the first time you create it, so make sure to copy it).</p></li>
-<li><p>Naviagete to the <a class="reference external" href="https://cloud.ibm.com/account/resource-groups">resource groups dashboard</a>, and copy the desired resource group ID.</p></li>
+<li><p>Navigate to the <a class="reference external" href="https://cloud.ibm.com/account/resource-groups">resource groups dashboard</a>, and copy the desired resource group ID.</p></li>
 <li><p>Edit your lithops config and add the following keys:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ibm_cf</span>
@@ -483,13 +493,13 @@ document.write(`
 <td><p>namespace</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
-<td><p>Value of CURRENT NAMESPACE from <a class="reference external" href="https://cloud.ibm.com/functions/namespace-settings">here</a>. Provide it if you want to use an existsing <code class="docutils literal notranslate"><span class="pre">namespace</span></code>. Lithops will automatically create a new namespace if not provided.</p></td>
+<td><p>Value of CURRENT NAMESPACE from <a class="reference external" href="https://cloud.ibm.com/functions/namespace-settings">here</a>. Provide it if you want to use an existing <code class="docutils literal notranslate"><span class="pre">namespace</span></code>. Lithops will automatically create a new namespace if not provided.</p></td>
 </tr>
 <tr class="row-odd"><td><p>ibm_cf</p></td>
 <td><p>namespace_id</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
-<td><p>Value of ‘GUID’ from <a class="reference external" href="https://cloud.ibm.com/functions/namespace-settings">here</a>. Provide it if you want to use an existsing <code class="docutils literal notranslate"><span class="pre">namespace</span></code>. Provide it along with <code class="docutils literal notranslate"><span class="pre">namespace</span></code>.</p></td>
+<td><p>Value of ‘GUID’ from <a class="reference external" href="https://cloud.ibm.com/functions/namespace-settings">here</a>. Provide it if you want to use an existing <code class="docutils literal notranslate"><span class="pre">namespace</span></code>. Provide it along with <code class="docutils literal notranslate"><span class="pre">namespace</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p>ibm_cf</p></td>
 <td><p>region</p></td>
@@ -597,6 +607,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-ibm-cloud">Summary of configuration keys for IBM Cloud:</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ibm-iam">IBM IAM:</a></li>

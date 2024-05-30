@@ -148,7 +148,7 @@
     <script>document.write(`<img src="../../_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">Lithops v3.3.0</p>
+    <p class="title logo__title">Lithops v3.4.0</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -195,7 +195,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/gcp_storage.html">GCP Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/azure_blob.html">Azure Blob Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/aliyun_oss.html">Aliyun Object Storage Service</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../storage_config/oracle_oss.html">Oracle Object Storage (beta)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage_config/oracle_oss.html">Oracle Object Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/ceph.html">Ceph</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/minio.html">MinIO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/swift.html">Swift</a></li>
@@ -390,6 +390,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aws-credential-setup">AWS Credential setup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-aws">Summary of configuration keys for AWS</a><ul class="nav section-nav flex-column">
@@ -413,11 +414,20 @@ document.write(`
   <section id="aws-batch">
 <h1>AWS Batch<a class="headerlink" href="#aws-batch" title="Permalink to this heading">#</a></h1>
 <p>Lithops with <em>AWS Batch</em> as serverless batch compute backend.</p>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Install AWS backend dependencies:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>lithops<span class="o">[</span>aws<span class="o">]</span>
+</pre></div>
+</div>
+</section>
 <section id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p><a class="reference external" href="https://console.aws.amazon.com/?nc2=h_m_mc">Login</a> to Amazon Web Services Console (or signup if you don’t have an account)</p></li>
-<li><p>Navigate to <strong>IAM &gt; Roles</strong> to create the ECS Task Execution Role. AWS provides a defualt role named <code class="docutils literal notranslate"><span class="pre">ecsTaskExecutionRole</span></code>, which can be used instead. If you want to create another role or it is missing, create a new role attached to <code class="docutils literal notranslate"><span class="pre">Elastic</span> <span class="pre">Container</span> <span class="pre">Service</span> <span class="pre">Task</span></code>, and add the following policies:</p>
+<li><p>Navigate to <strong>IAM &gt; Roles</strong> to create the ECS Task Execution Role. AWS provides a default role named <code class="docutils literal notranslate"><span class="pre">ecsTaskExecutionRole</span></code>, which can be used instead. If you want to create another role or it is missing, create a new role attached to <code class="docutils literal notranslate"><span class="pre">Elastic</span> <span class="pre">Container</span> <span class="pre">Service</span> <span class="pre">Task</span></code>, and add the following policies:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">SecretsManagerReadWrite</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">AmazonEC2ContainerRegistryFullAccess</span></code></p></li>
@@ -425,11 +435,39 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">AmazonECSTaskExecutionRolePolicy</span></code></p></li>
 </ul>
 </li>
-<li><p>Navigate to <strong>IAM &gt; Roles</strong> to create the ECS Instance Role. AWS provides a defualt role named <code class="docutils literal notranslate"><span class="pre">ecsInstanceRole</span></code>, which can be used instead. If you want to create another role or it is missing, create a new role attached to <code class="docutils literal notranslate"><span class="pre">EC2</span></code>, and add the following policy:</p>
+<li><p>Navigate to <strong>IAM &gt; Roles</strong> to create the ECS Instance Role. AWS provides a default role named <code class="docutils literal notranslate"><span class="pre">ecsInstanceRole</span></code>, which can be used instead. If you want to create another role or it is missing, create a new role attached to <code class="docutils literal notranslate"><span class="pre">EC2</span></code>, and add the following policy:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">AmazonEC2ContainerServiceforEC2Role</span></code></p></li>
 </ul>
 </li>
+<li><p>Navigate to <strong>IAM &gt; Policies</strong>. Click on <strong>Create policy</strong>. If you already created this policy for the AWS Lambda or AWS EC2 backend, jump to step 7.</p></li>
+<li><p>Select <strong>JSON</strong> tab and paste the following JSON policy:</p></li>
+</ol>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;Version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Statement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;Effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;Action&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;s3:*&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;lambda:*&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;ec2:*&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;ecr:*&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;sts:GetCallerIdentity&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;logs:CreateLogGroup&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;logs:CreateLogStream&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;logs:PutLogEvents&quot;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;Resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;*&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Click <strong>Next: Tags</strong> and <strong>Next: Review</strong>. Fill the policy name field (you can name it <code class="docutils literal notranslate"><span class="pre">lithops-policy</span></code> or similar) and create the policy.</p></li>
+<li><p>Go back to <strong>IAM</strong> and navigate to <strong>Roles</strong> tab. Click <strong>Create role</strong>.</p></li>
+<li><p>Choose <strong>Elastic Container Service</strong> on the use case list and then click on <strong>Elastic Container Service Task</strong>. Click <strong>Next: Permissions</strong>. Select the policy created before (<code class="docutils literal notranslate"><span class="pre">lithops-policy</span></code>). Click <strong>Next: Tags</strong> and <strong>Next: Review</strong>. Type a role name, for example <code class="docutils literal notranslate"><span class="pre">ecsTaskJobRole</span></code>. Click on <strong>Create Role</strong>.</p></li>
 </ol>
 </section>
 <section id="aws-credential-setup">
@@ -445,19 +483,18 @@ document.write(`
 <span class="nt">aws_batch</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">region </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span>
 <span class="w">    </span><span class="nt">execution_role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;EXECUTION_ROLE_ARN&gt;</span>
-<span class="w">    </span><span class="nt">instance_role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;INSTANCE_ROLE_ARN&gt;</span>
+<span class="w">    </span><span class="nt">job_role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;JOB_ROLE_ARN&gt;</span>
 <span class="w">    </span><span class="nt">subnets</span><span class="p">:</span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SUBNET_ID_1&gt;</span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SUBNET_ID_2&gt;</span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 <span class="w">    </span><span class="nt">security_groups</span><span class="p">:</span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SECURITY_GROUP_1&gt;</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SECURITY_GROUP_2&gt;</span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 </pre></div>
 </div>
 </li>
-<li><p>Provide the credentials in the <code class="docutils literal notranslate"><span class="pre">aws</span></code> section of the Lithops config file:</p>
+<li><p>Provide the credentials in the <code class="docutils literal notranslate"><span class="pre">aws</span></code> section of the Lithops config file. In this case you can omit setting the <code class="docutils literal notranslate"><span class="pre">job_role</span></code>:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aws_batch</span>
 
@@ -468,14 +505,13 @@ document.write(`
 
 <span class="nt">aws_batch</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">execution_role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;EXECUTION_ROLE_ARN&gt;</span>
-<span class="w">    </span><span class="nt">instance_role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;INSTANCE_ROLE_ARN&gt;</span>
+<span class="w">    </span><span class="nt">job_role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;JOB_ROLE_ARN&gt;</span><span class="w">  </span><span class="c1"># Not mandatory if the credentials are in the aws section</span>
 <span class="w">    </span><span class="nt">subnets</span><span class="p">:</span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SUBNET_ID_1&gt;</span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SUBNET_ID_2&gt;</span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 <span class="w">    </span><span class="nt">security_groups</span><span class="p">:</span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SECURITY_GROUP_1&gt;</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SECURITY_GROUP_2&gt;</span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 </pre></div>
 </div>
@@ -548,10 +584,10 @@ document.write(`
 <td><p>ARN of the execution role used to execute AWS Batch tasks on ECS for Fargate environments</p></td>
 </tr>
 <tr class="row-odd"><td><p>aws_batch</p></td>
-<td><p>instance_role</p></td>
+<td><p>job_role</p></td>
 <td><p></p></td>
 <td><p>yes</p></td>
-<td><p>ARN of the execution role used to execute AWS Batch tasks on ECS for EC2 environments</p></td>
+<td><p>ARN of the job role used to execute AWS Batch tasks on ECS for Fargate environments. Not mandatory if the credentials are in the <code class="docutils literal notranslate"><span class="pre">aws</span></code> section of the configuration</p></td>
 </tr>
 <tr class="row-even"><td><p>aws_batch</p></td>
 <td><p>security_groups</p></td>
@@ -563,63 +599,69 @@ document.write(`
 <td><p>subnets</p></td>
 <td><p></p></td>
 <td><p>yes</p></td>
-<td><p>List of subnets from a VPC where to deploy the ECS task containers. Note that if you are using a <strong>private subnet</strong>, you can set <code class="docutils literal notranslate"><span class="pre">assing_public_ip</span></code> to <code class="docutils literal notranslate"><span class="pre">false</span></code> but make sure containers can reach other AWS services like ECR, Secrets service, etc., by, for example, using a NAT gateway. If you are using a <strong>public subnet</strong> you must set <code class="docutils literal notranslate"><span class="pre">assing_public_ip</span></code> to <code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+<td><p>List of subnets from a VPC where to deploy the ECS task containers. Note that if you are using a <strong>private subnet</strong>, you can set <code class="docutils literal notranslate"><span class="pre">assign_public_ip</span></code> to <code class="docutils literal notranslate"><span class="pre">false</span></code> but make sure containers can reach other AWS services like ECR, Secrets service, etc., by, for example, using a NAT gateway. If you are using a <strong>public subnet</strong> you must set <code class="docutils literal notranslate"><span class="pre">assign_public_up</span></code> to <code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p>aws_batch</p></td>
+<td><p>instance_role</p></td>
+<td><p></p></td>
+<td><p>no</p></td>
+<td><p>ARN of the execution role used to execute AWS Batch tasks on ECS for EC2 environments. Mandatory if using the <strong>EC2</strong> or <strong>SPOT</strong> <code class="docutils literal notranslate"><span class="pre">env_type</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>aws_batch</p></td>
 <td><p>region</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
 <td><p>Region name (like <code class="docutils literal notranslate"><span class="pre">us-east-1</span></code>) where to deploy the ECS cluster. Lithops will use the region set under the <code class="docutils literal notranslate"><span class="pre">aws</span></code> section if it is not set here</p></td>
 </tr>
-<tr class="row-odd"><td><p>aws_batch</p></td>
+<tr class="row-even"><td><p>aws_batch</p></td>
 <td><p>assign_public_ip</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
 <td><p>no</p></td>
-<td><p>Assing public IPs to ECS task containers. Set to <code class="docutils literal notranslate"><span class="pre">true</span></code> if the tasks are being deployed in a public subnet. Set to <code class="docutils literal notranslate"><span class="pre">false</span></code> when deploying on a private subnet.</p></td>
-</tr>
-<tr class="row-even"><td><p>aws_batch</p></td>
-<td><p>runtime</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">default_runtime-v3X</span></code></p></td>
-<td><p>no</p></td>
-<td><p>Runtime name</p></td>
+<td><p>Assign public IPs to ECS task containers. Set to <code class="docutils literal notranslate"><span class="pre">true</span></code> if the tasks are being deployed in a public subnet. Set to <code class="docutils literal notranslate"><span class="pre">false</span></code> when deploying on a private subnet.</p></td>
 </tr>
 <tr class="row-odd"><td><p>aws_batch</p></td>
+<td><p>runtime</p></td>
+<td><p></p></td>
+<td><p>no</p></td>
+<td><p>Container runtime name in ECR. If not provided Lithops will automatically build a default runtime</p></td>
+</tr>
+<tr class="row-even"><td><p>aws_batch</p></td>
 <td><p>runtime_timeout</p></td>
 <td><p>180</p></td>
 <td><p>no</p></td>
-<td><p>Runtime timeout</p></td>
+<td><p>Runtime timeout managed by the cloud provider.</p></td>
 </tr>
-<tr class="row-even"><td><p>aws_batch</p></td>
+<tr class="row-odd"><td><p>aws_batch</p></td>
 <td><p>runtime_memory</p></td>
 <td><p>1024</p></td>
 <td><p>no</p></td>
-<td><p>Runtime memory</p></td>
+<td><p>Runtime memory assigned to each task container.</p></td>
+</tr>
+<tr class="row-even"><td><p>aws_batch</p></td>
+<td><p>runtime_cpu</p></td>
+<td><p>0.5</p></td>
+<td><p>no</p></td>
+<td><p>Number of vCPUs assigned to each task container. It can be different from <code class="docutils literal notranslate"><span class="pre">worker_processes</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>aws_batch</p></td>
 <td><p>worker_processes</p></td>
 <td><p>1</p></td>
 <td><p>no</p></td>
-<td><p>Worker processes</p></td>
+<td><p>Number of parallel Lithops processes in a worker. This is used to parallelize function activations within the worker.</p></td>
 </tr>
 <tr class="row-even"><td><p>aws_batch</p></td>
-<td><p>container_vcpus</p></td>
-<td><p>0.5</p></td>
+<td><p>service_role</p></td>
+<td><p></p></td>
 <td><p>no</p></td>
-<td><p>Number of vCPUs assigned to each task container. It can be different from <code class="docutils literal notranslate"><span class="pre">worker_processes</span></code>. Use it to run a task that uses multiple processes within a container.</p></td>
+<td><p>Service role for AWS Batch. Leave empty to use a service-linked execution role. More info <a class="reference external" href="https://docs.aws.amazon.com/batch/latest/userguide/using-service-linked-roles.html">here</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>aws_batch</p></td>
-<td><p>service_role</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
-<td><p>no</p></td>
-<td><p>Service role for AWS Batch. Leave empty for use a service-linked execution role. More info <a class="reference external" href="https://docs.aws.amazon.com/batch/latest/userguide/using-service-linked-roles.html">here</a></p></td>
-</tr>
-<tr class="row-even"><td><p>aws_batch</p></td>
 <td><p>env_max_cpus</p></td>
 <td><p>10</p></td>
 <td><p>no</p></td>
 <td><p>Maximum total CPUs of the compute environment</p></td>
 </tr>
-<tr class="row-odd"><td><p>aws_batch</p></td>
+<tr class="row-even"><td><p>aws_batch</p></td>
 <td><p>env_type</p></td>
 <td><p>FARGATE_SPOT</p></td>
 <td><p>no</p></td>
@@ -689,6 +731,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aws-credential-setup">AWS Credential setup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-aws">Summary of configuration keys for AWS</a><ul class="nav section-nav flex-column">

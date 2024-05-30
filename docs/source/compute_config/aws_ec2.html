@@ -148,7 +148,7 @@
     <script>document.write(`<img src="../../_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">Lithops v3.3.0</p>
+    <p class="title logo__title">Lithops v3.4.0</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -195,7 +195,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/gcp_storage.html">GCP Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/azure_blob.html">Azure Blob Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/aliyun_oss.html">Aliyun Object Storage Service</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../storage_config/oracle_oss.html">Oracle Object Storage (beta)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage_config/oracle_oss.html">Oracle Object Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/ceph.html">Ceph</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/minio.html">MinIO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/swift.html">Swift</a></li>
@@ -394,6 +394,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-an-operating-system-image-for-the-vm">Choose an operating system image for the VM</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops-consume-mode">Lithops Consume mode</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aws-credential-setup">AWS Credential setup</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-aws">Summary of configuration keys for AWS</a></li>
@@ -401,6 +402,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops-create-and-reuse-modes">Lithops create and reuse modes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">AWS Credential setup</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Summary of configuration keys for AWS</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ec2-create-and-reuse-modes">EC2 - Create and Reuse Modes</a></li>
@@ -434,6 +436,15 @@ document.write(`
 <li><p>Option 2: Alternatively, you can use a pre-built custom image that will greatly improve VM creation time for Lithops jobs. To benefit from this approach, navigate to <a class="reference external" href="https://github.com/lithops-cloud/lithops/tree/master/runtime/aws_ec2">runtime/aws_ec2</a>, and follow the instructions.</p></li>
 </ul>
 </section>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Install AWS backend dependencies:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>lithops<span class="o">[</span>aws<span class="o">]</span>
+</pre></div>
+</div>
 </section>
 <section id="lithops-consume-mode">
 <h2>Lithops Consume mode<a class="headerlink" href="#lithops-consume-mode" title="Permalink to this heading">#</a></h2>
@@ -557,7 +568,7 @@ document.write(`
 <td><p>worker_processes</p></td>
 <td><p>AUTO</p></td>
 <td><p>no</p></td>
-<td><p>Number of Lithops processes within a given worker. This is used to parallelize function activations within the worker. By default it detects the amount of CPUs in the VM</p></td>
+<td><p>Number of parallel Lithops processes in a worker. This is used to parallelize function activations within the worker. By default it detects the amount of CPUs in the VM</p></td>
 </tr>
 <tr class="row-odd"><td><p>aws_ec2</p></td>
 <td><p>runtime</p></td>
@@ -591,6 +602,39 @@ document.write(`
 <h2>Lithops create and reuse modes<a class="headerlink" href="#lithops-create-and-reuse-modes" title="Permalink to this heading">#</a></h2>
 <p>In the <code class="docutils literal notranslate"><span class="pre">create</span></code> mode, Lithops will automatically create new worker VM instances in runtime, scale Lithops job against generated VMs, and automatically delete the VMs when the job is completed.
 Alternatively, you can set the <code class="docutils literal notranslate"><span class="pre">reuse</span></code> mode to keep running the started worker VMs, and reuse them for further executions. In the <code class="docutils literal notranslate"><span class="pre">reuse</span></code> mode, Lithops checks all the available worker VMs and start new workers only if necessary.</p>
+<section id="configuration">
+<h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Navigate to <strong>IAM &gt; Policies</strong>. Click on <strong>Create policy</strong>. If you already created this policy for the AWS Lambda or AWS Batch backend, jump to step 4.</p></li>
+<li><p>Select <strong>JSON</strong> tab and paste the following JSON policy:</p></li>
+</ol>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;Version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Statement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;Effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;Action&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;s3:*&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;lambda:*&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;ec2:*&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;ecr:*&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;sts:GetCallerIdentity&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;logs:CreateLogGroup&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;logs:CreateLogStream&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;logs:PutLogEvents&quot;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;Resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;*&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Click <strong>Next: Tags</strong> and <strong>Next: Review</strong>. Fill the policy name field (you can name it <code class="docutils literal notranslate"><span class="pre">lithops-policy</span></code> or similar) and create the policy.</p></li>
+<li><p>Go back to <strong>IAM</strong> and navigate to <strong>Roles</strong> tab. Click <strong>Create role</strong>.</p></li>
+<li><p>Choose <strong>EC2</strong> on the use case list. Click <strong>Next: Permissions</strong>. Select the policy created before (<code class="docutils literal notranslate"><span class="pre">lithops-policy</span></code>). Click <strong>Next: Tags</strong> and <strong>Next: Review</strong>. Type a role name, for example <code class="docutils literal notranslate"><span class="pre">ec2LithopsInstanceRole</span></code>. Click on <strong>Create Role</strong>.</p></li>
+</ol>
+</section>
 <section id="id1">
 <h3>AWS Credential setup<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <p>Lithops loads AWS credentials as specified in the <a class="reference external" href="https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html">boto3 configuration guide</a>.</p>
@@ -603,7 +647,7 @@ Alternatively, you can set the <code class="docutils literal notranslate"><span 
 
 <span class="nt">aws_ec2</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">region </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span>
-<span class="w">    </span><span class="nt">iam_role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;IAM_ROLE_NAME&gt;</span>
+<span class="w">    </span><span class="nt">instance_role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;IAM_INSTANCE_ROLE_NAME&gt;</span>
 <span class="w">    </span><span class="nt">exec_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reuse</span>
 </pre></div>
 </div>
@@ -618,7 +662,7 @@ Alternatively, you can set the <code class="docutils literal notranslate"><span 
 <span class="w">    </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span>
 
 <span class="nt">aws_ec2</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">iam_role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;IAM_ROLE_NAME&gt;</span>
+<span class="w">    </span><span class="nt">instance_role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;IAM_INSTANCE_ROLE_NAME&gt;</span>
 <span class="w">    </span><span class="nt">exec_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reuse</span>
 </pre></div>
 </div>
@@ -689,10 +733,10 @@ Alternatively, you can set the <code class="docutils literal notranslate"><span 
 <td><p>Region name, for example: <code class="docutils literal notranslate"><span class="pre">eu-west-1</span></code>. Lithops will use the <code class="docutils literal notranslate"><span class="pre">region</span></code> set under the <code class="docutils literal notranslate"><span class="pre">aws</span></code> section if it is not set here</p></td>
 </tr>
 <tr class="row-odd"><td><p>aws_ec2</p></td>
-<td><p>iam_role</p></td>
+<td><p>instance_role</p></td>
 <td><p></p></td>
 <td><p>yes</p></td>
-<td><p>IAM EC2 role name. You can find it in the <a class="reference external" href="https://console.aws.amazon.com/iamv2/home#/roles">IAM Console page</a>. Create a new EC2 role if it does not exist</p></td>
+<td><p>EC2 Instance role name created in the configuration section above. Do not use the full ARN here; only the role name is required. For example: <code class="docutils literal notranslate"><span class="pre">ec2LithopsInstanceRole</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p>aws_ec2</p></td>
 <td><p>vpc_id</p></td>
@@ -774,9 +818,9 @@ Alternatively, you can set the <code class="docutils literal notranslate"><span 
 </tr>
 <tr class="row-odd"><td><p>aws_ec2</p></td>
 <td><p>worker_processes</p></td>
-<td><p>2</p></td>
+<td><p>AUTO</p></td>
 <td><p>no</p></td>
-<td><p>Number of Lithops processes within a given worker. This can be used to parallelize function activations within a worker. It is recommendable to set this value to the same number of CPUs of a worker VM.</p></td>
+<td><p>Number of parallel Lithops processes in a worker. This is used to parallelize function activations within the worker. By default it detects the amount of CPUs in the <code class="docutils literal notranslate"><span class="pre">worker_instance_type</span></code> VM</p></td>
 </tr>
 <tr class="row-even"><td><p>aws_ec2</p></td>
 <td><p>runtime</p></td>
@@ -828,7 +872,7 @@ Alternatively, you can set the <code class="docutils literal notranslate"><span 
 </section>
 <section id="vm-management">
 <h2>VM Management<a class="headerlink" href="#vm-management" title="Permalink to this heading">#</a></h2>
-<p>Lithops for AWS EC2 follows a Mater-Worker architecrue (1:N).</p>
+<p>Lithops for AWS EC2 follows a Mater-Worker architecture (1:N).</p>
 <p>All the VMs, including the master VM, are automatically stopped after a configurable timeout (see hard/soft dismantle timeouts).</p>
 <p>You can login to the master VM and get a live ssh connection with:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops<span class="w"> </span>attach<span class="w"> </span>-b<span class="w"> </span>aws_ec2
@@ -902,6 +946,7 @@ Alternatively, you can set the <code class="docutils literal notranslate"><span 
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-an-operating-system-image-for-the-vm">Choose an operating system image for the VM</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops-consume-mode">Lithops Consume mode</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aws-credential-setup">AWS Credential setup</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-aws">Summary of configuration keys for AWS</a></li>
@@ -909,6 +954,7 @@ Alternatively, you can set the <code class="docutils literal notranslate"><span 
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops-create-and-reuse-modes">Lithops create and reuse modes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">AWS Credential setup</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Summary of configuration keys for AWS</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ec2-create-and-reuse-modes">EC2 - Create and Reuse Modes</a></li>

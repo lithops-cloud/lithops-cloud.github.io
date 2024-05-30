@@ -56,7 +56,7 @@
     <link rel="icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Oracle Object Storage (beta)" href="oracle_oss.html" />
+    <link rel="next" title="Oracle Object Storage" href="oracle_oss.html" />
     <link rel="prev" title="Azure Blob Storage" href="azure_blob.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -148,7 +148,7 @@
     <script>document.write(`<img src="../../_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">Lithops v3.3.0</p>
+    <p class="title logo__title">Lithops v3.4.0</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -195,7 +195,7 @@
 <li class="toctree-l2"><a class="reference internal" href="gcp_storage.html">GCP Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="azure_blob.html">Azure Blob Storage</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Aliyun Object Storage Service</a></li>
-<li class="toctree-l2"><a class="reference internal" href="oracle_oss.html">Oracle Object Storage (beta)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oracle_oss.html">Oracle Object Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ceph.html">Ceph</a></li>
 <li class="toctree-l2"><a class="reference internal" href="minio.html">MinIO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="swift.html">Swift</a></li>
@@ -413,7 +413,7 @@ document.write(`
 <ol class="arabic simple">
 <li><p>Install Alibaba Cloud backend dependencies:</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 -m pip install lithops[aliyun]
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>lithops<span class="o">[</span>aliyun<span class="o">]</span>
 </pre></div>
 </div>
 </section>
@@ -489,7 +489,7 @@ document.write(`
 <td><p>region</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
-<td><p>Region Name from <a class="reference external" href="https://www.alibabacloud.com/help/en/object-storage-service/latest/regions-and-endpoints">here</a>. Ommit the <code class="docutils literal notranslate"><span class="pre">oss-</span></code> prefix. For example: <code class="docutils literal notranslate"><span class="pre">eu-west-1</span></code>. Lithops will use the region set under the <code class="docutils literal notranslate"><span class="pre">aliyun</span></code> section if it is not set here</p></td>
+<td><p>Region Name from <a class="reference external" href="https://www.alibabacloud.com/help/en/object-storage-service/latest/regions-and-endpoints">here</a>. Omit the <code class="docutils literal notranslate"><span class="pre">oss-</span></code> prefix. For example: <code class="docutils literal notranslate"><span class="pre">eu-west-1</span></code>. Lithops will use the region set under the <code class="docutils literal notranslate"><span class="pre">aliyun</span></code> section if it is not set here</p></td>
 </tr>
 <tr class="row-odd"><td><p>aliyun_oss</p></td>
 <td><p>storage_bucket</p></td>
@@ -527,7 +527,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Oracle Object Storage (beta)</p>
+        <p class="prev-next-title">Oracle Object Storage</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

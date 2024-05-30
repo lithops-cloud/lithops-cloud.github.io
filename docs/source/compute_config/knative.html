@@ -148,7 +148,7 @@
     <script>document.write(`<img src="../../_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">Lithops v3.3.0</p>
+    <p class="title logo__title">Lithops v3.4.0</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -195,7 +195,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/gcp_storage.html">GCP Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/azure_blob.html">Azure Blob Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/aliyun_oss.html">Aliyun Object Storage Service</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../storage_config/oracle_oss.html">Oracle Object Storage (beta)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage_config/oracle_oss.html">Oracle Object Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/ceph.html">Ceph</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/minio.html">MinIO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/swift.html">Swift</a></li>
@@ -427,7 +427,13 @@ document.write(`
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h2>
 <p>Note that Lithops automatically builds the default runtime the first time you run a script. For this task it uses the <strong>docker</strong> command installed locally in your machine.</p>
-<ol class="arabic">
+<ol class="arabic simple">
+<li><p>Install Knative backend dependencies:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>lithops<span class="o">[</span>knative<span class="o">]</span>
+</pre></div>
+</div>
+<ol class="arabic" start="2">
 <li><p><a class="reference external" href="https://docs.docker.com/get-docker/">Install the Docker CE version</a>.</p></li>
 <li><p>Login to your docker account:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>login
@@ -438,7 +444,7 @@ document.write(`
 </ol>
 <section id="option-1-minikube">
 <h3>Option 1 - Minikube:<a class="headerlink" href="#option-1-minikube" title="Permalink to this heading">#</a></h3>
-<ol class="arabic" start="4">
+<ol class="arabic" start="5">
 <li><p>Start minikube with the ‘ingress’ addon:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>minikube<span class="w"> </span>start<span class="w"> </span>--addons<span class="o">=</span>ingress
 </pre></div>
@@ -461,7 +467,7 @@ document.write(`
 </section>
 <section id="option-2-ibm-iks">
 <h3>Option 2 - IBM IKS:<a class="headerlink" href="#option-2-ibm-iks" title="Permalink to this heading">#</a></h3>
-<ol class="arabic simple" start="4">
+<ol class="arabic simple" start="5">
 <li><p>Access to the <a class="reference external" href="https://cloud.ibm.com/kubernetes/landing">IBM dashboard</a> and create a new Kubernetes cluster.</p></li>
 <li><p>Once the cluster is running, follow the instructions of the “Actions”–&gt; “Connect via CLI” option of the dashboard to configure the <em>kubectl</em> client in your local machine.</p></li>
 <li><p><a class="reference external" href="https://knative.dev/docs/install/yaml-install/serving/install-serving-with-yaml/">Follow this instructions to install knative serving.</a></p></li>
@@ -470,7 +476,7 @@ document.write(`
 </section>
 <section id="option-3-ibm-iks-or-any-other-kubernetes-cluster">
 <h3>Option 3 - IBM IKS or any other Kubernetes Cluster:<a class="headerlink" href="#option-3-ibm-iks-or-any-other-kubernetes-cluster" title="Permalink to this heading">#</a></h3>
-<ol class="arabic simple" start="4">
+<ol class="arabic simple" start="5">
 <li><p>Install Kubernetes &gt;= v1.16 and make sure the <em>kubectl</em> client is running.</p></li>
 <li><p><a class="reference external" href="https://knative.dev/docs/install/yaml-install/serving/install-serving-with-yaml/">Follow this instructions to install knative serving.</a></p></li>
 <li><p>Install a networking layer. Currently Lithops supports <strong>Kourier</strong>. <a class="reference external" href="https://knative.dev/docs/install/yaml-install/serving/install-serving-with-yaml/#install-a-networking-layer">Follow these instructions to install Kourier.</a></p></li>

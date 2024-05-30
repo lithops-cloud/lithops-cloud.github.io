@@ -148,7 +148,7 @@
     <script>document.write(`<img src="../../_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">Lithops v3.3.0</p>
+    <p class="title logo__title">Lithops v3.4.0</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -195,7 +195,7 @@
 <li class="toctree-l2"><a class="reference internal" href="gcp_storage.html">GCP Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="azure_blob.html">Azure Blob Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aliyun_oss.html">Aliyun Object Storage Service</a></li>
-<li class="toctree-l2"><a class="reference internal" href="oracle_oss.html">Oracle Object Storage (beta)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oracle_oss.html">Oracle Object Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ceph.html">Ceph</a></li>
 <li class="toctree-l2"><a class="reference internal" href="minio.html">MinIO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="swift.html">Swift</a></li>
@@ -390,6 +390,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aws-credential-setup">AWS Credential setup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-aws">Summary of configuration keys for AWS:</a><ul class="nav section-nav flex-column">
@@ -411,6 +412,15 @@ document.write(`
   <section id="aws-s3">
 <h1>AWS S3<a class="headerlink" href="#aws-s3" title="Permalink to this heading">#</a></h1>
 <p>Lithops with AWS S3 as storage backend.</p>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Install AWS backend dependencies:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>lithops<span class="o">[</span>aws<span class="o">]</span>
+</pre></div>
+</div>
+</section>
 <section id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this heading">#</a></h2>
 <p>Lithops automatically creates a bucket with a unique name for your user. If you want to use a different bucket, you can create it manually and provide the name in the lithops config file. For this:</p>
@@ -504,7 +514,7 @@ document.write(`
 <td><p>region</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
-<td><p>Region of your Bcuket. e.g <code class="docutils literal notranslate"><span class="pre">us-east-1</span></code>, <code class="docutils literal notranslate"><span class="pre">eu-west-1</span></code>, etc. Lithops will use the region set under the <code class="docutils literal notranslate"><span class="pre">aws</span></code> section if it is not set here</p></td>
+<td><p>Region of your Bucket. e.g <code class="docutils literal notranslate"><span class="pre">us-east-1</span></code>, <code class="docutils literal notranslate"><span class="pre">eu-west-1</span></code>, etc. Lithops will use the region set under the <code class="docutils literal notranslate"><span class="pre">aws</span></code> section if it is not set here</p></td>
 </tr>
 <tr class="row-odd"><td><p>aws_s3</p></td>
 <td><p>storage_bucket</p></td>
@@ -562,6 +572,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aws-credential-setup">AWS Credential setup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-aws">Summary of configuration keys for AWS:</a><ul class="nav section-nav flex-column">

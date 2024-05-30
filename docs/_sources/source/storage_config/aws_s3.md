@@ -2,6 +2,14 @@
 
 Lithops with AWS S3 as storage backend.
 
+## Installation
+
+1. Install AWS backend dependencies:
+
+```bash
+python3 -m pip install lithops[aws]
+```
+
 ## Configuration
 
 Lithops automatically creates a bucket with a unique name for your user. If you want to use a different bucket, you can create it manually and provide the name in the lithops config file. For this:
@@ -54,6 +62,6 @@ In summary, you can use one of the following settings:
 
 |Group|Key|Default|Mandatory|Additional info|
 |---|---|---|---|---|
-|aws_s3 | region | |no | Region of your Bcuket. e.g `us-east-1`, `eu-west-1`, etc. Lithops will use the region set under the `aws` section if it is not set here |
+|aws_s3 | region | |no | Region of your Bucket. e.g `us-east-1`, `eu-west-1`, etc. Lithops will use the region set under the `aws` section if it is not set here |
 |aws_s3 | storage_bucket | | no | The name of a bucket that exists in you account. This will be used by Lithops for intermediate data. Lithops will automatically create a new one if it is not provided |
 

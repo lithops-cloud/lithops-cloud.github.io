@@ -148,7 +148,7 @@
     <script>document.write(`<img src="../../_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">Lithops v3.3.0</p>
+    <p class="title logo__title">Lithops v3.4.0</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -195,7 +195,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/gcp_storage.html">GCP Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/azure_blob.html">Azure Blob Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/aliyun_oss.html">Aliyun Object Storage Service</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../storage_config/oracle_oss.html">Oracle Object Storage (beta)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage_config/oracle_oss.html">Oracle Object Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/ceph.html">Ceph</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/minio.html">MinIO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/swift.html">Swift</a></li>
@@ -412,7 +412,7 @@ document.write(`
                   
   <section id="virtual-machine">
 <h1>Virtual Machine<a class="headerlink" href="#virtual-machine" title="Permalink to this heading">#</a></h1>
-<p>Lithops can run functions using a remote host or a virtual machine (VM). In this backend, Lithops uses all the available VM CPUs to parallelize the tasks of a job. For testing purposes, it is preferable to have an Ubuntu &gt; 20.04 host.</p>
+<p>Lithops can run functions using a remote host or a virtual machine (VM). In this backend, Lithops uses all the available VM CPUs to parallelize the tasks of a job. For testing purposes, it is preferable to have an Ubuntu &gt; 22.04 host.</p>
 <section id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
@@ -442,11 +442,11 @@ document.write(`
 <h3>Docker Environment<a class="headerlink" href="#docker-environment" title="Permalink to this heading">#</a></h3>
 <p>The Docker environment runs the functions within a <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">container</span></code>. In this case you must <a class="reference external" href="https://docs.docker.com/get-docker/">install the Docker CE version</a> in your VM. Note that in this case the container image must contain all the dependencies required by your Lithops app. This environment is automatically activated when you provide a docker image as a runtime. For example, by adding the following keys in the config:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">vm</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">runtime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lithopscloud/ibmcf-python-v38</span>
+<span class="w">    </span><span class="nt">runtime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lithopscloud/ibmcf-python-v312</span>
 </pre></div>
 </div>
 <p>or by using the <code class="docutils literal notranslate"><span class="pre">runtime</span></code> param in a function executor:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">(</span><span class="n">runtime</span><span class="o">=</span><span class="s1">&#39;lithopscloud/ibmcf-python-v38&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">(</span><span class="n">runtime</span><span class="o">=</span><span class="s1">&#39;lithopscloud/ibmcf-python-v312&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>In this backend, you can use any docker image that contains all the required dependencies. For example, the IBM Cloud Functions and Knative runtimes are compatible with it.</p>

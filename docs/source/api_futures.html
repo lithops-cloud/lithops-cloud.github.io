@@ -148,7 +148,7 @@
     <script>document.write(`<img src="../_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">Lithops v3.3.0</p>
+    <p class="title logo__title">Lithops v3.4.0</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -195,7 +195,7 @@
 <li class="toctree-l2"><a class="reference internal" href="storage_config/gcp_storage.html">GCP Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage_config/azure_blob.html">Azure Blob Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage_config/aliyun_oss.html">Aliyun Object Storage Service</a></li>
-<li class="toctree-l2"><a class="reference internal" href="storage_config/oracle_oss.html">Oracle Object Storage (beta)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage_config/oracle_oss.html">Oracle Object Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage_config/ceph.html">Ceph</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage_config/minio.html">MinIO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage_config/swift.html">Swift</a></li>
@@ -503,7 +503,7 @@ cloudobjects.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="lithops.executors.FunctionExecutor.get_result">
-<span class="sig-name descname"><span class="pre">get_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">throw_except</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threadpool_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">64</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_dur_sec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_progressbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.executors.FunctionExecutor.get_result" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">get_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">throw_except</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threadpool_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">64</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_dur_sec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_progressbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.executors.FunctionExecutor.get_result" title="Permalink to this definition">#</a></dt>
 <dd><p>For getting the results from all function activations</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -512,7 +512,7 @@ cloudobjects.</p>
 <li><p><strong>throw_except</strong> (<em>bool</em><em> | </em><em>None</em>) – Reraise exception if call raised. Default True.</p></li>
 <li><p><strong>timeout</strong> (<em>int</em><em> | </em><em>None</em>) – Timeout for waiting for results.</p></li>
 <li><p><strong>threadpool_size</strong> (<em>int</em><em> | </em><em>None</em>) – Number of threads to use. Default 128</p></li>
-<li><p><strong>wait_dur_sec</strong> (<em>int</em><em> | </em><em>None</em>) – Time interval between each check.</p></li>
+<li><p><strong>wait_dur_sec</strong> (<em>int</em><em> | </em><em>None</em>) – Time interval between each check. Default 1 second</p></li>
 <li><p><strong>show_progressbar</strong> (<em>bool</em><em> | </em><em>None</em>) – whether or not to show the progress bar.</p></li>
 </ul>
 </dd>
@@ -621,7 +621,7 @@ No one dependency is pickled if it is explicitly set to None</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="lithops.executors.FunctionExecutor.wait">
-<span class="sig-name descname"><span class="pre">wait</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">throw_except</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_when</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">download_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threadpool_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">64</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_dur_sec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_progressbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.executors.FunctionExecutor.wait" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">wait</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">throw_except</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_when</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">download_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threadpool_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">64</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_dur_sec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_progressbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.executors.FunctionExecutor.wait" title="Permalink to this definition">#</a></dt>
 <dd><p>Wait for the Future instances (possibly created by different Executor instances)
 given by fs to complete. Returns a named 2-tuple of sets. The first set, named done,
 contains the futures that completed (finished or cancelled futures) before the wait
@@ -637,7 +637,7 @@ seconds to wait before returning.</p>
 <li><p><strong>download_results</strong> (<em>bool</em><em> | </em><em>None</em>) – Download results. Default false (Only get statuses)</p></li>
 <li><p><strong>timeout</strong> (<em>int</em><em> | </em><em>None</em>) – Timeout of waiting for results</p></li>
 <li><p><strong>threadpool_size</strong> (<em>int</em><em> | </em><em>None</em>) – Number of threads to use. Default 64</p></li>
-<li><p><strong>wait_dur_sec</strong> (<em>int</em><em> | </em><em>None</em>) – Time interval between each check</p></li>
+<li><p><strong>wait_dur_sec</strong> (<em>int</em><em> | </em><em>None</em>) – Time interval between each check. Default 1 second</p></li>
 <li><p><strong>show_progressbar</strong> (<em>bool</em><em> | </em><em>None</em>) – whether or not to show the progress bar.</p></li>
 </ul>
 </dd>

@@ -148,7 +148,7 @@
     <script>document.write(`<img src="../../_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">Lithops v3.3.0</p>
+    <p class="title logo__title">Lithops v3.4.0</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -195,7 +195,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/gcp_storage.html">GCP Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/azure_blob.html">Azure Blob Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/aliyun_oss.html">Aliyun Object Storage Service</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../storage_config/oracle_oss.html">Oracle Object Storage (beta)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage_config/oracle_oss.html">Oracle Object Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/ceph.html">Ceph</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/minio.html">MinIO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/swift.html">Swift</a></li>
@@ -426,14 +426,14 @@ document.write(`
 </section>
 <section id="execution-environments">
 <h2>Execution Environments<a class="headerlink" href="#execution-environments" title="Permalink to this heading">#</a></h2>
-<p>The localhost backend can run functions both using the local <code class="docutils literal notranslate"><span class="pre">python3</span></code> interpreter, or using a <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">container</span></code> image. The environment is automatically chosen depending on whether or not you provided a Docker image as a runtime.</p>
+<p>The localhost backend can run functions both using the local <code class="docutils literal notranslate"><span class="pre">python3</span></code> interpreter, or using a <code class="docutils literal notranslate"><span class="pre">container</span></code> image. The environment is automatically chosen depending on whether or not you provided a Docker image as a runtime.</p>
 <p>In both cases, you can view the executions logs in your local machine using the <em>lithops client</em>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops<span class="w"> </span>logs<span class="w"> </span>poll
 </pre></div>
 </div>
 <section id="default-environment">
 <h3>Default Environment<a class="headerlink" href="#default-environment" title="Permalink to this heading">#</a></h3>
-<p>By default Lithops uses the local python interpreter to run the functions. That is, if for example you executed the main script with <code class="docutils literal notranslate"><span class="pre">python3.8</span></code>, your functions will run with <code class="docutils literal notranslate"><span class="pre">python3.8</span></code>. in this case, you must ensure that all the dependencies of your script are installed in your machine.</p>
+<p>By default Lithops uses the local python interpreter to run the functions. That is, if for example you executed the main script with <code class="docutils literal notranslate"><span class="pre">python3.12</span></code>, your functions will run with <code class="docutils literal notranslate"><span class="pre">python3.12</span></code>. in this case, you must ensure that all the dependencies of your script are installed in your machine.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># As we use the default FunctionExecutor(), backend must be set to localhost in config</span>
 <span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">()</span>
 </pre></div>
@@ -448,16 +448,16 @@ document.write(`
 <h3>Docker Environment<a class="headerlink" href="#docker-environment" title="Permalink to this heading">#</a></h3>
 <p>The Docker environment runs the functions within a <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">container</span></code>. In this case you must <a class="reference external" href="https://docs.docker.com/get-docker/">install the Docker CE version</a> in your machine. This environment is automatically activated when you provide a docker image as a runtime. For example, by adding the following keys in the config:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">localhost</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">runtime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lithopscloud/ibmcf-python-v310</span>
+<span class="w">    </span><span class="nt">runtime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lithopscloud/ibmcf-python-v312</span>
 </pre></div>
 </div>
 <p>or by using the <code class="docutils literal notranslate"><span class="pre">runtime</span></code> param in a function executor:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># As we use the default FunctionExecutor(), the &quot;backend&quot; config parameter must be set to localhost in config</span>
-<span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">(</span><span class="n">runtime</span><span class="o">=</span><span class="s1">&#39;lithopscloud/ibmcf-python-v310&#39;</span><span class="p">)</span>
+<span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">(</span><span class="n">runtime</span><span class="o">=</span><span class="s1">&#39;lithopscloud/ibmcf-python-v312&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># As we use/force the LocalhostExecutor(), the &quot;backend&quot; config parameter does not need to be set to localhost in config</span>
-<span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">LocalhostExecutor</span><span class="p">(</span><span class="n">runtime</span><span class="o">=</span><span class="s1">&#39;lithopscloud/ibmcf-python-v310&#39;</span><span class="p">)</span>
+<span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">LocalhostExecutor</span><span class="p">(</span><span class="n">runtime</span><span class="o">=</span><span class="s1">&#39;lithopscloud/ibmcf-python-v312&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>In this mode of execution, you can use any docker image that contains all the required dependencies. For example, the IBM Cloud Functions and Knative runtimes are compatible with it.</p>
@@ -485,7 +485,7 @@ document.write(`
 <td><p>version</p></td>
 <td><p>1</p></td>
 <td><p>no</p></td>
-<td><p>There are 2 diferent localhost implementations. Use ‘2’ for using the alterantive version (beta)</p></td>
+<td><p>There are 2 different localhost implementations. Use ‘2’ for using the alternative version (beta)</p></td>
 </tr>
 <tr class="row-even"><td><p>localhost</p></td>
 <td><p>worker_processes</p></td>

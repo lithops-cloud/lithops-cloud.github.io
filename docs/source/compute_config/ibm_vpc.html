@@ -148,7 +148,7 @@
     <script>document.write(`<img src="../../_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">Lithops v3.3.0</p>
+    <p class="title logo__title">Lithops v3.4.0</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -195,7 +195,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/gcp_storage.html">GCP Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/azure_blob.html">Azure Blob Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/aliyun_oss.html">Aliyun Object Storage Service</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../storage_config/oracle_oss.html">Oracle Object Storage (beta)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage_config/oracle_oss.html">Oracle Object Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/ceph.html">Ceph</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/minio.html">MinIO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/swift.html">Swift</a></li>
@@ -390,6 +390,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ibm-vpc">IBM VPC</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-an-operating-system-image-for-vsi">Choose an operating system image for VSI</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops-and-the-vm-auto-create-reuse-mode">Lithops and the VM auto create|reuse mode</a><ul class="nav section-nav flex-column">
@@ -431,14 +432,23 @@ document.write(`
   <section id="ibm-virtual-private-cloud">
 <h1>IBM Virtual Private Cloud<a class="headerlink" href="#ibm-virtual-private-cloud" title="Permalink to this heading">#</a></h1>
 <p>The IBM VPC client of Lithops can provide a truely serverless user experience on top of IBM VPC where Lithops creates new VSIs (Virtual Server Instance) dynamically in runtime, and scale Lithops jobs against them. Alternatively Lithops can start and stop an existing VSI instances.</p>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Install IBM Cloud backend dependencies:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>lithops<span class="o">[</span>ibm<span class="o">]</span>
+</pre></div>
+</div>
+</section>
 <section id="ibm-vpc">
 <h2>IBM VPC<a class="headerlink" href="#ibm-vpc" title="Permalink to this heading">#</a></h2>
 <p>The assumption that you already familiar with IBM Cloud, have your IBM IAM API key created (you can create new keys <a class="reference external" href="https://cloud.ibm.com/iam/apikeys">here</a>), have valid IBM COS account, region and resource group.</p>
-<p>Follow <a class="reference external" href="https://cloud.ibm.com/vpc-ext/overview">IBM VPC setup</a> if you need to create IBM Virtual Private Cloud. Decide the region for your VPC. The best practice is to use the same region both for VPC and IBM COS, hoewever there is no requirement to keep them in the same region.</p>
+<p>Follow <a class="reference external" href="https://cloud.ibm.com/vpc-ext/overview">IBM VPC setup</a> if you need to create IBM Virtual Private Cloud. Decide the region for your VPC. The best practice is to use the same region both for VPC and IBM COS, however there is no requirement to keep them in the same region.</p>
 </section>
 <section id="choose-an-operating-system-image-for-vsi">
 <h2>Choose an operating system image for VSI<a class="headerlink" href="#choose-an-operating-system-image-for-vsi" title="Permalink to this heading">#</a></h2>
-<p>Any Virtual Service Instance (VSI) need to define the instance’s operating system and version. Lithops support both standard Ubuntu operting system choices provided by the VPC and using pre-defined custom images that already contains all dependencies required by Lithops.</p>
+<p>Any Virtual Service Instance (VSI) need to define the instance’s operating system and version. Lithops support both standard Ubuntu operating system choices provided by the VPC and using pre-defined custom images that already contains all dependencies required by Lithops.</p>
 <ul class="simple">
 <li><p>Option 1: Lithops is compatible with any Ubuntu 22.04 image provided in IBM Cloud. In this case, no further action is required and you can continue to the next step. Lithops will install all required dependencies in the VSI by itself. Notice this can consume about 3 min to complete all installations.</p></li>
 <li><p>Option 2: Alternatively, you can use a pre-built custom image (based on Ubuntu) that will greatly improve VSI creation time for Lithops jobs. To benefit from this approach, navigate to <a class="reference external" href="https://github.com/lithops-cloud/lithops/tree/master/runtime/ibm_vpc">runtime/ibm_vpc</a>, and follow the instructions.</p></li>
@@ -581,7 +591,7 @@ Alternatively, you can set the <code class="docutils literal notranslate"><span 
 <td><p>image_id</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
-<td><p>Virtual machine image id. Default is Ubutnu Server 22.04</p></td>
+<td><p>Virtual machine image id. Default is Ubuntu Server 22.04</p></td>
 </tr>
 <tr class="row-even"><td><p>ibm_vpc</p></td>
 <td><p>runtime</p></td>
@@ -641,7 +651,7 @@ Alternatively, you can set the <code class="docutils literal notranslate"><span 
 <td><p>delete_on_dismantle</p></td>
 <td><p>True</p></td>
 <td><p>no</p></td>
-<td><p>Delete the worekr VMs when they are stopped</p></td>
+<td><p>Delete the worker VMs when they are stopped</p></td>
 </tr>
 <tr class="row-even"><td><p>ibm_vpc</p></td>
 <td><p>max_workers</p></td>
@@ -689,7 +699,7 @@ Alternatively, you can set the <code class="docutils literal notranslate"><span 
 <td><p>gpu</p></td>
 <td><p>False</p></td>
 <td><p>no</p></td>
-<td><p>If True docker started with gpu support. Requires host to have neccessary hardware and software preconfigured and docker image runtime with gpu support specified</p></td>
+<td><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code> docker started with gpu support. Requires host to have necessary hardware and software pre-configured, and docker image runtime with gpu support specified</p></td>
 </tr>
 </tbody>
 </table>
@@ -781,7 +791,7 @@ Alternatively, you can set the <code class="docutils literal notranslate"><span 
 <td><p>floating_ip</p></td>
 <td><p></p></td>
 <td><p>yes</p></td>
-<td><p>Floatting IP address atached to your VM instance</p></td>
+<td><p>Floating IP address attached to your VM instance</p></td>
 </tr>
 <tr class="row-odd"><td><p>ibm_vpc</p></td>
 <td><p>ssh_username</p></td>
@@ -805,7 +815,7 @@ Alternatively, you can set the <code class="docutils literal notranslate"><span 
 <td><p>runtime</p></td>
 <td><p>python3</p></td>
 <td><p>no</p></td>
-<td><p>Runtime name to run the functions. Can be a container image name. If not set Lithops will use the defeuv python3 interpreter of the VM</p></td>
+<td><p>Runtime name to run the functions. Can be a container image name. If not set Lithops will use the default <code class="docutils literal notranslate"><span class="pre">python3</span></code> interpreter of the VM</p></td>
 </tr>
 <tr class="row-odd"><td><p>ibm_vpc</p></td>
 <td><p>auto_dismantle</p></td>
@@ -845,7 +855,7 @@ Alternatively, you can set the <code class="docutils literal notranslate"><span 
 </section>
 <section id="vm-management">
 <h2>VM Management<a class="headerlink" href="#vm-management" title="Permalink to this heading">#</a></h2>
-<p>Lithops for IBM VPC follows a Mater-Worker architecrue (1:N).</p>
+<p>Lithops for IBM VPC follows a Mater-Worker architecture (1:N).</p>
 <p>All the VMs, including the master VM, are automatically stopped after a configurable timeout (see hard/soft dismantle timeouts).</p>
 <p>You can login to the master VM and get a live ssh connection with:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops<span class="w"> </span>attach<span class="w"> </span>-b<span class="w"> </span>ibm_vpc
@@ -915,6 +925,7 @@ Alternatively, you can set the <code class="docutils literal notranslate"><span 
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ibm-vpc">IBM VPC</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-an-operating-system-image-for-vsi">Choose an operating system image for VSI</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops-and-the-vm-auto-create-reuse-mode">Lithops and the VM auto create|reuse mode</a><ul class="nav section-nav flex-column">

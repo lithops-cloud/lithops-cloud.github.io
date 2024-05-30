@@ -148,7 +148,7 @@
     <script>document.write(`<img src="../../_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">Lithops v3.3.0</p>
+    <p class="title logo__title">Lithops v3.4.0</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -195,7 +195,7 @@
 <li class="toctree-l2"><a class="reference internal" href="gcp_storage.html">GCP Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="azure_blob.html">Azure Blob Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aliyun_oss.html">Aliyun Object Storage Service</a></li>
-<li class="toctree-l2"><a class="reference internal" href="oracle_oss.html">Oracle Object Storage (beta)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oracle_oss.html">Oracle Object Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ceph.html">Ceph</a></li>
 <li class="toctree-l2"><a class="reference internal" href="minio.html">MinIO</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Swift</a></li>
@@ -430,6 +430,8 @@ document.write(`
 <span class="w">        </span><span class="nt">user_id    </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SWIFT_USER_ID&gt;</span>
 <span class="w">        </span><span class="nt">project_id </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SWIFT_PROJECT_ID&gt;</span>
 <span class="w">        </span><span class="nt">password   </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SWIFT_PASSWORD&gt;</span>
+<span class="w">        </span><span class="nt">user_domain_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SWIFT_USER_DOMAIN&gt;</span>
+<span class="w">        </span><span class="nt">project_domain_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;SWIFT_PROJECT_DOMAIN&gt;</span>
 </pre></div>
 </div>
 </section>
@@ -455,7 +457,7 @@ document.write(`
 <td><p>auth_url</p></td>
 <td><p></p></td>
 <td><p>yes</p></td>
-<td><p>The keystone endpoint for authenthication</p></td>
+<td><p>The keystone endpoint for authentication</p></td>
 </tr>
 <tr class="row-even"><td><p>swift</p></td>
 <td><p>region</p></td>
@@ -480,6 +482,18 @@ document.write(`
 <td><p></p></td>
 <td><p>yes</p></td>
 <td><p>The password</p></td>
+</tr>
+<tr class="row-even"><td><p>swift</p></td>
+<td><p>user_domain_name</p></td>
+<td><p></p></td>
+<td><p>no</p></td>
+<td><p>The domain to which the user belongs, by default is set to “default”</p></td>
+</tr>
+<tr class="row-odd"><td><p>swift</p></td>
+<td><p>project_domain_name</p></td>
+<td><p></p></td>
+<td><p>no</p></td>
+<td><p>The domain associated with the project, by default is set to “default”</p></td>
 </tr>
 </tbody>
 </table>
