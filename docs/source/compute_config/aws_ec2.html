@@ -148,7 +148,7 @@
     <script>document.write(`<img src="../../_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">Lithops v3.4.0</p>
+    <p class="title logo__title">Lithops v3.4.1</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -395,17 +395,17 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops-consume-mode">Lithops Consume mode</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-and-reuse-modes">Create and reuse modes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aws-credential-setup">AWS Credential setup</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-aws">Summary of configuration keys for AWS</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-the-consume-mode">Summary of configuration keys for the consume Mode</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ec2-create-and-reuse-modes">EC2 - Create and Reuse Modes</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops-create-and-reuse-modes">Lithops create and reuse modes</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consume-mode">Consume mode</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">AWS Credential setup</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Summary of configuration keys for AWS</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ec2-create-and-reuse-modes">EC2 - Create and Reuse Modes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-the-consume-mode">Summary of configuration keys for the consume Mode</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-lithops">Test Lithops</a></li>
@@ -424,7 +424,7 @@ document.write(`
                   
   <section id="aws-elastic-compute-cloud-ec2">
 <h1>AWS Elastic Compute Cloud (EC2)<a class="headerlink" href="#aws-elastic-compute-cloud-ec2" title="Permalink to this heading">#</a></h1>
-<p>The AWS EC2 client of Lithops can provide a truely serverless user experience on top of EC2 where Lithops creates new Virtual Machines (VMs) dynamically in runtime and scale Lithops jobs against them. Alternatively Lithops can start and stop an existing VM instances.</p>
+<p>The AWS EC2 client of Lithops can provide a truely serverless user experience on top of EC2 where Lithops creates new Virtual Machines (VMs) dynamically in runtime and scale Lithops jobs against them (Create &amp; Reuse modes). Alternatively Lithops can start and stop an existing VM instance (Consume mode).</p>
 <section id="aws">
 <h2>AWS<a class="headerlink" href="#aws" title="Permalink to this heading">#</a></h2>
 <p>The assumption that you already familiar with AWS, and you have AUTH credentials to your account (HMAC Credentials).</p>
@@ -446,160 +446,8 @@ document.write(`
 </pre></div>
 </div>
 </section>
-<section id="lithops-consume-mode">
-<h2>Lithops Consume mode<a class="headerlink" href="#lithops-consume-mode" title="Permalink to this heading">#</a></h2>
-<p>In this mode, Lithops can start and stop an existing VM, and deploy an entire job to that VM. The partition logic in this scenario is different from the <code class="docutils literal notranslate"><span class="pre">create/reuse</span></code> modes, since the entire job is executed in the same VM.</p>
-<section id="aws-credential-setup">
-<h3>AWS Credential setup<a class="headerlink" href="#aws-credential-setup" title="Permalink to this heading">#</a></h3>
-<p>Lithops loads AWS credentials as specified in the <a class="reference external" href="https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html">boto3 configuration guide</a>.</p>
-<p>In summary, you can use one of the following settings:</p>
-<ol class="arabic">
-<li><p>Provide the credentials via the <code class="docutils literal notranslate"><span class="pre">~/.aws/config</span></code> file, or set the <code class="docutils literal notranslate"><span class="pre">AWS_ACCESS_KEY_ID</span></code> and <code class="docutils literal notranslate"><span class="pre">AWS_SECRET_ACCESS_KEY</span></code> environment variables.</p>
-<p>You can run <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">configure</span></code> command if the AWS CLI is installed to setup the credentials. Then set in the Lithops config file:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aws_ec2</span>
-
-<span class="nt">aws_ec2</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">region </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span>
-<span class="w">    </span><span class="nt">exec_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">consume</span>
-<span class="w">    </span><span class="nt">instance_id </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;INSTANCE ID OF THE VM&gt;</span>
-</pre></div>
-</div>
-</li>
-<li><p>Provide the credentials in the <code class="docutils literal notranslate"><span class="pre">aws</span></code> section of the Lithops config file:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aws_ec2</span>
-
-<span class="nt">aws</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">access_key_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;AWS_ACCESS_KEY_ID&gt;</span>
-<span class="w">    </span><span class="nt">secret_access_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;AWS_SECRET_ACCESS_KEY&gt;</span>
-<span class="w">    </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span>
-
-<span class="nt">aws_ec2</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">exec_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">consume</span>
-<span class="w">    </span><span class="nt">instance_id </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;INSTANCE ID OF THE VM&gt;</span>
-</pre></div>
-</div>
-</li>
-</ol>
-</section>
-<section id="summary-of-configuration-keys-for-aws">
-<h3>Summary of configuration keys for AWS<a class="headerlink" href="#summary-of-configuration-keys-for-aws" title="Permalink to this heading">#</a></h3>
-<table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Group</p></th>
-<th class="head"><p>Key</p></th>
-<th class="head"><p>Default</p></th>
-<th class="head"><p>Mandatory</p></th>
-<th class="head"><p>Additional info</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>aws</p></td>
-<td><p>region</p></td>
-<td><p></p></td>
-<td><p>no</p></td>
-<td><p>AWS Region. For example <code class="docutils literal notranslate"><span class="pre">us-east-1</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p>aws</p></td>
-<td><p>access_key_id</p></td>
-<td><p></p></td>
-<td><p>no</p></td>
-<td><p>Account access key to AWS services. To find them, navigate to <em>My Security Credentials</em> and click <em>Create Access Key</em> if you don’t already have one.</p></td>
-</tr>
-<tr class="row-even"><td><p>aws</p></td>
-<td><p>secret_access_key</p></td>
-<td><p></p></td>
-<td><p>no</p></td>
-<td><p>Account secret access key to AWS services. To find them, navigate to <em>My Security Credentials</em> and click <em>Create Access Key</em> if you don’t already have one.</p></td>
-</tr>
-<tr class="row-odd"><td><p>aws</p></td>
-<td><p>session_token</p></td>
-<td><p></p></td>
-<td><p>no</p></td>
-<td><p>Session token for temporary AWS credentials</p></td>
-</tr>
-<tr class="row-even"><td><p>aws</p></td>
-<td><p>account_id</p></td>
-<td><p></p></td>
-<td><p>no</p></td>
-<td><p>*This field will be used if present to retrieve the account ID instead of using AWS STS. The account ID is used to format full image names for container runtimes.</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="summary-of-configuration-keys-for-the-consume-mode">
-<h3>Summary of configuration keys for the consume Mode<a class="headerlink" href="#summary-of-configuration-keys-for-the-consume-mode" title="Permalink to this heading">#</a></h3>
-<table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Group</p></th>
-<th class="head"><p>Key</p></th>
-<th class="head"><p>Default</p></th>
-<th class="head"><p>Mandatory</p></th>
-<th class="head"><p>Additional info</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>aws_ec2</p></td>
-<td><p>instance_id</p></td>
-<td><p></p></td>
-<td><p>yes</p></td>
-<td><p>virtual server instance ID</p></td>
-</tr>
-<tr class="row-odd"><td><p>aws_ec2</p></td>
-<td><p>region</p></td>
-<td><p></p></td>
-<td><p>yes</p></td>
-<td><p>Region name of the VPC. For example <code class="docutils literal notranslate"><span class="pre">us-east-1</span></code>. Lithops will use the region set under the <code class="docutils literal notranslate"><span class="pre">aws</span></code> section if it is not set here</p></td>
-</tr>
-<tr class="row-even"><td><p>aws_ec2</p></td>
-<td><p>ssh_username</p></td>
-<td><p>ubuntu</p></td>
-<td><p>no</p></td>
-<td><p>Username to access the VM</p></td>
-</tr>
-<tr class="row-odd"><td><p>aws_ec2</p></td>
-<td><p>ssh_key_filename</p></td>
-<td><p>~/.ssh/id_rsa</p></td>
-<td><p>no</p></td>
-<td><p>Path to the ssh key file provided to create the VM. It will use the default path if not provided</p></td>
-</tr>
-<tr class="row-even"><td><p>aws_ec2</p></td>
-<td><p>worker_processes</p></td>
-<td><p>AUTO</p></td>
-<td><p>no</p></td>
-<td><p>Number of parallel Lithops processes in a worker. This is used to parallelize function activations within the worker. By default it detects the amount of CPUs in the VM</p></td>
-</tr>
-<tr class="row-odd"><td><p>aws_ec2</p></td>
-<td><p>runtime</p></td>
-<td><p>python3</p></td>
-<td><p>no</p></td>
-<td><p>Runtime name to run the functions. Can be a container image name. If not set Lithops will use the defeuv python3 interpreter of the VM</p></td>
-</tr>
-<tr class="row-even"><td><p>aws_ec2</p></td>
-<td><p>auto_dismantle</p></td>
-<td><p>True</p></td>
-<td><p>no</p></td>
-<td><p>If False then the VM is not stopped automatically.</p></td>
-</tr>
-<tr class="row-odd"><td><p>aws_ec2</p></td>
-<td><p>soft_dismantle_timeout</p></td>
-<td><p>300</p></td>
-<td><p>no</p></td>
-<td><p>Time in seconds to stop the VM instance after a job <strong>completed</strong> its execution</p></td>
-</tr>
-<tr class="row-even"><td><p>aws_ec2</p></td>
-<td><p>hard_dismantle_timeout</p></td>
-<td><p>3600</p></td>
-<td><p>no</p></td>
-<td><p>Time in seconds to stop the VM instance after a job <strong>started</strong> its execution</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-</section>
-<section id="lithops-create-and-reuse-modes">
-<h2>Lithops create and reuse modes<a class="headerlink" href="#lithops-create-and-reuse-modes" title="Permalink to this heading">#</a></h2>
+<section id="create-and-reuse-modes">
+<h2>Create and reuse modes<a class="headerlink" href="#create-and-reuse-modes" title="Permalink to this heading">#</a></h2>
 <p>In the <code class="docutils literal notranslate"><span class="pre">create</span></code> mode, Lithops will automatically create new worker VM instances in runtime, scale Lithops job against generated VMs, and automatically delete the VMs when the job is completed.
 Alternatively, you can set the <code class="docutils literal notranslate"><span class="pre">reuse</span></code> mode to keep running the started worker VMs, and reuse them for further executions. In the <code class="docutils literal notranslate"><span class="pre">reuse</span></code> mode, Lithops checks all the available worker VMs and start new workers only if necessary.</p>
 <section id="configuration">
@@ -635,8 +483,8 @@ Alternatively, you can set the <code class="docutils literal notranslate"><span 
 <li><p>Choose <strong>EC2</strong> on the use case list. Click <strong>Next: Permissions</strong>. Select the policy created before (<code class="docutils literal notranslate"><span class="pre">lithops-policy</span></code>). Click <strong>Next: Tags</strong> and <strong>Next: Review</strong>. Type a role name, for example <code class="docutils literal notranslate"><span class="pre">ec2LithopsInstanceRole</span></code>. Click on <strong>Create Role</strong>.</p></li>
 </ol>
 </section>
-<section id="id1">
-<h3>AWS Credential setup<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<section id="aws-credential-setup">
+<h3>AWS Credential setup<a class="headerlink" href="#aws-credential-setup" title="Permalink to this heading">#</a></h3>
 <p>Lithops loads AWS credentials as specified in the <a class="reference external" href="https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html">boto3 configuration guide</a>.</p>
 <p>In summary, you can use one of the following settings:</p>
 <ol class="arabic">
@@ -669,8 +517,8 @@ Alternatively, you can set the <code class="docutils literal notranslate"><span 
 </li>
 </ol>
 </section>
-<section id="id2">
-<h3>Summary of configuration keys for AWS<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<section id="summary-of-configuration-keys-for-aws">
+<h3>Summary of configuration keys for AWS<a class="headerlink" href="#summary-of-configuration-keys-for-aws" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Group</p></th>
@@ -856,6 +704,158 @@ Alternatively, you can set the <code class="docutils literal notranslate"><span 
 </table>
 </section>
 </section>
+<section id="consume-mode">
+<h2>Consume mode<a class="headerlink" href="#consume-mode" title="Permalink to this heading">#</a></h2>
+<p>In this mode, Lithops can start and stop an existing VM, and deploy an entire job to that VM. The partition logic in this scenario is different from the <code class="docutils literal notranslate"><span class="pre">create/reuse</span></code> modes, since the entire job is executed in the same VM.</p>
+<section id="id1">
+<h3>AWS Credential setup<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p>Lithops loads AWS credentials as specified in the <a class="reference external" href="https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html">boto3 configuration guide</a>.</p>
+<p>In summary, you can use one of the following settings:</p>
+<ol class="arabic">
+<li><p>Provide the credentials via the <code class="docutils literal notranslate"><span class="pre">~/.aws/config</span></code> file, or set the <code class="docutils literal notranslate"><span class="pre">AWS_ACCESS_KEY_ID</span></code> and <code class="docutils literal notranslate"><span class="pre">AWS_SECRET_ACCESS_KEY</span></code> environment variables.</p>
+<p>You can run <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">configure</span></code> command if the AWS CLI is installed to setup the credentials. Then set in the Lithops config file:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aws_ec2</span>
+
+<span class="nt">aws_ec2</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">region </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span>
+<span class="w">    </span><span class="nt">exec_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">consume</span>
+<span class="w">    </span><span class="nt">instance_id </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;INSTANCE ID OF THE VM&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Provide the credentials in the <code class="docutils literal notranslate"><span class="pre">aws</span></code> section of the Lithops config file:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aws_ec2</span>
+
+<span class="nt">aws</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">access_key_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;AWS_ACCESS_KEY_ID&gt;</span>
+<span class="w">    </span><span class="nt">secret_access_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;AWS_SECRET_ACCESS_KEY&gt;</span>
+<span class="w">    </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span>
+
+<span class="nt">aws_ec2</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">exec_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">consume</span>
+<span class="w">    </span><span class="nt">instance_id </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;INSTANCE ID OF THE VM&gt;</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="id2">
+<h3>Summary of configuration keys for AWS<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Group</p></th>
+<th class="head"><p>Key</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Mandatory</p></th>
+<th class="head"><p>Additional info</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>aws</p></td>
+<td><p>region</p></td>
+<td><p></p></td>
+<td><p>no</p></td>
+<td><p>AWS Region. For example <code class="docutils literal notranslate"><span class="pre">us-east-1</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>aws</p></td>
+<td><p>access_key_id</p></td>
+<td><p></p></td>
+<td><p>no</p></td>
+<td><p>Account access key to AWS services. To find them, navigate to <em>My Security Credentials</em> and click <em>Create Access Key</em> if you don’t already have one.</p></td>
+</tr>
+<tr class="row-even"><td><p>aws</p></td>
+<td><p>secret_access_key</p></td>
+<td><p></p></td>
+<td><p>no</p></td>
+<td><p>Account secret access key to AWS services. To find them, navigate to <em>My Security Credentials</em> and click <em>Create Access Key</em> if you don’t already have one.</p></td>
+</tr>
+<tr class="row-odd"><td><p>aws</p></td>
+<td><p>session_token</p></td>
+<td><p></p></td>
+<td><p>no</p></td>
+<td><p>Session token for temporary AWS credentials</p></td>
+</tr>
+<tr class="row-even"><td><p>aws</p></td>
+<td><p>account_id</p></td>
+<td><p></p></td>
+<td><p>no</p></td>
+<td><p>*This field will be used if present to retrieve the account ID instead of using AWS STS. The account ID is used to format full image names for container runtimes.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="summary-of-configuration-keys-for-the-consume-mode">
+<h3>Summary of configuration keys for the consume Mode<a class="headerlink" href="#summary-of-configuration-keys-for-the-consume-mode" title="Permalink to this heading">#</a></h3>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Group</p></th>
+<th class="head"><p>Key</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Mandatory</p></th>
+<th class="head"><p>Additional info</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>aws_ec2</p></td>
+<td><p>instance_id</p></td>
+<td><p></p></td>
+<td><p>yes</p></td>
+<td><p>virtual server instance ID</p></td>
+</tr>
+<tr class="row-odd"><td><p>aws_ec2</p></td>
+<td><p>region</p></td>
+<td><p></p></td>
+<td><p>yes</p></td>
+<td><p>Region name of the VPC. For example <code class="docutils literal notranslate"><span class="pre">us-east-1</span></code>. Lithops will use the region set under the <code class="docutils literal notranslate"><span class="pre">aws</span></code> section if it is not set here</p></td>
+</tr>
+<tr class="row-even"><td><p>aws_ec2</p></td>
+<td><p>ssh_username</p></td>
+<td><p>ubuntu</p></td>
+<td><p>no</p></td>
+<td><p>Username to access the VM</p></td>
+</tr>
+<tr class="row-odd"><td><p>aws_ec2</p></td>
+<td><p>ssh_key_filename</p></td>
+<td><p>~/.ssh/id_rsa</p></td>
+<td><p>no</p></td>
+<td><p>Path to the ssh key file provided to create the VM. It will use the default path if not provided</p></td>
+</tr>
+<tr class="row-even"><td><p>aws_ec2</p></td>
+<td><p>worker_processes</p></td>
+<td><p>AUTO</p></td>
+<td><p>no</p></td>
+<td><p>Number of parallel Lithops processes in a worker. This is used to parallelize function activations within the worker. By default it detects the amount of CPUs in the VM</p></td>
+</tr>
+<tr class="row-odd"><td><p>aws_ec2</p></td>
+<td><p>runtime</p></td>
+<td><p>python3</p></td>
+<td><p>no</p></td>
+<td><p>Runtime name to run the functions. Can be a container image name. If not set Lithops will use the defeuv python3 interpreter of the VM</p></td>
+</tr>
+<tr class="row-even"><td><p>aws_ec2</p></td>
+<td><p>auto_dismantle</p></td>
+<td><p>True</p></td>
+<td><p>no</p></td>
+<td><p>If False then the VM is not stopped automatically.</p></td>
+</tr>
+<tr class="row-odd"><td><p>aws_ec2</p></td>
+<td><p>soft_dismantle_timeout</p></td>
+<td><p>300</p></td>
+<td><p>no</p></td>
+<td><p>Time in seconds to stop the VM instance after a job <strong>completed</strong> its execution</p></td>
+</tr>
+<tr class="row-even"><td><p>aws_ec2</p></td>
+<td><p>hard_dismantle_timeout</p></td>
+<td><p>3600</p></td>
+<td><p>no</p></td>
+<td><p>Time in seconds to stop the VM instance after a job <strong>started</strong> its execution</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
 <section id="test-lithops">
 <h2>Test Lithops<a class="headerlink" href="#test-lithops" title="Permalink to this heading">#</a></h2>
 <p>Once you have your compute and storage backends configured, you can run a hello world function with:</p>
@@ -947,17 +947,17 @@ Alternatively, you can set the <code class="docutils literal notranslate"><span 
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops-consume-mode">Lithops Consume mode</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-and-reuse-modes">Create and reuse modes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aws-credential-setup">AWS Credential setup</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-aws">Summary of configuration keys for AWS</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-the-consume-mode">Summary of configuration keys for the consume Mode</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ec2-create-and-reuse-modes">EC2 - Create and Reuse Modes</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops-create-and-reuse-modes">Lithops create and reuse modes</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consume-mode">Consume mode</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">AWS Credential setup</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Summary of configuration keys for AWS</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ec2-create-and-reuse-modes">EC2 - Create and Reuse Modes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-the-consume-mode">Summary of configuration keys for the consume Mode</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-lithops">Test Lithops</a></li>

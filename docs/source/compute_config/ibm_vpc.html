@@ -148,7 +148,7 @@
     <script>document.write(`<img src="../../_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">Lithops v3.4.0</p>
+    <p class="title logo__title">Lithops v3.4.1</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -393,7 +393,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ibm-vpc">IBM VPC</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-an-operating-system-image-for-vsi">Choose an operating system image for VSI</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops-and-the-vm-auto-create-reuse-mode">Lithops and the VM auto create|reuse mode</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-and-reuse-modes">Create and reuse modes</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops-configuration-for-the-create-and-reuse-mode">Lithops configuration for the <em>create</em> and <em>reuse</em> mode</a></li>
 </ul>
 </li>
@@ -406,12 +406,12 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ibm-vpc-create-and-reuse-modes">IBM VPC - Create and Reuse modes</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops-and-the-vsi-consume-mode">Lithops and the VSI consume mode</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consume-mode">Consume mode</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops-configuration-for-the-consume-mode">Lithops configuration for the consume mode</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Summary of configuration keys for IBM Cloud:</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ibm-iam">IBM IAM:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">IBM:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ibm-vpc-consume-mode">IBM VPC - Consume Mode</a></li>
 </ul>
 </li>
@@ -431,7 +431,7 @@ document.write(`
                   
   <section id="ibm-virtual-private-cloud">
 <h1>IBM Virtual Private Cloud<a class="headerlink" href="#ibm-virtual-private-cloud" title="Permalink to this heading">#</a></h1>
-<p>The IBM VPC client of Lithops can provide a truely serverless user experience on top of IBM VPC where Lithops creates new VSIs (Virtual Server Instance) dynamically in runtime, and scale Lithops jobs against them. Alternatively Lithops can start and stop an existing VSI instances.</p>
+<p>The IBM VPC client of Lithops can provide a truely serverless user experience on top of IBM VPC where Lithops creates new VSIs (Virtual Server Instance) dynamically in runtime, and scale Lithops jobs against them (Create &amp; Reuse modes). Alternatively Lithops can start and stop an existing VSI instance (Consume mode).</p>
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
@@ -454,8 +454,8 @@ document.write(`
 <li><p>Option 2: Alternatively, you can use a pre-built custom image (based on Ubuntu) that will greatly improve VSI creation time for Lithops jobs. To benefit from this approach, navigate to <a class="reference external" href="https://github.com/lithops-cloud/lithops/tree/master/runtime/ibm_vpc">runtime/ibm_vpc</a>, and follow the instructions.</p></li>
 </ul>
 </section>
-<section id="lithops-and-the-vm-auto-create-reuse-mode">
-<h2>Lithops and the VM auto create|reuse mode<a class="headerlink" href="#lithops-and-the-vm-auto-create-reuse-mode" title="Permalink to this heading">#</a></h2>
+<section id="create-and-reuse-modes">
+<h2>Create and reuse modes<a class="headerlink" href="#create-and-reuse-modes" title="Permalink to this heading">#</a></h2>
 <p>In the <code class="docutils literal notranslate"><span class="pre">create</span></code> mode, Lithops will automatically create new worker VM instances in runtime, scale Lithops job against generated VMs, and automatically delete the VMs when the job is completed.
 Alternatively, you can set the <code class="docutils literal notranslate"><span class="pre">reuse</span></code> mode to keep running the started worker VMs, and reuse them for further executions. In the <code class="docutils literal notranslate"><span class="pre">reuse</span></code> mode, Lithops checks all the available worker VMs and start new workers only if necessary.</p>
 <section id="lithops-configuration-for-the-create-and-reuse-mode">
@@ -705,8 +705,8 @@ Alternatively, you can set the <code class="docutils literal notranslate"><span 
 </table>
 </section>
 </section>
-<section id="lithops-and-the-vsi-consume-mode">
-<h2>Lithops and the VSI consume mode<a class="headerlink" href="#lithops-and-the-vsi-consume-mode" title="Permalink to this heading">#</a></h2>
+<section id="consume-mode">
+<h2>Consume mode<a class="headerlink" href="#consume-mode" title="Permalink to this heading">#</a></h2>
 <p>In this mode, Lithops can start and stop an existing VM, and deploy an entire job to that VM. The partition logic in this scenario is different from the <code class="docutils literal notranslate"><span class="pre">create/reuse</span></code> modes, since the entire job is executed in the same VM.</p>
 <section id="lithops-configuration-for-the-consume-mode">
 <h3>Lithops configuration for the consume mode<a class="headerlink" href="#lithops-configuration-for-the-consume-mode" title="Permalink to this heading">#</a></h3>
@@ -736,8 +736,8 @@ Alternatively, you can set the <code class="docutils literal notranslate"><span 
 </section>
 <section id="id1">
 <h2>Summary of configuration keys for IBM Cloud:<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
-<section id="ibm-iam">
-<h3>IBM IAM:<a class="headerlink" href="#ibm-iam" title="Permalink to this heading">#</a></h3>
+<section id="id2">
+<h3>IBM:<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Group</p></th>
@@ -928,7 +928,7 @@ Alternatively, you can set the <code class="docutils literal notranslate"><span 
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ibm-vpc">IBM VPC</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-an-operating-system-image-for-vsi">Choose an operating system image for VSI</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops-and-the-vm-auto-create-reuse-mode">Lithops and the VM auto create|reuse mode</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-and-reuse-modes">Create and reuse modes</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops-configuration-for-the-create-and-reuse-mode">Lithops configuration for the <em>create</em> and <em>reuse</em> mode</a></li>
 </ul>
 </li>
@@ -941,12 +941,12 @@ Alternatively, you can set the <code class="docutils literal notranslate"><span 
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ibm-vpc-create-and-reuse-modes">IBM VPC - Create and Reuse modes</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops-and-the-vsi-consume-mode">Lithops and the VSI consume mode</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consume-mode">Consume mode</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops-configuration-for-the-consume-mode">Lithops configuration for the consume mode</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Summary of configuration keys for IBM Cloud:</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ibm-iam">IBM IAM:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">IBM:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ibm-vpc-consume-mode">IBM VPC - Consume Mode</a></li>
 </ul>
 </li>

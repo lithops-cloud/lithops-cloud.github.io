@@ -148,7 +148,7 @@
     <script>document.write(`<img src="../../_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">Lithops v3.4.0</p>
+    <p class="title logo__title">Lithops v3.4.1</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -393,7 +393,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#execution-environments">Execution Environments</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-environment">Default Environment</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-environment">Docker Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#container-environment">Container Environment</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-localhost">Summary of configuration keys for Localhost:</a></li>
@@ -444,20 +444,20 @@ document.write(`
 </pre></div>
 </div>
 </section>
-<section id="docker-environment">
-<h3>Docker Environment<a class="headerlink" href="#docker-environment" title="Permalink to this heading">#</a></h3>
-<p>The Docker environment runs the functions within a <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">container</span></code>. In this case you must <a class="reference external" href="https://docs.docker.com/get-docker/">install the Docker CE version</a> in your machine. This environment is automatically activated when you provide a docker image as a runtime. For example, by adding the following keys in the config:</p>
+<section id="container-environment">
+<h3>Container Environment<a class="headerlink" href="#container-environment" title="Permalink to this heading">#</a></h3>
+<p>The Container environment runs the functions within a <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">container</span></code>. In this case you must <a class="reference external" href="https://docs.docker.com/get-docker/">install the Docker CE version</a> in your machine. This environment is automatically activated when you provide a docker image as a runtime. For example, by adding the following keys in the config:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">localhost</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">runtime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lithopscloud/ibmcf-python-v312</span>
+<span class="w">    </span><span class="nt">runtime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker.io/lithopscloud/ibmcf-python-v312</span>
 </pre></div>
 </div>
 <p>or by using the <code class="docutils literal notranslate"><span class="pre">runtime</span></code> param in a function executor:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># As we use the default FunctionExecutor(), the &quot;backend&quot; config parameter must be set to localhost in config</span>
-<span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">(</span><span class="n">runtime</span><span class="o">=</span><span class="s1">&#39;lithopscloud/ibmcf-python-v312&#39;</span><span class="p">)</span>
+<span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">(</span><span class="n">runtime</span><span class="o">=</span><span class="s1">&#39;docker.io/lithopscloud/ibmcf-python-v312&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># As we use/force the LocalhostExecutor(), the &quot;backend&quot; config parameter does not need to be set to localhost in config</span>
-<span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">LocalhostExecutor</span><span class="p">(</span><span class="n">runtime</span><span class="o">=</span><span class="s1">&#39;lithopscloud/ibmcf-python-v312&#39;</span><span class="p">)</span>
+<span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">LocalhostExecutor</span><span class="p">(</span><span class="n">runtime</span><span class="o">=</span><span class="s1">&#39;docker.io/lithopscloud/ibmcf-python-v312&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>In this mode of execution, you can use any docker image that contains all the required dependencies. For example, the IBM Cloud Functions and Knative runtimes are compatible with it.</p>
@@ -483,9 +483,9 @@ document.write(`
 </tr>
 <tr class="row-odd"><td><p>localhost</p></td>
 <td><p>version</p></td>
-<td><p>1</p></td>
+<td><p>2</p></td>
 <td><p>no</p></td>
-<td><p>There are 2 different localhost implementations. Use ‘2’ for using the alternative version (beta)</p></td>
+<td><p>There are 2 different localhost implementations. Use ‘1’ for using the alternative version</p></td>
 </tr>
 <tr class="row-even"><td><p>localhost</p></td>
 <td><p>worker_processes</p></td>
@@ -509,6 +509,7 @@ document.write(`
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops<span class="w"> </span>logs<span class="w"> </span>poll
 </pre></div>
 </div>
+<p>You can view the localhost runner logs in <code class="docutils literal notranslate"><span class="pre">/tmp/lithops-*/localhost-runner.log</span></code></p>
 </section>
 </section>
 
@@ -559,7 +560,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#execution-environments">Execution Environments</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-environment">Default Environment</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-environment">Docker Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#container-environment">Container Environment</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-localhost">Summary of configuration keys for Localhost:</a></li>
