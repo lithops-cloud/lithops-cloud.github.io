@@ -148,7 +148,7 @@
     <script>document.write(`<img src="../_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">Lithops v3.4.1</p>
+    <p class="title logo__title">Lithops v3.5.1</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -182,6 +182,7 @@
 <li class="toctree-l2"><a class="reference internal" href="compute_config/azure_containers.html">Azure Container Apps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/kubernetes.html">Kubernetes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/knative.html">Knative</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compute_config/singularity.html">Singularity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/vm.html">Virtual Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/ibm_vpc.html">IBM Virtual Private Cloud</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/aws_ec2.html">AWS Elastic Compute Cloud (EC2)</a></li>
@@ -448,7 +449,8 @@ document.write(`
 <li><p><strong>backend</strong> (<em>str</em><em> | </em><em>None</em>) – Compute backend to run the functions</p></li>
 <li><p><strong>storage</strong> (<em>str</em><em> | </em><em>None</em>) – Storage backend to store Lithops data</p></li>
 <li><p><strong>monitoring</strong> (<em>str</em><em> | </em><em>None</em>) – Monitoring system implementation. One of: storage, rabbitmq</p></li>
-<li><p><strong>log_level</strong> (<em>str</em><em> | </em><em>None</em>) – Log level printing (INFO, DEBUG, …). Set it to None to hide all logs. If this is param is set, all logging params in config are disabled</p></li>
+<li><p><strong>log_level</strong> (<em>str</em><em> | </em><em>None</em>) – Log level printing (INFO, DEBUG, …). Set it to None to hide all logs.
+If this is param is set, all logging params in config are disabled</p></li>
 <li><p><strong>kwargs</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>] </em><em>| </em><em>None</em>) – Any parameter that can be set in the compute backend section of the config file, can be set here</p></li>
 </ul>
 </dd>

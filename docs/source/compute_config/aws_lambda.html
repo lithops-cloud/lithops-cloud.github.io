@@ -148,7 +148,7 @@
     <script>document.write(`<img src="../../_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">Lithops v3.4.1</p>
+    <p class="title logo__title">Lithops v3.5.1</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -182,6 +182,7 @@
 <li class="toctree-l2"><a class="reference internal" href="azure_containers.html">Azure Container Apps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="kubernetes.html">Kubernetes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="knative.html">Knative</a></li>
+<li class="toctree-l2"><a class="reference internal" href="singularity.html">Singularity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vm.html">Virtual Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ibm_vpc.html">IBM Virtual Private Cloud</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aws_ec2.html">AWS Elastic Compute Cloud (EC2)</a></li>
@@ -620,18 +621,24 @@ document.write(`
 <td><p>Ephemeral storage (<code class="docutils literal notranslate"><span class="pre">/tmp</span></code>) size in MB (must be between 512 MB and 10240 MB)</p></td>
 </tr>
 <tr class="row-odd"><td><p>aws_lambda</p></td>
+<td><p>user_tags</p></td>
+<td><p>{}</p></td>
+<td><p>no</p></td>
+<td><p>List of {name: …, value: …} pairs for Lambda instance user tags</p></td>
+</tr>
+<tr class="row-even"><td><p>aws_lambda</p></td>
 <td><p>env_vars</p></td>
 <td><p>{}</p></td>
 <td><p>no</p></td>
 <td><p>List of {name: …, value: …} pairs for Lambda instance environment variables</p></td>
 </tr>
-<tr class="row-even"><td><p>aws_lambda</p></td>
+<tr class="row-odd"><td><p>aws_lambda</p></td>
 <td><p>namespace</p></td>
 <td><p></p></td>
 <td><p>no</p></td>
 <td><p>Virtual namespace. This can be useful to virtually group Lithops function workers. The functions deployed by lithops will be prefixed by this namespace. For example you can set it to differentiate between <code class="docutils literal notranslate"><span class="pre">prod</span></code>, <code class="docutils literal notranslate"><span class="pre">dev</span></code> and <code class="docutils literal notranslate"><span class="pre">stage</span></code> environments.</p></td>
 </tr>
-<tr class="row-odd"><td><p>aws_lambda</p></td>
+<tr class="row-even"><td><p>aws_lambda</p></td>
 <td><p>runtime_include_function</p></td>
 <td><p>False</p></td>
 <td><p>no</p></td>

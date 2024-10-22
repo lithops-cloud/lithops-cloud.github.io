@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Aliyun Function Compute &#8212; Lithops  documentation</title>
+    <title>Singularity &#8212; Lithops  documentation</title>
   
   
   
@@ -52,12 +52,12 @@
                 gtag('js', new Date());
                 gtag('config', 'G-7YKZHZYDCR');
             </script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'source/compute_config/aliyun_functions';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'source/compute_config/singularity';</script>
     <link rel="icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="OpenWhisk" href="openwhisk.html" />
-    <link rel="prev" title="Oracle Functions" href="oracle_functions.html" />
+    <link rel="next" title="Virtual Machine" href="vm.html" />
+    <link rel="prev" title="Knative" href="knative.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -174,7 +174,7 @@
 <li class="toctree-l2"><a class="reference internal" href="gcp_functions.html">Google Cloud Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="azure_functions.html">Azure Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="oracle_functions.html">Oracle Functions</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Aliyun Function Compute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aliyun_functions.html">Aliyun Function Compute</a></li>
 <li class="toctree-l2"><a class="reference internal" href="openwhisk.html">OpenWhisk</a></li>
 <li class="toctree-l2"><a class="reference internal" href="code_engine.html">IBM Cloud Code Engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aws_batch.html">AWS Batch</a></li>
@@ -182,7 +182,7 @@
 <li class="toctree-l2"><a class="reference internal" href="azure_containers.html">Azure Container Apps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="kubernetes.html">Kubernetes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="knative.html">Knative</a></li>
-<li class="toctree-l2"><a class="reference internal" href="singularity.html">Singularity</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Singularity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vm.html">Virtual Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ibm_vpc.html">IBM Virtual Private Cloud</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aws_ec2.html">AWS Elastic Compute Cloud (EC2)</a></li>
@@ -313,7 +313,7 @@
       
       
       
-      <li><a href="../../_sources/source/compute_config/aliyun_functions.md" target="_blank"
+      <li><a href="../../_sources/source/compute_config/singularity.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -381,7 +381,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Aliyun Function Compute</h1>
+    <h1>Singularity</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -391,10 +391,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-aliyun">Summary of configuration keys for Aliyun</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-alibaba-functions-compute">Summary of configuration keys for Alibaba Functions Compute:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-rabbimq">Configure RabbiMQ</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-singularity-backend">Configure Singularity backend</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-singularity">Summary of Configuration Keys for Singularity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deploying-the-runtime-image">Deploying the Runtime Image</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-lithops">Test Lithops</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-the-execution-logs">Viewing the execution logs</a></li>
 </ul>
@@ -408,48 +411,36 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="aliyun-function-compute">
-<h1>Aliyun Function Compute<a class="headerlink" href="#aliyun-function-compute" title="Permalink to this heading">#</a></h1>
-<p>Lithops with <em>Aliyun Function Compute</em> as serverless compute backend.</p>
-<section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p>Install Alibaba Cloud backend dependencies:</p></li>
-</ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>lithops<span class="o">[</span>aliyun<span class="o">]</span>
-</pre></div>
-</div>
-<ol class="arabic simple" start="2">
-<li><p>Access to your <a class="reference external" href="https://homenew-intl.console.aliyun.com/">console</a> and activate your Functions service instance.</p></li>
-</ol>
-</section>
+  <section id="singularity">
+<h1>Singularity<a class="headerlink" href="#singularity" title="Permalink to this heading">#</a></h1>
+<p>Lithops with <em>Singularity</em> as a serverless compute backend is <strong>ideal for High-Performance Computing (HPC) environments</strong> where Docker might be restricted due to security concerns or administrative privileges. Singularity’s ability to run containers without requiring root access makes it a suitable choice for such environments.</p>
+<p><strong>Note:</strong> This backend requires a RabbitMQ server for communication and coordination between Lithops components.</p>
 <section id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p><a class="reference external" href="https://ram.console.aliyun.com/manage/ak">Navigate to the Cloud Console</a> and create a new AccessKey (If you don’t have one)</p></li>
-<li><p><a class="reference external" href="https://fc.console.aliyun.com/fc/overview">Access to your Function Compute dashboard</a>, and choose your preferred region.</p></li>
-<li><p>Access to the <a class="reference external" href="https://ram.console.aliyun.com/roles/">Resource Access Management (RAM) Roles dashboard</a>, and create a new Role that contains the <code class="docutils literal notranslate"><span class="pre">AliyunOSSFullAccess</span></code> permission. Alternatively you can use an already created Role that contains the <code class="docutils literal notranslate"><span class="pre">AliyunOSSFullAccess</span></code> permission.</p></li>
-<li><p>Edit your Lithops config and add the following keys:</p></li>
-</ol>
+<section id="configure-rabbimq">
+<h3>Configure RabbiMQ<a class="headerlink" href="#configure-rabbimq" title="Permalink to this heading">#</a></h3>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">backend </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aliyun_fc</span>
+<span class="w">    </span><span class="nt">backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">singularity</span>
+<span class="w">    </span><span class="nt">monitoring</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rabbitmq</span>
 
-<span class="nt">aliyun</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">account_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;ACCOUNT_ID&gt;</span>
-<span class="w">    </span><span class="nt">access_key_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;ACCESS_KEY_ID&gt;</span>
-<span class="w">    </span><span class="nt">access_key_secret</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;ACCESS_KEY_SECRET&gt;</span>
-<span class="w">    </span><span class="nt">region </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION_NAME&gt;</span>
-
-<span class="nt">aliyun_fc</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">role_arn</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;ROLE_ARN&gt;</span>
+<span class="nt">rabbitmq</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">amqp_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">amqp://&lt;username&gt;:&lt;password&gt;@&lt;rabbitmq_host&gt;:&lt;rabbitmq_port&gt;/&lt;vhost&gt;</span><span class="w"> </span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="4">
-<li><p><strong>(optional)</strong> By default Lithops will automatically create a new <strong>service</strong> in your <em>Function Compute</em> account. For this purpose your user must have <strong>List</strong> and <strong>Create</strong> permissions to <em>Function Compute</em>. Alternatively, you can create a new service through the dashboard (or use one already created), assign the Role created in the previous step (Accessing to <em>service configuration</em> –&gt; <em>Modify Configuration</em> –&gt; <em>Role Config</em>), and configure the <em>service</em> entry in the <em>aliyun_cf</em> config section.</p></li>
-</ol>
+<p>Replace <code class="docutils literal notranslate"><span class="pre">&lt;username&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;password&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;rabbitmq_host&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;rabbitmq_port&gt;</span></code>, and <code class="docutils literal notranslate"><span class="pre">&lt;vhost&gt;</span></code> with your RabbitMQ credentials.</p>
 </section>
-<section id="summary-of-configuration-keys-for-aliyun">
-<h2>Summary of configuration keys for Aliyun<a class="headerlink" href="#summary-of-configuration-keys-for-aliyun" title="Permalink to this heading">#</a></h2>
+<section id="configure-singularity-backend">
+<h3>Configure Singularity backend<a class="headerlink" href="#configure-singularity-backend" title="Permalink to this heading">#</a></h3>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">singularity</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">worker_processes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;WORKER_PROCESSES&gt;</span>
+<span class="w">    </span><span class="nt">runtime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;RUNTIME_NAME&gt;</span>
+<span class="w">    </span><span class="nt">sif_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;CUSTOM_PATH&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="summary-of-configuration-keys-for-singularity">
+<h2>Summary of Configuration Keys for Singularity<a class="headerlink" href="#summary-of-configuration-keys-for-singularity" title="Permalink to this heading">#</a></h2>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Group</p></th>
@@ -460,106 +451,45 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>aliyun</p></td>
-<td><p>account_id</p></td>
-<td><p></p></td>
-<td><p>yes</p></td>
-<td><p>Alibaba Cloud Account ID</p></td>
-</tr>
-<tr class="row-odd"><td><p>aliyun</p></td>
-<td><p>access_key_id</p></td>
-<td><p></p></td>
-<td><p>yes</p></td>
-<td><p>Access Key Id</p></td>
-</tr>
-<tr class="row-even"><td><p>aliyun</p></td>
-<td><p>access_key_secret</p></td>
-<td><p></p></td>
-<td><p>yes</p></td>
-<td><p>Access Key Secret</p></td>
-</tr>
-<tr class="row-odd"><td><p>aliyun</p></td>
-<td><p>region</p></td>
-<td><p></p></td>
-<td><p>yes</p></td>
-<td><p>Region name. For example: <code class="docutils literal notranslate"><span class="pre">eu-west-1</span></code></p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="summary-of-configuration-keys-for-alibaba-functions-compute">
-<h2>Summary of configuration keys for Alibaba Functions Compute:<a class="headerlink" href="#summary-of-configuration-keys-for-alibaba-functions-compute" title="Permalink to this heading">#</a></h2>
-<table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Group</p></th>
-<th class="head"><p>Key</p></th>
-<th class="head"><p>Default</p></th>
-<th class="head"><p>Mandatory</p></th>
-<th class="head"><p>Additional info</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>aliyun_fc</p></td>
-<td><p>role_arn</p></td>
-<td><p></p></td>
-<td><p>yes</p></td>
-<td><p>Role ARN. For example: <code class="docutils literal notranslate"><span class="pre">acs:ram::5244532493961771:role/aliyunfclogexecutionrole</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p>aliyun_fc</p></td>
-<td><p>region</p></td>
-<td><p></p></td>
-<td><p>no</p></td>
-<td><p>Region name. For example: <code class="docutils literal notranslate"><span class="pre">eu-west-1</span></code>. Lithops will use the region set under the <code class="docutils literal notranslate"><span class="pre">aliyun</span></code> section if it is not set here</p></td>
-</tr>
-<tr class="row-even"><td><p>aliyun_fc</p></td>
-<td><p>service</p></td>
-<td><p></p></td>
-<td><p>no</p></td>
-<td><p>Service name</p></td>
-</tr>
-<tr class="row-odd"><td><p>aliyun_fc</p></td>
-<td><p>max_workers</p></td>
-<td><p>300</p></td>
-<td><p>no</p></td>
-<td><p>Max number of workers. Alibaba limits the number of parallel workers to 300</p></td>
-</tr>
-<tr class="row-even"><td><p>aliyun_fc</p></td>
+<tr class="row-even"><td><p>singularity</p></td>
 <td><p>worker_processes</p></td>
 <td><p>1</p></td>
 <td><p>no</p></td>
-<td><p>Number of Lithops processes within a given worker. This can be used to parallelize function activations within a worker</p></td>
+<td><p>Number of functions sent in each RabbitMQ package. Ideally, set to a multiple of the node’s CPU count.</p></td>
 </tr>
-<tr class="row-odd"><td><p>aliyun_fc</p></td>
+<tr class="row-odd"><td><p>singularity</p></td>
 <td><p>runtime</p></td>
 <td><p></p></td>
-<td><p>no</p></td>
-<td><p>Runtime name you built and deployed using the lithops client</p></td>
+<td><p>yes</p></td>
+<td><p>Name of the Singularity runtime image (<code class="docutils literal notranslate"><span class="pre">.sif</span></code>) file containing the Lithops runtime environment.</p></td>
 </tr>
-<tr class="row-even"><td><p>aliyun_fc</p></td>
-<td><p>runtime_memory</p></td>
-<td><p>256</p></td>
+<tr class="row-even"><td><p>singularity</p></td>
+<td><p>sif_path</p></td>
+<td><p>/tmp</p></td>
 <td><p>no</p></td>
-<td><p>Memory limit in MB. Default 256MB</p></td>
-</tr>
-<tr class="row-odd"><td><p>aliyun_fc</p></td>
-<td><p>runtime_timeout</p></td>
-<td><p>300</p></td>
-<td><p>no</p></td>
-<td><p>Runtime timeout in seconds. Default 5 minutes</p></td>
-</tr>
-<tr class="row-even"><td><p>aliyun_fc</p></td>
-<td><p>invoke_pool_threads</p></td>
-<td><p>300</p></td>
-<td><p>no</p></td>
-<td><p>Number of concurrent threads used for invocation</p></td>
+<td><p>Directory path where the Singularity runtime image  <code class="docutils literal notranslate"><span class="pre">.sif</span></code> will be stored.</p></td>
 </tr>
 </tbody>
 </table>
+</section>
+<section id="deploying-the-runtime-image">
+<h2>Deploying the Runtime Image<a class="headerlink" href="#deploying-the-runtime-image" title="Permalink to this heading">#</a></h2>
+<p>Since Lithops doesn’t directly manage Singularity instances on your cluster, you need to ensure the runtime image is available on <strong>each</strong> node:</p>
+<ol class="arabic">
+<li><p><strong>Transfer:</strong> Manually copy the built <code class="docutils literal notranslate"><span class="pre">.sif</span></code> runtime image to each node in your cluster.</p></li>
+<li><p><strong>Start:</strong>  Start a new Singularity instance on each node using the <code class="docutils literal notranslate"><span class="pre">.sif</span></code> file. Then run the instance and add the RabbitMQ server details to the environment variables.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>singularity<span class="w"> </span>instance<span class="w"> </span>start<span class="w"> </span>--fakeroot<span class="w"> </span>/path/to/sif/your-singularity-runtime.sif<span class="w"> </span>&lt;INSTANCE_NAME&gt;
+singularity<span class="w"> </span>run<span class="w"> </span>instance://&lt;INSTANCE_NAME&gt;<span class="w"> </span>--env<span class="w"> </span><span class="nv">AMQP_URL</span><span class="o">=</span>amqp://&lt;username&gt;:&lt;password&gt;@&lt;rabbitmq_host&gt;:&lt;rabbitmq_port&gt;/&lt;vhost&gt;
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Depending on your cluster setup, you might need to adjust permissions of the <code class="docutils literal notranslate"><span class="pre">.sif</span></code> file or the <a class="reference external" href="https://docs.sylabs.io/guides/latest/user-guide/cli/singularity_exec.html#singularity-exec">singularity flags</a> to ensure that the user running the Lithops worker can access and execute it.</p>
 </section>
 <section id="test-lithops">
 <h2>Test Lithops<a class="headerlink" href="#test-lithops" title="Permalink to this heading">#</a></h2>
 <p>Once you have your compute and storage backends configured, you can run a hello world function with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops<span class="w"> </span>hello<span class="w"> </span>-b<span class="w"> </span>aliyun_fc<span class="w"> </span>-s<span class="w"> </span>aliyun_oss
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops<span class="w"> </span>hello<span class="w"> </span>-b<span class="w"> </span>singularity
 </pre></div>
 </div>
 </section>
@@ -584,20 +514,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="oracle_functions.html"
+       href="knative.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Oracle Functions</p>
+        <p class="prev-next-title">Knative</p>
       </div>
     </a>
     <a class="right-next"
-       href="openwhisk.html"
+       href="vm.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">OpenWhisk</p>
+        <p class="prev-next-title">Virtual Machine</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -616,10 +546,13 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-aliyun">Summary of configuration keys for Aliyun</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-alibaba-functions-compute">Summary of configuration keys for Alibaba Functions Compute:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-rabbimq">Configure RabbiMQ</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-singularity-backend">Configure Singularity backend</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-singularity">Summary of Configuration Keys for Singularity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deploying-the-runtime-image">Deploying the Runtime Image</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-lithops">Test Lithops</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-the-execution-logs">Viewing the execution logs</a></li>
 </ul>
