@@ -148,7 +148,7 @@
     <script>document.write(`<img src="../_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">Lithops v3.5.1</p>
+    <p class="title logo__title">Lithops v3.6.0</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -186,6 +186,7 @@
 <li class="toctree-l2"><a class="reference internal" href="compute_config/vm.html">Virtual Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/ibm_vpc.html">IBM Virtual Private Cloud</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/aws_ec2.html">AWS Elastic Compute Cloud (EC2)</a></li>
+
 <li class="toctree-l2"><a class="reference internal" href="compute_config/azure_vms.html">Azure Virtual Machines</a></li>
 </ul>
 </li>
@@ -502,20 +503,28 @@ details as part of the Lithops invocation in runtime. You can see an entire list
 <p>Here is an example of providing configuration keys for IBM Cloud Functions and IBM Cloud Object Storage:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lithops</span>
 
+<span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="s1">&#39;lithops&#39;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s1">&#39;backend&#39;</span><span class="p">:</span> <span class="s1">&#39;code_engine&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;storage&#39;</span><span class="p">:</span> <span class="s1">&#39;ibm_cos&#39;</span>
+   <span class="p">},</span>
+   <span class="s1">&#39;ibm&#39;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s1">&#39;region&#39;</span><span class="p">:</span> <span class="s1">&#39;REGION&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;iam_api_key&#39;</span><span class="p">:</span> <span class="s1">&#39;IAM_API_KEY&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;resource_group_id&#39;</span><span class="p">:</span> <span class="s1">&#39;RESOURCE_GROUP_ID&#39;</span>
+   <span class="p">},</span>
+   <span class="s1">&#39;ibm_cos&#39;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s1">&#39;storage_bucket&#39;</span><span class="p">:</span> <span class="s1">&#39;STORAGE_BUCKET&#39;</span>
+   <span class="p">}</span>
+<span class="p">}</span>
 
-<span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;lithops&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;backend&#39;</span><span class="p">:</span> <span class="s1">&#39;ibm_cf&#39;</span><span class="p">,</span> <span class="s1">&#39;storage&#39;</span><span class="p">:</span> <span class="s1">&#39;ibm_cos&#39;</span><span class="p">},</span>
-          <span class="s1">&#39;ibm&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;region&#39;</span><span class="p">:</span> <span class="s1">&#39;REGION&#39;</span><span class="p">,</span>
-                  <span class="s1">&#39;iam_api_key&#39;</span><span class="p">:</span> <span class="s1">&#39;IAM_API_KEY&#39;</span><span class="p">,</span>
-                  <span class="s1">&#39;resource_group_id&#39;</span><span class="p">:</span> <span class="s1">&#39;RESOURCE_GROUP_ID&#39;</span><span class="p">}</span>
-          <span class="s1">&#39;ibm_cos&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;storage_bucket&#39;</span><span class="p">:</span> <span class="s1">&#39;STORAGE_BUCKET&#39;</span><span class="p">}}</span>
-
-<span class="k">def</span> <span class="nf">hello_world</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-    <span class="k">return</span> <span class="s1">&#39;Hello </span><span class="si">{}</span><span class="s1">!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">hello_world</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+   <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;Hello </span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s1">!&#39;</span>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
-    <span class="n">fexec</span><span class="o">.</span><span class="n">call_async</span><span class="p">(</span><span class="n">hello_world</span><span class="p">,</span> <span class="s1">&#39;World&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">fexec</span><span class="o">.</span><span class="n">get_result</span><span class="p">())</span>
+   <span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
+   <span class="n">fexec</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">hello_world</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+   <span class="nb">print</span><span class="p">(</span><span class="n">fexec</span><span class="o">.</span><span class="n">get_result</span><span class="p">())</span>
 </pre></div>
 </div>
 </section>
@@ -542,15 +551,15 @@ details as part of the Lithops invocation in runtime. You can see an entire list
 <tbody>
 <tr class="row-even"><td><p>lithops</p></td>
 <td><p>backend</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">ibm_cf</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">aws_lambda</span></code></p></td>
 <td><p>no</p></td>
-<td><p>Compute backend implementation. IBM Cloud Functions is the default. If not set, Lithops will check the <cite>mode</cite> and use the <cite>backend</cite> set under the <cite>serverless</cite> or <cite>standalone</cite> sections described below.</p></td>
+<td><p>Compute backend implementation. AWS Lambda is the default.</p></td>
 </tr>
 <tr class="row-odd"><td><p>lithops</p></td>
 <td><p>storage</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">ibm_cos</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">aws_s3</span></code></p></td>
 <td><p>no</p></td>
-<td><p>Storage backend implementation. IBM Cloud Object Storage is the default.</p></td>
+<td><p>Storage backend implementation. AWS S3 is the default.</p></td>
 </tr>
 <tr class="row-even"><td><p>lithops</p></td>
 <td><p>data_cleaner</p></td>
@@ -699,7 +708,7 @@ By The Lithops Team
 
   <p class="copyright">
     
-      © Copyright 2024, The Lithops Team.
+      © Copyright 2025, The Lithops Team.
       <br/>
     
   </p>
