@@ -209,6 +209,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lithops Compute API</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Lithops Futures API</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="functions.html">Functions and Parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="worker_granularity.html">Worker Granularity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/function_chaining.html">Function chaining</a></li>
@@ -395,6 +396,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Lithops Futures API</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#primary-executors">Primary Executors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#secondary-executors">Secondary Executors</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-and-initialization">Configuration and Initialization</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-lithops.executors">Futures API Reference</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.executors.FunctionExecutor"><code class="docutils literal notranslate"><span class="pre">FunctionExecutor</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.executors.FunctionExecutor.call_async"><code class="docutils literal notranslate"><span class="pre">FunctionExecutor.call_async()</span></code></a></li>
@@ -419,6 +426,9 @@ document.write(`
 </ul>
 </li>
 </ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -433,7 +443,8 @@ document.write(`
 <span id="futures-api"></span><h1>Lithops Futures API<a class="headerlink" href="#lithops-futures-api" title="Permalink to this heading">#</a></h1>
 <p>The core abstraction in Lithops is the <strong>executor</strong>, responsible for orchestrating the execution of your functions across different environments.</p>
 <p>To get started, you typically import <cite>lithops</cite> and create an executor instance to run your code. Lithops provides a flexible set of executors to suit different needs.</p>
-<p>### Primary Executors</p>
+<section id="primary-executors">
+<h2>Primary Executors<a class="headerlink" href="#primary-executors" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>FunctionExecutor</strong> (<cite>lithops.FunctionExecutor()</cite>):
 The main, generic executor that automatically selects its execution mode based on the provided configuration.
@@ -442,7 +453,9 @@ This lets you write your code once and run it seamlessly on localhost, serverles
 A robust wrapper around <cite>FunctionExecutor</cite> that transparently handles retries on failed tasks.
 It supports all features of <cite>FunctionExecutor</cite> with added automatic retry logic, improving fault tolerance and reliability for unstable or transient failure-prone environments.</p></li>
 </ul>
-<p>### Secondary Executors</p>
+</section>
+<section id="secondary-executors">
+<h2>Secondary Executors<a class="headerlink" href="#secondary-executors" title="Permalink to this heading">#</a></h2>
 <p>For more specialized use cases, Lithops also provides explicit executors for each execution mode:</p>
 <ul class="simple">
 <li><p><strong>LocalhostExecutor</strong> (<cite>lithops.LocalhostExecutor()</cite>):
@@ -452,10 +465,11 @@ Executes jobs on serverless compute platforms, managing scaling and deployment a
 <li><p><strong>StandaloneExecutor</strong> (<cite>lithops.StandaloneExecutor()</cite>):
 Runs jobs on standalone compute backends such as clusters or virtual machines, suitable for long-running or resource-heavy tasks.</p></li>
 </ul>
-<p>—</p>
-<p>### Configuration and Initialization</p>
+</section>
+</section>
+<section id="configuration-and-initialization">
+<h1>Configuration and Initialization<a class="headerlink" href="#configuration-and-initialization" title="Permalink to this heading">#</a></h1>
 <p>By default, executors load configuration from the Lithops configuration file (e.g., <cite>lithops_config.yaml</cite>). You can also supply configuration parameters programmatically via a Python dictionary when creating an executor instance. Parameters passed explicitly override those in the config file, allowing for flexible customization on the fly.</p>
-<p>—</p>
 <p>This layered executor design lets Lithops provide a powerful, unified API for parallel function execution — from local development to multi-cloud production deployments with fault tolerance and retries built-in.</p>
 <section id="module-lithops.executors">
 <span id="futures-api-reference"></span><h2>Futures API Reference<a class="headerlink" href="#module-lithops.executors" title="Permalink to this heading">#</a></h2>
@@ -878,6 +892,12 @@ in <cite>map()</cite> to control the number of retries per invocation.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Lithops Futures API</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#primary-executors">Primary Executors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#secondary-executors">Secondary Executors</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-and-initialization">Configuration and Initialization</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-lithops.executors">Futures API Reference</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.executors.FunctionExecutor"><code class="docutils literal notranslate"><span class="pre">FunctionExecutor</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.executors.FunctionExecutor.call_async"><code class="docutils literal notranslate"><span class="pre">FunctionExecutor.call_async()</span></code></a></li>
@@ -902,6 +922,9 @@ in <cite>map()</cite> to control the number of retries per invocation.</p>
 </ul>
 </li>
 </ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>

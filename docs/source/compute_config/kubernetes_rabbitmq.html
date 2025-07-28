@@ -207,6 +207,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lithops Compute API</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../api_futures.html">Lithops Futures API</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../functions.html">Functions and Parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../worker_granularity.html">Worker Granularity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/function_chaining.html">Function chaining</a></li>
@@ -396,13 +397,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#changes-of-k8s-rabbitmq">Changes of K8s RabbitMQ</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">Comparison</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-1-kubernetes-k8s-original">Plot 1: Kubernetes K8s original.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-2-kubernetes-k8s-original-with-master-on-warm-start">Plot 2: Kubernetes K8s original with master on Warm Start.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-3-kubernetes-k8s-rabbitmq">Plot 3: Kubernetes K8s RabbitMQ.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-4-kubernetes-k8s-rabbitmq-with-workers-on-warm-start">Plot 4: Kubernetes K8s RabbitMQ with workers on Warm Start.</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">Comparison</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-kubernetes">Summary of configuration keys for kubernetes:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-lithops">Test Lithops</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-the-execution-logs">Viewing the execution logs</a></li>
@@ -491,26 +486,26 @@ To enable Lithops to use this service, add the AMQP_URL key into the rabbitmq se
 <p>In these graphs, we will compare the usage of the original K8s architecture with the RabbitMQ implementation.</p>
 <p>All of these tests consist of running 225 functions on a 2-node cluster, each with 128 CPUs. The executed function involves a 5-second sleep.</p>
 <p>In this scenario, it is evident that the invocation time is consistently reduced by a factor of <strong>up to 5x</strong> on cold start and <strong>up to 7x</strong> on warm start. This represents a significant enhancement for parallel function execution.</p>
-<section id="plot-1-kubernetes-k8s-original">
-<h3>Plot 1: Kubernetes K8s original.<a class="headerlink" href="#plot-1-kubernetes-k8s-original" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Plot 1: Kubernetes K8s original.</p></li>
+</ul>
 <p><em>Elapsed time = 16,9 sec.</em></p>
 <p><img alt="Kubernetes K8s original plot" src="../../_images/k8s_original_histogram.png" /></p>
-</section>
-<section id="plot-2-kubernetes-k8s-original-with-master-on-warm-start">
-<h3>Plot 2: Kubernetes K8s original with master on Warm Start.<a class="headerlink" href="#plot-2-kubernetes-k8s-original-with-master-on-warm-start" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Plot 2: Kubernetes K8s original with master on Warm Start.</p></li>
+</ul>
 <p><em>Elapsed time = 8,1 sec.</em></p>
 <p><img alt="Kubernetes K8s original with Warm Start plot" src="../../_images/k8s_original_warm_start_histogram.png" /></p>
-</section>
-<section id="plot-3-kubernetes-k8s-rabbitmq">
-<h3>Plot 3: Kubernetes K8s RabbitMQ.<a class="headerlink" href="#plot-3-kubernetes-k8s-rabbitmq" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Plot 3: Kubernetes K8s RabbitMQ.</p></li>
+</ul>
 <p><em>Elapsed time = 8 sec.</em></p>
 <p><img alt="Kubernetes K8s RabbitMQ plot" src="../../_images/rabbitmq_histogram.png" /></p>
-</section>
-<section id="plot-4-kubernetes-k8s-rabbitmq-with-workers-on-warm-start">
-<h3>Plot 4: Kubernetes K8s RabbitMQ with workers on Warm Start.<a class="headerlink" href="#plot-4-kubernetes-k8s-rabbitmq-with-workers-on-warm-start" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Plot 4: Kubernetes K8s RabbitMQ with workers on Warm Start.</p></li>
+</ul>
 <p><em>Elapsed time = 5,9 sec.</em></p>
 <p><img alt="Kubernetes K8s RabbitMQ with Warm Start plot" src="../../_images/rabbitmq_warm_start_histogram.png" /></p>
-</section>
 </section>
 <section id="summary-of-configuration-keys-for-kubernetes">
 <h2>Summary of configuration keys for kubernetes:<a class="headerlink" href="#summary-of-configuration-keys-for-kubernetes" title="Permalink to this heading">#</a></h2>
@@ -638,13 +633,7 @@ To enable Lithops to use this service, add the AMQP_URL key into the rabbitmq se
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#changes-of-k8s-rabbitmq">Changes of K8s RabbitMQ</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">Comparison</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-1-kubernetes-k8s-original">Plot 1: Kubernetes K8s original.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-2-kubernetes-k8s-original-with-master-on-warm-start">Plot 2: Kubernetes K8s original with master on Warm Start.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-3-kubernetes-k8s-rabbitmq">Plot 3: Kubernetes K8s RabbitMQ.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-4-kubernetes-k8s-rabbitmq-with-workers-on-warm-start">Plot 4: Kubernetes K8s RabbitMQ with workers on Warm Start.</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">Comparison</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-kubernetes">Summary of configuration keys for kubernetes:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-lithops">Test Lithops</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-the-execution-logs">Viewing the execution logs</a></li>

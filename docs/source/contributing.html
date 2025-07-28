@@ -208,6 +208,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lithops Compute API</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="api_futures.html">Lithops Futures API</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="functions.html">Functions and Parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="worker_granularity.html">Worker Granularity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/function_chaining.html">Function chaining</a></li>
@@ -396,7 +397,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reporting-bugs-and-asking-questions">Reporting bugs and asking questions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-contribute-a-patch">To contribute a patch</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-testing">Unit testing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">Testing</a></li>
 </ul>
             </nav>
         </div>
@@ -424,21 +425,37 @@ document.write(`
 <li><p>Break your work into small, single-purpose patches if possible. It’s much
 harder to merge in a large change with a lot of disjoint features.</p></li>
 <li><p>Submit the patch as a GitHub pull request against the master branch.</p></li>
-<li><p>Make sure that your code passes the unit tests.</p></li>
-<li><p>Make sure that your code passes the linter.</p></li>
-<li><p>Add new unit tests for your code.</p></li>
+<li><p>Make sure that your code passes the tests.</p></li>
+<li><p>Make sure that your code passes the linter. Install <cite>flake8</cite> with <cite>pip3 install flake8</cite> and run the next command until you don’t see any linitng error:
+<code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">flake8</span> <span class="pre">lithops</span> <span class="pre">--count</span> <span class="pre">--max-line-length=180</span> <span class="pre">--statistics</span> <span class="pre">--ignore</span> <span class="pre">W605,W503</span>
+<span class="pre">`</span></code></p></li>
+<li><p>Add new tests for your code.</p></li>
 </ol>
 </section>
-<section id="unit-testing">
-<h2>Unit testing<a class="headerlink" href="#unit-testing" title="Permalink to this heading">#</a></h2>
-<p>To test that all is working as expected, run either:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ lithops test
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 -m lithops.tests.tests_main
-</pre></div>
-</div>
-<p>Please follow the guidelines in <span class="xref std std-ref">testing</span> for more details.</p>
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this heading">#</a></h2>
+<p>To test that all is working as expected, you must install <cite>pytest</cite>, navigate to the tests folder <cite>lithops/tests/</cite>, and execute:
+<code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">pytest</span> <span class="pre">-v</span>
+<span class="pre">`</span></code></p>
+<p>If you made changes to a specific backend, please run tests on that backend.
+For example, if you made changes to the AWS Lambda backend, execute the tests with:
+<code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">pytest</span> <span class="pre">-v</span> <span class="pre">--backend</span> <span class="pre">aws_lambda</span> <span class="pre">--storage</span> <span class="pre">aws_s3</span>
+<span class="pre">`</span></code></p>
+<p>You can list all the available tests using:
+<code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">pytest</span> <span class="pre">--collect-only</span>
+<span class="pre">`</span></code></p>
+<p>To run a specific test or group of tests, use the <cite>-k</cite> parameter, for example:
+<code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">pytest</span> <span class="pre">-v</span> <span class="pre">--backend</span> <span class="pre">localhost</span> <span class="pre">--storage</span> <span class="pre">localhost</span> <span class="pre">-k</span> <span class="pre">test_map</span>
+<span class="pre">`</span></code></p>
+<p>To view all the Lithops logs during the tests, and in DEBUG mode, execute:
+<code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">pytest</span> <span class="pre">-o</span> <span class="pre">log_cli=true</span> <span class="pre">--log-cli-level=DEBUG</span> <span class="pre">--backend</span> <span class="pre">localhost</span> <span class="pre">--storage</span> <span class="pre">localhost</span>
+<span class="pre">`</span></code></p>
 </section>
 </section>
 
@@ -479,7 +496,7 @@ harder to merge in a large change with a lot of disjoint features.</p></li>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reporting-bugs-and-asking-questions">Reporting bugs and asking questions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-contribute-a-patch">To contribute a patch</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-testing">Unit testing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">Testing</a></li>
 </ul>
   </nav></div>
 
