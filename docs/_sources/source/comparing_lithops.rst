@@ -21,11 +21,8 @@ Ray and Dask
 ------------
 
 .. image:: https://github.com/ray-project/ray/raw/master/doc/source/images/ray_logo.png
-   :align: center
    :width: 250
-
 .. image:: https://docs.dask.org/en/stable/_images/dask_horizontal.svg
-   :align: center
    :width: 250
 
 

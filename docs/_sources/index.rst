@@ -73,7 +73,7 @@ To start using Lithops:
 
       pip install lithops
 
-2. Configure your cloud credentials (see the full guide in :doc:`/config`)
+2. Configure your cloud credentials (see the full guide in :doc:`Configuration Guide <configuration>`)
 
 3. Write and run your first parallel job:
 
