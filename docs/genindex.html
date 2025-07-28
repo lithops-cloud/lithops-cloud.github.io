@@ -145,18 +145,18 @@
     <script>document.write(`<img src="_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">Lithops v3.6.0</p>
+    <p class="title logo__title">Lithops v3.6.1</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="index.html">What is Lithops?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Welcome to Lithops!</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview of Lithops</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="source/design.html">Architecture Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="source/comparing_lithops.html">Comparing Lithops with other distributed computing frameworks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="source/comparing_lithops.html">Comparing Lithops with Other Distributed Computing Frameworks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="source/supported_clouds.html">Supported Clouds</a></li>
 <li class="toctree-l1"><a class="reference internal" href="source/execution_modes.html">Execution Modes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="source/cli.html">Lithops Command Line Tool</a></li>
@@ -217,7 +217,10 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Processing</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="source/data_processing.html">Processing data from the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="source/data_processing.html">Processing Data from the Cloud</a></li>
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="source/data_partitioning.html">Data Partitioning</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Integrations</span></p>
@@ -356,6 +359,7 @@ document.write(`
  | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
  | <a href="#P"><strong>P</strong></a>
+ | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
  | <a href="#U"><strong>U</strong></a>
  | <a href="#W"><strong>W</strong></a>
@@ -366,10 +370,14 @@ document.write(`
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/api_futures.html#lithops.executors.FunctionExecutor.call_async">call_async() (lithops.executors.FunctionExecutor method)</a>
 </li>
+      <li><a href="source/api_futures.html#lithops.executors.FunctionExecutor.clean">clean() (lithops.executors.FunctionExecutor method)</a>
+
+      <ul>
+        <li><a href="source/api_futures.html#lithops.retries.RetryingFunctionExecutor.clean">(lithops.retries.RetryingFunctionExecutor method)</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/api_futures.html#lithops.executors.FunctionExecutor.clean">clean() (lithops.executors.FunctionExecutor method)</a>
-</li>
       <li><a href="source/api_storage.html#lithops.storage.storage.Storage.create_bucket">create_bucket() (lithops.storage.storage.Storage method)</a>
 </li>
   </ul></td>
@@ -464,11 +472,15 @@ document.write(`
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/api_futures.html#lithops.executors.FunctionExecutor.map">map() (lithops.executors.FunctionExecutor method)</a>
+
+      <ul>
+        <li><a href="source/api_futures.html#lithops.retries.RetryingFunctionExecutor.map">(lithops.retries.RetryingFunctionExecutor method)</a>
 </li>
-      <li><a href="source/api_futures.html#lithops.executors.FunctionExecutor.map_reduce">map_reduce() (lithops.executors.FunctionExecutor method)</a>
-</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="source/api_futures.html#lithops.executors.FunctionExecutor.map_reduce">map_reduce() (lithops.executors.FunctionExecutor method)</a>
+</li>
       <li>
     module
 
@@ -489,6 +501,14 @@ document.write(`
       <li><a href="source/api_storage.html#lithops.storage.storage.Storage.put_cloudobject">put_cloudobject() (lithops.storage.storage.Storage method)</a>
 </li>
       <li><a href="source/api_storage.html#lithops.storage.storage.Storage.put_object">put_object() (lithops.storage.storage.Storage method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="source/api_futures.html#lithops.retries.RetryingFunctionExecutor">RetryingFunctionExecutor (class in lithops.retries)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -519,7 +539,11 @@ document.write(`
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/api_futures.html#lithops.executors.FunctionExecutor.wait">wait() (lithops.executors.FunctionExecutor method)</a>
+
+      <ul>
+        <li><a href="source/api_futures.html#lithops.retries.RetryingFunctionExecutor.wait">(lithops.retries.RetryingFunctionExecutor method)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 

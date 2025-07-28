@@ -148,18 +148,18 @@
     <script>document.write(`<img src="../_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">Lithops v3.6.0</p>
+    <p class="title logo__title">Lithops v3.6.1</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../index.html">What is Lithops?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome to Lithops!</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview of Lithops</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="design.html">Architecture Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="comparing_lithops.html">Comparing Lithops with other distributed computing frameworks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="comparing_lithops.html">Comparing Lithops with Other Distributed Computing Frameworks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="supported_clouds.html">Supported Clouds</a></li>
 <li class="toctree-l1"><a class="reference internal" href="execution_modes.html">Execution Modes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cli.html">Lithops Command Line Tool</a></li>
@@ -220,7 +220,10 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Processing</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="data_processing.html">Processing data from the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_processing.html">Processing Data from the Cloud</a></li>
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="data_partitioning.html">Data Partitioning</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Integrations</span></p>
@@ -407,6 +410,12 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.executors.LocalhostExecutor"><code class="docutils literal notranslate"><span class="pre">LocalhostExecutor</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.executors.ServerlessExecutor"><code class="docutils literal notranslate"><span class="pre">ServerlessExecutor</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.executors.StandaloneExecutor"><code class="docutils literal notranslate"><span class="pre">StandaloneExecutor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.retries.RetryingFunctionExecutor"><code class="docutils literal notranslate"><span class="pre">RetryingFunctionExecutor</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.retries.RetryingFunctionExecutor.clean"><code class="docutils literal notranslate"><span class="pre">RetryingFunctionExecutor.clean()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.retries.RetryingFunctionExecutor.map"><code class="docutils literal notranslate"><span class="pre">RetryingFunctionExecutor.map()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.retries.RetryingFunctionExecutor.wait"><code class="docutils literal notranslate"><span class="pre">RetryingFunctionExecutor.wait()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -422,18 +431,32 @@ document.write(`
                   
   <section id="lithops-futures-api">
 <span id="futures-api"></span><h1>Lithops Futures API<a class="headerlink" href="#lithops-futures-api" title="Permalink to this heading">#</a></h1>
-<p>The primary object in Lithops is the executor. The standard way to get everything set up is to import <cite>lithops</cite>, and create an instance of one of the available modes of executions.</p>
-<p>Lithops is shipped with 3 modes of execution: <strong>Localhost</strong>, <strong>Serverless</strong> and <strong>Standalone</strong>. In this sense, each mode of execution has its own executor class:</p>
+<p>The core abstraction in Lithops is the <strong>executor</strong>, responsible for orchestrating the execution of your functions across different environments.</p>
+<p>To get started, you typically import <cite>lithops</cite> and create an executor instance to run your code. Lithops provides a flexible set of executors to suit different needs.</p>
+<p>### Primary Executors</p>
 <ul class="simple">
-<li><p><cite>lithops.LocalhostExecutor()</cite>: Executor that uses local processes to run jobs in the local machine.</p></li>
-<li><p><cite>lithops.ServerlessExecutor()</cite>: Executor to run jobs in one of the available serverless compute backends.</p></li>
-<li><p><cite>lithops.StandaloneExecutor()</cite>: Executor to run jobs in one of the available standalone compute backends.</p></li>
+<li><p><strong>FunctionExecutor</strong> (<cite>lithops.FunctionExecutor()</cite>):
+The main, generic executor that automatically selects its execution mode based on the provided configuration.
+This lets you write your code once and run it seamlessly on localhost, serverless, or standalone backends without changing your code.</p></li>
+<li><p><strong>RetryingFunctionExecutor</strong> (<cite>lithops.RetryingFunctionExecutor()</cite>):
+A robust wrapper around <cite>FunctionExecutor</cite> that transparently handles retries on failed tasks.
+It supports all features of <cite>FunctionExecutor</cite> with added automatic retry logic, improving fault tolerance and reliability for unstable or transient failure-prone environments.</p></li>
 </ul>
-<p>Additionally, Lithops includes a top-level function executor, which encompasses all three previous executors:</p>
+<p>### Secondary Executors</p>
+<p>For more specialized use cases, Lithops also provides explicit executors for each execution mode:</p>
 <ul class="simple">
-<li><p><cite>lithops.FunctionExecutor()</cite>: Generic executor that will use the configuration to determine its mode of execution, i.e., based on the configuration it will be <strong>localhost</strong>, <strong>serverless</strong> or <strong>standalone</strong>.</p></li>
+<li><p><strong>LocalhostExecutor</strong> (<cite>lithops.LocalhostExecutor()</cite>):
+Runs jobs locally using multiple processes on your machine. Ideal for development, debugging, or small-scale workloads.</p></li>
+<li><p><strong>ServerlessExecutor</strong> (<cite>lithops.ServerlessExecutor()</cite>):
+Executes jobs on serverless compute platforms, managing scaling and deployment automatically. Best for massively parallel, ephemeral workloads.</p></li>
+<li><p><strong>StandaloneExecutor</strong> (<cite>lithops.StandaloneExecutor()</cite>):
+Runs jobs on standalone compute backends such as clusters or virtual machines, suitable for long-running or resource-heavy tasks.</p></li>
 </ul>
-<p>By default, the executor load the configuration from the config file. Alternatively, you can pass the configuration with a python dictionary. In any case, note that all the parameters set in the executor will overwrite those set in the configuration.</p>
+<p>—</p>
+<p>### Configuration and Initialization</p>
+<p>By default, executors load configuration from the Lithops configuration file (e.g., <cite>lithops_config.yaml</cite>). You can also supply configuration parameters programmatically via a Python dictionary when creating an executor instance. Parameters passed explicitly override those in the config file, allowing for flexible customization on the fly.</p>
+<p>—</p>
+<p>This layered executor design lets Lithops provide a powerful, unified API for parallel function execution — from local development to multi-cloud production deployments with fault tolerance and retries built-in.</p>
 <section id="module-lithops.executors">
 <span id="futures-api-reference"></span><h2>Futures API Reference<a class="headerlink" href="#module-lithops.executors" title="Permalink to this heading">#</a></h2>
 <dl class="py class">
@@ -715,6 +738,99 @@ completed and <cite>fs_notdone</cite> is a list of futures that have not complet
 </dl>
 </dd></dl>
 
+<dl class="py class">
+<dt class="sig sig-object py" id="lithops.retries.RetryingFunctionExecutor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lithops.retries.</span></span><span class="sig-name descname"><span class="pre">RetryingFunctionExecutor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">executor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.retries.RetryingFunctionExecutor" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A wrapper around <cite>FunctionExecutor</cite> that adds automatic retry capabilities to function invocations.
+This class allows spawning multiple function activations and handling failures by retrying them
+according to the configured retry policy.</p>
+<p>It provides the same interface as <cite>FunctionExecutor</cite> for compatibility, with an extra <cite>retries</cite> parameter
+in <cite>map()</cite> to control the number of retries per invocation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>executor</strong> (<a class="reference internal" href="#lithops.executors.FunctionExecutor" title="lithops.executors.FunctionExecutor"><em>FunctionExecutor</em></a>) – An instance of FunctionExecutor (e.g., Localhost, Serverless, or Standalone)</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="lithops.retries.RetryingFunctionExecutor.clean">
+<span class="sig-name descname"><span class="pre">clean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clean_cloudobjects</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clean_fn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.retries.RetryingFunctionExecutor.clean" title="Permalink to this definition">#</a></dt>
+<dd><p>Cleans up temporary files and objects related to this executor, including:
+- Function packages
+- Serialized input/output data
+- Cloud objects (if specified)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fs</strong> (<em>ResponseFuture</em><em> | </em><em>List</em><em>[</em><em>ResponseFuture</em><em>] </em><em>| </em><em>None</em>) – List of futures to clean.</p></li>
+<li><p><strong>cs</strong> (<em>List</em><em>[</em><em>CloudObject</em><em>] </em><em>| </em><em>None</em>) – List of cloudobjects to clean.</p></li>
+<li><p><strong>clean_cloudobjects</strong> (<em>bool</em><em> | </em><em>None</em>) – Whether to delete all cloudobjects created with this executor.</p></li>
+<li><p><strong>clean_fn</strong> (<em>bool</em><em> | </em><em>None</em>) – Whether to delete cached functions.</p></li>
+<li><p><strong>force</strong> (<em>bool</em><em> | </em><em>None</em>) – Force cleanup even for unfinished futures.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lithops.retries.RetryingFunctionExecutor.map">
+<span class="sig-name descname"><span class="pre">map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_iterdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunksize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_env</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runtime_memory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj_chunk_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj_chunk_number</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj_newline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'\n'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_modules</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_modules</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.retries.RetryingFunctionExecutor.map" title="Permalink to this definition">#</a></dt>
+<dd><p>Spawn multiple function activations with automatic retry on failure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>map_function</strong> (<em>Callable</em>) – The function to map over the data.</p></li>
+<li><p><strong>map_iterdata</strong> (<em>List</em><em>[</em><em>List</em><em>[</em><em>Any</em><em>] </em><em>| </em><em>Tuple</em><em>[</em><em>Any</em><em>, </em><em>...</em><em>] </em><em>| </em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – An iterable of input data (e.g., Python list).</p></li>
+<li><p><strong>chunksize</strong> (<em>int</em><em> | </em><em>None</em>) – Split map_iterdata in chunks of this size. One worker per chunk.</p></li>
+<li><p><strong>extra_args</strong> (<em>List</em><em>[</em><em>Any</em><em>] </em><em>| </em><em>Tuple</em><em>[</em><em>Any</em><em>, </em><em>...</em><em>] </em><em>| </em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>] </em><em>| </em><em>None</em>) – Additional arguments to pass to each function.</p></li>
+<li><p><strong>extra_env</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>] </em><em>| </em><em>None</em>) – Additional environment variables for the function environment.</p></li>
+<li><p><strong>runtime_memory</strong> (<em>int</em><em> | </em><em>None</em>) – Memory (in MB) to allocate per function activation.</p></li>
+<li><p><strong>obj_chunk_size</strong> (<em>int</em><em> | </em><em>None</em>) – For file processing. Split each object into chunks of this size (in bytes).</p></li>
+<li><p><strong>obj_chunk_number</strong> (<em>int</em><em> | </em><em>None</em>) – For file processing. Number of chunks to split each object into.</p></li>
+<li><p><strong>obj_newline</strong> (<em>str</em><em> | </em><em>None</em>) – Newline character for line integrity in file partitioning.</p></li>
+<li><p><strong>timeout</strong> (<em>int</em><em> | </em><em>None</em>) – Max time per function activation (in seconds).</p></li>
+<li><p><strong>include_modules</strong> (<em>List</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) – Explicitly pickle these dependencies.</p></li>
+<li><p><strong>exclude_modules</strong> (<em>List</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) – Explicitly exclude these modules from pickling.</p></li>
+<li><p><strong>retries</strong> (<em>int</em><em> | </em><em>None</em>) – Number of retries for each function activation upon failure.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of RetryingFuture objects, one for each function activation.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>List</em>[<em>RetryingFuture</em>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lithops.retries.RetryingFunctionExecutor.wait">
+<span class="sig-name descname"><span class="pre">wait</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">throw_except</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_when</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">download_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threadpool_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">64</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_dur_sec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_progressbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.retries.RetryingFunctionExecutor.wait" title="Permalink to this definition">#</a></dt>
+<dd><p>Wait for a set of futures to complete, retrying any that fail.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fs</strong> (<em>List</em><em>[</em><em>RetryingFuture</em><em>]</em>) – List of RetryingFuture objects to wait on.</p></li>
+<li><p><strong>throw_except</strong> (<em>bool</em><em> | </em><em>None</em>) – Raise exceptions encountered during execution.</p></li>
+<li><p><strong>return_when</strong> (<em>Any</em><em> | </em><em>None</em>) – Completion policy. One of: ALWAYS, ANY_COMPLETED, or ALL_COMPLETED.</p></li>
+<li><p><strong>download_results</strong> (<em>bool</em><em> | </em><em>None</em>) – Whether to download results after completion.</p></li>
+<li><p><strong>timeout</strong> (<em>int</em><em> | </em><em>None</em>) – Maximum wait time (in seconds).</p></li>
+<li><p><strong>threadpool_size</strong> (<em>int</em><em> | </em><em>None</em>) – Number of threads used for polling.</p></li>
+<li><p><strong>wait_dur_sec</strong> (<em>int</em><em> | </em><em>None</em>) – Polling interval (in seconds).</p></li>
+<li><p><strong>show_progressbar</strong> (<em>bool</em><em> | </em><em>None</em>) – Show progress bar for the wait operation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A tuple (done, pending) of lists of RetryingFutures.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Tuple</em>[<em>List</em>[<em>RetryingFuture</em>], <em>List</em>[<em>RetryingFuture</em>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 </section>
 
@@ -777,6 +893,12 @@ completed and <cite>fs_notdone</cite> is a list of futures that have not complet
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.executors.LocalhostExecutor"><code class="docutils literal notranslate"><span class="pre">LocalhostExecutor</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.executors.ServerlessExecutor"><code class="docutils literal notranslate"><span class="pre">ServerlessExecutor</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.executors.StandaloneExecutor"><code class="docutils literal notranslate"><span class="pre">StandaloneExecutor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.retries.RetryingFunctionExecutor"><code class="docutils literal notranslate"><span class="pre">RetryingFunctionExecutor</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.retries.RetryingFunctionExecutor.clean"><code class="docutils literal notranslate"><span class="pre">RetryingFunctionExecutor.clean()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.retries.RetryingFunctionExecutor.map"><code class="docutils literal notranslate"><span class="pre">RetryingFunctionExecutor.map()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.retries.RetryingFunctionExecutor.wait"><code class="docutils literal notranslate"><span class="pre">RetryingFunctionExecutor.wait()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

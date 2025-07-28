@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>What is Lithops? &#8212; Lithops  documentation</title>
+    <title>Welcome to Lithops! &#8212; Lithops  documentation</title>
   
   
   
@@ -147,18 +147,18 @@
     <script>document.write(`<img src="_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">Lithops v3.6.0</p>
+    <p class="title logo__title">Lithops v3.6.1</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">What is Lithops?</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Welcome to Lithops!</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview of Lithops</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="source/design.html">Architecture Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="source/comparing_lithops.html">Comparing Lithops with other distributed computing frameworks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="source/comparing_lithops.html">Comparing Lithops with Other Distributed Computing Frameworks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="source/supported_clouds.html">Supported Clouds</a></li>
 <li class="toctree-l1"><a class="reference internal" href="source/execution_modes.html">Execution Modes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="source/cli.html">Lithops Command Line Tool</a></li>
@@ -219,7 +219,10 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Processing</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="source/data_processing.html">Processing data from the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="source/data_processing.html">Processing Data from the Cloud</a></li>
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="source/data_partitioning.html">Data Partitioning</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Integrations</span></p>
@@ -381,7 +384,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>What is Lithops?</h1>
+    <h1>Welcome to Lithops!</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -391,18 +394,21 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">What is Lithops?</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#use-any-cloud">Use any Cloud</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start">Quick Start</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional resources</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-lithops">Why Lithops?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-you-can-build">What You Can Build</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features">Key Features</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-anywhere">Compute Anywhere</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#object-storage-made-easy">Object Storage Made Easy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-started-quickly">Get Started Quickly</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#success-stories">Success stories</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blogs-and-talks">Blogs and Talks</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#papers">Papers</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#papers">Papers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#join-the-community">Join the Community</a><ul class="nav section-nav flex-column">
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -413,75 +419,142 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="what-is-lithops">
-<h1>What is Lithops?<a class="headerlink" href="#what-is-lithops" title="Permalink to this heading">#</a></h1>
-<p><strong>Lithops is a Python multi-cloud serverless computing framework. It allows to run unmodified local python code at massive scale in the main serverless computing platforms.</strong></p>
-<p>Lithops delivers the user’s code into the cloud without requiring knowledge of how it is deployed and run.
-Moreover, its multicloud-agnostic architecture ensures portability across cloud providers, overcoming vendor lock-in.</p>
-<hr class="docutils" />
-<p><strong>Lithops provides great value for data-intensive applications like Big Data analytics and embarrassingly parallel jobs.</strong></p>
-<p>It is specially suited for highly-parallel programs with little or no need for communication between processes.</p>
-<p>Examples of applications that run with Lithops include Monte Carlo simulations, deep learning and machine learning processes, metabolomics computations, and geospatial
-analytics, to name a few.</p>
-<hr class="docutils" />
-<p><strong>Lithops facilitates consuming data from object storage (like AWS S3, GCP Storage or IBM Cloud Object Storage) by providing automatic partitioning and data discovery for common data formats like CSV.</strong></p>
-<p>Lithops abstracts away the underlying cloud-specific APIs for accessing storage and provides an intuitive and easy to use interface to process high volumes of data.</p>
+  <section id="welcome-to-lithops">
+<h1>Welcome to Lithops!<a class="headerlink" href="#welcome-to-lithops" title="Permalink to this heading">#</a></h1>
+<p><strong>Lithops is a Python multi-cloud serverless computing framework</strong> that empowers you to <strong>run unmodified Python code at massive scale</strong> on leading serverless platforms and beyond.</p>
+<p>Whether you’re processing terabytes of data or launching thousands of parallel tasks, Lithops lets you <strong>focus on your code, not infrastructure</strong>. It brings simplicity, performance, and flexibility to cloud-native computing.</p>
+<section id="why-lithops">
+<h2>Why Lithops?<a class="headerlink" href="#why-lithops" title="Permalink to this heading">#</a></h2>
+<p>Serverless computing makes it easy to run code in the cloud — but scaling data-intensive workloads across clouds is hard. Lithops solves this by providing:</p>
+<ul class="simple">
+<li><p>✅ <strong>Zero-configuration scale-out</strong>: Run your Python functions on thousands of cloud workers with no infrastructure management.</p></li>
+<li><p>🌍 <strong>True multi-cloud portability</strong>: Move seamlessly between AWS, GCP, Azure, IBM Cloud, etc…</p></li>
+<li><p>💡 <strong>Developer-first experience</strong>: Write standard Python code, including NumPy, pandas, and scikit-learn — no cloud-specific boilerplate required.</p></li>
+<li><p>🧠 <strong>Optimized for big data and AI</strong>: Efficiently process massive datasets stored in object storage services with automatic partitioning.</p></li>
+</ul>
 </section>
-<section id="use-any-cloud">
-<h1>Use any Cloud<a class="headerlink" href="#use-any-cloud" title="Permalink to this heading">#</a></h1>
-<p><strong>Lithops provides an extensible backend architecture that is designed to work with different compute and storage services available on Cloud providers and on-premise backends.</strong></p>
-<p>In this sense, you can code your application in Python and run it unmodified wherever your data is located at: IBM Cloud, AWS, Azure, Google Cloud and Alibaba Aliyun…</p>
+<section id="what-you-can-build">
+<h2>What You Can Build<a class="headerlink" href="#what-you-can-build" title="Permalink to this heading">#</a></h2>
+<p>Lithops is ideal for <strong>highly parallel, data-heavy workloads</strong>. These include:</p>
+<ul class="simple">
+<li><p>🔁 Monte Carlo simulations</p></li>
+<li><p>🧬 Metabolomics and genomics pipelines</p></li>
+<li><p>🗺️ Geospatial analytics</p></li>
+<li><p>🧠 Deep learning and hyperparameter tuning</p></li>
+<li><p>📊 Big Data ETL and analytics workflows</p></li>
+</ul>
+<p>If your problem can be broken down into many small, independent tasks, Lithops will help you solve it at scale — fast.</p>
+</section>
+<section id="key-features">
+<h2>Key Features<a class="headerlink" href="#key-features" title="Permalink to this heading">#</a></h2>
+<section id="compute-anywhere">
+<h3>Compute Anywhere<a class="headerlink" href="#compute-anywhere" title="Permalink to this heading">#</a></h3>
+<p><strong>Lithops features a modular and extensible backend architecture</strong>, allowing you to run workloads across:</p>
+<ul class="simple">
+<li><p>Serverless functions</p></li>
+<li><p>Cloud VMs and Kubernetes clusters</p></li>
+<li><p>On-premise compute resources</p></li>
+</ul>
+<p>No matter where your data lives, Lithops can execute your code right next to it.</p>
 <img alt="Available backends" class="align-center" src="_images/multicloud.jpg" />
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
 </section>
-<section id="quick-start">
-<h1>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this heading">#</a></h1>
-<p>Lithops is available for Python 3.6 and up. Install it using <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">lithops</span>
+<section id="object-storage-made-easy">
+<h3>Object Storage Made Easy<a class="headerlink" href="#object-storage-made-easy" title="Permalink to this heading">#</a></h3>
+<p><strong>Seamlessly process large-scale data stored in object storage.</strong></p>
+<p>Lithops simplifies working with data lakes and object storage by providing:</p>
+<ul class="simple">
+<li><p>🔍 <strong>Automatic data discovery</strong>: Detects and lists files across nested directories.</p></li>
+<li><p>📂 <strong>Transparent data partitioning</strong>: Splits large files (e.g., CSV, Parquet, JSON) into chunks for efficient parallel processing.</p></li>
+<li><p>🧰 <strong>Unified, Pythonic API</strong>: Interact with your data using a single interface, regardless of where it’s stored.</p></li>
+</ul>
+<p>You write simple Python code — Lithops handles the complexity of parallel I/O, data distribution, and storage backends under the hood.</p>
+</section>
+</section>
+<section id="get-started-quickly">
+<h2>Get Started Quickly<a class="headerlink" href="#get-started-quickly" title="Permalink to this heading">#</a></h2>
+<p>To start using Lithops:</p>
+<ol class="arabic">
+<li><p>Install via pip:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>lithops
 </pre></div>
 </div>
-<p>You’re ready to execute a simple example!</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lithops</span> <span class="kn">import</span> <span class="n">FunctionExecutor</span>
+</li>
+<li><p>Configure your cloud credentials (see the full guide in <span class="xref std std-doc">/config</span>)</p></li>
+<li><p>Write and run your first parallel job:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lithops</span>
 
-<span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-    <span class="k">return</span> <span class="s1">&#39;Hello </span><span class="si">{}</span><span class="s1">!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">my_function</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
 
-<span class="k">with</span> <span class="n">FunctionExecutor</span><span class="p">()</span> <span class="k">as</span> <span class="n">fexec</span><span class="p">:</span>
-    <span class="n">fut</span> <span class="o">=</span> <span class="n">fexec</span><span class="o">.</span><span class="n">call_async</span><span class="p">(</span><span class="n">hello</span><span class="p">,</span> <span class="s1">&#39;World&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">fut</span><span class="o">.</span><span class="n">result</span><span class="p">())</span>
+<span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">()</span>
+<span class="n">fexec</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">my_function</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fexec</span><span class="o">.</span><span class="n">get_result</span><span class="p">())</span>
 </pre></div>
 </div>
+</li>
+</ol>
+<p>You’re now running massively parallel workloads with just a few lines of code!</p>
 </section>
-<section id="additional-resources">
-<h1>Additional resources<a class="headerlink" href="#additional-resources" title="Permalink to this heading">#</a></h1>
+<section id="success-stories">
+<h2>Success stories<a class="headerlink" href="#success-stories" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://metaspace2020.eu/">Metaspace Metabolomics Platform</a> is running in production in AWS with hundreds of users.
+MetaSpace is using Lithops over Lambda Functions and EC2 VMs to access metabolomics data in Amazon S3.
+MetaSpace moved from Spark to Lithops to simplify dynamic and elastic resource provisioning.</p></li>
+<li><p><a class="reference external" href="https://opennebula.io/">OpenNebula Open Source Cloud and Edge Computing platform</a> integrates Lithops as an easy-to-use appliance
+for data analytics. OpenNebula also deploys MinIO storage and Lithops Kubernetes backend to facilitate data analytics
+in on-premise and edge deployments.</p></li>
+<li><p><a class="reference external" href="https://github.com/cubed-dev/cubed/tree/main">Cubed</a> is a popular library for scalable multidimensional array processing with bounded memory.
+Cubed is a drop-in replacement for Dask’s Array API.
+Cubed integrates Lithops as a fast compute backend enabling scalable array processing in the Cloud.</p></li>
+<li><p><a class="reference external" href="https://www.bsc.es/marenostrum/marenostrum-5">BSC Marenostrum 5 SuperComputer</a> is a pre-exascale EuroHPC supercomputer with
+a peak computational power of 314 PFlops. A new Lithops HPC compute backend has been created enabling large-scale computing
+reaching tens of thousands of concurrent functions. LithopsHPC is now being used in the neardata.eu project for extreme
+data analytics of genomics pipelines.</p></li>
+</ul>
+</section>
 <section id="blogs-and-talks">
 <h2>Blogs and Talks<a class="headerlink" href="#blogs-and-talks" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://medium.com/&#64;gvernik/simplify-the-developer-experience-with-openshift-for-big-data-processing-by-using-lithops-framework-d62a795b5e1c">Simplify the developer experience with OpenShift for Big Data processing by using Lithops framework</a></p></li>
 <li><p><a class="reference external" href="https://itnext.io/speed-up-your-python-applications-using-lithops-and-serverless-cloud-resources-a64beb008bb5">Speed-up your Python applications using Lithops and Serverless Cloud resources</a></p></li>
-<li><p><a class="reference external" href="https://www.ibm.com/cloud/blog/serverless-without-constraints">Serverless Without Constraints</a></p></li>
+<li><p><a class="reference external" href="https://www.ibm.com/blog/serverless-without-constraints">Serverless Without Constraints</a></p></li>
 <li><p><a class="reference external" href="https://itnext.io/lithops-a-multi-cloud-serverless-programming-framework-fd97f0d5e9e4">Lithops, a Multi-cloud Serverless Programming Framework</a></p></li>
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=-uS-wi8CxBo">CNCF Webinar - Toward Hybrid Cloud Serverless Transparency with Lithops Framework</a></p></li>
-<li><p><a class="reference external" href="https://www.ibm.com/cloud/blog/using-serverless-to-run-your-python-code-on-1000-cores-by-changing-two-line-of-code">Using Serverless to Run Your Python Code on 1000 Cores by Changing Two Lines of Code</a></p></li>
-<li><p><a class="reference external" href="https://www.ibm.com/cloud/blog/decoding-dark-molecular-matter-in-spatial-metabolomics-with-ibm-cloud-functions">Decoding dark molecular matter in spatial metabolomics with IBM Cloud Functions</a></p></li>
-<li><p><a class="reference external" href="https://www.slideshare.net/gvernik/your-easy-move-to-serverless-computing-and-radically-simplified-data-processing-238929020">Your easy move to serverless computing and radically simplified data processing</a> Strata Data Conference, NY 2019</p></li>
+<li><p><a class="reference external" href="https://www.ibm.com/blog/using-serverless-to-run-your-python-code-on-1000-cores-by-changing-two-line-of-code">Using Serverless to Run Your Python Code on 1000 Cores by Changing Two Lines of Code</a></p></li>
+<li><p><a class="reference external" href="https://www.ibm.com/blog/decoding-dark-molecular-matter-in-spatial-metabolomics-with-ibm-cloud-functions">Decoding dark molecular matter in spatial metabolomics with IBM Cloud Functions</a></p></li>
+<li><p><a class="reference external" href="https://www.slideshare.net/gvernik/your-easy-move-to-serverless-computing-and-radically-simplified-data-processing-238929020">Your easy move to serverless computing and radically simplified data processing</a>
+Strata Data Conference, NY 2019</p></li>
 <li><p><a class="reference external" href="https://developer.ibm.com/patterns/speed-up-data-pre-processing-with-pywren-in-deep-learning/">Speed up data pre-processing with Lithops in deep learning</a></p></li>
-<li><p><a class="reference external" href="https://www.ibm.com/cloud/blog/monte-carlo-simulations-with-ibm-cloud-functions">Predicting the future with Monte Carlo simulations over IBM Cloud Functions</a></p></li>
-<li><p><a class="reference external" href="https://www.ibm.com/cloud/blog/process-large-data-sets-massive-scale-pywren-ibm-cloud-functions">Process large data sets at massive scale with Lithops over IBM Cloud Functions</a></p></li>
+<li><p><a class="reference external" href="https://www.ibm.com/blog/monte-carlo-simulations-with-ibm-cloud-functions">Predicting the future with Monte Carlo simulations over IBM Cloud Functions</a></p></li>
+<li><p><a class="reference external" href="https://www.ibm.com/blog/process-large-data-sets-massive-scale-pywren-ibm-cloud-functions">Process large data sets at massive scale with Lithops over IBM Cloud Functions</a></p></li>
 <li><p><a class="reference external" href="http://www.cs.technion.ac.il/~cs234313/projects_sites/W19/04/site/">Industrial project in Technion on Lithops</a></p></li>
 </ul>
 </section>
 <section id="papers">
 <h2>Papers<a class="headerlink" href="#papers" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
+<li><p><a class="reference external" href="https://dl.acm.org/doi/10.1145/3700824.3701095">Serverful Functions: Leveraging Servers in Complex Serverless Workflows</a> - ACM Middleware Industrial Track 2024</p></li>
+<li><p><a class="reference external" href="https://dl.acm.org/doi/10.1016/j.future.2022.10.038">Transparent serverless execution of Python multiprocessing applications</a> - Elsevier Future Generation Computer Systems 2023</p></li>
 <li><p><a class="reference external" href="https://ieeexplore.ieee.org/document/9619947">Outsourcing Data Processing Jobs with Lithops</a> - IEEE Transactions on Cloud Computing 2022</p></li>
 <li><p><a class="reference external" href="https://www.computer.org/csdl/magazine/so/5555/01/09218932/1nMMkpZ8Ko8">Towards Multicloud Access Transparency in Serverless Computing</a> - IEEE Software 2021</p></li>
-<li><p><a class="reference external" href="https://dl.acm.org/doi/10.1145/3429357.3430522">Primula: a Practical Shuffle/Sort Operator for Serverless Computing</a> - ACM/IFIP International Middleware Conference 2020. <a class="reference external" href="https://www.youtube.com/watch?v=v698iu5YfWM">See Primula presentation here</a></p></li>
-<li><p><a class="reference external" href="https://dl.acm.org/doi/abs/10.1145/3429880.3430101">Bringing scaling transparency to Proteomics applications with serverless computing</a> - 6th International Workshop on Serverless Computing (WoSC6) 2020. <a class="reference external" href="https://www.serverlesscomputing.org/wosc6/#p10">See Workshop presentation here</a></p></li>
+<li><p><a class="reference external" href="https://dl.acm.org/doi/10.1145/3429357.3430522">Primula: a Practical Shuffle/Sort Operator for Serverless Computing</a> - ACM/IFIP International Middleware Conference 2020.
+<a class="reference external" href="https://www.youtube.com/watch?v=v698iu5YfWM">See Primula presentation here</a></p></li>
+<li><p><a class="reference external" href="https://dl.acm.org/doi/abs/10.1145/3429880.3430101">Bringing scaling transparency to Proteomics applications with serverless computing</a> - 6th International Workshop on Serverless Computing (WoSC6) 2020.
+<a class="reference external" href="https://www.serverlesscomputing.org/wosc6/#p10">See Workshop presentation here</a></p></li>
 <li><p><a class="reference external" href="https://dl.acm.org/citation.cfm?id=3284029">Serverless data analytics in the IBM Cloud</a> - ACM/IFIP International Middleware Conference 2018</p></li>
 </ul>
+</section>
+<section id="join-the-community">
+<h2>Join the Community<a class="headerlink" href="#join-the-community" title="Permalink to this heading">#</a></h2>
+<p>Lithops is an open-source project, actively maintained and supported by a community of contributors and users. You can:</p>
+<ul class="simple">
+<li><p>💬 Join the discussion on <a class="reference external" href="https://github.com/lithops-cloud/lithops/discussions">GitHub Discussions</a></p></li>
+<li><p>🐞 Report issues or contribute on <a class="reference external" href="https://github.com/lithops-cloud/lithops">GitHub</a></p></li>
+<li><p>📖 Read more in the full documentation</p></li>
+</ul>
+<p>—</p>
+<p><strong>Start writing scalable cloud applications — with Lithops.</strong></p>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
@@ -540,18 +613,21 @@ analytics, to name a few.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">What is Lithops?</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#use-any-cloud">Use any Cloud</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start">Quick Start</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional resources</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-lithops">Why Lithops?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-you-can-build">What You Can Build</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features">Key Features</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-anywhere">Compute Anywhere</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#object-storage-made-easy">Object Storage Made Easy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-started-quickly">Get Started Quickly</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#success-stories">Success stories</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blogs-and-talks">Blogs and Talks</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#papers">Papers</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#papers">Papers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#join-the-community">Join the Community</a><ul class="nav section-nav flex-column">
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-
   </nav></div>
 
 </div></div>

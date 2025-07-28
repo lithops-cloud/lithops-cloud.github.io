@@ -148,18 +148,18 @@
     <script>document.write(`<img src="../_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">Lithops v3.6.0</p>
+    <p class="title logo__title">Lithops v3.6.1</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../index.html">What is Lithops?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome to Lithops!</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview of Lithops</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="design.html">Architecture Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="comparing_lithops.html">Comparing Lithops with other distributed computing frameworks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="comparing_lithops.html">Comparing Lithops with Other Distributed Computing Frameworks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="supported_clouds.html">Supported Clouds</a></li>
 <li class="toctree-l1"><a class="reference internal" href="execution_modes.html">Execution Modes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cli.html">Lithops Command Line Tool</a></li>
@@ -220,7 +220,10 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Processing</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="data_processing.html">Processing data from the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_processing.html">Processing Data from the Cloud</a></li>
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="data_partitioning.html">Data Partitioning</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Integrations</span></p>
@@ -551,81 +554,87 @@ details as part of the Lithops invocation in runtime. You can see an entire list
 <tbody>
 <tr class="row-even"><td><p>lithops</p></td>
 <td><p>backend</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">aws_lambda</span></code></p></td>
+<td><p><cite>aws_lambda</cite></p></td>
 <td><p>no</p></td>
-<td><p>Compute backend implementation. AWS Lambda is the default.</p></td>
+<td><p>Compute backend implementation. Default is AWS Lambda.</p></td>
 </tr>
 <tr class="row-odd"><td><p>lithops</p></td>
 <td><p>storage</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">aws_s3</span></code></p></td>
+<td><p><cite>aws_s3</cite></p></td>
 <td><p>no</p></td>
-<td><p>Storage backend implementation. AWS S3 is the default.</p></td>
+<td><p>Storage backend implementation. Default is AWS S3.</p></td>
 </tr>
 <tr class="row-even"><td><p>lithops</p></td>
 <td><p>data_cleaner</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td><p><cite>True</cite></p></td>
 <td><p>no</p></td>
-<td><p>If set to True, then the cleaner will automatically delete all the temporary data that was written into <cite>storage_bucket/lithops.jobs</cite>.</p></td>
+<td><p>If True, automatically deletes temporary data written to <cite>storage_bucket/lithops.jobs</cite>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>lithops</p></td>
 <td><p>monitoring</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">storage</span></code></p></td>
+<td><p><cite>storage</cite></p></td>
 <td><p>no</p></td>
-<td><p>Monitoring system implementation. One of: <strong>storage</strong> or <strong>rabbitmq</strong>.</p></td>
+<td><p>Monitoring system implementation. Options: <strong>storage</strong> or <strong>rabbitmq</strong>.</p></td>
 </tr>
 <tr class="row-even"><td><p>lithops</p></td>
 <td><p>monitoring_interval</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">2</span></code></p></td>
+<td><p><cite>2</cite></p></td>
 <td><p>no</p></td>
-<td><p>Monitoring check interval in seconds in case of <strong>storage</strong> monitoring.</p></td>
+<td><p>Interval in seconds for monitoring checks (used if monitoring is set to <strong>storage</strong>).</p></td>
 </tr>
 <tr class="row-odd"><td><p>lithops</p></td>
 <td><p>data_limit</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">4</span></code></p></td>
+<td><p><cite>4</cite></p></td>
 <td><p>no</p></td>
-<td><p>Max (iter)data size (in MB). Set to False for unlimited size.</p></td>
+<td><p>Maximum size (in MB) for iterator data chunks. Set to False for unlimited size.</p></td>
 </tr>
 <tr class="row-even"><td><p>lithops</p></td>
 <td><p>execution_timeout</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">1800</span></code></p></td>
+<td><p><cite>1800</cite></p></td>
 <td><p>no</p></td>
-<td><p>Functions will be automatically killed if they exceed this execution time (in seconds). Alternatively, it can be set in the <cite>call_async()</cite>, <cite>map()</cite> or <cite>map_reduce()</cite> calls using the <cite>timeout</cite> parameter.</p></td>
+<td><p>Maximum execution time for functions in seconds. Functions exceeding this time are killed. Can also be set per call using the <cite>timeout</cite> parameter.</p></td>
 </tr>
 <tr class="row-odd"><td><p>lithops</p></td>
 <td><p>include_modules</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">[]</span></code></p></td>
+<td><p><cite>[]</cite></p></td>
 <td><p>no</p></td>
-<td><p>Explicitly pickle these dependencies. All required dependencies are pickled if default empty list. No one dependency is pickled if it is explicitly set to None.</p></td>
+<td><p>List of dependencies to explicitly include for pickling. If empty, all required dependencies are included. If set to None, no dependencies are included.</p></td>
 </tr>
 <tr class="row-even"><td><p>lithops</p></td>
 <td><p>exclude_modules</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">[]</span></code></p></td>
+<td><p><cite>[]</cite></p></td>
 <td><p>no</p></td>
-<td><p>Explicitly keep these modules from pickled dependencies. It is not taken into account if you set include_modules.</p></td>
+<td><p>List of dependencies to explicitly exclude from pickling. Ignored if <cite>include_modules</cite> is set.</p></td>
 </tr>
 <tr class="row-odd"><td><p>lithops</p></td>
 <td><p>log_level</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">INFO</span></code></p></td>
+<td><p><cite>INFO</cite></p></td>
 <td><p>no</p></td>
-<td><p>Logging level. One of: WARNING, INFO, DEBUG, ERROR, CRITICAL, Set to None to disable logging.</p></td>
+<td><p>Logging level. Options: WARNING, INFO, DEBUG, ERROR, CRITICAL. Set to None to disable logging.</p></td>
 </tr>
 <tr class="row-even"><td><p>lithops</p></td>
 <td><p>log_format</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">%(asctime)s</span> <span class="pre">[%(levelname)s]</span> <span class="pre">%(name)s</span> <span class="pre">--</span> <span class="pre">%(message)</span></code></p></td>
+<td><p><cite>%(asctime)s [%(levelname)s] %(name)s – %(message)s</cite></p></td>
 <td><p>no</p></td>
-<td><p>Logging format string.</p></td>
+<td><p>Format string for log messages.</p></td>
 </tr>
 <tr class="row-odd"><td><p>lithops</p></td>
 <td><p>log_stream</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">ext://sys.stderr</span></code></p></td>
+<td><p><cite>ext://sys.stderr</cite></p></td>
 <td><p>no</p></td>
-<td><p>Logging stream. eg.: ext://sys.stderr,  ext://sys.stdout</p></td>
+<td><p>Logging output stream, e.g., ext://sys.stderr or ext://sys.stdout.</p></td>
 </tr>
 <tr class="row-even"><td><p>lithops</p></td>
 <td><p>log_filename</p></td>
-<td></td>
+<td><p><a href="#id3"><span class="problematic" id="id4">``</span></a></p></td>
 <td><p>no</p></td>
-<td><p>Path to a file. log_filename has preference over log_stream.</p></td>
+<td><p>File path for logging output. Takes precedence over <cite>log_stream</cite> if set.</p></td>
+</tr>
+<tr class="row-odd"><td><p>lithops</p></td>
+<td><p>retries</p></td>
+<td><p><cite>0</cite></p></td>
+<td><p>no</p></td>
+<td><p>Number of retries for failed function invocations when using the <cite>RetryingFunctionExecutor</cite>. Default is 0. Can be overridden per API call.</p></td>
 </tr>
 </tbody>
 </table>

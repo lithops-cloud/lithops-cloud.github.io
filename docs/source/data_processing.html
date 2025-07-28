@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Processing data from the Cloud &#8212; Lithops  documentation</title>
+    <title>Processing Data from the Cloud &#8212; Lithops  documentation</title>
   
   
   
@@ -148,18 +148,18 @@
     <script>document.write(`<img src="../_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">Lithops v3.6.0</p>
+    <p class="title logo__title">Lithops v3.6.1</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../index.html">What is Lithops?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome to Lithops!</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview of Lithops</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="design.html">Architecture Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="comparing_lithops.html">Comparing Lithops with other distributed computing frameworks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="comparing_lithops.html">Comparing Lithops with Other Distributed Computing Frameworks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="supported_clouds.html">Supported Clouds</a></li>
 <li class="toctree-l1"><a class="reference internal" href="execution_modes.html">Execution Modes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cli.html">Lithops Command Line Tool</a></li>
@@ -220,7 +220,10 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Processing</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Processing data from the Cloud</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Processing Data from the Cloud</a></li>
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="data_partitioning.html">Data Partitioning</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Integrations</span></p>
@@ -382,7 +385,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Processing data from the Cloud</h1>
+    <h1>Processing Data from the Cloud</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -392,11 +395,27 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-object-storage">Cloud Object Storage</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-data-from-public-urls">Processing data from public URLs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-data-from-localhost-files">Processing data from localhost files</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reducer-granularity">Reducer granularity</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Processing Data from the Cloud</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-partitioning">Data Partitioning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-object-storage-integration">Cloud Object Storage Integration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-object-metadata">Accessing Object Metadata</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accepted-input-formats">Accepted Input Formats</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-it-all-together">Putting It All Together</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-data-from-public-urls">Processing Data from Public URLs</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-data-from-localhost-files">Processing Data from Localhost Files</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reducer-granularity">Reducer Granularity</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#elastic-data-processing-and-cloud-optimized-formats">Elastic Data Processing and Cloud-Optimized Formats</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-optimized-formats">Cloud-Optimized Formats</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partitioning-non-optimized-formats-with-dataplug">Partitioning Non-Optimized Formats with Dataplug</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-parallel-processing-of-a-cloud-hosted-lidar-file">Example: Parallel Processing of a Cloud-Hosted LIDAR File</a></li>
+</ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -408,51 +427,84 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="processing-data-from-the-cloud">
-<span id="data-processing"></span><h1>Processing data from the Cloud<a class="headerlink" href="#processing-data-from-the-cloud" title="Permalink to this heading">#</a></h1>
-<p>Lithops has built-in logic for processing data objects from public URLs and object storage services. This logic is automatically activated with the reseverd parameter named <strong>obj</strong>. When you write in the parameters of a function the parameter name <strong>obj</strong>, you are telling to Lithops that you want to process objects located in an object storage service, public urls, or localhost files.</p>
-<p>Additionally, the built-in data-processing logic integrates a <strong>data partitioner</strong> system that allows to automatically split the dataset in smallest chunks. Splitting a file into smaller chunks permit to leverage the parallelism provided by the compute backends to process the data. We designed the partitioner within the <code class="docutils literal notranslate"><span class="pre">map()</span></code> and <code class="docutils literal notranslate"><span class="pre">map_reduce()</span></code> API calls, an it is configurable by specifying the <em>size of the chunk</em>, or the <em>number of chunks</em> to split each file. The current implementation of the data partitioner supports to split files that contain multiple lines (or rows) ended by ‘n’, for example, a .txt book or a common .csv file among others. More data-types will be supported in future releases.</p>
-<section id="cloud-object-storage">
-<h2>Cloud Object Storage<a class="headerlink" href="#cloud-object-storage" title="Permalink to this heading">#</a></h2>
-<p>For processing data from a cloud object storage service, the input data must be either a list of buckets, a list of buckets with object prefix, or a list of data objects. If you set the <em>size of the chunk</em> or the <em>number of chunks</em>, the partitioner is activated inside Lithops and it is responsible to split the objects into smaller chunks, eventually running one function activation for each generated chunk. If <em>size of the chunk</em> and <em>number of chunks</em> are not set, chunk is an entire object, so one function activation is executed for each individual object.</p>
-<p>The <strong>obj</strong> parameter is a python class from where you can access all the information related to the object (or chunk) that the function is processing. For example, consider the following function that shows all the available attributes in <strong>obj</strong> when you are processing objects from an object store:</p>
+<span id="data-processing"></span><h1>Processing Data from the Cloud<a class="headerlink" href="#processing-data-from-the-cloud" title="Permalink to this heading">#</a></h1>
+<p>Lithops provides built-in support for reading and processing data from <strong>object storage</strong>, <strong>public URLs</strong>, and <strong>local files</strong>. This functionality is automatically enabled when your function includes a reserved parameter named <strong>obj</strong>.</p>
+<p>When you define a function with the parameter <cite>obj</cite>, Lithops knows to pass in a special object representing a file (or a chunk of a file) from an external data source. This allows you to write scalable data processing workflows with minimal boilerplate.</p>
+<section id="data-partitioning">
+<h2>Data Partitioning<a class="headerlink" href="#data-partitioning" title="Permalink to this heading">#</a></h2>
+<p>Lithops includes an integrated <strong>data partitioner</strong> that allows you to automatically split large datasets into smaller, more manageable chunks. This partitioning enables massive parallelism across the compute backend, accelerating data processing tasks.</p>
+<p>Partitioning is supported directly within the <code class="xref py py-meth docutils literal notranslate"><span class="pre">map()</span></code> and <code class="xref py py-meth docutils literal notranslate"><span class="pre">map_reduce()</span></code> APIs and can be controlled via:</p>
+<ul class="simple">
+<li><p><strong>`obj_chunk_size`</strong>: The size (in bytes) of each chunk to split the object into.</p></li>
+<li><p><strong>`obj_chunk_number`</strong>: The total number of chunks to split each object into.</p></li>
+</ul>
+<p>Currently, the partitioner supports <strong>text-based files</strong> where rows are separated by newline characters (<cite>n</cite>), such as <cite>.txt</cite> and <cite>.csv</cite>. Support for additional data types is planned in future releases.</p>
+</section>
+<section id="cloud-object-storage-integration">
+<h2>Cloud Object Storage Integration<a class="headerlink" href="#cloud-object-storage-integration" title="Permalink to this heading">#</a></h2>
+<p>When processing data from cloud object storage, your input must be one of the following:</p>
+<ol class="arabic simple">
+<li><p>A single bucket or a list of buckets</p></li>
+<li><p>A bucket prefix (e.g., a folder path)</p></li>
+<li><p>A list of specific object keys</p></li>
+</ol>
+<p>Based on your configuration:</p>
+<ul class="simple">
+<li><p>If <cite>obj_chunk_size</cite> or <cite>obj_chunk_number</cite> is set, <strong>each object is automatically split into smaller chunks</strong>, and Lithops runs one function activation per chunk.</p></li>
+<li><p>If chunking is not configured, Lithops runs one function activation per full object.</p></li>
+</ul>
+</section>
+<section id="accessing-object-metadata">
+<h2>Accessing Object Metadata<a class="headerlink" href="#accessing-object-metadata" title="Permalink to this heading">#</a></h2>
+<p>Inside your function, the <cite>obj</cite> parameter gives you access to metadata and data for the current chunk being processed.</p>
+<p>Example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_map_function</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">bucket</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">part</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">data_byte_range</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">chunk_size</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">bucket</span><span class="p">)</span>             <span class="c1"># Bucket name</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>                <span class="c1"># Object key</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">part</span><span class="p">)</span>               <span class="c1"># Chunk number</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">data_byte_range</span><span class="p">)</span>    <span class="c1"># Byte range for this chunk</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">chunk_size</span><span class="p">)</span>         <span class="c1"># Chunk size in bytes</span>
 
-    <span class="n">data</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">data_stream</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">data_stream</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="c1"># Read the data for this chunk</span>
 </pre></div>
 </div>
-<p>The allowed inputs of a function can be:</p>
-<ul class="simple">
-<li><p>Input data is a bucket or a list of buckets. See an example in [map_reduce_cos_bucket.py](../../examples/map_reduce_cos_bucket.py):</p></li>
+</section>
+<section id="accepted-input-formats">
+<h2>Accepted Input Formats<a class="headerlink" href="#accepted-input-formats" title="Permalink to this heading">#</a></h2>
+<p>Lithops accepts <strong>only one type</strong> of input format per execution. Do not mix formats in the same list. The supported formats are:</p>
+<ul>
+<li><p><strong>Buckets</strong>: One or more buckets
+<em>(See: `map_reduce_cos_bucket.py &lt;../../examples/map_reduce_cos_bucket.py&gt;`_)</em></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">iterdata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;my-bucket-1&#39;</span><span class="p">,</span> <span class="s1">&#39;my-bucket-2&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Object Prefixes</strong>: Folder-like paths ending with <cite>/</cite>
+<em>(See: `map_cos_prefix.py &lt;../../examples/map_cos_prefix.py&gt;`_)</em></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">iterdata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;my-bucket/data/csvs/&#39;</span><span class="p">,</span> <span class="s1">&#39;my-bucket/logs/&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>⚠️ Prefixes must end with a <cite>/</cite> to indicate to the partitioner that you’re specifying a folder-like path.</p>
+</li>
+<li><p><strong>Object Keys</strong>: Specific file paths
+<em>(See: `map_reduce_cos_key.py &lt;../../examples/map_reduce_cos_key.py&gt;`_)</em></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">iterdata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;my-bucket/file1.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;my-bucket/file2.csv&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">iterdata</span> <span class="o">=</span> <span class="s1">&#39;bucket1&#39;</span>
+<p>❌ <strong>Mixing formats is not allowed</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This will raise an error</span>
+<span class="n">iterdata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;my-bucket&#39;</span><span class="p">,</span> <span class="s1">&#39;my-bucket/file2.csv&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>Input data is a bucket(s) with object prefix. See an example in [map_cos_prefix.py](../../examples/map_cos_prefix.py):</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">iterdata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;bucket1/images/&#39;</span><span class="p">,</span> <span class="s1">&#39;bucket1/videos/&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>Notice that you must write the end slash (/) to inform partitioner you are providing an object prefix.</p>
-<ul class="simple">
-<li><p>Input data is a list of object keys. See an example in [map_reduce_cos_key.py](../../examples/map_reduce_cos_key.py):</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">iterdata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;bucket1/object1&#39;</span><span class="p">,</span> <span class="s1">&#39;bucket1/object2&#39;</span><span class="p">,</span> <span class="s1">&#39;bucket1/object3&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>Notice that <em>iterdata</em> must be only one of the previous 3 types. Intermingled types are not allowed. For example, you cannot set in the same <em>iterdata</em> a bucket and some object keys:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">iterdata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;bucket1&#39;</span><span class="p">,</span> <span class="s1">&#39;bucket1/object2&#39;</span><span class="p">,</span> <span class="s1">&#39;bucket1/object3&#39;</span><span class="p">]</span>  <span class="c1"># Not allowed</span>
-</pre></div>
-</div>
-<p>Once iterdata is defined, you can execute Lithops as usual, either using <em>map()</em> or <em>map_reduce()</em> calls. If you need to split the files in smaller chunks, you can set (optionally) the <em>obj_chunk_size</em> or <em>obj_chunk_number</em> parameters.</p>
+</section>
+<section id="putting-it-all-together">
+<h2>Putting It All Together<a class="headerlink" href="#putting-it-all-together" title="Permalink to this heading">#</a></h2>
+<p>Once you’ve defined your input and function, you can run Lithops as usual with optional chunking:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lithops</span>
 
-<span class="n">object_chunksize</span> <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="mi">1024</span><span class="o">**</span><span class="mi">2</span>  <span class="c1"># 4MB</span>
+<span class="n">object_chunksize</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">**</span> <span class="mi">2</span>  <span class="c1"># 4 MB per chunk</span>
 
 <span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">()</span>
 <span class="n">fexec</span><span class="o">.</span><span class="n">map_reduce</span><span class="p">(</span><span class="n">my_map_function</span><span class="p">,</span> <span class="n">iterdata</span><span class="p">,</span> <span class="n">obj_chunk_size</span><span class="o">=</span><span class="n">object_chunksize</span><span class="p">)</span>
@@ -460,85 +512,171 @@ document.write(`
 </pre></div>
 </div>
 </section>
+</section>
 <section id="processing-data-from-public-urls">
-<h2>Processing data from public URLs<a class="headerlink" href="#processing-data-from-public-urls" title="Permalink to this heading">#</a></h2>
-<p>For processing data from public URLs, the input data must be either a single URL or a list of URLs. As in the previous case, if you set the <em>size of the chunk</em> or the <em>number of chunks</em>, the partitioner is activated inside Lithops and it is responsible to split the objects into smaller chunks, as long as the remote storage server allows requests in chunks (ranges). If range requests are not allowed in the remote storage server, each URL is treated as a single object.</p>
-<p>The <strong>obj</strong> parameter is a python class from where you can access all the information related to the object (or chunk) that the function is processing. For example, consider the following function that shows all the available attributes in <strong>obj</strong> when you are processing URLs:</p>
+<h1>Processing Data from Public URLs<a class="headerlink" href="#processing-data-from-public-urls" title="Permalink to this heading">#</a></h1>
+<p>Lithops also supports processing data directly from <strong>public URLs</strong>. The input can be a single URL or a list of URLs.</p>
+<p>If you set the <cite>obj_chunk_size</cite> or <cite>obj_chunk_number</cite>, Lithops activates its internal partitioner to split each file into smaller chunks—<strong>provided that the remote server supports HTTP range requests</strong>. If range requests are not supported, each URL is processed as a single object.</p>
+<p>As with other backends, the special <strong>`obj`</strong> parameter gives you access to metadata and the content of the chunk being processed.</p>
+<p>Example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lithops</span>
 
 <span class="k">def</span> <span class="nf">my_map_function</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">part</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">data_byte_range</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">chunk_size</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>               <span class="c1"># Full URL of the object</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">part</span><span class="p">)</span>              <span class="c1"># Chunk number</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">data_byte_range</span><span class="p">)</span>   <span class="c1"># Byte range for this chunk</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">chunk_size</span><span class="p">)</span>        <span class="c1"># Size of this chunk (in bytes)</span>
 
     <span class="n">data</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">data_stream</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">splitlines</span><span class="p">():</span>
-        <span class="c1"># Do some process</span>
-    <span class="k">return</span> <span class="n">partial_intersting_data</span>
+        <span class="c1"># Process each line</span>
+        <span class="k">pass</span>
+
+    <span class="k">return</span> <span class="n">partial_result</span>
 
 <span class="k">def</span> <span class="nf">my_reduce_function</span><span class="p">(</span><span class="n">results</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">partial_intersting_data</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
-        <span class="c1"># Do some process</span>
+    <span class="k">for</span> <span class="n">partial_result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+        <span class="c1"># Aggregate results</span>
+        <span class="k">pass</span>
+
     <span class="k">return</span> <span class="n">final_result</span>
 
-<span class="n">iterdata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;http://myurl/my_file_1.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;http://myurl/my_file_2.csv&#39;</span><span class="p">]</span>
-<span class="n">object_chunk_number</span><span class="o">=</span> <span class="mi">2</span>
+<span class="n">iterdata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;http://example.com/file1.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;http://example.com/file2.csv&#39;</span><span class="p">]</span>
+<span class="n">chunk_number</span> <span class="o">=</span> <span class="mi">2</span>
 
 <span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">()</span>
 <span class="n">fexec</span><span class="o">.</span><span class="n">map_reduce</span><span class="p">(</span><span class="n">my_map_function</span><span class="p">,</span> <span class="n">iterdata</span><span class="p">,</span> <span class="n">my_reduce_function</span><span class="p">,</span>
-                 <span class="n">obj_chunk_number</span><span class="o">=</span><span class="n">object_chunk_number</span><span class="p">)</span>
+                 <span class="n">obj_chunk_number</span><span class="o">=</span><span class="n">chunk_number</span><span class="p">)</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">fexec</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>See a complete example in <a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/examples/map_reduce_url.py">map_reduce_url.py</a></p>
+<p>📄 See the full example in:
+<a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/examples/map_reduce_url.py">map_reduce_url.py</a></p>
 </section>
 <section id="processing-data-from-localhost-files">
-<h2>Processing data from localhost files<a class="headerlink" href="#processing-data-from-localhost-files" title="Permalink to this heading">#</a></h2>
+<h1>Processing Data from Localhost Files<a class="headerlink" href="#processing-data-from-localhost-files" title="Permalink to this heading">#</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This is only allowed when running Lithops with the localhost backend</p>
+<p>This feature is only available when using the <strong>localhost backend</strong>.</p>
 </div>
-<p>For processing data from localhost files, the input data must be either a directory path, a list of directory paths, a file path a list of file paths. As in the previous cases, if you set the <em>size of the chunk</em> or the <em>number of chunks</em>, the partitioner is activated inside Lithops and it is responsible to split the objects into smaller chunks, eventually spawning one function for each generated chunk. If <em>size of the chunk</em> and <em>number of chunks</em> are not set, chunk is an entire object, so one function activation is executed for each individual object.</p>
-<p>The <strong>obj</strong> parameter is a python class from where you can access all the information related to the object (or chunk) that the function is processing. For example, consider the following function that shows all the available attributes in <strong>obj</strong> when you are processing localhost files:</p>
+<p>Lithops can also process files stored on the local filesystem. The input can be:</p>
+<ul class="simple">
+<li><p>A single file path</p></li>
+<li><p>A list of file paths</p></li>
+<li><p>A directory path</p></li>
+<li><p>A list of directory paths</p></li>
+</ul>
+<p>As in other cases, if you set <cite>obj_chunk_size</cite> or <cite>obj_chunk_number</cite>, the file(s) will be split into chunks and processed in parallel. If not set, each file is processed as a single object.</p>
+<p>The <strong>`obj`</strong> parameter again exposes the metadata and content of the chunk.</p>
+<p>Example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lithops</span>
 
 <span class="k">def</span> <span class="nf">my_map_function</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">part</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">data_byte_range</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">chunk_size</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>              <span class="c1"># Full local file path</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">part</span><span class="p">)</span>              <span class="c1"># Chunk number</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">data_byte_range</span><span class="p">)</span>   <span class="c1"># Byte range for this chunk</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">chunk_size</span><span class="p">)</span>        <span class="c1"># Size of this chunk (in bytes)</span>
 
     <span class="n">data</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">data_stream</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">splitlines</span><span class="p">():</span>
-        <span class="c1"># Do some process</span>
-    <span class="k">return</span> <span class="n">partial_intersting_data</span>
+        <span class="c1"># Process each line</span>
+        <span class="k">pass</span>
+
+    <span class="k">return</span> <span class="n">partial_result</span>
 
 <span class="k">def</span> <span class="nf">my_reduce_function</span><span class="p">(</span><span class="n">results</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">partial_intersting_data</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
-        <span class="c1"># Do some process</span>
+    <span class="k">for</span> <span class="n">partial_result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+        <span class="c1"># Aggregate results</span>
+        <span class="k">pass</span>
+
     <span class="k">return</span> <span class="n">final_result</span>
 
-<span class="n">iterdata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;/home/user/data/my_file_1.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/user/data/my_file_2.csv&#39;</span><span class="p">]</span>
-<span class="n">object_chunk_number</span><span class="o">=</span> <span class="mi">2</span>
+<span class="n">iterdata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;/home/user/file1.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/user/file2.csv&#39;</span><span class="p">]</span>
+<span class="n">chunk_number</span> <span class="o">=</span> <span class="mi">2</span>
 
 <span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">()</span>
 <span class="n">fexec</span><span class="o">.</span><span class="n">map_reduce</span><span class="p">(</span><span class="n">my_map_function</span><span class="p">,</span> <span class="n">iterdata</span><span class="p">,</span> <span class="n">my_reduce_function</span><span class="p">,</span>
-                 <span class="n">obj_chunk_number</span><span class="o">=</span><span class="n">object_chunk_number</span><span class="p">)</span>
+                 <span class="n">obj_chunk_number</span><span class="o">=</span><span class="n">chunk_number</span><span class="p">)</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">fexec</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>See a complete example in <a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/examples/map_reduce_localhost.py">map_reduce_localhost.py</a>.</p>
-</section>
+<p>📄 See the full example in:
+<a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/examples/map_reduce_localhost.py">map_reduce_localhost.py</a></p>
 <section id="reducer-granularity">
-<h2>Reducer granularity<a class="headerlink" href="#reducer-granularity" title="Permalink to this heading">#</a></h2>
-<p>When using the <code class="docutils literal notranslate"><span class="pre">map_reduce()</span></code> API call with <code class="docutils literal notranslate"><span class="pre">obj_chunk_size</span></code> or <code class="docutils literal notranslate"><span class="pre">obj_chunk_number</span></code>, by default there will be only one reducer for all the object chunks from all the objects. Alternatively, you can spawn one reducer for each object by setting the parameter <code class="docutils literal notranslate"><span class="pre">obj_reduce_by_key=True</span></code>.</p>
+<h2>Reducer Granularity<a class="headerlink" href="#reducer-granularity" title="Permalink to this heading">#</a></h2>
+<p>When using the <code class="xref py py-meth docutils literal notranslate"><span class="pre">map_reduce()</span></code> API along with <cite>obj_chunk_size</cite> or <cite>obj_chunk_number</cite>, Lithops defaults to using <strong>a single reducer</strong> to aggregate results across <strong>all chunks and objects</strong>.</p>
+<p>If you’d prefer to reduce results <strong>per original object</strong> (e.g., one reducer per file), you can set the parameter <cite>obj_reduce_by_key=True</cite>.</p>
+<p>Example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fexec</span><span class="o">.</span><span class="n">map_reduce</span><span class="p">(</span><span class="n">my_map_function</span><span class="p">,</span> <span class="n">bucket_name</span><span class="p">,</span> <span class="n">my_reduce_function</span><span class="p">,</span>
-                 <span class="n">obj_chunk_size</span><span class="o">=</span><span class="n">obj_chunk_size</span><span class="p">,</span> <span class="n">obj_reduce_by_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                 <span class="n">obj_chunk_size</span><span class="o">=</span><span class="n">obj_chunk_size</span><span class="p">,</span>
+                 <span class="n">obj_reduce_by_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
+</section>
+</section>
+<section id="elastic-data-processing-and-cloud-optimized-formats">
+<h1>Elastic Data Processing and Cloud-Optimized Formats<a class="headerlink" href="#elastic-data-processing-and-cloud-optimized-formats" title="Permalink to this heading">#</a></h1>
+<p>Lithops is especially powerful for <strong>massively parallel data processing</strong>. When the input to <cite>map()</cite> or <cite>map_reduce()</cite> is a <strong>storage bucket</strong> or a collection of large files, Lithops will automatically:</p>
+<ul class="simple">
+<li><p>Launch one function per file, or</p></li>
+<li><p>Partition large files into chunks and assign each chunk to a different function</p></li>
+</ul>
+<p>This behavior enables <strong>elastic scaling</strong> that fully utilizes the underlying compute backend.</p>
+<section id="cloud-optimized-formats">
+<h2>Cloud-Optimized Formats<a class="headerlink" href="#cloud-optimized-formats" title="Permalink to this heading">#</a></h2>
+<p>Lithops is ideally suited for processing <strong>cloud-optimized data formats</strong> such as:</p>
+<ul class="simple">
+<li><p><strong>ZARR</strong></p></li>
+<li><p><strong>COG</strong> (Cloud Optimized GeoTIFF)</p></li>
+<li><p><strong>COPC</strong> (Cloud Optimized Point Clouds)</p></li>
+<li><p><strong>FlatGeoBuf</strong></p></li>
+</ul>
+<p>These formats are designed to support <strong>random access via HTTP range requests</strong>, making them a perfect match for cloud object storage and serverless computing.</p>
+<p>By leveraging HTTP range primitives, Lithops enables fast and scalable parallel processing — distributing workload across many concurrent function activations, each fetching only the data it needs. This approach takes full advantage of the <strong>high aggregate bandwidth</strong> provided by modern object storage systems.</p>
+</section>
+<section id="partitioning-non-optimized-formats-with-dataplug">
+<h2>Partitioning Non-Optimized Formats with Dataplug<a class="headerlink" href="#partitioning-non-optimized-formats-with-dataplug" title="Permalink to this heading">#</a></h2>
+<p>Thanks to the <a class="reference external" href="https://github.com/CLOUDLAB-URV/dataplug">DATAPLUG</a> library, Lithops also supports <strong>on-the-fly partitioning</strong> of data formats that are <strong>not cloud-optimized</strong>. Supported formats include:</p>
+<ul class="simple">
+<li><p>Genomics: <strong>FASTA</strong>, <strong>FASTQ</strong>, <strong>FASTQ.GZ</strong></p></li>
+<li><p>Metabolomics: <strong>mlMZ</strong></p></li>
+<li><p>Geospatial: <strong>LIDAR (.laz)</strong></p></li>
+</ul>
+<p>Dataplug wraps these formats into cloud-native interfaces and exposes partitioning strategies that Lithops can consume directly.</p>
+</section>
+<section id="example-parallel-processing-of-a-cloud-hosted-lidar-file">
+<h2>Example: Parallel Processing of a Cloud-Hosted LIDAR File<a class="headerlink" href="#example-parallel-processing-of-a-cloud-hosted-lidar-file" title="Permalink to this heading">#</a></h2>
+<p>In the example below, we use Dataplug to wrap a COPC (Cloud Optimized Point Cloud) file stored in S3, partition it into spatial chunks, and process each chunk in parallel using Lithops:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataplug</span> <span class="kn">import</span> <span class="n">CloudObject</span>
+<span class="kn">from</span> <span class="nn">dataplug.formats.geospatial.copc</span> <span class="kn">import</span> <span class="n">CloudOptimizedPointCloud</span><span class="p">,</span> <span class="n">square_split_strategy</span>
+<span class="kn">import</span> <span class="nn">laspy</span>
+<span class="kn">import</span> <span class="nn">lithops</span>
+
+<span class="c1"># Function to process each LiDAR slice</span>
+<span class="k">def</span> <span class="nf">process_lidar_slice</span><span class="p">(</span><span class="n">data_slice</span><span class="p">):</span>
+    <span class="n">las_data</span> <span class="o">=</span> <span class="n">data_slice</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+    <span class="n">lidar_file</span> <span class="o">=</span> <span class="n">laspy</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">las_data</span><span class="p">)</span>
+    <span class="o">...</span>
+
+<span class="c1"># Load the COPC file from S3 using Dataplug</span>
+<span class="n">co</span> <span class="o">=</span> <span class="n">CloudObject</span><span class="o">.</span><span class="n">from_s3</span><span class="p">(</span>
+    <span class="n">CloudOptimizedPointCloud</span><span class="p">,</span>
+    <span class="s2">&quot;s3://geospatial/copc/CA_YosemiteNP_2019/USGS_LPC_CA_YosemiteNP_2019_D19_11SKB6892.laz&quot;</span><span class="p">,</span>
+    <span class="n">s3_config</span><span class="o">=</span><span class="n">local_minio</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Partition the point cloud into 9 spatial chunks</span>
+<span class="n">slices</span> <span class="o">=</span> <span class="n">co</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="n">square_split_strategy</span><span class="p">,</span> <span class="n">num_chunks</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+
+<span class="c1"># Process slices in parallel using Lithops</span>
+<span class="k">with</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">()</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
+    <span class="n">futures</span> <span class="o">=</span> <span class="n">executor</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">process_lidar_slice</span><span class="p">,</span> <span class="n">slices</span><span class="p">)</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">executor</span><span class="o">.</span><span class="n">get_result</span><span class="p">(</span><span class="n">futures</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This enables truly <strong>elastic and serverless geospatial processing pipelines</strong>, with no infrastructure overhead and full cloud-native efficiency.</p>
 </section>
 </section>
 
@@ -586,11 +724,27 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-object-storage">Cloud Object Storage</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-data-from-public-urls">Processing data from public URLs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-data-from-localhost-files">Processing data from localhost files</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reducer-granularity">Reducer granularity</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Processing Data from the Cloud</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-partitioning">Data Partitioning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-object-storage-integration">Cloud Object Storage Integration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-object-metadata">Accessing Object Metadata</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accepted-input-formats">Accepted Input Formats</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-it-all-together">Putting It All Together</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-data-from-public-urls">Processing Data from Public URLs</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-data-from-localhost-files">Processing Data from Localhost Files</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reducer-granularity">Reducer Granularity</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#elastic-data-processing-and-cloud-optimized-formats">Elastic Data Processing and Cloud-Optimized Formats</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-optimized-formats">Cloud-Optimized Formats</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partitioning-non-optimized-formats-with-dataplug">Partitioning Non-Optimized Formats with Dataplug</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-parallel-processing-of-a-cloud-hosted-lidar-file">Example: Parallel Processing of a Cloud-Hosted LIDAR File</a></li>
+</ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>
