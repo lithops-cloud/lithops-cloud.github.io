@@ -699,8 +699,9 @@ For each object, the list contains only the names of the objects (keys).</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="lithops.storage.storage.Storage.list_objects">
 <span class="sig-name descname"><span class="pre">list_objects</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bucket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match_pattern</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.storage.storage.Storage.list_objects" title="Permalink to this definition">#</a></dt>
-<dd><p>Returns all of the object keys in a bucket. For each object, the list contains the name
-of the object (key) and the size.</p>
+<dd><p>Returns all of the object keys in a bucket. For each object, the list contains a dictionary
+with at least the object key (‘Key’) and the size in bytes (‘Size’). Additional fields may be
+present, depending on the backend implementation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -710,10 +711,10 @@ of the object (key) and the size.</p>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>List of tuples containing the object key and size in bytes</p>
+<dd class="field-even"><p>List of dictionaries containing at least ‘Key’ and ‘Size’ for each object</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><em>List</em>[<em>Tuple</em>[str, int]]</p>
+<dd class="field-odd"><p><em>List</em>[<em>Dict</em>[str, <em>Any</em>]]</p>
 </dd>
 </dl>
 </dd></dl>

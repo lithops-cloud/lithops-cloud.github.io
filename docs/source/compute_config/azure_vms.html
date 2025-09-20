@@ -775,7 +775,7 @@ Alternatively, you can set the <code class="docutils literal notranslate"><span 
 </section>
 <section id="vm-management">
 <h2>VM Management<a class="headerlink" href="#vm-management" title="Permalink to this heading">#</a></h2>
-<p>Lithops for Azure VMs follows a Mater-Worker architecture (1:N).</p>
+<p>Lithops for Azure VMs follows a Master-Worker architecture (1:N).</p>
 <p>All the VMs, including the master VM, are automatically stopped after a configurable timeout (see hard/soft dismantle timeouts).</p>
 <p>You can login to the master VM and get a live ssh connection with:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops<span class="w"> </span>attach<span class="w"> </span>-b<span class="w"> </span>azure_vms
