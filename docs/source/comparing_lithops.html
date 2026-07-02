@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Comparing Lithops with Other Distributed Computing Frameworks &#8212; Lithops  documentation</title>
   
@@ -15,35 +14,38 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-7YKZHZYDCR"></script>
     <script>
@@ -60,6 +62,7 @@
     <link rel="prev" title="Architecture Design" href="design.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -67,32 +70,16 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -100,7 +87,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -108,16 +94,25 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -132,6 +127,8 @@
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="../index.html">
   
@@ -145,13 +142,20 @@
     
     
     <img src="../_static/lithops_logo_readme.png" class="logo__image only-light" alt=""/>
-    <script>document.write(`<img src="../_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
+    <img src="../_static/lithops_logo_readme.png" class="logo__image only-dark pst-js-only" alt=""/>
   
   
-    <p class="title logo__title">Lithops v3.6.2</p>
+    <p class="title logo__title">Lithops v3.7.0</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome to Lithops!</a></li>
@@ -168,10 +172,10 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="install_lithops.html">Installing Lithops</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="compute_backends.html">Compute Backends</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="compute_backends.html">Compute Backends</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/localhost.html">Localhost</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/aws_lambda.html">AWS Lambda</a></li>
-<li class="toctree-l2"><a class="reference internal" href="compute_config/gcp_functions.html">Google Cloud Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compute_config/gcp_functions.html">Google Cloud Run functions (v2)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/azure_functions.html">Azure Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/oracle_functions.html">Oracle Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/aliyun_functions.html">Aliyun Function Compute</a></li>
@@ -186,11 +190,11 @@
 <li class="toctree-l2"><a class="reference internal" href="compute_config/vm.html">Virtual Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/ibm_vpc.html">IBM Virtual Private Cloud</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/aws_ec2.html">AWS Elastic Compute Cloud (EC2)</a></li>
-
 <li class="toctree-l2"><a class="reference internal" href="compute_config/azure_vms.html">Azure Virtual Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compute_config/gcp_compute_engine.html">Google Compute Engine (GCE)</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="storage_backends.html">Storage Backends</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="storage_backends.html">Storage Backends</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/localhost.html">Localhost</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage_config/ibm_cos.html">IBM Cloud Object Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage_config/aws_s3.html">AWS S3</a></li>
@@ -204,7 +208,7 @@
 <li class="toctree-l2"><a class="reference internal" href="storage_config/redis.html">Redis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage_config/infinispan.html">Infinispan</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lithops Compute API</span></p>
 <ul class="nav bd-sidenav">
@@ -257,14 +261,19 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -273,14 +282,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -355,27 +364,19 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -410,37 +411,41 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="comparing-lithops-with-other-distributed-computing-frameworks">
-<h1>Comparing Lithops with Other Distributed Computing Frameworks<a class="headerlink" href="#comparing-lithops-with-other-distributed-computing-frameworks" title="Permalink to this heading">#</a></h1>
+<h1>Comparing Lithops with Other Distributed Computing Frameworks<a class="headerlink" href="#comparing-lithops-with-other-distributed-computing-frameworks" title="Link to this heading">#</a></h1>
 <p>Lithops introduces a novel approach to distributed computing by leveraging <strong>serverless functions</strong> for massively parallel computations. Unlike traditional frameworks that require managing a cluster of nodes, Lithops utilizes Function-as-a-Service (FaaS) platforms to dynamically scale execution resources — down to zero when idle and massively up when needed.</p>
-<p>In addition, Lithops offers a simple and consistent programming interface to transparently process data stored in <strong>Object Storage</strong> from within serverless functions. Its <strong>modular and cloud-agnostic architecture</strong> enables seamless portability across different cloud providers and FaaS platforms, effectively avoiding vendor lock-in.</p>
+<p>In addition, Lithops offers a simple and consistent programming interface to transparently process data stored in <strong>Object Storage</strong> from within serverless functions. Its <strong>modular and cloud-agnostic architecture</strong> enables seamless portability across different cloud providers and FaaS platforms, helping to avoid vendor lock-in.</p>
 <section id="pywren">
-<h2>PyWren<a class="headerlink" href="#pywren" title="Permalink to this heading">#</a></h2>
+<h2>PyWren<a class="headerlink" href="#pywren" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="http://pywren.io/">PyWren</a> is the precursor to Lithops. Initially designed to run exclusively on AWS Lambda using a Conda runtime and supporting only Python 2.7, it served as a proof of concept for using serverless functions in scientific computing.</p>
 <p>In 2018, the Lithops team forked PyWren to adapt it for <strong>IBM Cloud Functions</strong>, which offered a Docker-based runtime. This evolution also introduced support for <strong>Object Storage as a primary data source</strong> and opened the door to more advanced use cases such as Big Data analytics.</p>
 <p>By September 2020, the IBM PyWren fork had diverged significantly. The maintainers rebranded the project as <strong>Lithops</strong>, reflecting its broader goals — including multi-cloud compatibility, improved developer experience, and support for modern Python environments and distributed computing patterns.</p>
-<p>For more details, refer to the Middleware’18 industry paper:
+<p>For more details, refer to the Middleware 2018 industry paper:
 <a class="reference external" href="https://dl.acm.org/doi/10.1145/3284028.3284029">Serverless Data Analytics in the IBM Cloud</a>.</p>
 </section>
 <section id="ray-and-dask">
-<h2>Ray and Dask<a class="headerlink" href="#ray-and-dask" title="Permalink to this heading">#</a></h2>
-<a class="reference internal image-reference" href="https://github.com/ray-project/ray/raw/master/doc/source/images/ray_logo.png"><img alt="https://github.com/ray-project/ray/raw/master/doc/source/images/ray_logo.png" src="https://github.com/ray-project/ray/raw/master/doc/source/images/ray_logo.png" style="width: 250px;" /></a>
-<a class="reference internal image-reference" href="https://docs.dask.org/en/stable/_images/dask_horizontal.svg"><img alt="https://docs.dask.org/en/stable/_images/dask_horizontal.svg" src="https://docs.dask.org/en/stable/_images/dask_horizontal.svg" width="250" /></a>
+<h2>Ray and Dask<a class="headerlink" href="#ray-and-dask" title="Link to this heading">#</a></h2>
+<a class="reference internal image-reference" href="https://github.com/ray-project/ray/raw/master/doc/source/images/ray_logo.png"><img alt="https://github.com/ray-project/ray/raw/master/doc/source/images/ray_logo.png" src="https://github.com/ray-project/ray/raw/master/doc/source/images/ray_logo.png" width="250" />
+</a>
+<a class="reference internal image-reference" href="https://docs.dask.org/en/stable/_images/dask_horizontal.svg"><img alt="https://docs.dask.org/en/stable/_images/dask_horizontal.svg" src="https://docs.dask.org/en/stable/_images/dask_horizontal.svg" width="250" />
+</a>
 <p><a class="reference external" href="https://ray.io/">Ray</a> and <a class="reference external" href="https://dask.org/">Dask</a> are distributed computing frameworks designed to operate on a <strong>predefined cluster of nodes</strong> (typically virtual machines). In contrast, Lithops relies on <strong>serverless runtimes</strong>, which allows for <em>elastic and fine-grained scaling</em> — including scaling to zero — with no idle infrastructure costs.</p>
 <p>While Ray and Dask provide dynamic task scheduling and can autoscale within an IaaS environment, they always require a <strong>centralized “head node” or controller</strong> to manage the cluster, making them less suitable for ephemeral and cost-efficient cloud-native computing.</p>
 <p>Additionally, the performance and elasticity of Ray and Dask in IaaS environments are not directly comparable to Lithops’ <strong>fully serverless model</strong>, which benefits from the near-infinite parallelism offered by cloud functions.</p>
 </section>
 <section id="pyspark">
-<h2>PySpark<a class="headerlink" href="#pyspark" title="Permalink to this heading">#</a></h2>
-<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Apache_Spark_logo.svg/2560px-Apache_Spark_logo.svg.png"><img alt="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Apache_Spark_logo.svg/2560px-Apache_Spark_logo.svg.png" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Apache_Spark_logo.svg/2560px-Apache_Spark_logo.svg.png" style="width: 250px;" /></a>
+<h2>PySpark<a class="headerlink" href="#pyspark" title="Link to this heading">#</a></h2>
+<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Apache_Spark_logo.svg/2560px-Apache_Spark_logo.svg.png"><img alt="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Apache_Spark_logo.svg/2560px-Apache_Spark_logo.svg.png" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Apache_Spark_logo.svg/2560px-Apache_Spark_logo.svg.png" width="250" />
+</a>
 <p><a class="reference external" href="https://spark.apache.org/docs/latest/api/python/">PySpark</a> is the Python interface for Apache Spark, a well-established distributed computing engine. Spark is typically deployed on a <strong>static cluster of machines</strong>, either on-premises or in cloud environments using HDFS or cloud-native file systems.</p>
 <p>PySpark is optimized for <strong>batch analytics</strong> using DataFrames and SparkSQL, but it lacks native integration with FaaS models. Its operational model is not inherently elastic and requires continuous management of a Spark cluster, which may not align with modern, fully managed, or serverless computing paradigms.</p>
 </section>
 <section id="serverless-framework">
-<h2>Serverless Framework<a class="headerlink" href="#serverless-framework" title="Permalink to this heading">#</a></h2>
-<a class="reference internal image-reference" href="https://cdn.diegooo.com/media/20210606183353/serverless-framework-icon.png"><img alt="https://cdn.diegooo.com/media/20210606183353/serverless-framework-icon.png" src="https://cdn.diegooo.com/media/20210606183353/serverless-framework-icon.png" style="width: 250px;" /></a>
+<h2>Serverless Framework<a class="headerlink" href="#serverless-framework" title="Link to this heading">#</a></h2>
+<a class="reference internal image-reference" href="https://cdn.diegooo.com/media/20210606183353/serverless-framework-icon.png"><img alt="https://cdn.diegooo.com/media/20210606183353/serverless-framework-icon.png" src="https://cdn.diegooo.com/media/20210606183353/serverless-framework-icon.png" width="250" />
+</a>
 <p><a class="reference external" href="https://www.serverless.com/">Serverless Framework</a> is a deployment toolchain designed primarily for <strong>building and deploying serverless web applications</strong>, especially on AWS, GCP, and Azure. It is widely used to manage HTTP APIs, event-driven services, and infrastructure-as-code (IaC) for cloud-native apps.</p>
 <p>Although both Lithops and Serverless Framework leverage <strong>serverless functions</strong>, their objectives are fundamentally different:</p>
 <ul class="simple">
@@ -449,7 +454,7 @@ document.write(`
 </ul>
 </section>
 <section id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
 <p>Lithops stands out as a <strong>cloud-native, serverless-first framework</strong> purpose-built for <strong>parallel computing, data analytics, and scientific workloads</strong>. By abstracting away infrastructure management and providing built-in object storage integration, it delivers a unique balance of <strong>simplicity</strong>, <strong>performance</strong>, and <strong>multi-cloud compatibility</strong> — distinguishing it from traditional cluster-based frameworks and generic serverless tools alike.</p>
 </section>
 </section>
@@ -462,7 +467,7 @@ document.write(`
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -490,13 +495,16 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pywren">PyWren</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ray-and-dask">Ray and Dask</a></li>
@@ -527,7 +535,7 @@ By The Lithops Team
 
   <p class="copyright">
     
-      © Copyright 2025, The Lithops Team.
+      © Copyright 2026, The Lithops Team.
       <br/>
     
   </p>
@@ -551,8 +559,8 @@ By The Lithops Team
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

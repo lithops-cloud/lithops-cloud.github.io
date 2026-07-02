@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Contributing to Lithops &#8212; Lithops  documentation</title>
   
@@ -15,35 +14,38 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-7YKZHZYDCR"></script>
     <script>
@@ -59,6 +61,7 @@
     <link rel="prev" title="Distributed shared objects" href="dso.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -66,32 +69,16 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -99,7 +86,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -107,16 +93,25 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -131,6 +126,8 @@
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="../index.html">
   
@@ -144,13 +141,20 @@
     
     
     <img src="../_static/lithops_logo_readme.png" class="logo__image only-light" alt=""/>
-    <script>document.write(`<img src="../_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
+    <img src="../_static/lithops_logo_readme.png" class="logo__image only-dark pst-js-only" alt=""/>
   
   
-    <p class="title logo__title">Lithops v3.6.2</p>
+    <p class="title logo__title">Lithops v3.7.0</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome to Lithops!</a></li>
@@ -167,10 +171,10 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="install_lithops.html">Installing Lithops</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="compute_backends.html">Compute Backends</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="compute_backends.html">Compute Backends</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/localhost.html">Localhost</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/aws_lambda.html">AWS Lambda</a></li>
-<li class="toctree-l2"><a class="reference internal" href="compute_config/gcp_functions.html">Google Cloud Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compute_config/gcp_functions.html">Google Cloud Run functions (v2)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/azure_functions.html">Azure Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/oracle_functions.html">Oracle Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/aliyun_functions.html">Aliyun Function Compute</a></li>
@@ -185,11 +189,11 @@
 <li class="toctree-l2"><a class="reference internal" href="compute_config/vm.html">Virtual Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/ibm_vpc.html">IBM Virtual Private Cloud</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/aws_ec2.html">AWS Elastic Compute Cloud (EC2)</a></li>
-
 <li class="toctree-l2"><a class="reference internal" href="compute_config/azure_vms.html">Azure Virtual Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compute_config/gcp_compute_engine.html">Google Compute Engine (GCE)</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="storage_backends.html">Storage Backends</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="storage_backends.html">Storage Backends</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/localhost.html">Localhost</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage_config/ibm_cos.html">IBM Cloud Object Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage_config/aws_s3.html">AWS S3</a></li>
@@ -203,7 +207,7 @@
 <li class="toctree-l2"><a class="reference internal" href="storage_config/redis.html">Redis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage_config/infinispan.html">Infinispan</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lithops Compute API</span></p>
 <ul class="nav bd-sidenav">
@@ -256,14 +260,19 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -272,14 +281,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -354,27 +363,19 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -407,55 +408,56 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="contributing-to-lithops">
-<span id="contributing"></span><h1>Contributing to Lithops<a class="headerlink" href="#contributing-to-lithops" title="Permalink to this heading">#</a></h1>
+<span id="contributing"></span><h1>Contributing to Lithops<a class="headerlink" href="#contributing-to-lithops" title="Link to this heading">#</a></h1>
 <section id="reporting-bugs-and-asking-questions">
-<h2>Reporting bugs and asking questions<a class="headerlink" href="#reporting-bugs-and-asking-questions" title="Permalink to this heading">#</a></h2>
+<h2>Reporting bugs and asking questions<a class="headerlink" href="#reporting-bugs-and-asking-questions" title="Link to this heading">#</a></h2>
 <p>You can post questions or issues or feedback through the following channels:</p>
 <ol class="arabic simple">
-<li><p><a class="reference external" href="https://github.com/lithops-cloud/lithops/discussions">Github Discussions</a>: For discussions about development, questions about usage, and feature requests.</p></li>
+<li><p><a class="reference external" href="https://github.com/lithops-cloud/lithops/discussions">GitHub Discussions</a>: For discussions about development, questions about usage, and feature requests.</p></li>
 <li><p><a class="reference external" href="https://github.com/lithops-cloud/lithops/issues">GitHub Issues</a>: For bug reports and feature requests.</p></li>
 </ol>
 </section>
 <section id="to-contribute-a-patch">
-<h2>To contribute a patch<a class="headerlink" href="#to-contribute-a-patch" title="Permalink to this heading">#</a></h2>
-<ol class="arabic simple">
+<h2>To contribute a patch<a class="headerlink" href="#to-contribute-a-patch" title="Link to this heading">#</a></h2>
+<ol class="arabic">
 <li><p>Break your work into small, single-purpose patches if possible. It’s much
 harder to merge in a large change with a lot of disjoint features.</p></li>
 <li><p>Submit the patch as a GitHub pull request against the master branch.</p></li>
 <li><p>Make sure that your code passes the tests.</p></li>
-<li><p>Make sure that your code passes the linter. Install <cite>flake8</cite> with <cite>pip3 install flake8</cite> and run the next command until you don’t see any linitng error:
-<code class="docutils literal notranslate"><span class="pre">`bash</span>
-<span class="pre">flake8</span> <span class="pre">lithops</span> <span class="pre">--count</span> <span class="pre">--max-line-length=180</span> <span class="pre">--statistics</span> <span class="pre">--ignore</span> <span class="pre">W605,W503</span>
-<span class="pre">`</span></code></p></li>
+<li><p>Make sure that your code passes the linter. Install <code class="docutils literal notranslate"><span class="pre">flake8</span></code> with <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">flake8</span></code> and run the following command until you don’t see any linting errors:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>flake8<span class="w"> </span>lithops<span class="w"> </span>--count<span class="w"> </span>--max-line-length<span class="o">=</span><span class="m">180</span><span class="w"> </span>--statistics<span class="w"> </span>--ignore<span class="w"> </span>W605,W503
+</pre></div>
+</div>
+</li>
 <li><p>Add new tests for your code.</p></li>
 </ol>
 </section>
 <section id="testing">
-<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this heading">#</a></h2>
-<p>To test that all is working as expected, you must install <cite>pytest</cite>, navigate to the tests folder <cite>lithops/tests/</cite>, and execute:
-<code class="docutils literal notranslate"><span class="pre">`bash</span>
-<span class="pre">pytest</span> <span class="pre">-v</span>
-<span class="pre">`</span></code></p>
+<h2>Testing<a class="headerlink" href="#testing" title="Link to this heading">#</a></h2>
+<p>To test that all is working as expected, install <code class="docutils literal notranslate"><span class="pre">pytest</span></code>, navigate to the tests folder <code class="docutils literal notranslate"><span class="pre">lithops/tests/</span></code>, and execute:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>-v
+</pre></div>
+</div>
 <p>If you made changes to a specific backend, please run tests on that backend.
-For example, if you made changes to the AWS Lambda backend, execute the tests with:
-<code class="docutils literal notranslate"><span class="pre">`bash</span>
-<span class="pre">pytest</span> <span class="pre">-v</span> <span class="pre">--backend</span> <span class="pre">aws_lambda</span> <span class="pre">--storage</span> <span class="pre">aws_s3</span>
-<span class="pre">`</span></code></p>
-<p>You can list all the available tests using:
-<code class="docutils literal notranslate"><span class="pre">`bash</span>
-<span class="pre">pytest</span> <span class="pre">--collect-only</span>
-<span class="pre">`</span></code></p>
-<p>To run a specific test or group of tests, use the <cite>-k</cite> parameter, for example:
-<code class="docutils literal notranslate"><span class="pre">`bash</span>
-<span class="pre">pytest</span> <span class="pre">-v</span> <span class="pre">--backend</span> <span class="pre">localhost</span> <span class="pre">--storage</span> <span class="pre">localhost</span> <span class="pre">-k</span> <span class="pre">test_map</span>
-<span class="pre">`</span></code></p>
-<p>To view all the Lithops logs during the tests, and in DEBUG mode, execute:
-<code class="docutils literal notranslate"><span class="pre">`bash</span>
-<span class="pre">pytest</span> <span class="pre">-o</span> <span class="pre">log_cli=true</span> <span class="pre">--log-cli-level=DEBUG</span> <span class="pre">--backend</span> <span class="pre">localhost</span> <span class="pre">--storage</span> <span class="pre">localhost</span>
-<span class="pre">`</span></code></p>
+For example, if you made changes to the AWS Lambda backend, execute the tests with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>-v<span class="w"> </span>--backend<span class="w"> </span>aws_lambda<span class="w"> </span>--storage<span class="w"> </span>aws_s3
+</pre></div>
+</div>
+<p>You can list all the available tests using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>--collect-only
+</pre></div>
+</div>
+<p>To run a specific test or group of tests, use the <code class="docutils literal notranslate"><span class="pre">-k</span></code> parameter, for example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>-v<span class="w"> </span>--backend<span class="w"> </span>localhost<span class="w"> </span>--storage<span class="w"> </span>localhost<span class="w"> </span>-k<span class="w"> </span>test_map
+</pre></div>
+</div>
+<p>To view all the Lithops logs during the tests in DEBUG mode, execute:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>-o<span class="w"> </span><span class="nv">log_cli</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span>--log-cli-level<span class="o">=</span>DEBUG<span class="w"> </span>--backend<span class="w"> </span>localhost<span class="w"> </span>--storage<span class="w"> </span>localhost
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -467,7 +469,7 @@ For example, if you made changes to the AWS Lambda backend, execute the tests wi
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -486,13 +488,16 @@ For example, if you made changes to the AWS Lambda backend, execute the tests wi
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reporting-bugs-and-asking-questions">Reporting bugs and asking questions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-contribute-a-patch">To contribute a patch</a></li>
@@ -521,7 +526,7 @@ By The Lithops Team
 
   <p class="copyright">
     
-      © Copyright 2025, The Lithops Team.
+      © Copyright 2026, The Lithops Team.
       <br/>
     
   </p>
@@ -545,8 +550,8 @@ By The Lithops Team
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

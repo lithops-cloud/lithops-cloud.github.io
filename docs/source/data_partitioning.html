@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Data Partitioning &#8212; Lithops  documentation</title>
   
@@ -15,35 +14,38 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-7YKZHZYDCR"></script>
     <script>
@@ -60,6 +62,7 @@
     <link rel="prev" title="Processing Data from the Cloud" href="data_processing.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -67,32 +70,16 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -100,7 +87,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -108,16 +94,25 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -132,6 +127,8 @@
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="../index.html">
   
@@ -145,13 +142,20 @@
     
     
     <img src="../_static/lithops_logo_readme.png" class="logo__image only-light" alt=""/>
-    <script>document.write(`<img src="../_static/lithops_logo_readme.png" class="logo__image only-dark" alt=""/>`);</script>
+    <img src="../_static/lithops_logo_readme.png" class="logo__image only-dark pst-js-only" alt=""/>
   
   
-    <p class="title logo__title">Lithops v3.6.2</p>
+    <p class="title logo__title">Lithops v3.7.0</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome to Lithops!</a></li>
@@ -168,10 +172,10 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="install_lithops.html">Installing Lithops</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="compute_backends.html">Compute Backends</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="compute_backends.html">Compute Backends</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/localhost.html">Localhost</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/aws_lambda.html">AWS Lambda</a></li>
-<li class="toctree-l2"><a class="reference internal" href="compute_config/gcp_functions.html">Google Cloud Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compute_config/gcp_functions.html">Google Cloud Run functions (v2)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/azure_functions.html">Azure Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/oracle_functions.html">Oracle Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/aliyun_functions.html">Aliyun Function Compute</a></li>
@@ -186,11 +190,11 @@
 <li class="toctree-l2"><a class="reference internal" href="compute_config/vm.html">Virtual Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/ibm_vpc.html">IBM Virtual Private Cloud</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/aws_ec2.html">AWS Elastic Compute Cloud (EC2)</a></li>
-
 <li class="toctree-l2"><a class="reference internal" href="compute_config/azure_vms.html">Azure Virtual Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compute_config/gcp_compute_engine.html">Google Compute Engine (GCE)</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="storage_backends.html">Storage Backends</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="storage_backends.html">Storage Backends</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/localhost.html">Localhost</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage_config/ibm_cos.html">IBM Cloud Object Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage_config/aws_s3.html">AWS S3</a></li>
@@ -204,7 +208,7 @@
 <li class="toctree-l2"><a class="reference internal" href="storage_config/redis.html">Redis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage_config/infinispan.html">Infinispan</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lithops Compute API</span></p>
 <ul class="nav bd-sidenav">
@@ -257,14 +261,19 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -273,14 +282,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -355,27 +364,19 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -397,7 +398,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keeping-line-integrity-in-mind">Keeping line integrity in mind</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-algorithm-behind-the-scenes">The Algorithm behind the scenes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-algorithm-behind-the-scenes">The algorithm behind the scenes</a></li>
 </ul>
 </li>
 </ul>
@@ -409,17 +410,17 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="data-partitioning">
-<h1>Data Partitioning<a class="headerlink" href="#data-partitioning" title="Permalink to this heading">#</a></h1>
-<p>When using the Lithop’s map function to run a single function over a
-rather large file, one might consider breaking the workload to smaller
+<h1>Data Partitioning<a class="headerlink" href="#data-partitioning" title="Link to this heading">#</a></h1>
+<p>When using the Lithops <code class="docutils literal notranslate"><span class="pre">map</span></code> function to run a single function over a
+rather large file, one might consider breaking the workload into smaller
 portions, handing each portion to a separate thread. We refer to said
 portions as chunks.</p>
-<p>Hereinafter is an example for using a map function to read a csv. file,
-stored in COS, split to pre-determined sized chunks:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">line_counter_in_chunk</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+<p>Below is an example of using a map function to read a CSV file
+stored in COS, split into chunks of a pre-determined size:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">line_counter_in_chunk</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
     <span class="n">counter</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">data_stream</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
@@ -436,7 +437,7 @@ stored in COS, split to pre-determined sized chunks:</p>
     <span class="n">size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">6.7</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>  <span class="c1"># ~6.7MiB - arbitrarily chosen chunk size in bytes</span>
 
     <span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">()</span>
-    <span class="n">fexec</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">line_counter_in_chunk</span><span class="p">,</span> <span class="n">data_location</span><span class="p">,</span><span class="n">obj_chunk_size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
+    <span class="n">fexec</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">line_counter_in_chunk</span><span class="p">,</span> <span class="n">data_location</span><span class="p">,</span> <span class="n">obj_chunk_size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
     <span class="n">res</span> <span class="o">=</span> <span class="n">fexec</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
 
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;logs/map_output&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -444,11 +445,11 @@ stored in COS, split to pre-determined sized chunks:</p>
 </pre></div>
 </div>
 <ul>
-<li><p>To take full advantage of the test above (for the next topic), use a
-file with a K number of rows repeating themselves as a routine. You
-may create a csv. example file using the following function:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_routine_file</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; creates a ~17MB csv. file consisting of 5 lines repeating routine.  &quot;&quot;&quot;</span>
+<li><p>To take full advantage of the example above (for the next topic), use a
+file with a fixed number of rows repeated as a routine. You can
+create an example CSV file using the following function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">create_routine_file</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Creates a ~17MB CSV file consisting of 5 repeating lines. &quot;&quot;&quot;</span>
 
     <span class="c1"># EOL = end of line identifier for ease of testing</span>
     <span class="n">str_routine</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;The Project Gutenberg eBook of Judgments in Vacation, by Edward Abbott Parry EOL1</span>
@@ -466,26 +467,26 @@ may create a csv. example file using the following function:</p>
 </pre></div>
 </div>
 </li>
-<li><p>Alternatively, One may exchange the obj_chunk_size with the
-obj_chunk_number parameter to split the file into a known number of
+<li><p>Alternatively, you can replace <code class="docutils literal notranslate"><span class="pre">obj_chunk_size</span></code> with the
+<code class="docutils literal notranslate"><span class="pre">obj_chunk_number</span></code> parameter to split the file into a known number of
 chunks.</p></li>
-<li><p>You may tinker with the test’s parameters, such as: uploading files
-of different size, altering the chunk size, running a map function of
-your choosing, but, As written in the documentation, chunk size must
-be upwards of 1 MIB.</p></li>
+<li><p>You may tinker with the test’s parameters, such as uploading files
+of different sizes, altering the chunk size, or running a map function of
+your choosing. As mentioned in the documentation, the chunk size must
+be at least 1 MiB.</p></li>
 </ul>
 <section id="keeping-line-integrity-in-mind">
-<h2>Keeping line integrity in mind<a class="headerlink" href="#keeping-line-integrity-in-mind" title="Permalink to this heading">#</a></h2>
-<p>One important feat implemented as a part of the chunking functionality,
-is dividing input file into chunks while making sure no chunk contains
+<h2>Keeping line integrity in mind<a class="headerlink" href="#keeping-line-integrity-in-mind" title="Link to this heading">#</a></h2>
+<p>One important feature implemented as part of the chunking functionality
+is dividing the input file into chunks while making sure no chunk contains
 partial lines. Thus, running the test above with any (legal)
-configuration of parameters, will output a file consisting of entire
-rows solely.</p>
-<p>In case you opted to adhere to the recommendation above (regarding the
-file contents) you may verify line integrity quickly by exchanging the
-call to the map function with the following map_reduce and adding the
-map_function below:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_total_matching_lines</span><span class="p">(</span><span class="n">results</span><span class="p">):</span>
+configuration of parameters will produce a file consisting solely of
+entire rows.</p>
+<p>If you opted to follow the recommendation above (regarding the
+file contents), you can verify line integrity quickly by replacing the
+call to the map function with the following <code class="docutils literal notranslate"><span class="pre">map_reduce</span></code> and adding the
+<code class="docutils literal notranslate"><span class="pre">map_function</span></code> below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">count_total_matching_lines</span><span class="p">(</span><span class="n">results</span><span class="p">):</span>
     <span class="n">final_result</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">count</span><span class="p">:</span>
@@ -502,42 +503,40 @@ map_function below:</p>
 <p>The next part covers the main details of the chunking procedure, as it’s
 implemented in the Lithops project.</p>
 <section id="the-algorithm-behind-the-scenes">
-<h3>The Algorithm behind the scenes<a class="headerlink" href="#the-algorithm-behind-the-scenes" title="Permalink to this heading">#</a></h3>
-<p>As map or map_reduce is being called, a new job is created (in
-lithops/job/job.py). The relevant part of the algorithm begins when
-create_partitions(in lithops/job/partitioner.py) is called, and the
-job’s chunks are associated with byte range. in this stage of the
-algorithm each chunk simply gets its fair share + a fixed threshold,
-whose purpose will become apparent shortly. Said byte ranges are pickled
-and stored in the cloud.</p>
-<p>Later on, each thread is aggregating (unpickling) from the cloud
-relevant data associated with its own chunk (in run() of
-lithops/worker/taskrunner.py), which contains aforementioned byte
-ranges. Amongst other aggregated objects, a data_stream object that
-handles the line integrity is initialized and appended. finally,
-taskrunner.py passes it all forwards to the map function (the very
-reason the function in the example receives a parameter).
-| When users wish to read the chunks, they may do so by calling the read
-function (the overriding version of lithops/utils.py), which is
-implemented in the following way:</p>
+<h3>The algorithm behind the scenes<a class="headerlink" href="#the-algorithm-behind-the-scenes" title="Link to this heading">#</a></h3>
+<p>When <code class="docutils literal notranslate"><span class="pre">map</span></code> or <code class="docutils literal notranslate"><span class="pre">map_reduce</span></code> is called, a new job is created (in
+<code class="docutils literal notranslate"><span class="pre">lithops/job/job.py</span></code>). The relevant part of the algorithm begins when
+<code class="docutils literal notranslate"><span class="pre">create_partitions</span></code> (in <code class="docutils literal notranslate"><span class="pre">lithops/job/partitioner.py</span></code>) is called, and the
+job’s chunks are associated with byte ranges. At this stage, each chunk
+simply gets its fair share plus a fixed threshold, whose purpose will become
+apparent shortly. These byte ranges are pickled and stored in the cloud.</p>
+<p>Later, each thread aggregates (unpickles) from the cloud the relevant
+data associated with its own chunk (in <code class="docutils literal notranslate"><span class="pre">run()</span></code> of
+<code class="docutils literal notranslate"><span class="pre">lithops/worker/taskrunner.py</span></code>), which contains the aforementioned byte
+ranges. Among other aggregated objects, a <code class="docutils literal notranslate"><span class="pre">data_stream</span></code> object that
+handles the line integrity is initialized and appended. Finally,
+<code class="docutils literal notranslate"><span class="pre">taskrunner.py</span></code> passes it all forward to the map function (the reason
+the function in the example receives a parameter).</p>
+<p>When users wish to read the chunks, they may do so by calling the <code class="docutils literal notranslate"><span class="pre">read</span></code>
+function (the overriding version in <code class="docutils literal notranslate"><span class="pre">lithops/utils.py</span></code>), which is
+implemented as follows:</p>
 <ol class="arabic simple">
-<li><p>Store the first byte of the current chunk, unless the chunk in matter
-is the first / only chunk in the mapping job.</p></li>
+<li><p>Store the first byte of the current chunk, unless the chunk in question
+is the first or only chunk in the mapping job.</p></li>
 <li><p>Read the whole chunk and store it as a string in the variable
-“retval”. Sum of bytes stored is regarded as the default
-last_row_end_pos.</p></li>
-<li><p>Since the first byte is as a matter of fact the last byte of the
-former chunk, we inspect whether it’s a new line (‘’) or not. in case
-of the latter, it means that the current chunk started from the midst
-on a line belonging in its entirety to the former chunk. In such
-case, position first_row_start_pos at the beginning of the next
-line.</p></li>
-<li><p>Due to the fact that each chunk received an extra amount of bytes,
-i.e. the threshold previously mentioned (for the very purpose
-mentioned in clause 3), every chunk, apart from the last one, has to
-rid itself from excessive rows, by moving last_row_end_pos to the
-beginning of the next row within the threshold.</p></li>
-<li><p>finally, retval[first_row_start_pos : last_row_end_pos], which
+<code class="docutils literal notranslate"><span class="pre">retval</span></code>. The total number of bytes stored is treated as the default
+<code class="docutils literal notranslate"><span class="pre">last_row_end_pos</span></code>.</p></li>
+<li><p>Since the first byte is, as a matter of fact, the last byte of the
+previous chunk, we inspect whether it is a newline (<code class="docutils literal notranslate"><span class="pre">\n</span></code>) or not. If
+not,    it means that the current chunk starts in the middle of a line
+belonging entirely to the former chunk. In such a case,
+position <code class="docutils literal notranslate"><span class="pre">first_row_start_pos</span></code> at the beginning of the next line.</p></li>
+<li><p>Because each chunk received an extra amount of bytes (the
+threshold previously mentioned, for the very purpose stated in step 3),
+every chunk except the last one needs to discard the excess rows by
+moving <code class="docutils literal notranslate"><span class="pre">last_row_end_pos</span></code> to the beginning of the next row within
+the threshold.</p></li>
+<li><p>Finally, <code class="docutils literal notranslate"><span class="pre">retval[first_row_start_pos</span> <span class="pre">:</span> <span class="pre">last_row_end_pos]</span></code>, which
 contains a chunk free from any split lines, is returned.</p></li>
 </ol>
 </section>
@@ -552,7 +551,7 @@ contains a chunk free from any split lines, is returned.</p></li>
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -580,16 +579,19 @@ contains a chunk free from any split lines, is returned.</p></li>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keeping-line-integrity-in-mind">Keeping line integrity in mind</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-algorithm-behind-the-scenes">The Algorithm behind the scenes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-algorithm-behind-the-scenes">The algorithm behind the scenes</a></li>
 </ul>
 </li>
 </ul>
@@ -616,7 +618,7 @@ By The Lithops Team
 
   <p class="copyright">
     
-      © Copyright 2025, The Lithops Team.
+      © Copyright 2026, The Lithops Team.
       <br/>
     
   </p>
@@ -640,8 +642,8 @@ By The Lithops Team
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

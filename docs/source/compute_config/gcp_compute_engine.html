@@ -1,0 +1,933 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Google Compute Engine (GCE) &#8212; Lithops  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-7YKZHZYDCR"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-7YKZHZYDCR');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'source/compute_config/gcp_compute_engine';</script>
+    <link rel="icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Storage Backends" href="../storage_backends.html" />
+    <link rel="prev" title="Azure Virtual Machines" href="azure_vms.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/lithops_logo_readme.png" class="logo__image only-light" alt=""/>
+    <img src="../../_static/lithops_logo_readme.png" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">Lithops v3.7.0</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Welcome to Lithops!</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview of Lithops</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../design.html">Architecture Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../comparing_lithops.html">Comparing Lithops with Other Distributed Computing Frameworks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../supported_clouds.html">Supported Clouds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../execution_modes.html">Execution Modes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">Lithops Command Line Tool</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Install and Configure Lithops</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../install_lithops.html">Installing Lithops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../compute_backends.html">Compute Backends</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="localhost.html">Localhost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws_lambda.html">AWS Lambda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gcp_functions.html">Google Cloud Run functions (v2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="azure_functions.html">Azure Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oracle_functions.html">Oracle Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aliyun_functions.html">Aliyun Function Compute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openwhisk.html">OpenWhisk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code_engine.html">IBM Cloud Code Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws_batch.html">AWS Batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gcp_cloudrun.html">Google Cloud Run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="azure_containers.html">Azure Container Apps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="knative.html">Knative</a></li>
+<li class="toctree-l2"><a class="reference internal" href="singularity.html">Singularity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vm.html">Virtual Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ibm_vpc.html">IBM Virtual Private Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws_ec2.html">AWS Elastic Compute Cloud (EC2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="azure_vms.html">Azure Virtual Machines</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Google Compute Engine (GCE)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../storage_backends.html">Storage Backends</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="localhost.html">Localhost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage_config/ibm_cos.html">IBM Cloud Object Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage_config/aws_s3.html">AWS S3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage_config/gcp_storage.html">GCP Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage_config/azure_blob.html">Azure Blob Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage_config/aliyun_oss.html">Aliyun Object Storage Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage_config/oracle_oss.html">Oracle Object Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage_config/ceph.html">Ceph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage_config/minio.html">MinIO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage_config/swift.html">Swift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage_config/redis.html">Redis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage_config/infinispan.html">Infinispan</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lithops Compute API</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../api_futures.html">Lithops Futures API</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../functions.html">Functions and Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../worker_granularity.html">Worker Granularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/function_chaining.html">Function chaining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_stats.html">Execution stats</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lithops Storage API</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../api_storage.html">Storage API Details</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Processing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../data_processing.html">Processing Data from the Cloud</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../data_partitioning.html">Data Partitioning</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Integrations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../api_multiprocessing.html">Multiprocessing API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_storage_os.html">Storage OS API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sklearn_joblib.html">Distributed Scikit-learn / Joblib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../airflow.html">Apache Airflow</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Features</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../monitoring.html">Monitoring</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/lithops-cloud/lithops/tree/master/runtime">Custom Runtimes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Features</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../metrics.html">Prometheus Monitoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dso.html">Distributed shared objects</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://github.com/lithops-cloud/applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to Lithops</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/CHANGELOG.md">Changelog</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/lithops-cloud/lithops" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/source/compute_config/gcp_compute_engine.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Google Compute Engine (GCE)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-an-operating-system-image-for-the-vm">Choose an operating system image for the VM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-and-reuse-modes">Create and reuse modes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-gcp">Summary of configuration keys for GCP</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gce-create-and-reuse-modes">GCE - Create and Reuse Modes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consume-mode">Consume mode</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-the-consume-mode">Summary of configuration keys for the consume mode</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-lithops">Test Lithops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-the-execution-logs">Viewing the execution logs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vm-management">VM Management</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#architecture-diagram">Architecture diagram</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="google-compute-engine-gce">
+<h1>Google Compute Engine (GCE)<a class="headerlink" href="#google-compute-engine-gce" title="Link to this heading">#</a></h1>
+<p>The GCP Compute Engine backend of Lithops can provide a serverless user experience on top of GCE where Lithops creates new Virtual Machines (VMs) dynamically at runtime and scales Lithops jobs against them (create and reuse modes). Alternatively Lithops can start and stop an existing VM instance (consume mode).</p>
+<p>The backend key is <code class="docutils literal notranslate"><span class="pre">gcp_compute_engine</span></code> (matches the Lithops module name).</p>
+<section id="choose-an-operating-system-image-for-the-vm">
+<h2>Choose an operating system image for the VM<a class="headerlink" href="#choose-an-operating-system-image-for-the-vm" title="Link to this heading">#</a></h2>
+<p>Any VM needs an operating system image. By default Lithops uses Ubuntu 24.04 (<code class="docutils literal notranslate"><span class="pre">projects/ubuntu-os-cloud/global/images/family/ubuntu-2404-lts-amd64</span></code>). Lithops installs required dependencies on the VM on first use (this can take a few minutes).</p>
+<p>For faster startups, build a pre-configured custom image (see <a class="reference external" href="https://github.com/lithops-cloud/lithops/tree/master/runtime/gcp_compute_engine">runtime/gcp_compute_engine</a>):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops<span class="w"> </span>image<span class="w"> </span>build<span class="w"> </span>-b<span class="w"> </span>gcp_compute_engine
+</pre></div>
+</div>
+<p>This creates <code class="docutils literal notranslate"><span class="pre">lithops-ubuntu-2404-lts-amd64-server</span></code> in your project; Lithops uses it automatically when present.</p>
+<p>To list available images:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops<span class="w"> </span>image<span class="w"> </span>list<span class="w"> </span>-b<span class="w"> </span>gcp_compute_engine
+</pre></div>
+</div>
+<p>Use the <strong>Image ID</strong> column as <code class="docutils literal notranslate"><span class="pre">source_image</span></code> in your config when using a custom image name.</p>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Install GCP backend dependencies:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>lithops<span class="o">[</span>gcp<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="create-and-reuse-modes">
+<h2>Create and reuse modes<a class="headerlink" href="#create-and-reuse-modes" title="Link to this heading">#</a></h2>
+<p>In the <code class="docutils literal notranslate"><span class="pre">create</span></code> mode, Lithops automatically creates new worker VM instances at runtime, runs the job on them, and deletes the workers when the job completes (unless configured otherwise).</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">reuse</span></code> mode, Lithops keeps the master and worker VMs stopped between jobs and starts them again when needed. It reuses running workers when possible and only creates new workers if necessary.</p>
+<section id="configuration">
+<h3>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Enable the Compute Engine API:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gcloud<span class="w"> </span>services<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>compute.googleapis.com<span class="w"> </span>--project<span class="w"> </span>&lt;PROJECT_ID&gt;
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Create a service account (or use an existing one) and grant these roles on the project:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gcloud<span class="w"> </span>projects<span class="w"> </span>add-iam-policy-binding<span class="w"> </span>&lt;PROJECT_ID&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--member<span class="o">=</span><span class="s2">&quot;serviceAccount:&lt;SERVICE_ACCOUNT_EMAIL&gt;&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--role<span class="o">=</span><span class="s2">&quot;roles/compute.admin&quot;</span>
+
+gcloud<span class="w"> </span>projects<span class="w"> </span>add-iam-policy-binding<span class="w"> </span>&lt;PROJECT_ID&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--member<span class="o">=</span><span class="s2">&quot;serviceAccount:&lt;SERVICE_ACCOUNT_EMAIL&gt;&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--role<span class="o">=</span><span class="s2">&quot;roles/storage.objectAdmin&quot;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Set the Lithops config file:</p></li>
+</ol>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gcp_compute_engine</span>
+
+<span class="nt">gcp</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">credentials_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;FULL_PATH_TO_SERVICE_ACCOUNT_JSON&gt;</span>
+
+<span class="nt">gcp_compute_engine</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">project_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;GCP_PROJECT_ID&gt;</span>
+<span class="w">  </span><span class="nt">zone</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;ZONE&gt;</span>
+<span class="w">  </span><span class="nt">exec_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reuse</span>
+</pre></div>
+</div>
+<p>Lithops attaches the service account from <code class="docutils literal notranslate"><span class="pre">credentials_path</span></code> to master and worker VMs so they can access GCS via the metadata service. You can set <code class="docutils literal notranslate"><span class="pre">service_account:</span> <span class="pre">&lt;EMAIL&gt;</span></code> explicitly if needed.</p>
+</section>
+<section id="summary-of-configuration-keys-for-gcp">
+<h3>Summary of configuration keys for GCP<a class="headerlink" href="#summary-of-configuration-keys-for-gcp" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Group</p></th>
+<th class="head"><p>Key</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Mandatory</p></th>
+<th class="head"><p>Additional info</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>gcp</p></td>
+<td><p>credentials_path</p></td>
+<td><p></p></td>
+<td><p>no</p></td>
+<td><p>Service account JSON used by Lithops on your machine and to select the VM service account</p></td>
+</tr>
+<tr class="row-odd"><td><p>gcp</p></td>
+<td><p>region</p></td>
+<td><p></p></td>
+<td><p>no</p></td>
+<td><p>GCP region. Derived from <code class="docutils literal notranslate"><span class="pre">zone</span></code> if omitted</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="gce-create-and-reuse-modes">
+<h3>GCE - Create and Reuse Modes<a class="headerlink" href="#gce-create-and-reuse-modes" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Group</p></th>
+<th class="head"><p>Key</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Mandatory</p></th>
+<th class="head"><p>Additional info</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>gcp_compute_engine</p></td>
+<td><p>project_name</p></td>
+<td><p></p></td>
+<td><p>yes</p></td>
+<td><p>GCP project ID</p></td>
+</tr>
+<tr class="row-odd"><td><p>gcp_compute_engine</p></td>
+<td><p>zone</p></td>
+<td><p></p></td>
+<td><p>yes</p></td>
+<td><p>Compute Engine zone, for example <code class="docutils literal notranslate"><span class="pre">us-east1-b</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>gcp_compute_engine</p></td>
+<td><p>region</p></td>
+<td><p>derived from zone</p></td>
+<td><p>no</p></td>
+<td><p>Region used for subnet and NAT</p></td>
+</tr>
+<tr class="row-odd"><td><p>gcp_compute_engine</p></td>
+<td><p>service_account</p></td>
+<td><p></p></td>
+<td><p>no</p></td>
+<td><p>Service account email attached to VMs. Default: <code class="docutils literal notranslate"><span class="pre">client_email</span></code> from <code class="docutils literal notranslate"><span class="pre">credentials_path</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>gcp_compute_engine</p></td>
+<td><p>network_name</p></td>
+<td><p></p></td>
+<td><p>no</p></td>
+<td><p>Existing VPC name. If not provided, Lithops creates a new network</p></td>
+</tr>
+<tr class="row-odd"><td><p>gcp_compute_engine</p></td>
+<td><p>subnet_name</p></td>
+<td><p></p></td>
+<td><p>no</p></td>
+<td><p>Existing subnet name when using a custom VPC</p></td>
+</tr>
+<tr class="row-even"><td><p>gcp_compute_engine</p></td>
+<td><p>source_image</p></td>
+<td><p>ubuntu-2404-lts-amd64</p></td>
+<td><p>no</p></td>
+<td><p>Boot image reference</p></td>
+</tr>
+<tr class="row-odd"><td><p>gcp_compute_engine</p></td>
+<td><p>master_instance_type</p></td>
+<td><p>e2-small</p></td>
+<td><p>no</p></td>
+<td><p>Master VM machine type</p></td>
+</tr>
+<tr class="row-even"><td><p>gcp_compute_engine</p></td>
+<td><p>worker_instance_type</p></td>
+<td><p>e2-standard-2</p></td>
+<td><p>no</p></td>
+<td><p>Worker VM machine type</p></td>
+</tr>
+<tr class="row-odd"><td><p>gcp_compute_engine</p></td>
+<td><p>ssh_username</p></td>
+<td><p>ubuntu</p></td>
+<td><p>no</p></td>
+<td><p>Username to access the VM</p></td>
+</tr>
+<tr class="row-even"><td><p>gcp_compute_engine</p></td>
+<td><p>ssh_password</p></td>
+<td><p></p></td>
+<td><p>no</p></td>
+<td><p>Password for worker VMs. If not provided, it is created randomly</p></td>
+</tr>
+<tr class="row-odd"><td><p>gcp_compute_engine</p></td>
+<td><p>ssh_key_filename</p></td>
+<td><p></p></td>
+<td><p>no</p></td>
+<td><p>SSH private key for the master VM. If not provided, Lithops creates <code class="docutils literal notranslate"><span class="pre">~/.ssh/lithops-key-&lt;id&gt;.gcp_ce.id_rsa</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>gcp_compute_engine</p></td>
+<td><p>request_spot_instances</p></td>
+<td><p>False</p></td>
+<td><p>no</p></td>
+<td><p>Use Spot VMs for workers</p></td>
+</tr>
+<tr class="row-odd"><td><p>gcp_compute_engine</p></td>
+<td><p>delete_on_dismantle</p></td>
+<td><p>True</p></td>
+<td><p>no</p></td>
+<td><p>Delete worker VMs when stopped. Master VM is never deleted when stopped</p></td>
+</tr>
+<tr class="row-even"><td><p>gcp_compute_engine</p></td>
+<td><p>max_workers</p></td>
+<td><p>100</p></td>
+<td><p>no</p></td>
+<td><p>Max number of workers per <code class="docutils literal notranslate"><span class="pre">FunctionExecutor()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>gcp_compute_engine</p></td>
+<td><p>worker_processes</p></td>
+<td><p>AUTO</p></td>
+<td><p>no</p></td>
+<td><p>Parallel Lithops processes per worker. Default: CPUs of <code class="docutils literal notranslate"><span class="pre">worker_instance_type</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>gcp_compute_engine</p></td>
+<td><p>runtime</p></td>
+<td><p>python3</p></td>
+<td><p>no</p></td>
+<td><p>Runtime name. Default: python3 on the VM</p></td>
+</tr>
+<tr class="row-odd"><td><p>gcp_compute_engine</p></td>
+<td><p>auto_dismantle</p></td>
+<td><p>True</p></td>
+<td><p>no</p></td>
+<td><p>If False, VMs are not stopped automatically</p></td>
+</tr>
+<tr class="row-even"><td><p>gcp_compute_engine</p></td>
+<td><p>soft_dismantle_timeout</p></td>
+<td><p>300</p></td>
+<td><p>no</p></td>
+<td><p>Seconds to stop the VM after a job <strong>completed</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>gcp_compute_engine</p></td>
+<td><p>hard_dismantle_timeout</p></td>
+<td><p>3600</p></td>
+<td><p>no</p></td>
+<td><p>Seconds to stop the VM after a job <strong>started</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>gcp_compute_engine</p></td>
+<td><p>exec_mode</p></td>
+<td><p>reuse</p></td>
+<td><p>no</p></td>
+<td><p>One of: <strong>consume</strong>, <strong>create</strong> or <strong>reuse</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>gcp_compute_engine</p></td>
+<td><p>extra_apt_packages</p></td>
+<td><p>[]</p></td>
+<td><p>no</p></td>
+<td><p>Extra apt packages on master/worker VMs during setup</p></td>
+</tr>
+<tr class="row-even"><td><p>gcp_compute_engine</p></td>
+<td><p>extra_python_packages</p></td>
+<td><p>[]</p></td>
+<td><p>no</p></td>
+<td><p>Extra pip packages on master/worker VMs after Lithops</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="consume-mode">
+<h2>Consume mode<a class="headerlink" href="#consume-mode" title="Link to this heading">#</a></h2>
+<p>In this mode, Lithops uses an existing VM. The VM must be reachable by SSH and have a service account with GCS access.</p>
+<section id="id1">
+<h3>Configuration<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gcp_compute_engine</span>
+
+<span class="nt">gcp</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">credentials_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;FULL_PATH_TO_SERVICE_ACCOUNT_JSON&gt;</span>
+
+<span class="nt">gcp_compute_engine</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">exec_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">consume</span>
+<span class="w">  </span><span class="nt">project_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;GCP_PROJECT_ID&gt;</span>
+<span class="w">  </span><span class="nt">zone</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;ZONE&gt;</span>
+<span class="w">  </span><span class="nt">instance_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;EXISTING_VM_NAME&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="summary-of-configuration-keys-for-the-consume-mode">
+<h3>Summary of configuration keys for the consume mode<a class="headerlink" href="#summary-of-configuration-keys-for-the-consume-mode" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Group</p></th>
+<th class="head"><p>Key</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Mandatory</p></th>
+<th class="head"><p>Additional info</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>gcp_compute_engine</p></td>
+<td><p>instance_name</p></td>
+<td><p></p></td>
+<td><p>yes</p></td>
+<td><p>Existing VM instance name</p></td>
+</tr>
+<tr class="row-odd"><td><p>gcp_compute_engine</p></td>
+<td><p>project_name</p></td>
+<td><p></p></td>
+<td><p>yes</p></td>
+<td><p>GCP project ID</p></td>
+</tr>
+<tr class="row-even"><td><p>gcp_compute_engine</p></td>
+<td><p>zone</p></td>
+<td><p></p></td>
+<td><p>yes</p></td>
+<td><p>Compute Engine zone</p></td>
+</tr>
+<tr class="row-odd"><td><p>gcp_compute_engine</p></td>
+<td><p>ssh_username</p></td>
+<td><p>ubuntu</p></td>
+<td><p>no</p></td>
+<td><p>Username to access the VM</p></td>
+</tr>
+<tr class="row-even"><td><p>gcp_compute_engine</p></td>
+<td><p>ssh_key_filename</p></td>
+<td><p></p></td>
+<td><p>no</p></td>
+<td><p>Path to the SSH private key. If not provided, Lithops creates <code class="docutils literal notranslate"><span class="pre">~/.ssh/lithops-key-&lt;id&gt;.gcp_ce.id_rsa</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>gcp_compute_engine</p></td>
+<td><p>worker_processes</p></td>
+<td><p>AUTO</p></td>
+<td><p>no</p></td>
+<td><p>Parallel Lithops processes per worker</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="test-lithops">
+<h2>Test Lithops<a class="headerlink" href="#test-lithops" title="Link to this heading">#</a></h2>
+<p>Once you have your compute and storage backends configured, you can run a Hello World function with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops<span class="w"> </span>hello<span class="w"> </span>-b<span class="w"> </span>gcp_compute_engine<span class="w"> </span>-s<span class="w"> </span>gcp_storage
+</pre></div>
+</div>
+</section>
+<section id="viewing-the-execution-logs">
+<h2>Viewing the execution logs<a class="headerlink" href="#viewing-the-execution-logs" title="Link to this heading">#</a></h2>
+<p>You can view the function execution logs on your local machine using the Lithops client:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops<span class="w"> </span>logs<span class="w"> </span>poll
+</pre></div>
+</div>
+</section>
+<section id="vm-management">
+<h2>VM Management<a class="headerlink" href="#vm-management" title="Link to this heading">#</a></h2>
+<p>Lithops for GCE follows a master-worker architecture (1:N).</p>
+<p>All VMs, including the master, are automatically stopped after a configurable timeout (see hard/soft dismantle timeouts). Stopped master and worker VMs are started again on the next job in reuse mode.</p>
+<p>You can open an SSH session to the master VM with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops<span class="w"> </span>attach<span class="w"> </span>-b<span class="w"> </span>gcp_compute_engine
+</pre></div>
+</div>
+<p>The master and worker VMs store Lithops service logs in <code class="docutils literal notranslate"><span class="pre">/tmp/lithops-root/*-service.log</span></code>.</p>
+<p>To list available workers:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops<span class="w"> </span>worker<span class="w"> </span>list<span class="w"> </span>-b<span class="w"> </span>gcp_compute_engine
+</pre></div>
+</div>
+<p>To list submitted jobs:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops<span class="w"> </span>job<span class="w"> </span>list<span class="w"> </span>-b<span class="w"> </span>gcp_compute_engine
+</pre></div>
+</div>
+<p>To delete workers only:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops<span class="w"> </span>clean<span class="w"> </span>-b<span class="w"> </span>gcp_compute_engine<span class="w"> </span>-s<span class="w"> </span>gcp_storage
+</pre></div>
+</div>
+<p>To delete workers, the master VM, and Lithops-created network resources:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lithops<span class="w"> </span>clean<span class="w"> </span>-b<span class="w"> </span>gcp_compute_engine<span class="w"> </span>-s<span class="w"> </span>gcp_storage<span class="w"> </span>--all
+</pre></div>
+</div>
+</section>
+<section id="architecture-diagram">
+<h2>Architecture diagram<a class="headerlink" href="#architecture-diagram" title="Link to this heading">#</a></h2>
+<div class="highlight-mermaid notranslate"><div class="highlight"><pre><span></span>flowchart TB
+  subgraph gcp [GCP project / region]
+    NET[&quot;VPC lithops-net-XXXXXX&quot;]
+    SUB[&quot;Subnet lithops-net-XXXXXX-subnet&quot;]
+    FW1[&quot;Firewall SSH :22 from internet&quot;]
+    FW2[&quot;Firewall internal :8080/8081/6379/22&quot;]
+    NAT[&quot;Cloud Router + NAT lithops-net-XXXXXX-router&quot;]
+    M[&quot;Master VM lithops-master-XXXXXX\n+ ephemeral external IP&quot;]
+    W[&quot;Worker VMs lithops-worker-*\nprivate IP only&quot;]
+  end
+  LAPTOP[&quot;Your laptop&quot;] --&gt;|SSH :22| M
+  M --&gt;|private network| W
+  W --&gt;|egress| NAT
+  NAT --&gt; INTERNET[Internet apt/docker/pip]
+  M --&gt; SUB
+  W --&gt; SUB
+  SUB --&gt; NET
+</pre></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="azure_vms.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Azure Virtual Machines</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../storage_backends.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Storage Backends</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-an-operating-system-image-for-the-vm">Choose an operating system image for the VM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-and-reuse-modes">Create and reuse modes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-gcp">Summary of configuration keys for GCP</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gce-create-and-reuse-modes">GCE - Create and Reuse Modes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consume-mode">Consume mode</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-the-consume-mode">Summary of configuration keys for the consume mode</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-lithops">Test Lithops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-the-execution-logs">Viewing the execution logs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vm-management">VM Management</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#architecture-diagram">Architecture diagram</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Lithops Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, The Lithops Team.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
