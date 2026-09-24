@@ -144,7 +144,7 @@
     <img src="../_static/lithops_logo_readme.png" class="logo__image only-dark pst-js-only" alt=""/>
   
   
-    <p class="title logo__title">Lithops v3.7.0</p>
+    <p class="title logo__title">Lithops v3.8.0</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -183,7 +183,10 @@
 <li class="toctree-l2"><a class="reference internal" href="compute_config/aws_batch.html">AWS Batch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/gcp_cloudrun.html">Google Cloud Run</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/azure_containers.html">Azure Container Apps</a></li>
-<li class="toctree-l2"><a class="reference internal" href="compute_config/kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="compute_config/kubernetes.html">Kubernetes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="compute_config/kubernetes_rabbitmq.html">Kubernetes RabbitMQ (batch/job)</a></li>
+</ul>
+</details></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/knative.html">Knative</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/singularity.html">Singularity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/vm.html">Virtual Machine</a></li>
@@ -194,7 +197,6 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="storage_backends.html">Storage Backends</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="compute_config/localhost.html">Localhost</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage_config/ibm_cos.html">IBM Cloud Object Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage_config/aws_s3.html">AWS S3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage_config/gcp_storage.html">GCP Storage</a></li>
@@ -211,7 +213,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lithops Compute API</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="api_futures.html">Lithops Futures API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_futures.html">Lithops Core API</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="functions.html">Functions and Parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="worker_granularity.html">Worker Granularity</a></li>
@@ -232,6 +234,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Integrations</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="api_concurrent.html">Concurrent Futures API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_multiprocessing.html">Multiprocessing API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_storage_os.html">Storage OS API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sklearn_joblib.html">Distributed Scikit-learn / Joblib</a></li>
@@ -240,11 +243,11 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Features</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="monitoring.html">Monitoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics.html">Metrics and Telemetry</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/lithops-cloud/lithops/tree/master/runtime">Custom Runtimes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Features</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="metrics.html">Prometheus Monitoring</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dso.html">Distributed shared objects</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
@@ -396,9 +399,16 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reporting-bugs-and-asking-questions">Reporting bugs and asking questions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-contribute-a-patch">To contribute a patch</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">Testing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-bugs-and-ideas">Questions, bugs and ideas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#development-setup">Development setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-tests">Running the tests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-conventions">Code conventions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">Documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#changelog">Changelog</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pull-requests">Pull requests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#releasing-maintainers">Releasing (maintainers)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ai-coding-agents">AI coding agents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
 </ul>
             </nav>
         </div>
@@ -412,52 +422,132 @@
                   
   <section id="contributing-to-lithops">
 <span id="contributing"></span><h1>Contributing to Lithops<a class="headerlink" href="#contributing-to-lithops" title="Link to this heading">#</a></h1>
-<section id="reporting-bugs-and-asking-questions">
-<h2>Reporting bugs and asking questions<a class="headerlink" href="#reporting-bugs-and-asking-questions" title="Link to this heading">#</a></h2>
-<p>You can post questions or issues or feedback through the following channels:</p>
-<ol class="arabic simple">
-<li><p><a class="reference external" href="https://github.com/lithops-cloud/lithops/discussions">GitHub Discussions</a>: For discussions about development, questions about usage, and feature requests.</p></li>
-<li><p><a class="reference external" href="https://github.com/lithops-cloud/lithops/issues">GitHub Issues</a>: For bug reports and feature requests.</p></li>
-</ol>
+<p>Thanks for your interest in improving Lithops! This guide explains how to get help, report
+problems, set up a development environment, and get a change merged.</p>
+<section id="questions-bugs-and-ideas">
+<h2>Questions, bugs and ideas<a class="headerlink" href="#questions-bugs-and-ideas" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Questions and ideas:</strong> use <a class="reference external" href="https://github.com/lithops-cloud/lithops/discussions">GitHub Discussions</a>
+for usage questions, design discussions and feature ideas.</p></li>
+<li><p><strong>Bugs:</strong> open a <a class="reference external" href="https://github.com/lithops-cloud/lithops/issues">GitHub issue</a> with the bug
+template. Include the Lithops version (<code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">--version</span></code>), the compute and storage
+backends, a minimal script that reproduces the problem and the full traceback (ideally with
+<code class="docutils literal notranslate"><span class="pre">log_level:</span> <span class="pre">DEBUG</span></code>). Remove credentials and account IDs from any configuration you paste.</p></li>
+<li><p><strong>Larger changes</strong> (new backends, API changes, changes to the execution flow): open an issue
+or discussion first, so we can agree on the approach before you write the code.</p></li>
+<li><p><strong>Security issues:</strong> do <strong>not</strong> open a public issue, see
+<a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/SECURITY.md">SECURITY.md</a>.</p></li>
+</ul>
 </section>
-<section id="to-contribute-a-patch">
-<h2>To contribute a patch<a class="headerlink" href="#to-contribute-a-patch" title="Link to this heading">#</a></h2>
-<ol class="arabic">
-<li><p>Break your work into small, single-purpose patches if possible. It’s much
-harder to merge in a large change with a lot of disjoint features.</p></li>
-<li><p>Submit the patch as a GitHub pull request against the master branch.</p></li>
-<li><p>Make sure that your code passes the tests.</p></li>
-<li><p>Make sure that your code passes the linter. Install <code class="docutils literal notranslate"><span class="pre">flake8</span></code> with <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">flake8</span></code> and run the following command until you don’t see any linting errors:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>flake8<span class="w"> </span>lithops<span class="w"> </span>--count<span class="w"> </span>--max-line-length<span class="o">=</span><span class="m">180</span><span class="w"> </span>--statistics<span class="w"> </span>--ignore<span class="w"> </span>W605,W503
+<section id="development-setup">
+<h2>Development setup<a class="headerlink" href="#development-setup" title="Link to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/&lt;your-user&gt;/lithops<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>lithops<span class="w">    </span><span class="c1"># your fork</span>
+python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>.venv/bin/activate<span class="w">                  </span><span class="c1"># optional, recommended</span>
+pip3<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;.[tests,dev]&#39;</span><span class="w">      </span><span class="c1"># editable install + test deps + ruff and pre-commit</span>
+pip3<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;.[aws]&#39;</span><span class="w">            </span><span class="c1"># add the extras of the backends you work on</span>
+<span class="w">                                    </span><span class="c1"># (aws, gcp, azure, ibm, aliyun, oracle, ... or all)</span>
+pre-commit<span class="w"> </span>install<span class="w">                  </span><span class="c1"># optional: run ruff on every commit</span>
 </pre></div>
 </div>
-</li>
-<li><p>Add new tests for your code.</p></li>
-</ol>
+<p>The localhost backend needs no cloud account and no configuration, so it is all you need for
+most changes. To work on a cloud backend, configure it as described in
+<a class="reference internal" href="configuration.html"><span class="doc">Configuration</span></a>.</p>
 </section>
-<section id="testing">
-<h2>Testing<a class="headerlink" href="#testing" title="Link to this heading">#</a></h2>
-<p>To test that all is working as expected, install <code class="docutils literal notranslate"><span class="pre">pytest</span></code>, navigate to the tests folder <code class="docutils literal notranslate"><span class="pre">lithops/tests/</span></code>, and execute:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>-v
+<section id="running-the-tests">
+<h2>Running the tests<a class="headerlink" href="#running-the-tests" title="Link to this heading">#</a></h2>
+<p>The tests live in <code class="docutils literal notranslate"><span class="pre">lithops/tests/</span></code> and are run from that folder:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>lithops/tests
+pytest<span class="w"> </span>-v<span class="w"> </span>--timeout<span class="o">=</span><span class="m">120</span><span class="w"> </span>--timeout-method<span class="o">=</span>thread<span class="w"> </span>--backend<span class="w"> </span>localhost<span class="w"> </span>--storage<span class="w"> </span>localhost
 </pre></div>
 </div>
-<p>If you made changes to a specific backend, please run tests on that backend.
-For example, if you made changes to the AWS Lambda backend, execute the tests with:</p>
+<p>Always pass <code class="docutils literal notranslate"><span class="pre">--backend</span></code> and <code class="docutils literal notranslate"><span class="pre">--storage</span></code>: without them the tests use your own Lithops
+configuration (<code class="docutils literal notranslate"><span class="pre">~/.lithops/config</span></code>, <code class="docutils literal notranslate"><span class="pre">.lithops_config</span></code> or <code class="docutils literal notranslate"><span class="pre">LITHOPS_CONFIG_FILE</span></code>) and run
+against the cloud account it points to. Some tests need a Redis server on <code class="docutils literal notranslate"><span class="pre">localhost:6379</span></code>
+(for example <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">-d</span> <span class="pre">-p</span> <span class="pre">6379:6379</span> <span class="pre">redis:7</span></code>) and are skipped when none is reachable.</p>
+<p>Other useful invocations:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>-v<span class="w"> </span>--backend<span class="w"> </span>localhost<span class="w"> </span>--storage<span class="w"> </span>localhost<span class="w"> </span>-k<span class="w"> </span>test_map<span class="w">    </span><span class="c1"># a test or group of tests</span>
+pytest<span class="w"> </span>--collect-only<span class="w">                                            </span><span class="c1"># list all the tests</span>
+pytest<span class="w"> </span>-o<span class="w"> </span><span class="nv">log_cli</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span>--log-cli-level<span class="o">=</span>DEBUG<span class="w"> </span>--backend<span class="w"> </span>localhost<span class="w"> </span>--storage<span class="w"> </span>localhost<span class="w">   </span><span class="c1"># with logs</span>
+</pre></div>
+</div>
+<p>If you change a specific backend, also run the tests on that backend, for example:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>-v<span class="w"> </span>--backend<span class="w"> </span>aws_lambda<span class="w"> </span>--storage<span class="w"> </span>aws_s3
+pytest<span class="w"> </span>-v<span class="w"> </span>--config<span class="w"> </span>/path/to/config.yaml<span class="w"> </span>--backend<span class="w"> </span>code_engine<span class="w"> </span>--storage<span class="w"> </span>ibm_cos<span class="w"> </span>--region<span class="w"> </span>eu-de
 </pre></div>
 </div>
-<p>You can list all the available tests using:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>--collect-only
+<p>CI runs the localhost suite on Python 3.10 - 3.14 for every pull request; cloud backends are
+not exercised in CI, so mention in your pull request which backend you tested on.</p>
+</section>
+<section id="code-conventions">
+<h2>Code conventions<a class="headerlink" href="#code-conventions" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Linting:</strong> <code class="docutils literal notranslate"><span class="pre">ruff</span> <span class="pre">check</span> <span class="pre">.</span></code> must pass (<code class="docutils literal notranslate"><span class="pre">ruff</span> <span class="pre">check</span> <span class="pre">--fix</span> <span class="pre">.</span></code> fixes what it can). The
+configuration (rules, line length 120) is in <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>; CI runs the same check.</p></li>
+<li><p><strong>Style:</strong> follow the style of the surrounding code. The editor settings are in
+<code class="docutils literal notranslate"><span class="pre">.editorconfig</span></code>. Do not run <code class="docutils literal notranslate"><span class="pre">ruff</span> <span class="pre">format</span></code>: the code base is not formatted with it.</p></li>
+<li><p><strong>Dependencies:</strong> package metadata, dependencies and extras are declared in
+<code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>. A dependency added to an extra also goes into the <code class="docutils literal notranslate"><span class="pre">all</span></code> extra.</p></li>
+<li><p><strong>Tests:</strong> every bug fix comes with a regression test, and every feature with tests of its
+behaviour. Tests must pass on the localhost backend; code that only runs in a cloud
+backend is tested with fakes or mocks.</p></li>
+<li><p><strong>Backends:</strong> backend-specific code stays in its package (<code class="docutils literal notranslate"><span class="pre">lithops/serverless/backends/</span></code>,
+<code class="docutils literal notranslate"><span class="pre">lithops/standalone/backends/</span></code>, <code class="docutils literal notranslate"><span class="pre">lithops/storage/backends/</span></code>). Import the provider SDKs
+there, not in the core modules, so Lithops keeps working without the extras installed.</p></li>
+<li><p><strong>Configuration keys:</strong> document new or changed keys in <code class="docutils literal notranslate"><span class="pre">config/config_template.yaml</span></code> and
+in the backend’s page under <code class="docutils literal notranslate"><span class="pre">docs/source/compute_config/</span></code> or <code class="docutils literal notranslate"><span class="pre">docs/source/storage_config/</span></code>
+(general <code class="docutils literal notranslate"><span class="pre">lithops</span></code> keys in <code class="docutils literal notranslate"><span class="pre">docs/source/lithops_config_keys.csv</span></code>).</p></li>
+<li><p><strong>Public API:</strong> keep <code class="docutils literal notranslate"><span class="pre">FunctionExecutor</span></code>, <code class="docutils literal notranslate"><span class="pre">Storage</span></code>, futures and the <code class="docutils literal notranslate"><span class="pre">multiprocessing</span></code> /
+<code class="docutils literal notranslate"><span class="pre">concurrent.futures</span></code> APIs backwards compatible, or discuss the change in an issue first.</p></li>
+</ul>
+</section>
+<section id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Link to this heading">#</a></h2>
+<p>The documentation is written in reStructuredText and Markdown under <code class="docutils literal notranslate"><span class="pre">docs/</span></code> and built with
+Sphinx; see <a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/docs/README.md">docs/README.md</a> for how to build it locally. Update it
+together with any user-visible change.</p>
+</section>
+<section id="changelog">
+<h2>Changelog<a class="headerlink" href="#changelog" title="Link to this heading">#</a></h2>
+<p>Add an entry for every user-visible change to <a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/CHANGELOG.md">CHANGELOG.md</a>, under the
+topmost (development) version, in the <em>Added</em>, <em>Changed</em>, <em>Fixed</em> or <em>Removed</em> section, prefixed
+with the component:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">### Fixed</span>
+<span class="k">-</span><span class="w"> </span>[AWS Lambda] Short description of the fix.
 </pre></div>
 </div>
-<p>To run a specific test or group of tests, use the <code class="docutils literal notranslate"><span class="pre">-k</span></code> parameter, for example:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>-v<span class="w"> </span>--backend<span class="w"> </span>localhost<span class="w"> </span>--storage<span class="w"> </span>localhost<span class="w"> </span>-k<span class="w"> </span>test_map
-</pre></div>
-</div>
-<p>To view all the Lithops logs during the tests in DEBUG mode, execute:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>-o<span class="w"> </span><span class="nv">log_cli</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span>--log-cli-level<span class="o">=</span>DEBUG<span class="w"> </span>--backend<span class="w"> </span>localhost<span class="w"> </span>--storage<span class="w"> </span>localhost
-</pre></div>
-</div>
+</section>
+<section id="pull-requests">
+<h2>Pull requests<a class="headerlink" href="#pull-requests" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Break your work into small, single-purpose pull requests. A large change with many
+unrelated parts is much harder to review and merge.</p></li>
+<li><p>Open the pull request against the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch and fill in the template: what changed,
+why, and how you tested it.</p></li>
+<li><p>Make sure ruff and the localhost tests pass, and that tests, docs and the changelog are
+updated.</p></li>
+<li><p>By opening a pull request you certify the Developer’s Certificate of Origin included in the
+pull request template.</p></li>
+</ol>
+</section>
+<section id="releasing-maintainers">
+<h2>Releasing (maintainers)<a class="headerlink" href="#releasing-maintainers" title="Link to this heading">#</a></h2>
+<p>Releases are made by the <a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/.github/workflows/release.yml">Release workflow</a>:
+<em>Actions</em> -&gt; <em>Release</em> -&gt; <em>Run workflow</em>, with the version to release (e.g. <code class="docutils literal notranslate"><span class="pre">3.7.1</span></code>). Before
+running it, review the development section at the top of <code class="docutils literal notranslate"><span class="pre">CHANGELOG.md</span></code>, which becomes the
+release notes. The workflow sets the version, tags it, publishes the sdist and wheel to PyPI,
+creates the GitHub release and bumps <code class="docutils literal notranslate"><span class="pre">master</span></code> to the next development version. Check
+<em>dry run</em> to build and check a release without pushing or publishing anything.</p>
+</section>
+<section id="ai-coding-agents">
+<h2>AI coding agents<a class="headerlink" href="#ai-coding-agents" title="Link to this heading">#</a></h2>
+<p>Instructions for AI coding agents (Claude Code, Codex, Copilot, Cursor, …) are in
+<a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/AGENTS.md">AGENTS.md</a>. Contributions made with their help follow the same rules as any
+other: you are responsible for reviewing, testing and understanding the code you submit.</p>
+</section>
+<section id="license">
+<h2>License<a class="headerlink" href="#license" title="Link to this heading">#</a></h2>
+<p>By contributing you agree that your contributions are licensed under the
+<a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/LICENSE">Apache License 2.0</a>.</p>
 </section>
 </section>
 
@@ -499,9 +589,16 @@ For example, if you made changes to the AWS Lambda backend, execute the tests wi
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reporting-bugs-and-asking-questions">Reporting bugs and asking questions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-contribute-a-patch">To contribute a patch</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">Testing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-bugs-and-ideas">Questions, bugs and ideas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#development-setup">Development setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-tests">Running the tests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-conventions">Code conventions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">Documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#changelog">Changelog</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pull-requests">Pull requests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#releasing-maintainers">Releasing (maintainers)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ai-coding-agents">AI coding agents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
 </ul>
   </nav></div>
 

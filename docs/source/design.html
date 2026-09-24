@@ -145,7 +145,7 @@
     <img src="../_static/lithops_logo_readme.png" class="logo__image only-dark pst-js-only" alt=""/>
   
   
-    <p class="title logo__title">Lithops v3.7.0</p>
+    <p class="title logo__title">Lithops v3.8.0</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -184,7 +184,10 @@
 <li class="toctree-l2"><a class="reference internal" href="compute_config/aws_batch.html">AWS Batch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/gcp_cloudrun.html">Google Cloud Run</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/azure_containers.html">Azure Container Apps</a></li>
-<li class="toctree-l2"><a class="reference internal" href="compute_config/kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="compute_config/kubernetes.html">Kubernetes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="compute_config/kubernetes_rabbitmq.html">Kubernetes RabbitMQ (batch/job)</a></li>
+</ul>
+</details></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/knative.html">Knative</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/singularity.html">Singularity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/vm.html">Virtual Machine</a></li>
@@ -195,7 +198,6 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="storage_backends.html">Storage Backends</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="compute_config/localhost.html">Localhost</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage_config/ibm_cos.html">IBM Cloud Object Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage_config/aws_s3.html">AWS S3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage_config/gcp_storage.html">GCP Storage</a></li>
@@ -212,7 +214,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lithops Compute API</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="api_futures.html">Lithops Futures API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_futures.html">Lithops Core API</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="functions.html">Functions and Parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="worker_granularity.html">Worker Granularity</a></li>
@@ -233,6 +235,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Integrations</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="api_concurrent.html">Concurrent Futures API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_multiprocessing.html">Multiprocessing API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_storage_os.html">Storage OS API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sklearn_joblib.html">Distributed Scikit-learn / Joblib</a></li>
@@ -241,11 +244,11 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Features</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="monitoring.html">Monitoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics.html">Metrics and Telemetry</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/lithops-cloud/lithops/tree/master/runtime">Custom Runtimes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Features</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="metrics.html">Prometheus Monitoring</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dso.html">Distributed shared objects</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
@@ -492,20 +495,25 @@ partitions the input data into per-call chunks.</p></td>
 invocations; <code class="docutils literal notranslate"><span class="pre">BatchInvoker</span></code> submits a single batch/job for many tasks.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">JobMonitor</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">lithops/monitor.py</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">lithops/monitoring/</span></code></p></td>
 <td><p>Tracks completion through either <code class="docutils literal notranslate"><span class="pre">StorageMonitor</span></code> (polling) or
 <code class="docutils literal notranslate"><span class="pre">RabbitmqMonitor</span></code> (push notifications).</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">InternalStorage</span></code></p></td>
+<tr class="row-even"><td><p>Telemetry</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">lithops/telemetry/</span></code></p></td>
+<td><p>Turns the call statuses the monitor reads into metrics, and pushes them
+to Prometheus or to an OpenTelemetry collector. Off by default.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">InternalStorage</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">lithops/storage/storage.py</span></code></p></td>
 <td><p>Uniform storage client used by both the client and the workers, backed by
 S3, IBM COS, Azure Blob, GCS, MinIO, Ceph, Redis and more.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ResponseFuture</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ResponseFuture</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">lithops/future.py</span></code></p></td>
 <td><p>Future object that tracks the state of a single call and exposes its result.</p></td>
 </tr>
-<tr class="row-even"><td><p>Worker</p></td>
+<tr class="row-odd"><td><p>Worker</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">lithops/worker/</span></code> (<code class="docutils literal notranslate"><span class="pre">handler.py</span></code>, <code class="docutils literal notranslate"><span class="pre">jobrunner.py</span></code>)</p></td>
 <td><p>Runs inside the compute backend: <code class="docutils literal notranslate"><span class="pre">entry_point</span></code> → <code class="docutils literal notranslate"><span class="pre">function_handler()</span></code> →
 <code class="docutils literal notranslate"><span class="pre">JobRunner</span></code> executes the call and reports back.</p></td>

@@ -59,7 +59,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Storage OS API" href="api_storage_os.html" />
-    <link rel="prev" title="Data Partitioning" href="data_partitioning.html" />
+    <link rel="prev" title="Concurrent Futures API" href="api_concurrent.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -145,7 +145,7 @@
     <img src="../_static/lithops_logo_readme.png" class="logo__image only-dark pst-js-only" alt=""/>
   
   
-    <p class="title logo__title">Lithops v3.7.0</p>
+    <p class="title logo__title">Lithops v3.8.0</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -184,7 +184,10 @@
 <li class="toctree-l2"><a class="reference internal" href="compute_config/aws_batch.html">AWS Batch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/gcp_cloudrun.html">Google Cloud Run</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/azure_containers.html">Azure Container Apps</a></li>
-<li class="toctree-l2"><a class="reference internal" href="compute_config/kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="compute_config/kubernetes.html">Kubernetes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="compute_config/kubernetes_rabbitmq.html">Kubernetes RabbitMQ (batch/job)</a></li>
+</ul>
+</details></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/knative.html">Knative</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/singularity.html">Singularity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/vm.html">Virtual Machine</a></li>
@@ -195,7 +198,6 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="storage_backends.html">Storage Backends</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="compute_config/localhost.html">Localhost</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage_config/ibm_cos.html">IBM Cloud Object Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage_config/aws_s3.html">AWS S3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage_config/gcp_storage.html">GCP Storage</a></li>
@@ -212,7 +214,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lithops Compute API</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="api_futures.html">Lithops Futures API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_futures.html">Lithops Core API</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="functions.html">Functions and Parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="worker_granularity.html">Worker Granularity</a></li>
@@ -233,6 +235,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Integrations</span></p>
 <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="api_concurrent.html">Concurrent Futures API</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Multiprocessing API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_storage_os.html">Storage OS API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sklearn_joblib.html">Distributed Scikit-learn / Joblib</a></li>
@@ -241,11 +244,11 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Features</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="monitoring.html">Monitoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics.html">Metrics and Telemetry</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/lithops-cloud/lithops/tree/master/runtime">Custom Runtimes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Features</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="metrics.html">Prometheus Monitoring</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dso.html">Distributed shared objects</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
@@ -398,6 +401,7 @@
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#process-and-pool">Process and Pool</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-not-supported">What is not supported</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stateful-abstractions">Stateful abstractions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-multiprocessing-configuration">Extra multiprocessing configuration</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiprocessing-configuration-keys">Multiprocessing configuration keys</a></li>
@@ -423,7 +427,7 @@
 </div>
 <section id="process-and-pool">
 <h2>Process and Pool<a class="headerlink" href="#process-and-pool" title="Link to this heading">#</a></h2>
-<p><a class="reference external" href="https://docs.python.org/3/library/multiprocessing.html#the-process-class">Processes</a> and <a class="reference external" href="https://docs.python.org/3/library/multiprocessing.html#using-a-pool-of-workers">Pool</a> are the abstractions used in multiprocessing to parallelize computation. They interact directly with Lithops’ Futures API.</p>
+<p><a class="reference external" href="https://docs.python.org/3/library/multiprocessing.html#the-process-class">Processes</a> and <a class="reference external" href="https://docs.python.org/3/library/multiprocessing.html#using-a-pool-of-workers">Pool</a> are the abstractions used in multiprocessing to parallelize computation. They interact directly with Lithops’ Core API.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># from multiprocessing import Process</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">lithops.multiprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Process</span>
 
@@ -436,8 +440,8 @@
 <span class="n">p</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># from multiprocessing import Pool</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">lithops.multiprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pool</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># from multiprocessing import Pool, TimeoutError</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lithops.multiprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pool</span><span class="p">,</span> <span class="ne">TimeoutError</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
@@ -451,11 +455,89 @@
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Timed out!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">Process</span></code> and <code class="docutils literal notranslate"><span class="pre">Pool</span></code> need no Redis instance. Everything under
+<a class="reference internal" href="#stateful-abstractions">Stateful abstractions</a> does.</p>
+</div>
+</section>
+<section id="what-is-not-supported">
+<h2>What is not supported<a class="headerlink" href="#what-is-not-supported" title="Link to this heading">#</a></h2>
+<p>The API is the standard one, but the runtime is not a local operating system,
+so a few things of it have no counterpart:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Call</p></th>
+<th class="head"><p>Behaviour</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">active_children()</span></code>, <code class="docutils literal notranslate"><span class="pre">parent_process()</span></code></p></td>
+<td><p>Raise <code class="docutils literal notranslate"><span class="pre">NotImplementedError</span></code>. There is no process tree to walk</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Process.terminate()</span></code>, <code class="docutils literal notranslate"><span class="pre">Process.is_alive()</span></code>, <code class="docutils literal notranslate"><span class="pre">Process.exitcode</span></code></p></td>
+<td><p>Raise <code class="docutils literal notranslate"><span class="pre">NotImplementedError</span></code>. Lithops cannot recall an activation it
+already dispatched, nor report on one</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Pool.imap()</span></code>, <code class="docutils literal notranslate"><span class="pre">Pool.imap_unordered()</span></code></p></td>
+<td><p>Not lazy: every call is submitted and every result collected before the
+first one is yielded, so an endless iterable will not work. The results
+always come back in the order of the input</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Pool.terminate()</span></code></p></td>
+<td><p>Gives the Lithops executor back and stops the calls still in flight,
+so the <code class="docutils literal notranslate"><span class="pre">AsyncResult</span></code> of one of them has nothing left to return.
+Close and join the pool instead when the results are still wanted</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Pool(maxtasksperchild=...)</span></code>, <code class="docutils literal notranslate"><span class="pre">Process.daemon</span></code>, <code class="docutils literal notranslate"><span class="pre">Process.authkey</span></code></p></td>
+<td><p>Accepted and ignored. Workers are ephemeral, so there is nothing to
+recycle, nothing to daemonize and no handshake to authenticate</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RLock</span></code></p></td>
+<td><p>Only re-entrant for the object that took it. A copy of it in another
+process, or one restored from a pickle, does not know the lock is held</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RawArray('c',</span> <span class="pre">...)</span></code></p></td>
+<td><p>Not implemented. Use <code class="docutils literal notranslate"><span class="pre">Array('c',</span> <span class="pre">...)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Process.close()</span></code></p></td>
+<td><p>Releases the executor whatever state the call is in. The standard
+library refuses to close a process still running; Lithops cannot tell
+without asking storage, and the activation outlives the object anyway</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">freeze_support()</span></code>, <code class="docutils literal notranslate"><span class="pre">allow_connection_pickling()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">set_executable()</span></code>, <code class="docutils literal notranslate"><span class="pre">set_forkserver_preload()</span></code></p></td>
+<td><p>Accepted and do nothing. There is no re-executed parent, no local
+interpreter to point at and no fork server</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Everything else that <code class="docutils literal notranslate"><span class="pre">multiprocessing</span></code> exports is here under the same name,
+including <code class="docutils literal notranslate"><span class="pre">ProcessError</span></code>, <code class="docutils literal notranslate"><span class="pre">BufferTooShort</span></code>, <code class="docutils literal notranslate"><span class="pre">TimeoutError</span></code>,
+<code class="docutils literal notranslate"><span class="pre">AuthenticationError</span></code>, <code class="docutils literal notranslate"><span class="pre">get_logger()</span></code> and <code class="docutils literal notranslate"><span class="pre">log_to_stderr()</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">ThreadPool</span></code> under <code class="docutils literal notranslate"><span class="pre">lithops.multiprocessing.pool</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">TimeoutError</span></code> is the one of this package, not the builtin of the
+same name, exactly as in the standard library. Catch it by importing it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">lithops.multiprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pool</span><span class="p">,</span> <span class="ne">TimeoutError</span>
+</pre></div>
+</div>
+</div>
 </section>
 <section id="stateful-abstractions">
 <h2>Stateful abstractions<a class="headerlink" href="#stateful-abstractions" title="Link to this heading">#</a></h2>
 <p>Lithops also implements all stateful abstractions from Python multiprocessing: Queue, Pipes, Shared memory, Events, etc.</p>
 <p>Since FaaS lacks mechanisms for function-to-function communication, a <a class="reference external" href="https://redis.io/">Redis</a> database instance is used.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Redis is required for <strong>every</strong> shared object: <code class="docutils literal notranslate"><span class="pre">Pipe</span></code>, <code class="docutils literal notranslate"><span class="pre">Queue</span></code>,
+<code class="docutils literal notranslate"><span class="pre">SimpleQueue</span></code>, <code class="docutils literal notranslate"><span class="pre">JoinableQueue</span></code>, <code class="docutils literal notranslate"><span class="pre">Lock</span></code>, <code class="docutils literal notranslate"><span class="pre">RLock</span></code>, <code class="docutils literal notranslate"><span class="pre">Semaphore</span></code>,
+<code class="docutils literal notranslate"><span class="pre">BoundedSemaphore</span></code>, <code class="docutils literal notranslate"><span class="pre">Condition</span></code>, <code class="docutils literal notranslate"><span class="pre">Event</span></code>, <code class="docutils literal notranslate"><span class="pre">Barrier</span></code>, <code class="docutils literal notranslate"><span class="pre">Value</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Array</span></code> and <code class="docutils literal notranslate"><span class="pre">Manager</span></code>. Building any of them without a <code class="docutils literal notranslate"><span class="pre">redis</span></code> section
+in the configuration raises an error.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Both the functions and the Lithops orchestrator (local process) must be able to access the Redis instance. For example, deploying it on your local machine won’t work, since the cloud functions won’t be able to reach it.</p>
@@ -530,12 +612,15 @@ For this reason, to set specific configuration at runtime, the <code class="docu
 <td><p><code class="docutils literal notranslate"><span class="pre">{}</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p>EXPORT_EXECUTION_DETAILS</p></td>
-<td><p>Calls <code class="docutils literal notranslate"><span class="pre">lithops.FunctionExecutor.plot()</span></code>, pass a path to store the plots, <code class="docutils literal notranslate"><span class="pre">None</span></code> to disable it</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td><p>Calls <code class="docutils literal notranslate"><span class="pre">lithops.FunctionExecutor.plot()</span></code>, pass a path to store the plots, <code class="docutils literal notranslate"><span class="pre">False</span></code> to disable it</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
 </tr>
 </tbody>
 </table>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">lithops.multiprocessing.config.reset()</span></code> puts every parameter back to its
+default. The parameters are process-wide, so a library that sets one changes
+what every pool of that process sees.</p>
 <p>* To use nanomsg for Pipes, you must still deploy a Redis instance (used for the pipe directory). Note that this feature only works in environments where functions can open a port and communicate with each other.</p>
 </section>
 </section>
@@ -553,12 +638,12 @@ For this reason, to set specific configuration at runtime, the <code class="docu
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="data_partitioning.html"
+       href="api_concurrent.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Data Partitioning</p>
+        <p class="prev-next-title">Concurrent Futures API</p>
       </div>
     </a>
     <a class="right-next"
@@ -589,6 +674,7 @@ For this reason, to set specific configuration at runtime, the <code class="docu
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#process-and-pool">Process and Pool</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-not-supported">What is not supported</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stateful-abstractions">Stateful abstractions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-multiprocessing-configuration">Extra multiprocessing configuration</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiprocessing-configuration-keys">Multiprocessing configuration keys</a></li>

@@ -1,0 +1,901 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Concurrent Futures API &#8212; Lithops  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-7YKZHZYDCR"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-7YKZHZYDCR');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'source/api_concurrent';</script>
+    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Multiprocessing API" href="api_multiprocessing.html" />
+    <link rel="prev" title="Data Partitioning" href="data_partitioning.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/lithops_logo_readme.png" class="logo__image only-light" alt=""/>
+    <img src="../_static/lithops_logo_readme.png" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">Lithops v3.8.0</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome to Lithops!</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview of Lithops</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="design.html">Architecture Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="comparing_lithops.html">Comparing Lithops with Other Distributed Computing Frameworks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supported_clouds.html">Supported Clouds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="execution_modes.html">Execution Modes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Lithops Command Line Tool</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Install and Configure Lithops</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="install_lithops.html">Installing Lithops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="compute_backends.html">Compute Backends</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="compute_config/localhost.html">Localhost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compute_config/aws_lambda.html">AWS Lambda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compute_config/gcp_functions.html">Google Cloud Run functions (v2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compute_config/azure_functions.html">Azure Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compute_config/oracle_functions.html">Oracle Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compute_config/aliyun_functions.html">Aliyun Function Compute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compute_config/openwhisk.html">OpenWhisk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compute_config/code_engine.html">IBM Cloud Code Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compute_config/aws_batch.html">AWS Batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compute_config/gcp_cloudrun.html">Google Cloud Run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compute_config/azure_containers.html">Azure Container Apps</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="compute_config/kubernetes.html">Kubernetes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="compute_config/kubernetes_rabbitmq.html">Kubernetes RabbitMQ (batch/job)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="compute_config/knative.html">Knative</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compute_config/singularity.html">Singularity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compute_config/vm.html">Virtual Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compute_config/ibm_vpc.html">IBM Virtual Private Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compute_config/aws_ec2.html">AWS Elastic Compute Cloud (EC2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compute_config/azure_vms.html">Azure Virtual Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compute_config/gcp_compute_engine.html">Google Compute Engine (GCE)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="storage_backends.html">Storage Backends</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="storage_config/ibm_cos.html">IBM Cloud Object Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage_config/aws_s3.html">AWS S3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage_config/gcp_storage.html">GCP Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage_config/azure_blob.html">Azure Blob Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage_config/aliyun_oss.html">Aliyun Object Storage Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage_config/oracle_oss.html">Oracle Object Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage_config/ceph.html">Ceph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage_config/minio.html">MinIO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage_config/swift.html">Swift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage_config/redis.html">Redis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage_config/infinispan.html">Infinispan</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lithops Compute API</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="api_futures.html">Lithops Core API</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions and Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worker_granularity.html">Worker Granularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/function_chaining.html">Function chaining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_stats.html">Execution stats</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lithops Storage API</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="api_storage.html">Storage API Details</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Processing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="data_processing.html">Processing Data from the Cloud</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="data_partitioning.html">Data Partitioning</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Integrations</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Concurrent Futures API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_multiprocessing.html">Multiprocessing API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_storage_os.html">Storage OS API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sklearn_joblib.html">Distributed Scikit-learn / Joblib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="airflow.html">Apache Airflow</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Features</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="monitoring.html">Monitoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics.html">Metrics and Telemetry</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/lithops-cloud/lithops/tree/master/runtime">Custom Runtimes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Features</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="dso.html">Distributed shared objects</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://github.com/lithops-cloud/applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to Lithops</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/CHANGELOG.md">Changelog</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/lithops-cloud/lithops" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/source/api_concurrent.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Concurrent Futures API</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implemented-standard-library-surface">Implemented standard-library surface</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#runtime-differences">Runtime differences</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.concurrent.futures.FunctionExecutor"><code class="docutils literal notranslate"><span class="pre">FunctionExecutor</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.concurrent.futures.FunctionExecutor.lithops_executor"><code class="docutils literal notranslate"><span class="pre">FunctionExecutor.lithops_executor</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.concurrent.futures.FunctionExecutor.map"><code class="docutils literal notranslate"><span class="pre">FunctionExecutor.map()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.concurrent.futures.FunctionExecutor.shutdown"><code class="docutils literal notranslate"><span class="pre">FunctionExecutor.shutdown()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.concurrent.futures.FunctionExecutor.submit"><code class="docutils literal notranslate"><span class="pre">FunctionExecutor.submit()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.concurrent.futures.Future"><code class="docutils literal notranslate"><span class="pre">Future</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.concurrent.futures.Future.done"><code class="docutils literal notranslate"><span class="pre">Future.done()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.concurrent.futures.Future.exception"><code class="docutils literal notranslate"><span class="pre">Future.exception()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.concurrent.futures.Future.lithops_future"><code class="docutils literal notranslate"><span class="pre">Future.lithops_future</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.concurrent.futures.Future.result"><code class="docutils literal notranslate"><span class="pre">Future.result()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.concurrent.futures.Future.stats"><code class="docutils literal notranslate"><span class="pre">Future.stats</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.concurrent.futures.LocalhostExecutor"><code class="docutils literal notranslate"><span class="pre">LocalhostExecutor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.concurrent.futures.ProcessPoolExecutor"><code class="docutils literal notranslate"><span class="pre">ProcessPoolExecutor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.concurrent.futures.ServerlessExecutor"><code class="docutils literal notranslate"><span class="pre">ServerlessExecutor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.concurrent.futures.StandaloneExecutor"><code class="docutils literal notranslate"><span class="pre">StandaloneExecutor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.concurrent.futures.ThreadPoolExecutor"><code class="docutils literal notranslate"><span class="pre">ThreadPoolExecutor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.concurrent.futures.as_completed"><code class="docutils literal notranslate"><span class="pre">as_completed()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.concurrent.futures.wait"><code class="docutils literal notranslate"><span class="pre">wait()</span></code></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="concurrent-futures-api">
+<h1>Concurrent Futures API<a class="headerlink" href="#concurrent-futures-api" title="Link to this heading">#</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">lithops.concurrent.futures</span></code> is a drop-in for Python’s
+<a class="reference external" href="https://docs.python.org/3/library/concurrent.futures.html">concurrent.futures</a>
+<strong>Executor interface</strong>. Swap the import and the same client keeps working:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># from concurrent.futures import ProcessPoolExecutor, as_completed, wait</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lithops.concurrent.futures</span><span class="w"> </span><span class="kn">import</span> <span class="n">ProcessPoolExecutor</span><span class="p">,</span> <span class="n">as_completed</span><span class="p">,</span> <span class="n">wait</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">same_client</span><span class="p">(</span><span class="n">executor</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">executor</span><span class="p">:</span>
+        <span class="n">future</span> <span class="o">=</span> <span class="n">executor</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="nb">pow</span><span class="p">,</span> <span class="mi">323</span><span class="p">,</span> <span class="mi">1235</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">future</span><span class="o">.</span><span class="n">result</span><span class="p">())</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">executor</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="nb">abs</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">])))</span>
+
+<span class="n">same_client</span><span class="p">(</span><span class="n">ProcessPoolExecutor</span><span class="p">())</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">ThreadPoolExecutor</span></code> is provided under the same name for import compatibility;
+both names run tasks on Lithops workers.</p>
+<p>This is separate from the <a class="reference internal" href="api_futures.html"><span class="doc">Core API</span></a> (<code class="docutils literal notranslate"><span class="pre">lithops.FunctionExecutor</span></code>),
+whose <code class="docutils literal notranslate"><span class="pre">map()</span></code> returns futures, which has <code class="docutils literal notranslate"><span class="pre">call_async()</span></code> instead of <code class="docutils literal notranslate"><span class="pre">submit()</span></code>,
+and whose <code class="docutils literal notranslate"><span class="pre">wait()</span></code> is a method with Lithops-specific <code class="docutils literal notranslate"><span class="pre">return_when</span></code> values.</p>
+<section id="implemented-standard-library-surface">
+<h2>Implemented standard-library surface<a class="headerlink" href="#implemented-standard-library-surface" title="Link to this heading">#</a></h2>
+<p>The module exports the names application code actually uses:</p>
+<ul class="simple">
+<li><p><strong>Executor</strong> — <code class="docutils literal notranslate"><span class="pre">submit()</span></code>, eager <code class="docutils literal notranslate"><span class="pre">map()</span></code> (results, not futures),
+<code class="docutils literal notranslate"><span class="pre">shutdown(wait=True,</span> <span class="pre">*,</span> <span class="pre">cancel_futures=False)</span></code>, context manager</p></li>
+<li><p><strong>ProcessPoolExecutor</strong> / <strong>ThreadPoolExecutor</strong> — Lithops-backed pools</p></li>
+<li><p><strong>Future</strong> — subclass of <code class="docutils literal notranslate"><span class="pre">concurrent.futures.Future</span></code>:
+<code class="docutils literal notranslate"><span class="pre">result()</span></code>, <code class="docutils literal notranslate"><span class="pre">exception()</span></code>, <code class="docutils literal notranslate"><span class="pre">done()</span></code>, <code class="docutils literal notranslate"><span class="pre">running()</span></code>, <code class="docutils literal notranslate"><span class="pre">cancel()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">cancelled()</span></code>, <code class="docutils literal notranslate"><span class="pre">add_done_callback()</span></code></p></li>
+<li><p><strong>wait</strong> / <strong>as_completed</strong> — same contract and constants
+(<code class="docutils literal notranslate"><span class="pre">FIRST_COMPLETED</span></code>, <code class="docutils literal notranslate"><span class="pre">FIRST_EXCEPTION</span></code>, <code class="docutils literal notranslate"><span class="pre">ALL_COMPLETED</span></code>)</p></li>
+<li><p><strong>Exceptions</strong> — <code class="docutils literal notranslate"><span class="pre">CancelledError</span></code>, <code class="docutils literal notranslate"><span class="pre">TimeoutError</span></code>, <code class="docutils literal notranslate"><span class="pre">BrokenExecutor</span></code>,
+<code class="docutils literal notranslate"><span class="pre">InvalidStateError</span></code></p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">InterpreterPoolExecutor</span></code> (Python 3.14) is not implemented: Lithops has no
+isolated-interpreter workers.</p>
+<p><code class="docutils literal notranslate"><span class="pre">map()</span></code> submits one Lithops <code class="docutils literal notranslate"><span class="pre">map()</span></code> job for the whole iterable, not one
+<code class="docutils literal notranslate"><span class="pre">submit()</span></code> per item. Callables travel through a trampoline, so builtins such
+as <code class="docutils literal notranslate"><span class="pre">abs</span></code> and <code class="docutils literal notranslate"><span class="pre">pow</span></code> work. Its <code class="docutils literal notranslate"><span class="pre">chunksize</span></code> is how many items each Lithops
+worker takes, which is what it means for the standard <code class="docutils literal notranslate"><span class="pre">ProcessPoolExecutor</span></code>
+too; left unset, the <code class="docutils literal notranslate"><span class="pre">chunksize</span></code> of the Lithops configuration applies rather
+than the standard library default of one item per worker.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">lithops.concurrent.futures</span><span class="w"> </span><span class="kn">import</span> <span class="n">FunctionExecutor</span><span class="p">,</span> <span class="n">as_completed</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">load</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">url</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">FunctionExecutor</span><span class="p">()</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
+    <span class="n">futures</span> <span class="o">=</span> <span class="p">{</span><span class="n">executor</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">load</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span> <span class="n">url</span> <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;bb&#39;</span><span class="p">,</span> <span class="s1">&#39;ccc&#39;</span><span class="p">)}</span>
+    <span class="k">for</span> <span class="n">future</span> <span class="ow">in</span> <span class="n">as_completed</span><span class="p">(</span><span class="n">futures</span><span class="p">):</span>
+        <span class="n">url</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">future</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Mode-specific subclasses <code class="docutils literal notranslate"><span class="pre">LocalhostExecutor</span></code>, <code class="docutils literal notranslate"><span class="pre">ServerlessExecutor</span></code> and
+<code class="docutils literal notranslate"><span class="pre">StandaloneExecutor</span></code> pin the Lithops execution mode the same way the Core API
+executors do. You can wrap an existing Core API executor:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">lithops</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lithops.concurrent.futures</span><span class="w"> </span><span class="kn">import</span> <span class="n">FunctionExecutor</span>
+
+<span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">FunctionExecutor</span><span class="p">(</span><span class="n">executor</span><span class="o">=</span><span class="n">fexec</span><span class="p">)</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">executor</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="nb">pow</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="runtime-differences">
+<h2>Runtime differences<a class="headerlink" href="#runtime-differences" title="Link to this heading">#</a></h2>
+<p>The <em>API</em> matches <code class="docutils literal notranslate"><span class="pre">concurrent.futures</span></code>. The <em>runtime</em> is Lithops:</p>
+<ul class="simple">
+<li><p>Workers are Lithops activations, not local threads or <code class="docutils literal notranslate"><span class="pre">multiprocessing</span></code> processes.
+<code class="docutils literal notranslate"><span class="pre">mp_context</span></code>, <code class="docutils literal notranslate"><span class="pre">max_tasks_per_child</span></code>, and <code class="docutils literal notranslate"><span class="pre">thread_name_prefix</span></code> are ignored.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">initializer</span></code> / <code class="docutils literal notranslate"><span class="pre">initargs</span></code> are not supported (workers are ephemeral) and raise
+<code class="docutils literal notranslate"><span class="pre">NotImplementedError</span></code> if provided.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cancel()</span></code> cannot stop a job Lithops has already dispatched. <code class="docutils literal notranslate"><span class="pre">submit()</span></code> marks
+the future as running immediately, so <code class="docutils literal notranslate"><span class="pre">cancel()</span></code> returns <code class="docutils literal notranslate"><span class="pre">False</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">shutdown(cancel_futures=True)</span></code> therefore still waits the calls out.</p></li>
+<li><p>Lithops job options (<code class="docutils literal notranslate"><span class="pre">runtime_memory</span></code>, <code class="docutils literal notranslate"><span class="pre">extra_env</span></code>, <code class="docutils literal notranslate"><span class="pre">execution_timeout</span></code>,
+<code class="docutils literal notranslate"><span class="pre">include_modules</span></code>, <code class="docutils literal notranslate"><span class="pre">exclude_modules</span></code>) are set on the executor. Keyword
+arguments to <code class="docutils literal notranslate"><span class="pre">submit(fn,</span> <span class="pre">*args,</span> <span class="pre">**kwargs)</span></code> are passed to <code class="docutils literal notranslate"><span class="pre">fn</span></code>.</p></li>
+<li><p>Each <code class="docutils literal notranslate"><span class="pre">Future</span></code> also exposes <code class="docutils literal notranslate"><span class="pre">lithops_future</span></code> and <code class="docutils literal notranslate"><span class="pre">stats</span></code>.</p></li>
+<li><p>A call Lithops loses track of raises <code class="docutils literal notranslate"><span class="pre">RuntimeError</span></code> rather than handing
+back a silent <code class="docutils literal notranslate"><span class="pre">None</span></code>. It fails that one future; the executor stays usable.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RetryingFunctionExecutor</span></code> cannot be wrapped. Its retries are driven from
+its own <code class="docutils literal notranslate"><span class="pre">wait()</span></code>, which this adapter never calls, so wrapping it would
+quietly give you no retries at all. Wrap the <code class="docutils literal notranslate"><span class="pre">FunctionExecutor</span></code> it holds.</p></li>
+</ul>
+<p>Completion is tracked by the Lithops job monitor, the same one the native
+<code class="docutils literal notranslate"><span class="pre">wait()</span></code> uses: one batched poll per round for the whole job rather than one
+status read per call. Results are downloaded off the tracking thread, so a
+slow object does not hold up the futures behind it, and <code class="docutils literal notranslate"><span class="pre">done()</span></code> never
+blocks on storage.</p>
+<p id="module-lithops.concurrent.futures">concurrent.futures-compatible executors backed by Lithops.</p>
+<p>The native Lithops executors (<code class="docutils literal notranslate"><span class="pre">lithops.FunctionExecutor</span></code> and friends)
+are intentionally different from <code class="docutils literal notranslate"><span class="pre">concurrent.futures</span></code>: <code class="docutils literal notranslate"><span class="pre">map()</span></code> returns
+futures, there is no <code class="docutils literal notranslate"><span class="pre">submit()</span></code>, and <code class="docutils literal notranslate"><span class="pre">wait()</span></code> lives on the executor.
+This module is the drop-in interface for code that already talks to
+<code class="docutils literal notranslate"><span class="pre">ThreadPoolExecutor</span></code> / <code class="docutils literal notranslate"><span class="pre">ProcessPoolExecutor</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">lithops.concurrent.futures</span><span class="w"> </span><span class="kn">import</span> <span class="n">ProcessPoolExecutor</span>
+
+<span class="k">with</span> <span class="n">ProcessPoolExecutor</span><span class="p">()</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
+    <span class="n">future</span> <span class="o">=</span> <span class="n">executor</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="nb">pow</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">future</span><span class="o">.</span><span class="n">result</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">executor</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="nb">abs</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">])))</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Future</span></code> subclasses <code class="docutils literal notranslate"><span class="pre">concurrent.futures.Future</span></code>, so the standard
+library’s <code class="docutils literal notranslate"><span class="pre">wait()</span></code> and <code class="docutils literal notranslate"><span class="pre">as_completed()</span></code> work unchanged, including
+with futures from other executors.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="lithops.concurrent.futures.FunctionExecutor">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lithops.concurrent.futures.</span></span><span class="sig-name descname"><span class="pre">FunctionExecutor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">executor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initializer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runtime_memory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_env</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">execution_timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_modules</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_modules</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.concurrent.futures.FunctionExecutor" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Executor</span></code></p>
+<p>concurrent.futures.Executor that runs callables on Lithops workers.</p>
+<p><code class="docutils literal notranslate"><span class="pre">submit(fn,</span> <span class="pre">*args,</span> <span class="pre">**kwargs)</span></code> and <code class="docutils literal notranslate"><span class="pre">map(fn,</span> <span class="pre">*iterables)</span></code> follow the
+standard library: <code class="docutils literal notranslate"><span class="pre">map</span></code> is eager and yields <em>results</em>, not futures.
+Internally, <code class="docutils literal notranslate"><span class="pre">map</span></code> is a single Lithops <code class="docutils literal notranslate"><span class="pre">map()</span></code> job rather than one
+<code class="docutils literal notranslate"><span class="pre">submit</span></code> per item, so a large iterator still benefits from Lithops
+batching.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>max_workers</strong> – Passed through to the Lithops compute backend</p></li>
+<li><p><strong>executor</strong> – An existing <code class="docutils literal notranslate"><span class="pre">lithops.FunctionExecutor</span></code> (or
+compatible object) to wrap. When omitted, one is created from
+<code class="docutils literal notranslate"><span class="pre">**kwargs</span></code></p></li>
+<li><p><strong>initializer</strong> – Not supported; Lithops workers are ephemeral.
+Providing a callable raises <code class="docutils literal notranslate"><span class="pre">NotImplementedError</span></code></p></li>
+<li><p><strong>initargs</strong> – Ignored unless <code class="docutils literal notranslate"><span class="pre">initializer</span></code> is set</p></li>
+<li><p><strong>runtime_memory</strong> – Memory (MB) for every submitted call</p></li>
+<li><p><strong>extra_env</strong> – Extra environment variables for every submitted call</p></li>
+<li><p><strong>execution_timeout</strong> – Max seconds each function activation may run</p></li>
+<li><p><strong>include_modules</strong> – Modules to pickle into the worker payload</p></li>
+<li><p><strong>exclude_modules</strong> – Modules to keep out of the worker payload</p></li>
+<li><p><strong>kwargs</strong> – Forwarded to the Lithops executor constructor
+(<code class="docutils literal notranslate"><span class="pre">config</span></code>, <code class="docutils literal notranslate"><span class="pre">backend</span></code>, <code class="docutils literal notranslate"><span class="pre">storage</span></code>, <code class="docutils literal notranslate"><span class="pre">log_level</span></code>, …)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="lithops.concurrent.futures.FunctionExecutor.lithops_executor">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">lithops_executor</span></span><a class="headerlink" href="#lithops.concurrent.futures.FunctionExecutor.lithops_executor" title="Link to this definition">#</a></dt>
+<dd><p>The wrapped Lithops FunctionExecutor.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lithops.concurrent.futures.FunctionExecutor.map">
+<span class="sig-name descname"><span class="pre">map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">iterables</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunksize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffersize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.concurrent.futures.FunctionExecutor.map" title="Link to this definition">#</a></dt>
+<dd><p>Eager map, as in the standard library: it returns an iterator over
+the <em>results</em>, and every call is submitted before it does.</p>
+<p><code class="docutils literal notranslate"><span class="pre">chunksize</span></code> is how many items each Lithops worker takes, which is
+what it means for the standard <code class="docutils literal notranslate"><span class="pre">ProcessPoolExecutor</span></code> too. Left
+unset, the Lithops configuration decides, rather than the standard
+library default of one item per worker overriding it</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lithops.concurrent.futures.FunctionExecutor.shutdown">
+<span class="sig-name descname"><span class="pre">shutdown</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">cancel_futures</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.concurrent.futures.FunctionExecutor.shutdown" title="Link to this definition">#</a></dt>
+<dd><p>Clean-up the resources associated with the Executor.</p>
+<p>It is safe to call this method several times. Otherwise, no other
+methods can be called after this one.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>wait: If True then shutdown will not return until all running</dt><dd><p>futures have finished executing and the resources used by the
+executor have been reclaimed.</p>
+</dd>
+<dt>cancel_futures: If True then shutdown will cancel all pending</dt><dd><p>futures. Futures that are completed or running will not be
+cancelled.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lithops.concurrent.futures.FunctionExecutor.submit">
+<span class="sig-name descname"><span class="pre">submit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.concurrent.futures.FunctionExecutor.submit" title="Link to this definition">#</a></dt>
+<dd><p>Schedules <code class="docutils literal notranslate"><span class="pre">fn(*args,</span> <span class="pre">**kwargs)</span></code> to run on a Lithops worker.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fn</strong> – The callable to run</p></li>
+<li><p><strong>args</strong> – Positional arguments for <code class="docutils literal notranslate"><span class="pre">fn</span></code></p></li>
+<li><p><strong>kwargs</strong> – Keyword arguments for <code class="docutils literal notranslate"><span class="pre">fn</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <a class="reference internal" href="#lithops.concurrent.futures.Future" title="lithops.concurrent.futures.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">Future</span></code></a> representing the call</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>RuntimeError</strong> – If the executor has been shut down</p></li>
+<li><p><strong>concurrent.futures.BrokenExecutor</strong> – If the executor stopped
+working and can no longer run calls</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lithops.concurrent.futures.Future">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lithops.concurrent.futures.</span></span><span class="sig-name descname"><span class="pre">Future</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lithops_future</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adapter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.concurrent.futures.Future" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Future</span></code></p>
+<p>A concurrent.futures.Future backed by a Lithops ResponseFuture.</p>
+<p>Created by <a class="reference internal" href="#lithops.concurrent.futures.FunctionExecutor.submit" title="lithops.concurrent.futures.FunctionExecutor.submit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">FunctionExecutor.submit()</span></code></a>. The underlying Lithops
+future is available as <a class="reference internal" href="#lithops.concurrent.futures.Future.lithops_future" title="lithops.concurrent.futures.Future.lithops_future"><code class="xref py py-attr docutils literal notranslate"><span class="pre">lithops_future</span></code></a> for stats and other
+Lithops-specific attributes.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lithops.concurrent.futures.Future.done">
+<span class="sig-name descname"><span class="pre">done</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lithops.concurrent.futures.Future.done" title="Link to this definition">#</a></dt>
+<dd><p>Return True if the future was cancelled or finished executing.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lithops.concurrent.futures.Future.exception">
+<span class="sig-name descname"><span class="pre">exception</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.concurrent.futures.Future.exception" title="Link to this definition">#</a></dt>
+<dd><p>Returns the exception raised by the call, waiting for it to finish.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>timeout</strong> – Seconds to wait if the call is not done yet. <code class="docutils literal notranslate"><span class="pre">None</span></code>
+waits without limit</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The exception raised by the call, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if it returned
+normally</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>concurrent.futures.CancelledError</strong> – If the future was cancelled</p></li>
+<li><p><strong>TimeoutError</strong> – If the call did not finish within <code class="docutils literal notranslate"><span class="pre">timeout</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="lithops.concurrent.futures.Future.lithops_future">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">lithops_future</span></span><a class="headerlink" href="#lithops.concurrent.futures.Future.lithops_future" title="Link to this definition">#</a></dt>
+<dd><p>The Lithops ResponseFuture this object is tracking.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lithops.concurrent.futures.Future.result">
+<span class="sig-name descname"><span class="pre">result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.concurrent.futures.Future.result" title="Link to this definition">#</a></dt>
+<dd><p>Returns the result of the call, waiting for it to finish.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>timeout</strong> – Seconds to wait if the call is not done yet. <code class="docutils literal notranslate"><span class="pre">None</span></code>
+waits without limit</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The value returned by the call</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>concurrent.futures.CancelledError</strong> – If the future was cancelled</p></li>
+<li><p><strong>TimeoutError</strong> – If the call did not finish within <code class="docutils literal notranslate"><span class="pre">timeout</span></code></p></li>
+<li><p><strong>Exception</strong> – The exception raised by the call, if it raised one</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="lithops.concurrent.futures.Future.stats">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">stats</span></span><a class="headerlink" href="#lithops.concurrent.futures.Future.stats" title="Link to this definition">#</a></dt>
+<dd><p>Execution stats from the Lithops future, once they are available.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lithops.concurrent.futures.LocalhostExecutor">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lithops.concurrent.futures.</span></span><span class="sig-name descname"><span class="pre">LocalhostExecutor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">executor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initializer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runtime_memory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_env</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">execution_timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_modules</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_modules</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.concurrent.futures.LocalhostExecutor" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lithops.concurrent.futures.FunctionExecutor" title="lithops.concurrent.futures.FunctionExecutor"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionExecutor</span></code></a></p>
+<p>FunctionExecutor pinned to the Lithops localhost backend.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lithops.concurrent.futures.ProcessPoolExecutor">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lithops.concurrent.futures.</span></span><span class="sig-name descname"><span class="pre">ProcessPoolExecutor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">executor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initializer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runtime_memory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_env</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">execution_timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_modules</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_modules</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.concurrent.futures.ProcessPoolExecutor" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lithops.concurrent.futures.FunctionExecutor" title="lithops.concurrent.futures.FunctionExecutor"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionExecutor</span></code></a></p>
+<p>Drop-in replacement for <code class="docutils literal notranslate"><span class="pre">concurrent.futures.ProcessPoolExecutor</span></code>.</p>
+<p>Tasks run on Lithops workers (localhost, serverless, or standalone)
+instead of a local <code class="docutils literal notranslate"><span class="pre">multiprocessing</span></code> pool. Constructor arguments
+that only apply to the standard library (<code class="docutils literal notranslate"><span class="pre">mp_context</span></code>,
+<code class="docutils literal notranslate"><span class="pre">max_tasks_per_child</span></code>) are ignored.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lithops.concurrent.futures.ServerlessExecutor">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lithops.concurrent.futures.</span></span><span class="sig-name descname"><span class="pre">ServerlessExecutor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">executor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initializer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runtime_memory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_env</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">execution_timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_modules</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_modules</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.concurrent.futures.ServerlessExecutor" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lithops.concurrent.futures.FunctionExecutor" title="lithops.concurrent.futures.FunctionExecutor"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionExecutor</span></code></a></p>
+<p>FunctionExecutor pinned to a Lithops serverless backend.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lithops.concurrent.futures.StandaloneExecutor">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lithops.concurrent.futures.</span></span><span class="sig-name descname"><span class="pre">StandaloneExecutor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">executor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initializer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runtime_memory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_env</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">execution_timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_modules</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_modules</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.concurrent.futures.StandaloneExecutor" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lithops.concurrent.futures.FunctionExecutor" title="lithops.concurrent.futures.FunctionExecutor"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionExecutor</span></code></a></p>
+<p>FunctionExecutor pinned to a Lithops standalone backend.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lithops.concurrent.futures.ThreadPoolExecutor">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lithops.concurrent.futures.</span></span><span class="sig-name descname"><span class="pre">ThreadPoolExecutor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">executor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initializer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runtime_memory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_env</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">execution_timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_modules</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_modules</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.concurrent.futures.ThreadPoolExecutor" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lithops.concurrent.futures.FunctionExecutor" title="lithops.concurrent.futures.FunctionExecutor"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionExecutor</span></code></a></p>
+<p>Drop-in replacement for <code class="docutils literal notranslate"><span class="pre">concurrent.futures.ThreadPoolExecutor</span></code>.</p>
+<p>Tasks still run on Lithops workers, not in local threads. Use this
+name when swapping <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">concurrent.futures</span> <span class="pre">import</span> <span class="pre">ThreadPoolExecutor</span></code>.
+<code class="docutils literal notranslate"><span class="pre">thread_name_prefix</span></code> is ignored.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lithops.concurrent.futures.as_completed">
+<span class="sig-prename descclassname"><span class="pre">lithops.concurrent.futures.</span></span><span class="sig-name descname"><span class="pre">as_completed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.concurrent.futures.as_completed" title="Link to this definition">#</a></dt>
+<dd><p>Yield futures as they complete. Same contract as concurrent.futures.as_completed.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lithops.concurrent.futures.wait">
+<span class="sig-prename descclassname"><span class="pre">lithops.concurrent.futures.</span></span><span class="sig-name descname"><span class="pre">wait</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_when</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ALL_COMPLETED'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lithops.concurrent.futures.wait" title="Link to this definition">#</a></dt>
+<dd><p>Wait for futures to complete. Same contract as concurrent.futures.wait.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="data_partitioning.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Data Partitioning</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="api_multiprocessing.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Multiprocessing API</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implemented-standard-library-surface">Implemented standard-library surface</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#runtime-differences">Runtime differences</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.concurrent.futures.FunctionExecutor"><code class="docutils literal notranslate"><span class="pre">FunctionExecutor</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.concurrent.futures.FunctionExecutor.lithops_executor"><code class="docutils literal notranslate"><span class="pre">FunctionExecutor.lithops_executor</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.concurrent.futures.FunctionExecutor.map"><code class="docutils literal notranslate"><span class="pre">FunctionExecutor.map()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.concurrent.futures.FunctionExecutor.shutdown"><code class="docutils literal notranslate"><span class="pre">FunctionExecutor.shutdown()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.concurrent.futures.FunctionExecutor.submit"><code class="docutils literal notranslate"><span class="pre">FunctionExecutor.submit()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.concurrent.futures.Future"><code class="docutils literal notranslate"><span class="pre">Future</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.concurrent.futures.Future.done"><code class="docutils literal notranslate"><span class="pre">Future.done()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.concurrent.futures.Future.exception"><code class="docutils literal notranslate"><span class="pre">Future.exception()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.concurrent.futures.Future.lithops_future"><code class="docutils literal notranslate"><span class="pre">Future.lithops_future</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.concurrent.futures.Future.result"><code class="docutils literal notranslate"><span class="pre">Future.result()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.concurrent.futures.Future.stats"><code class="docutils literal notranslate"><span class="pre">Future.stats</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.concurrent.futures.LocalhostExecutor"><code class="docutils literal notranslate"><span class="pre">LocalhostExecutor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.concurrent.futures.ProcessPoolExecutor"><code class="docutils literal notranslate"><span class="pre">ProcessPoolExecutor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.concurrent.futures.ServerlessExecutor"><code class="docutils literal notranslate"><span class="pre">ServerlessExecutor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.concurrent.futures.StandaloneExecutor"><code class="docutils literal notranslate"><span class="pre">StandaloneExecutor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.concurrent.futures.ThreadPoolExecutor"><code class="docutils literal notranslate"><span class="pre">ThreadPoolExecutor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.concurrent.futures.as_completed"><code class="docutils literal notranslate"><span class="pre">as_completed()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lithops.concurrent.futures.wait"><code class="docutils literal notranslate"><span class="pre">wait()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Lithops Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, The Lithops Team.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -238,7 +238,7 @@ Lithops is an open-source project, actively maintained and supported by a commun
    :maxdepth: 0
    :caption: Lithops Compute API
 
-   source/api_futures.rst
+   Core API <source/api_futures.rst>
    source/functions.md
    source/worker_granularity.rst
    source/notebooks/function_chaining.ipynb
@@ -264,6 +264,7 @@ Lithops is an open-source project, actively maintained and supported by a commun
    :maxdepth: 0
    :caption: Integrations
 
+   source/api_concurrent.rst
    source/api_multiprocessing.rst
    source/api_storage_os.rst
    source/sklearn_joblib.rst
@@ -275,6 +276,7 @@ Lithops is an open-source project, actively maintained and supported by a commun
    :caption: Advanced Features
 
    source/monitoring.rst
+   source/metrics.rst
    Custom Runtimes <https://github.com/lithops-cloud/lithops/tree/master/runtime>
 
 
@@ -283,7 +285,6 @@ Lithops is an open-source project, actively maintained and supported by a commun
    :maxdepth: 0
    :caption: Experimental Features
 
-   source/metrics.rst
    source/dso.rst
 
 

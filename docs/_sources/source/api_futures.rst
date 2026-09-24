@@ -1,7 +1,8 @@
+.. _core-api:
 .. _futures-api:
 
-Lithops Futures API
-===================
+Lithops Core API
+================
 
 The core abstraction in Lithops is the **executor**, which is responsible for orchestrating the execution of your functions across different environments.
 
@@ -41,8 +42,8 @@ By default, executors load configuration from the Lithops configuration file (e.
 This layered executor design lets Lithops provide a powerful, unified API for parallel function execution — from local development to multi-cloud production deployments, with fault tolerance and retries built in.
 
 
-Futures API Reference
----------------------
+Core API Reference
+------------------
 
 .. automodule:: lithops.executors
    :members:
@@ -52,4 +53,13 @@ Futures API Reference
 .. autoclass:: lithops.retries.RetryingFunctionExecutor
    :members:
    :undoc-members:
+   :show-inheritance:
+
+``map()`` and ``map_reduce()`` return a :class:`~lithops.utils.FuturesList`, which
+is a list of futures that can be mapped over again. A plain list or tuple of
+those futures is a chain too, including a slice or a comprehension. See
+:doc:`Function chaining <notebooks/function_chaining>`.
+
+.. autoclass:: lithops.utils.FuturesList
+   :members: map, map_reduce, wait, get_result
    :show-inheritance:

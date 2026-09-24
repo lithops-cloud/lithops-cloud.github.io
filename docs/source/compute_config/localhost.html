@@ -54,6 +54,442 @@
                 gtag('js', new Date());
                 gtag('config', 'G-7YKZHZYDCR');
             </script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs";
+
+
+
+
+
+const initStyles = () => {
+    const defaultStyle = document.createElement('style');
+    defaultStyle.textContent = `pre.mermaid {
+    /* Same as .mermaid-container > pre */
+    display: block;
+    width: 100%;
+}
+
+pre.mermaid > svg {
+    /* Same as .mermaid-container > pre > svg */
+    height: 500px;
+    width: 100%;
+    max-width: 100% !important;
+}`;
+    document.head.appendChild(defaultStyle);
+
+    const fullscreenStyle = document.createElement('style');
+    fullscreenStyle.textContent = `.mermaid-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.mermaid-container > pre {
+    display: block;
+    width: 100%;
+}
+
+.mermaid-container > pre > svg {
+    height: 500px;
+    width: 100%;
+    max-width: 100% !important;
+}
+
+.mermaid-fullscreen-btn {
+    width: 28px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    line-height: 1;
+    padding: 0;
+    color: #333;
+}
+
+.mermaid-fullscreen-btn:hover {
+    opacity: 100% !important;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1);
+}
+
+.mermaid-fullscreen-btn.dark-theme {
+    background: rgba(50, 50, 50, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #e0e0e0;
+}
+
+.mermaid-fullscreen-btn.dark-theme:hover {
+    background: rgba(60, 60, 60, 1);
+    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.2);
+}
+
+.mermaid-fullscreen-modal {
+    display: none;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 95vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.98);
+    z-index: 9999;
+    padding: 20px;
+    overflow: auto;
+}
+
+.mermaid-fullscreen-modal.dark-theme {
+    background: rgba(0, 0, 0, 0.98);
+}
+
+.mermaid-fullscreen-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mermaid-container-fullscreen {
+    position: relative;
+    width: 95vw;
+    height: 90vh;
+    max-width: 95vw;
+    max-height: 90vh;
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mermaid-container-fullscreen.dark-theme {
+    background: #1a1a1a;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+}
+
+.mermaid-container-fullscreen pre.mermaid {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mermaid-container-fullscreen .mermaid svg {
+    height: 100% !important;
+    width: 100% !important;
+    cursor: grab;
+}
+
+.mermaid-fullscreen-close {
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s;
+    font-size: 24px;
+    line-height: 1;
+    color: #333;
+}
+
+.mermaid-fullscreen-close:hover {
+    background: white;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    transform: scale(1.1);
+}
+
+.mermaid-fullscreen-close.dark-theme {
+    background: rgba(50, 50, 50, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #e0e0e0;
+}
+
+.mermaid-fullscreen-close.dark-theme:hover {
+    background: rgba(60, 60, 60, 1);
+    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);
+}
+
+.mermaid-fullscreen-modal .mermaid-fullscreen-btn {
+    display: none !important;
+}`;
+    document.head.appendChild(fullscreenStyle);
+}
+
+// Detect if page has dark background
+const isDarkTheme = () => {
+    // We use a set of heuristics:
+    // 1. Check for common dark mode classes or attributes
+    // 2. Check computed background color brightness
+    if (document.documentElement.classList.contains('dark') ||
+        document.documentElement.getAttribute('data-theme') === 'dark' ||
+        document.body.classList.contains('dark') ||
+        document.body.getAttribute('data-theme') === 'dark') {
+        // console.log("Dark theme detected via class/attribute");
+        return true;
+    }
+    if (document.documentElement.classList.contains('light') ||
+        document.documentElement.getAttribute('data-theme') === 'light' ||
+        document.body.classList.contains('light') ||
+        document.body.getAttribute('data-theme') === 'light') {
+        // console.log("Light theme detected via class/attribute");
+        return false;
+    }
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // console.log("Dark theme detected via prefers-color-scheme");
+        return true;
+    }
+    const bgColor = window.getComputedStyle(document.body).backgroundColor;
+    const match = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)/);
+    if (match) {
+        const r = parseInt(match[1]);
+        const g = parseInt(match[2]);
+        const b = parseInt(match[3]);
+        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+        // console.log("Background color brightness:", brightness);
+        return brightness < 128;
+    }
+    // console.log("No dark or light theme detected, defaulting to light theme");
+    return false;
+};
+
+let darkTheme = isDarkTheme();
+let modal = null;
+let modalContent = null;
+let previousScrollOffset = [window.scrollX, window.scrollY];
+
+const runMermaid = async (rerun) => {
+    console.log("Running mermaid diagrams, rerun =", rerun);
+    // clear all existing mermaid charts
+    let all_mermaids = document.querySelectorAll(".mermaid");
+
+    if (rerun) {
+        all_mermaids.forEach((el) => {
+            if(!el.hasAttribute("data-original-code")) {
+                // store original code
+                // console.log(`Storing original code for first run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+            if(el.getAttribute("data-processed") === "true") {
+                // remove and restore original
+                el.removeAttribute("data-processed");
+                // console.log(`Restoring original code for re-run: `, el.getAttribute('data-original-code'));
+                el.innerHTML = el.getAttribute('data-original-code');
+            } else {
+                // store original code
+                // console.log(`Storing original code for re-run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+        });
+        await mermaid.run();
+    }
+
+    all_mermaids = document.querySelectorAll(".mermaid");
+    const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
+
+    if ("False" === "True") {
+        const mermaids_to_add_zoom = -1 === -1 ? all_mermaids.length : -1;
+        if(mermaids_to_add_zoom > 0) {
+            var svgs = d3.selectAll("");
+            if(all_mermaids.length !== mermaids_processed.length) {
+                setTimeout(() => runMermaid(false), 200);
+                return;
+            } else if(svgs.size() !== mermaids_to_add_zoom) {
+                setTimeout(() => runMermaid(false), 200);
+                return;
+            } else {
+                svgs.each(function() {
+                    var svg = d3.select(this);
+                    svg.html("<g class='wrapper'>" + svg.html() + "</g>");
+                    var inner = svg.select("g");
+                    var zoom = d3.zoom().on("zoom", function(event) {
+                        inner.attr("transform", event.transform);
+                    });
+                    svg.call(zoom);
+                });
+            }
+        }
+    } else if(all_mermaids.length !== mermaids_processed.length) {
+        // Wait for mermaid to process all diagrams
+        setTimeout(() => runMermaid(false), 200);
+        return;
+    }
+
+    // Stop here if not adding fullscreen capability
+    if ("True" !== "True") return;
+
+    if (modal !== null ) {
+        // Destroy existing modal
+        modal.remove();
+        modal = null;
+        modalContent = null;
+    }
+
+    modal = document.createElement('div');
+    modal.className = 'mermaid-fullscreen-modal' + (darkTheme ? ' dark-theme' : '');
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-label', 'Fullscreen diagram viewer');
+    modal.innerHTML = `
+        <button class="mermaid-fullscreen-close${darkTheme ? ' dark-theme' : ''}" aria-label="Close fullscreen">✕</button>
+        <div class="mermaid-container-fullscreen${darkTheme ? ' dark-theme' : ''}"></div>
+    `;
+    document.body.appendChild(modal);
+
+    modalContent = modal.querySelector('.mermaid-container-fullscreen');
+    const closeBtn = modal.querySelector('.mermaid-fullscreen-close');
+
+    const closeModal = () => {
+        modal.classList.remove('active');
+        modalContent.innerHTML = '';
+        document.body.style.overflow = ''
+        window.scrollTo({left: previousScrollOffset[0], top: previousScrollOffset[1], behavior: 'instant'});
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+
+    document.querySelectorAll('.mermaid').forEach((mermaidDiv) => {
+        if (mermaidDiv.parentNode.classList.contains('mermaid-container') ||
+            mermaidDiv.closest('.mermaid-fullscreen-modal')) {
+            // Already processed, adjust button class if needed
+            const existingBtn = mermaidDiv.parentNode.querySelector('.mermaid-fullscreen-btn');
+            if (existingBtn) {
+                existingBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+            }
+            return;
+        }
+
+        const container = document.createElement('div');
+        container.className = 'mermaid-container';
+        mermaidDiv.parentNode.insertBefore(container, mermaidDiv);
+        container.appendChild(mermaidDiv);
+
+        const fullscreenBtn = document.createElement('button');
+        fullscreenBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+        fullscreenBtn.setAttribute('aria-label', 'View diagram in fullscreen');
+        fullscreenBtn.textContent = '⛶';
+        fullscreenBtn.style.opacity = '50%';
+
+        // Calculate dynamic position based on diagram's margin and padding
+        const diagramStyle = window.getComputedStyle(mermaidDiv);
+        const marginTop = parseFloat(diagramStyle.marginTop) || 0;
+        const marginRight = parseFloat(diagramStyle.marginRight) || 0;
+        const paddingTop = parseFloat(diagramStyle.paddingTop) || 0;
+        const paddingRight = parseFloat(diagramStyle.paddingRight) || 0;
+        fullscreenBtn.style.top = `${marginTop + paddingTop + 4}px`;
+        fullscreenBtn.style.right = `${marginRight + paddingRight + 4}px`;
+
+        fullscreenBtn.addEventListener('click', () => {
+            previousScrollOffset = [window.scroll, window.scrollY];
+            const clone = mermaidDiv.cloneNode(true);
+            modalContent.innerHTML = '';
+            modalContent.appendChild(clone);
+
+            const svg = clone.querySelector('svg');
+            if (svg) {
+                svg.removeAttribute('width');
+                svg.removeAttribute('height');
+                svg.style.width = '100%';
+                svg.style.height = 'auto';
+                svg.style.maxWidth = '100%';
+                svg.style.sdisplay = 'block';
+
+                if ("False" === "True") {
+                    setTimeout(() => {
+                        const g = svg.querySelector('g');
+                        if (g) {
+                            var svgD3 = d3.select(svg);
+                            svgD3.html("<g class='wrapper'>" + svgD3.html() + "</g>");
+                            var inner = svgD3.select("g");
+                            var zoom = d3.zoom().on("zoom", function(event) {
+                                inner.attr("transform", event.transform);
+                            });
+                            svgD3.call(zoom);
+                        }
+                    }, 100);
+                }
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        container.appendChild(fullscreenBtn);
+    });
+};
+
+const load = async () => {
+    initStyles();
+
+    await runMermaid(true);
+
+    const reRunIfThemeChanges = async () => {
+        const newDarkTheme = isDarkTheme();
+        if (newDarkTheme !== darkTheme) {
+            darkTheme = newDarkTheme;
+            console.log("Theme change detected, re-running mermaid with", darkTheme ? "dark" : "default", "theme");
+            await mermaid.initialize(
+                {...JSON.parse(
+                    `{"startOnLoad": false}`
+                ),
+                ...{ darkMode: darkTheme, theme: darkTheme ? 'dark' : 'default' },
+                }
+            );
+            await runMermaid(true);
+        }
+    };
+
+    // Update theme classes when theme changes
+    const themeObserver = new MutationObserver(reRunIfThemeChanges);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+    themeObserver.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+};
+
+
+
+
+
+console.log("Initializing mermaid with", darkTheme ? "dark" : "default", "theme");
+mermaid.initialize(
+    {...JSON.parse(
+        `{"startOnLoad": false}`
+    ),
+    ...{ darkMode: darkTheme, theme: darkTheme ? 'dark' : 'default' },
+    }
+);
+
+window.addEventListener("load", load);
+window.runMermaid = runMermaid;</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'source/compute_config/localhost';</script>
     <link rel="icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -145,7 +581,7 @@
     <img src="../../_static/lithops_logo_readme.png" class="logo__image only-dark pst-js-only" alt=""/>
   
   
-    <p class="title logo__title">Lithops v3.7.0</p>
+    <p class="title logo__title">Lithops v3.8.0</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -184,7 +620,10 @@
 <li class="toctree-l2"><a class="reference internal" href="aws_batch.html">AWS Batch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gcp_cloudrun.html">Google Cloud Run</a></li>
 <li class="toctree-l2"><a class="reference internal" href="azure_containers.html">Azure Container Apps</a></li>
-<li class="toctree-l2"><a class="reference internal" href="kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="kubernetes.html">Kubernetes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="kubernetes_rabbitmq.html">Kubernetes RabbitMQ (batch/job)</a></li>
+</ul>
+</details></li>
 <li class="toctree-l2"><a class="reference internal" href="knative.html">Knative</a></li>
 <li class="toctree-l2"><a class="reference internal" href="singularity.html">Singularity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vm.html">Virtual Machine</a></li>
@@ -194,8 +633,7 @@
 <li class="toctree-l2"><a class="reference internal" href="gcp_compute_engine.html">Google Compute Engine (GCE)</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../storage_backends.html">Storage Backends</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Localhost</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../storage_backends.html">Storage Backends</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/ibm_cos.html">IBM Cloud Object Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/aws_s3.html">AWS S3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/gcp_storage.html">GCP Storage</a></li>
@@ -212,7 +650,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lithops Compute API</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../api_futures.html">Lithops Futures API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_futures.html">Lithops Core API</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../functions.html">Functions and Parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../worker_granularity.html">Worker Granularity</a></li>
@@ -233,6 +671,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Integrations</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../api_concurrent.html">Concurrent Futures API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api_multiprocessing.html">Multiprocessing API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api_storage_os.html">Storage OS API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sklearn_joblib.html">Distributed Scikit-learn / Joblib</a></li>
@@ -241,11 +680,11 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Features</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../monitoring.html">Monitoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../metrics.html">Metrics and Telemetry</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/lithops-cloud/lithops/tree/master/runtime">Custom Runtimes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Features</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../metrics.html">Prometheus Monitoring</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dso.html">Distributed shared objects</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
@@ -403,6 +842,17 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#container-environment">Container Environment</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-versions-v1-and-v2">Implementation versions (v1 and v2)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-v2-works-default">How v2 works (default)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-v1-works">How v1 works</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#v1-vs-v2">v1 vs v2</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#architecture-diagram">Architecture diagram</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#v2-default">v2 (default)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#v1">v1</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-localhost">Summary of configuration keys for Localhost:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-lithops">Test Lithops</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-the-execution-logs">Viewing the execution logs</a></li>
@@ -469,6 +919,131 @@
 </div>
 <p>In this mode of execution, you can use any Docker image that contains all the required dependencies. For example, the IBM Cloud Functions and Knative runtimes are compatible with it.</p>
 </section>
+</section>
+<section id="implementation-versions-v1-and-v2">
+<h2>Implementation versions (v1 and v2)<a class="headerlink" href="#implementation-versions-v1-and-v2" title="Link to this heading">#</a></h2>
+<p>There are two localhost implementations. <strong>v2 is the default</strong> (<code class="docutils literal notranslate"><span class="pre">localhost.version:</span> <span class="pre">2</span></code>). Set <code class="docutils literal notranslate"><span class="pre">version:</span> <span class="pre">1</span></code> only if you need the older job-at-a-time runner.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">localhost</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span><span class="w">   </span><span class="c1"># default; use 1 for the alternative implementation</span>
+</pre></div>
+</div>
+<p>Both versions copy the Lithops package into <code class="docutils literal notranslate"><span class="pre">/tmp/lithops-&lt;user&gt;/</span></code> and can use either the <strong>default</strong> Python interpreter or a <strong>container</strong> image. They differ in how they schedule activations.</p>
+<section id="how-v2-works-default">
+<h3>How v2 works (default)<a class="headerlink" href="#how-v2-works-default" title="Link to this heading">#</a></h3>
+<p>v2 splits a job into <strong>one task per function activation</strong>. A pool of <code class="docutils literal notranslate"><span class="pre">worker_processes</span></code> consumer threads (default: CPU count) pulls tasks from an in-memory work queue and runs them in parallel.</p>
+<ul class="simple">
+<li><p><strong>Default environment:</strong> each task is a subprocess: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">localhost-runner.py</span> <span class="pre">run_job</span> <span class="pre">&lt;call&gt;.task</span></code>.</p></li>
+<li><p><strong>Container environment:</strong> Lithops starts <strong>one</strong> long-lived container (<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">--detach</span></code> with <code class="docutils literal notranslate"><span class="pre">/bin/bash</span></code>) and runs each task with <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">exec</span> <span class="pre">…</span> <span class="pre">python3</span> <span class="pre">…</span> <span class="pre">run_job</span></code>. The host <code class="docutils literal notranslate"><span class="pre">/tmp</span></code> tree is bind-mounted into the container so job files and the Lithops package are shared.</p></li>
+</ul>
+</section>
+<section id="how-v1-works">
+<h3>How v1 works<a class="headerlink" href="#how-v1-works" title="Link to this heading">#</a></h3>
+<p>v1 treats a Lithops <strong>job</strong> as a single unit. The client writes one JSON job file with all call IDs. A job-manager thread runs jobs <strong>one after another</strong> and waits for each process to exit.</p>
+<ul class="simple">
+<li><p><strong>Default environment:</strong> one subprocess runs the whole job: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">localhost-runner.py</span> <span class="pre">run_job</span> <span class="pre">&lt;job&gt;.json</span></code>. Parallelism is inside that process (<code class="docutils literal notranslate"><span class="pre">multiprocessing</span></code>, <code class="docutils literal notranslate"><span class="pre">worker_processes</span></code> workers).</p></li>
+<li><p><strong>Container environment:</strong> each job starts a <strong>new</strong> container (<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">--name</span> <span class="pre">lithops_&lt;job_key&gt;</span></code>). The container exits when the job finishes (<code class="docutils literal notranslate"><span class="pre">--rm</span></code>). There is no shared long-lived worker container.</p></li>
+</ul>
+</section>
+<section id="v1-vs-v2">
+<h3>v1 vs v2<a class="headerlink" href="#v1-vs-v2" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p><strong>v2 (default)</strong></p></th>
+<th class="head"><p><strong>v1</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Scheduling unit</p></td>
+<td><p>One activation (call)</p></td>
+<td><p>One job (all calls together)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Parallelism</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">worker_processes</span></code> consumer threads, each running a task</p></td>
+<td><p>Job manager is serial; parallelism is inside the job process</p></td>
+</tr>
+<tr class="row-even"><td><p>Default runtime</p></td>
+<td><p>One Python subprocess per call</p></td>
+<td><p>One Python subprocess per job</p></td>
+</tr>
+<tr class="row-odd"><td><p>Container runtime</p></td>
+<td><p>One detached container for the executor; <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">exec</span></code> per call</p></td>
+<td><p>New <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span></code> per job</p></td>
+</tr>
+<tr class="row-even"><td><p>Job payload on disk</p></td>
+<td><p>Per-call <code class="docutils literal notranslate"><span class="pre">.task</span></code> files under <code class="docutils literal notranslate"><span class="pre">/tmp/lithops-*/jobs/</span></code></p></td>
+<td><p>One <code class="docutils literal notranslate"><span class="pre">.json</span></code> job file under the storage prefix</p></td>
+</tr>
+<tr class="row-odd"><td><p>When to use</p></td>
+<td><p>Default; better overlap of independent activations</p></td>
+<td><p>Compatibility with the older runner</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="architecture-diagram">
+<h2>Architecture diagram<a class="headerlink" href="#architecture-diagram" title="Link to this heading">#</a></h2>
+<p>Localhost never provisions cloud VMs. The client, job manager, workers, and (optional) Docker engine all run on <strong>your machine</strong>. Function data uses localhost storage under <code class="docutils literal notranslate"><span class="pre">/tmp/lithops-&lt;user&gt;/</span></code> unless you set <code class="docutils literal notranslate"><span class="pre">storage</span></code> to a remote backend.</p>
+<section id="v2-default">
+<h3>v2 (default)<a class="headerlink" href="#v2-default" title="Link to this heading">#</a></h3>
+<pre  class="mermaid">
+        flowchart TB
+  LAPTOP[&quot;Your laptop / FunctionExecutor&quot;]
+  subgraph host [This machine]
+    H[&quot;LocalhostHandler v2&quot;]
+    Q[&quot;Work queue\none JSON task per call&quot;]
+    C1[&quot;Consumer thread 1&quot;]
+    C2[&quot;Consumer thread N\nworker_processes&quot;]
+    TMP[&quot;/tmp/lithops-user\npackage + jobs + logs&quot;]
+    PY[&quot;python localhost-runner.py\nrun_job call.task&quot;]
+    subgraph docker [Optional: one long-lived container]
+      CTR[&quot;docker run --detach --rm\nimage + /tmp mount&quot;]
+      EXEC[&quot;docker exec python3\nrun_job call.task&quot;]
+    end
+  end
+  STORAGE[(Localhost storage\nor S3 / COS / …)]
+  LAPTOP --&gt; H
+  H --&gt;|split calls| Q
+  Q --&gt; C1
+  Q --&gt; C2
+  C1 --&gt; PY
+  C2 --&gt; PY
+  C1 --&gt; EXEC
+  C2 --&gt; EXEC
+  PY --&gt; TMP
+  EXEC --&gt; CTR
+  CTR --&gt; TMP
+  PY --&gt;|read/write| STORAGE
+  EXEC --&gt;|read/write| STORAGE
+    </pre></section>
+<section id="v1">
+<h3>v1<a class="headerlink" href="#v1" title="Link to this heading">#</a></h3>
+<pre  class="mermaid">
+        flowchart TB
+  LAPTOP[&quot;Your laptop / FunctionExecutor&quot;]
+  subgraph host [This machine]
+    H[&quot;LocalhostHandler v1&quot;]
+    JQ[&quot;Job queue\none JSON file per job&quot;]
+    JM[&quot;Job manager thread\none job at a time&quot;]
+    TMP[&quot;/tmp/lithops-user\npackage + job JSON + logs&quot;]
+    PY[&quot;python localhost-runner.py\nrun_job job.json\nmultiprocessing workers&quot;]
+    subgraph docker [Optional: new container per job]
+      RUN[&quot;docker run --name lithops_job\nimage + /tmp mount&quot;]
+    end
+  end
+  STORAGE[(Localhost storage\nor S3 / COS / …)]
+  LAPTOP --&gt; H
+  H --&gt;|enqueue job file| JQ
+  JQ --&gt; JM
+  JM --&gt; PY
+  JM --&gt; RUN
+  PY --&gt; TMP
+  RUN --&gt; TMP
+  PY --&gt;|read/write| STORAGE
+  RUN --&gt;|read/write| STORAGE
+    </pre></section>
 </section>
 <section id="summary-of-configuration-keys-for-localhost">
 <h2>Summary of configuration keys for Localhost:<a class="headerlink" href="#summary-of-configuration-keys-for-localhost" title="Link to this heading">#</a></h2>
@@ -572,6 +1147,17 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#execution-environments">Execution Environments</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-environment">Default Environment</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#container-environment">Container Environment</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-versions-v1-and-v2">Implementation versions (v1 and v2)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-v2-works-default">How v2 works (default)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-v1-works">How v1 works</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#v1-vs-v2">v1 vs v2</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#architecture-diagram">Architecture diagram</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#v2-default">v2 (default)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#v1">v1</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-localhost">Summary of configuration keys for Localhost:</a></li>

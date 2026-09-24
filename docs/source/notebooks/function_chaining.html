@@ -148,7 +148,7 @@
     <img src="../../_static/lithops_logo_readme.png" class="logo__image only-dark pst-js-only" alt=""/>
   
   
-    <p class="title logo__title">Lithops v3.7.0</p>
+    <p class="title logo__title">Lithops v3.8.0</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -187,7 +187,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../compute_config/aws_batch.html">AWS Batch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../compute_config/gcp_cloudrun.html">Google Cloud Run</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../compute_config/azure_containers.html">Azure Container Apps</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../compute_config/kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../compute_config/kubernetes.html">Kubernetes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../compute_config/kubernetes_rabbitmq.html">Kubernetes RabbitMQ (batch/job)</a></li>
+</ul>
+</details></li>
 <li class="toctree-l2"><a class="reference internal" href="../compute_config/knative.html">Knative</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../compute_config/singularity.html">Singularity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../compute_config/vm.html">Virtual Machine</a></li>
@@ -198,7 +201,6 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../storage_backends.html">Storage Backends</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../compute_config/localhost.html">Localhost</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/ibm_cos.html">IBM Cloud Object Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/aws_s3.html">AWS S3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../storage_config/gcp_storage.html">GCP Storage</a></li>
@@ -215,7 +217,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lithops Compute API</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../api_futures.html">Lithops Futures API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_futures.html">Lithops Core API</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../functions.html">Functions and Parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../worker_granularity.html">Worker Granularity</a></li>
@@ -236,6 +238,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Integrations</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../api_concurrent.html">Concurrent Futures API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api_multiprocessing.html">Multiprocessing API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api_storage_os.html">Storage OS API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sklearn_joblib.html">Distributed Scikit-learn / Joblib</a></li>
@@ -244,11 +247,11 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Features</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../monitoring.html">Monitoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../metrics.html">Metrics and Telemetry</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/lithops-cloud/lithops/tree/master/runtime">Custom Runtimes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Features</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../metrics.html">Prometheus Monitoring</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dso.html">Distributed shared objects</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
@@ -377,7 +380,9 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -393,6 +398,15 @@
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#When-the-next-job-is-invoked">When the next job is invoked</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#What-a-chained-function-receives">What a chained function receives</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -406,7 +420,7 @@
 <h1>Function chaining<a class="headerlink" href="#Function-chaining" title="Link to this heading">#</a></h1>
 <p>Function chaining is a pattern where multiple functions are called on the same executor consecutively. Using the same <code class="docutils literal notranslate"><span class="pre">lithops.FunctionExecutor</span></code> object reference, multiple functions can be invoked. It increases the readability of the code and means less redundancy. This means we chain multiple functions together with the same element reference. It’s not necessary to attach the <code class="docutils literal notranslate"><span class="pre">lithops.FunctionExecutor</span></code> reference multiple times for each function call.</p>
 <p>This pattern is especially useful when the output of one invocation is the input of another invocation. In this case, Lithops does not download the intermediate results to the local client; instead, the intermediate results are read directly by the next function.</p>
-<p>It currently works with the Futures API, and you can chain the <code class="docutils literal notranslate"><span class="pre">map()</span></code>, <code class="docutils literal notranslate"><span class="pre">map_reduce()</span></code>, <code class="docutils literal notranslate"><span class="pre">wait()</span></code>, and <code class="docutils literal notranslate"><span class="pre">get_result()</span></code> methods. Note that the returning value of one function must match the signature of the next function when chaining multiple <code class="docutils literal notranslate"><span class="pre">map()</span></code> calls. View the next examples:</p>
+<p>It currently works with the Core API, and you can chain the <code class="docutils literal notranslate"><span class="pre">map()</span></code>, <code class="docutils literal notranslate"><span class="pre">map_reduce()</span></code>, <code class="docutils literal notranslate"><span class="pre">wait()</span></code>, and <code class="docutils literal notranslate"><span class="pre">get_result()</span></code> methods. Note that the returning value of one function must match the signature of the next function when chaining multiple <code class="docutils literal notranslate"><span class="pre">map()</span></code> calls. View the next examples:</p>
 <p>Getting the result from a single <code class="docutils literal notranslate"><span class="pre">map()</span></code> call:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -537,6 +551,49 @@
 [15, 16, 17]
 </pre></div></div>
 </div>
+<section id="When-the-next-job-is-invoked">
+<h2>When the next job is invoked<a class="headerlink" href="#When-the-next-job-is-invoked" title="Link to this heading">#</a></h2>
+<p>By default a chained <code class="docutils literal notranslate"><span class="pre">map()</span></code> is invoked straight away, without waiting for the previous one. Each worker of the new job then blocks reading the result of its predecessor from storage, which is what keeps the intermediate results out of the client. The wait happens before the function starts, so it does not show up in <code class="docutils literal notranslate"><span class="pre">worker_func_exec_time</span></code>, but it is worker time you pay for: in a chain of two, where the first function takes 6 seconds, the second activation starts at the same instant as the
+first and stays idle for those 6 seconds.</p>
+<p>Pass <code class="docutils literal notranslate"><span class="pre">sync=True</span></code> to have the client wait for the previous job before invoking the next one. The chain takes about the same wall-clock time, and no worker is billed for waiting:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">lithops</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">my_func1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">my_func2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+
+
+<span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">()</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">fexec</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">my_func1</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">my_func2</span><span class="p">,</span> <span class="n">sync</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Invoking without waiting is the better choice when the functions are short and the backend is slow to start a worker, since the two jobs overlap. Waiting is the better choice when a stage is long, when the fan-out is wide, or on a backend that bills for the whole activation.</p>
+</section>
+<section id="What-a-chained-function-receives">
+<h2>What a chained function receives<a class="headerlink" href="#What-a-chained-function-receives" title="Link to this heading">#</a></h2>
+<p>A chained function is called with the result of the previous one and nothing else, so <code class="docutils literal notranslate"><span class="pre">extra_args</span></code> cannot be used together with chaining and raises a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>. Return the extra values from the previous function instead, or get the results of the chain and start a new job with them.</p>
+<p>Any list or tuple of futures of a previous job works as the input of the next one, not only the list <code class="docutils literal notranslate"><span class="pre">map()</span></code> returned, so a slice or a comprehension chains the same way:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">()</span>
+<span class="n">futures</span> <span class="o">=</span> <span class="n">fexec</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">my_func1</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fexec</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">my_func2</span><span class="p">,</span> <span class="n">futures</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">get_result</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</section>
 </section>
 
 
@@ -574,6 +631,24 @@
             </div>
             
             
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#When-the-next-job-is-invoked">When the next job is invoked</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#What-a-chained-function-receives">What a chained function receives</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

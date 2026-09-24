@@ -58,7 +58,7 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Prometheus Monitoring" href="metrics.html" />
+    <link rel="next" title="Metrics and Telemetry" href="metrics.html" />
     <link rel="prev" title="Apache Airflow" href="airflow.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -145,7 +145,7 @@
     <img src="../_static/lithops_logo_readme.png" class="logo__image only-dark pst-js-only" alt=""/>
   
   
-    <p class="title logo__title">Lithops v3.7.0</p>
+    <p class="title logo__title">Lithops v3.8.0</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -184,7 +184,10 @@
 <li class="toctree-l2"><a class="reference internal" href="compute_config/aws_batch.html">AWS Batch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/gcp_cloudrun.html">Google Cloud Run</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/azure_containers.html">Azure Container Apps</a></li>
-<li class="toctree-l2"><a class="reference internal" href="compute_config/kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="compute_config/kubernetes.html">Kubernetes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="compute_config/kubernetes_rabbitmq.html">Kubernetes RabbitMQ (batch/job)</a></li>
+</ul>
+</details></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/knative.html">Knative</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/singularity.html">Singularity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_config/vm.html">Virtual Machine</a></li>
@@ -195,7 +198,6 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="storage_backends.html">Storage Backends</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="compute_config/localhost.html">Localhost</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage_config/ibm_cos.html">IBM Cloud Object Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage_config/aws_s3.html">AWS S3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage_config/gcp_storage.html">GCP Storage</a></li>
@@ -212,7 +214,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lithops Compute API</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="api_futures.html">Lithops Futures API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_futures.html">Lithops Core API</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="functions.html">Functions and Parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="worker_granularity.html">Worker Granularity</a></li>
@@ -233,6 +235,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Integrations</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="api_concurrent.html">Concurrent Futures API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_multiprocessing.html">Multiprocessing API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_storage_os.html">Storage OS API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sklearn_joblib.html">Distributed Scikit-learn / Joblib</a></li>
@@ -241,11 +244,11 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Features</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Monitoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics.html">Metrics and Telemetry</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/lithops-cloud/lithops/tree/master/runtime">Custom Runtimes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental Features</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="metrics.html">Prometheus Monitoring</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dso.html">Distributed shared objects</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
@@ -374,7 +377,9 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -390,6 +395,25 @@
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-works">How it works</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#which-one-to-use">Which one to use</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-to-expect">What to expect</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rabbitmq">RabbitMQ</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#redis">Redis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aws-sqs">AWS SQS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcp-pub-sub">GCP Pub/Sub</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#azure-queue-storage">Azure Queue Storage</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metrics">Metrics</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -401,34 +425,203 @@
                   
   <section id="monitoring">
 <h1>Monitoring<a class="headerlink" href="#monitoring" title="Link to this heading">#</a></h1>
-<p>By default, Lithops uses the storage backend to monitor function activations: each function activation stores a file
-named <em>{id}/status.json</em> in Object Storage when it finishes its execution. This file contains statistics about the
-execution, including whether the function activation ran successfully or not. Based on these files, the default
-monitoring approach polls the Object Storage every few seconds to determine which function activations have finished
-and which have not.</p>
-<p>Since this default approach can slow down total application execution time due to the number of requests it has to
-make against the object storage, Lithops also integrates a RabbitMQ service to monitor function activations in real time.
-With RabbitMQ, the content of the <em>{id}/status.json</em> file is sent through a queue. This speeds up total application
-execution time since Lithops only needs one connection to the messaging service to monitor all function activations.
-We currently support the AMQP protocol.</p>
+<p>While a job runs, the client has to know which of its function activations have started, which have finished, and
+whether each one succeeded. Lithops calls this <em>monitoring</em>, and it is what makes <code class="docutils literal notranslate"><span class="pre">wait()</span></code>, <code class="docutils literal notranslate"><span class="pre">get_result()</span></code> and the
+progress bar work.</p>
+<p>Monitoring is a <em>channel</em>, not a storage provider: it only decides how call statuses travel back to the client. Your
+compute and storage backends are unaffected by the choice, and so are your results.</p>
+<section id="how-it-works">
+<h2>How it works<a class="headerlink" href="#how-it-works" title="Link to this heading">#</a></h2>
+<p>Every activation reports twice: once when it starts, and once when it finishes. The final report carries the execution
+statistics and whether the call raised an exception.</p>
+<p>Lithops can carry those reports in two ways.</p>
+<p><strong>Storage polling</strong> (the default). Each activation writes its status into the storage backend the executor already
+uses, under a key of its own:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lithops</span><span class="o">.</span><span class="n">jobs</span><span class="o">/&lt;</span><span class="n">executor_id</span><span class="o">&gt;-&lt;</span><span class="n">job_id</span><span class="o">&gt;/&lt;</span><span class="n">call_id</span><span class="o">&gt;/&lt;</span><span class="n">activation_id</span><span class="o">&gt;.</span><span class="n">init</span>   <span class="c1"># the call started</span>
+<span class="n">lithops</span><span class="o">.</span><span class="n">jobs</span><span class="o">/&lt;</span><span class="n">executor_id</span><span class="o">&gt;-&lt;</span><span class="n">job_id</span><span class="o">&gt;/&lt;</span><span class="n">call_id</span><span class="o">&gt;/</span><span class="n">status</span><span class="o">.</span><span class="n">json</span>            <span class="c1"># the call finished</span>
+</pre></div>
+</div>
+<p>The client lists those keys every couple of seconds to work out what has happened. It needs no extra infrastructure,
+which is why it is the default. The cost is that a job with many activations means many requests against the object
+storage, and a status is only noticed on the next poll.</p>
+<p><strong>Message services.</strong> The same status is published to a queue or a topic instead. The client holds one connection and
+is notified as each message arrives, so a status shows up as soon as it is sent and the number of activations does not
+change how much the client has to ask for.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The RabbitMQ server has to be accessible from both the client and the functions. For example, it could be deployed in a cloud server with a public IP address and with the AMQP port open (5672).</p>
+<p>A message service has to be reachable <strong>from both the client and the functions</strong>. This is the usual reason a
+message backend works locally but not in the cloud, or the other way around.</p>
 </div>
-<p>To enable Lithops to use this service, add the <em>AMQP_URL</em> key into the <em>rabbitmq</em> section in
-the configuration, for example:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">rabbitmq</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">amqp_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;AMQP_URL&gt;</span><span class="w">  </span><span class="c1"># amqp://</span>
-</pre></div>
+</section>
+<section id="which-one-to-use">
+<h2>Which one to use<a class="headerlink" href="#which-one-to-use" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 18.0%" />
+<col style="width: 34.0%" />
+<col style="width: 22.0%" />
+<col style="width: 26.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><code class="docutils literal notranslate"><span class="pre">monitoring</span></code></p></th>
+<th class="head"><p>What it needs</p></th>
+<th class="head"><p>Extra dependency</p></th>
+<th class="head"><p>Created per executor</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">storage</span></code></p></td>
+<td><p>nothing, reuses your storage backend</p></td>
+<td><p>none</p></td>
+<td><p>nothing</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">rabbitmq</span></code></p></td>
+<td><p>a RabbitMQ broker</p></td>
+<td><p>none</p></td>
+<td><p>one queue</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">redis</span></code></p></td>
+<td><p>a Redis server</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">lithops[redis]</span></code></p></td>
+<td><p>one list</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">aws_sqs</span></code></p></td>
+<td><p>an AWS account</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">lithops[aws]</span></code></p></td>
+<td><p>one queue</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">gcp_pubsub</span></code></p></td>
+<td><p>a GCP project</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">lithops[gcp]</span></code></p></td>
+<td><p>one topic and subscription</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">azure_queue</span></code></p></td>
+<td><p>an Azure storage account</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">lithops[azure]</span></code></p></td>
+<td><p>one queue</p></td>
+</tr>
+</tbody>
+</table>
 </div>
-<p>In addition, activate the monitoring service by setting <code class="docutils literal notranslate"><span class="pre">monitoring:</span> <span class="pre">rabbitmq</span></code> in the configuration (Lithops section):</p>
+<p><strong>Start with</strong> <code class="docutils literal notranslate"><span class="pre">storage</span></code>. It works everywhere and needs nothing set up. Move to a message backend when one of these
+actually shows up in your timings: jobs of many thousands of activations, where the storage requests add up; or short
+functions, where waiting for the next poll is a noticeable part of the total.</p>
+<p>If you already run one of these services for something else, using it here costs you nothing extra.</p>
+</section>
+<section id="what-to-expect">
+<h2>What to expect<a class="headerlink" href="#what-to-expect" title="Link to this heading">#</a></h2>
+<p><strong>Your results are never at risk.</strong> Whichever backend is configured, the final status of every call is also written to
+the object storage. If a message is lost, Lithops notices and reads the status back from there, so the job still
+finishes normally. A message backend is a faster path for the same information, not a different source of truth.</p>
+<p><strong>Resources are cleaned up on exit.</strong> A message backend creates one queue, topic or list per executor, named after the
+executor id. It is created before the first function is invoked and deleted when the executor shuts down — when the
+<code class="docutils literal notranslate"><span class="pre">with</span></code> block ends, or on interpreter exit. A process killed hard enough to skip that leaves the resource behind.
+A RabbitMQ queue expires on its own after 24 hours; the others have to be removed by hand.</p>
+<p><strong>Nested executors work.</strong> A function may create a <code class="docutils literal notranslate"><span class="pre">FunctionExecutor</span></code> of its own. Its call statuses reach every
+executor up the chain, so a client waiting on the outer job still sees the progress of the inner one.</p>
+<p><strong>A worker retries.</strong> If publishing a status fails, the worker tries again a few times, backing off, before giving up
+and logging an error. The status is still in the object storage either way.</p>
+</section>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">#</a></h2>
+<p>Select the backend in the <code class="docutils literal notranslate"><span class="pre">lithops</span></code> section of your config file:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
-<span class="w">   </span><span class="nt">monitoring</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rabbitmq</span>
+<span class="w">    </span><span class="nt">monitoring</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">storage</span><span class="w">          </span><span class="c1"># storage | rabbitmq | redis | aws_sqs | gcp_pubsub | azure_queue</span>
 </pre></div>
 </div>
+<p>or per executor:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">(</span><span class="n">monitoring</span><span class="o">=</span><span class="s1">&#39;rabbitmq&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">monitoring_interval</span></code> sets how often the client polls, in seconds. It is used <strong>only by the</strong> <code class="docutils literal notranslate"><span class="pre">storage</span></code> <strong>backend</strong>;
+message backends are event-driven and ignore it.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">monitoring_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The default is <code class="docutils literal notranslate"><span class="pre">2</span></code>, except with the localhost storage backend, where it is <code class="docutils literal notranslate"><span class="pre">0.1</span></code> because polling a local
+directory is cheap.</p>
+</div>
+<p>Each backend then reads its own section. Where a matching cloud provider section already exists, it is used as the
+default, so you rarely have to repeat credentials.</p>
+<section id="rabbitmq">
+<h3>RabbitMQ<a class="headerlink" href="#rabbitmq" title="Link to this heading">#</a></h3>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">monitoring</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rabbitmq</span>
+
+<span class="nt">rabbitmq</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">amqp_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;AMQP_URL&gt;</span><span class="w">  </span><span class="c1"># amqp://&lt;USER&gt;:&lt;PASSWORD&gt;@&lt;HOST&gt;:&lt;PORT&gt;/&lt;VHOST&gt;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">amqp_url</span></code> is mandatory. The broker has to be reachable from your functions as well as from the client — for
+instance a cloud server with a public IP and the AMQP port (5672) open.</p>
+<p>The same section is used by the Kubernetes backend with <code class="docutils literal notranslate"><span class="pre">rabbitmq_executor:</span> <span class="pre">True</span></code> and by the Singularity backend.</p>
+</section>
+<section id="redis">
+<h3>Redis<a class="headerlink" href="#redis" title="Link to this heading">#</a></h3>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">monitoring</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">redis</span>
+
+<span class="nt">redis</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REDIS_HOST&gt;</span>
+<span class="w">    </span><span class="c1">#port: 6379</span>
+<span class="w">    </span><span class="c1">#username: &lt;USERNAME&gt;</span>
+<span class="w">    </span><span class="c1">#password: &lt;PASSWORD&gt;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">host</span></code> is mandatory. This is the same section as the Redis storage backend, so a deployment that already stores data
+in Redis needs no new keys.</p>
+</section>
+<section id="aws-sqs">
+<h3>AWS SQS<a class="headerlink" href="#aws-sqs" title="Link to this heading">#</a></h3>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">monitoring</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aws_sqs</span>
+
+<span class="nt">aws</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;REGION&gt;</span>
+<span class="w">    </span><span class="c1">#access_key_id: &lt;ACCESS_KEY_ID&gt;</span>
+<span class="w">    </span><span class="c1">#secret_access_key: &lt;SECRET_ACCESS_KEY&gt;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">region</span></code> is mandatory. Credentials may instead come from the environment or an instance role. Add an <code class="docutils literal notranslate"><span class="pre">aws_sqs</span></code>
+section only if you need to override what is in <code class="docutils literal notranslate"><span class="pre">aws</span></code>.</p>
+</section>
+<section id="gcp-pub-sub">
+<h3>GCP Pub/Sub<a class="headerlink" href="#gcp-pub-sub" title="Link to this heading">#</a></h3>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">monitoring</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gcp_pubsub</span>
+
+<span class="nt">gcp</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">project_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;GCP_PROJECT_ID&gt;</span>
+<span class="w">    </span><span class="c1">#credentials_path: &lt;ABSOLUTE_PATH_TO_SERVICE_ACCOUNT_JSON&gt;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">project_name</span></code> is mandatory, but it is read from the service account JSON when a credentials file is given.
+<code class="docutils literal notranslate"><span class="pre">credentials_path</span></code> falls back to <code class="docutils literal notranslate"><span class="pre">GOOGLE_APPLICATION_CREDENTIALS</span></code>. Add a <code class="docutils literal notranslate"><span class="pre">gcp_pubsub</span></code> section only if you need to
+override what is in <code class="docutils literal notranslate"><span class="pre">gcp</span></code>.</p>
+</section>
+<section id="azure-queue-storage">
+<h3>Azure Queue Storage<a class="headerlink" href="#azure-queue-storage" title="Link to this heading">#</a></h3>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lithops</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">monitoring</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">azure_queue</span>
+
+<span class="nt">azure_storage</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">storage_account_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;STORAGE_ACCOUNT&gt;</span>
+<span class="w">    </span><span class="nt">storage_account_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;STORAGE_ACCOUNT_KEY&gt;</span>
+</pre></div>
+</div>
+<p>Both keys are mandatory. Add an <code class="docutils literal notranslate"><span class="pre">azure_queue</span></code> section only if you need to override what is in <code class="docutils literal notranslate"><span class="pre">azure_storage</span></code>.
+Azure only accepts lowercase queue names, so Lithops adjusts the name it derives from the executor id.</p>
+</section>
+</section>
+<section id="metrics">
+<h2>Metrics<a class="headerlink" href="#metrics" title="Link to this heading">#</a></h2>
+<p>The statuses the monitor reads carry everything the worker measured about a call. Whichever backend delivers them,
+those numbers can be exported to Prometheus or to an OpenTelemetry collector as they arrive, so that jobs can be
+watched while they run and compared over time. See <a class="reference internal" href="metrics.html"><span class="doc">Metrics and Telemetry</span></a>.</p>
+</section>
 </section>
 
 
@@ -456,7 +649,7 @@ the configuration, for example:</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Prometheus Monitoring</p>
+        <p class="prev-next-title">Metrics and Telemetry</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -466,6 +659,34 @@ the configuration, for example:</p>
             </div>
             
             
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-works">How it works</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#which-one-to-use">Which one to use</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-to-expect">What to expect</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rabbitmq">RabbitMQ</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#redis">Redis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aws-sqs">AWS SQS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcp-pub-sub">GCP Pub/Sub</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#azure-queue-storage">Azure Queue Storage</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metrics">Metrics</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
