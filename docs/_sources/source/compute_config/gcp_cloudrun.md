@@ -73,12 +73,14 @@ Replace `gcf-artifacts`, `us-east1`, `lithops-dev`, and the service account emai
 
 |Group|Key|Default|Mandatory|Additional info|
 |---|---|---|---|---|
+|gcp | project_name | from credentials |no | GCP project ID |
 |gcp | region | |yes | Region name of the GCP services (e.g. `us-east1`) |
-|gcp | credentials_path | | yes | **Absolute** path of your JSON key file downloaded in step 7 (e.g. `/home/myuser/lithops-invoker1234567890.json`). Alternatively you can set `GOOGLE_APPLICATION_CREDENTIALS` environment variable. If not provided it will try to load the default credentials from the environment|
+|gcp | credentials_path | |yes | Service account JSON file, or set `GOOGLE_APPLICATION_CREDENTIALS`. |
 
 ### Google Cloud Run
 |Group|Key|Default|Mandatory|Additional info|
 |---|---|---|---|---|
+|gcp_cloudrun | project_name | from gcp or credentials |no | GCP project ID; overrides `gcp.project_name` |
 |gcp_cloudrun | region | |no | Region name (e.g. `us-east1`). Lithops will use the region set under the `gcp` section if it is not set here |
 |gcp_cloudrun | min_workers | 0 | no | Minimum number of workers of a given runtime to keep in warm status|
 |gcp_cloudrun | max_workers | 1000 | no | Maximum number of workers to scale a given runtime|
@@ -88,7 +90,6 @@ Replace `gcf-artifacts`, `us-east1`, `lithops-dev`, and the service account emai
 |gcp_cloudrun | runtime_memory | 256 |no | Memory limit in MB. Default 256Mi |
 |gcp_cloudrun | runtime_timeout | 300 |no | Runtime timeout in seconds. Default 5 minutes |
 |gcp_cloudrun | trigger | https  | no | Currently it supports 'https' trigger|
-|gcp_cloudrun | invoke_pool_threads | 100 |no | Number of concurrent threads used for invocation |
 |gcp_cloudrun | runtime_include_function | False | no | If set to true, Lithops will automatically build a new runtime, including the function's code, instead of transferring it through the storage backend at invocation time. This is useful when the function's code size is large (on the order of tens of MB) and the code does not change frequently |
 |gcp_cloudrun | docker_server | pkg.dev | no | Marker for [Artifact Registry](https://cloud.google.com/artifact-registry/docs/docker/names) default image names (`REGION-docker.pkg.dev/PROJECT/REPOSITORY/IMAGE`). |
 |gcp_cloudrun | artifact_registry_repository | lithops | no | Docker repository name in Artifact Registry (must exist under your project in the configured region). |

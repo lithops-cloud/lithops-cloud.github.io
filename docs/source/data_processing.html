@@ -27,18 +27,18 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=4418a689" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
   
   <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
@@ -47,14 +47,25 @@
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-7YKZHZYDCR"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){ dataLayer.push(arguments); }
+                gtag('consent', 'default', {
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied',
+                    'analytics_storage': 'denied'
+                });
+            </script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-7YKZHZYDCR"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
                 gtag('config', 'G-7YKZHZYDCR');
             </script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'source/data_processing';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -63,20 +74,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -102,7 +119,51 @@
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -145,7 +206,7 @@
     <img src="../_static/lithops_logo_readme.png" class="logo__image only-dark pst-js-only" alt=""/>
   
   
-    <p class="title logo__title">Lithops v3.8.0</p>
+    <p class="title logo__title">Lithops v3.9.0</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -367,11 +428,18 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div>
 
 
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -399,21 +467,22 @@
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Processing Data from the Cloud</a><ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Processing Data from the Cloud</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-partitioning">Data Partitioning</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-object-storage-integration">Cloud Object Storage Integration</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-object-metadata">Accessing Object Metadata</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accepted-input-formats">Accepted Input Formats</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glob-patterns">Glob Patterns</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-it-all-together">Putting It All Together</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-data-from-public-urls">Processing Data from Public URLs</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-data-from-localhost-files">Processing Data from Localhost Files</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-data-from-localhost-files">Processing Data from Localhost Files</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reducer-granularity">Reducer Granularity</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#elastic-data-processing-and-cloud-optimized-formats">Elastic Data Processing and Cloud-Optimized Formats</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#elastic-data-processing-and-cloud-optimized-formats">Elastic Data Processing and Cloud-Optimized Formats</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-optimized-formats">Cloud-Optimized Formats</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partitioning-non-optimized-formats-with-dataplug">Partitioning Non-Optimized Formats with Dataplug</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-parallel-processing-of-a-cloud-hosted-lidar-file">Example: Parallel Processing of a Cloud-Hosted LIDAR File</a></li>
@@ -441,7 +510,7 @@
 <p>Partitioning is supported directly within the <code class="xref py py-meth docutils literal notranslate"><span class="pre">map()</span></code> and <code class="xref py py-meth docutils literal notranslate"><span class="pre">map_reduce()</span></code> APIs and can be controlled via:</p>
 <ul class="simple">
 <li><p><strong>`obj_chunk_size`</strong>: The size (in bytes) of each chunk to split the object into.</p></li>
-<li><p><strong>`obj_chunk_number`</strong>: The total number of chunks to split each object into.</p></li>
+<li><p><strong>`obj_chunk_number`</strong>: The total number of chunks to split each object into. An object with fewer bytes than that is split into fewer chunks, none of them empty (with <code class="docutils literal notranslate"><span class="pre">obj_newline</span></code> set, each chunk holds at least one byte more than the newline).</p></li>
 </ul>
 <p>Currently, the partitioner supports <strong>text-based files</strong> where rows are separated by newline characters (<cite>n</cite>), such as <cite>.txt</cite> and <cite>.csv</cite>. Support for additional data types is planned in future releases.</p>
 </section>
@@ -452,6 +521,7 @@
 <li><p>A single bucket or a list of buckets</p></li>
 <li><p>A bucket prefix (e.g., a folder path)</p></li>
 <li><p>A list of specific object keys</p></li>
+<li><p>A glob pattern over the object keys (see <a class="reference internal" href="#glob-patterns"><span class="std std-ref">Glob Patterns</span></a>)</p></li>
 </ol>
 <p>Based on your configuration:</p>
 <ul class="simple">
@@ -480,27 +550,54 @@
 <ul>
 <li><p><strong>Buckets</strong>: One or more buckets
 <em>(See: `map_reduce_cos_bucket.py &lt;../../examples/map_reduce_cos_bucket.py&gt;`_)</em></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">iterdata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;my-bucket-1&#39;</span><span class="p">,</span> <span class="s1">&#39;my-bucket-2&#39;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">iterdata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'my-bucket-1'</span><span class="p">,</span> <span class="s1">'my-bucket-2'</span><span class="p">]</span>
 </pre></div>
 </div>
 </li>
 <li><p><strong>Object Prefixes</strong>: Folder-like paths ending with <cite>/</cite>
 <em>(See: `map_cos_prefix.py &lt;../../examples/map_cos_prefix.py&gt;`_)</em></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">iterdata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;my-bucket/data/csvs/&#39;</span><span class="p">,</span> <span class="s1">&#39;my-bucket/logs/&#39;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">iterdata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'my-bucket/data/csvs/'</span><span class="p">,</span> <span class="s1">'my-bucket/logs/'</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>⚠️ Prefixes must end with a <cite>/</cite> to indicate to the partitioner that you’re specifying a folder-like path.</p>
 </li>
 <li><p><strong>Object Keys</strong>: Specific file paths
 <em>(See: `map_reduce_cos_key.py &lt;../../examples/map_reduce_cos_key.py&gt;`_)</em></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">iterdata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;my-bucket/file1.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;my-bucket/file2.csv&#39;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">iterdata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'my-bucket/file1.csv'</span><span class="p">,</span> <span class="s1">'my-bucket/file2.csv'</span><span class="p">]</span>
 </pre></div>
 </div>
 </li>
 </ul>
 <p>❌ <strong>Mixing formats is not allowed</strong>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This will raise an error</span>
-<span class="n">iterdata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;my-bucket&#39;</span><span class="p">,</span> <span class="s1">&#39;my-bucket/file2.csv&#39;</span><span class="p">]</span>
+<span class="n">iterdata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'my-bucket'</span><span class="p">,</span> <span class="s1">'my-bucket/file2.csv'</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="glob-patterns">
+<span id="id1"></span><h2>Glob Patterns<a class="headerlink" href="#glob-patterns" title="Link to this heading">#</a></h2>
+<p>An object key can also be a glob pattern, so that only the objects whose keys match it are processed. An entry is a
+pattern only when it contains <code class="docutils literal notranslate"><span class="pre">*</span></code>: any other entry is a literal key, even if it holds <code class="docutils literal notranslate"><span class="pre">?</span></code> or <code class="docutils literal notranslate"><span class="pre">\</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">*</span></code> matches any sequence of characters within one path component, never a <code class="docutils literal notranslate"><span class="pre">/</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">?</span></code> matches exactly one character within one path component.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">**</span></code>, as a whole path component, matches zero or more components.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">\</span></code> makes the next character literal, e.g. <code class="docutils literal notranslate"><span class="pre">\*</span></code> matches a <code class="docutils literal notranslate"><span class="pre">*</span></code>.</p></li>
+<li><p>Every other character is literal: there are no <code class="docutils literal notranslate"><span class="pre">[...]</span></code> classes nor <code class="docutils literal notranslate"><span class="pre">{a,b}</span></code> alternatives.</p></li>
+</ul>
+<p>The pattern must match the whole key, with <code class="docutils literal notranslate"><span class="pre">/</span></code> as the separator, and the bucket name cannot hold wildcards. A pattern
+ending in <code class="docutils literal notranslate"><span class="pre">/</span></code> selects every object, at any depth, inside the folders it matches.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">iterdata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'my-bucket/data/*.csv'</span><span class="p">]</span>         <span class="c1"># the .csv objects directly in data/</span>
+<span class="n">iterdata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'my-bucket/data/**/*.csv'</span><span class="p">]</span>      <span class="c1"># the .csv objects at any depth in data/</span>
+<span class="n">iterdata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'my-bucket/logs/2024-0?-*/'</span><span class="p">]</span>    <span class="c1"># every object inside logs/2024-01-01/, logs/2024-02-15/, ...</span>
+</pre></div>
+</div>
+<p>Lithops lists the objects under the part of the pattern before its first <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">?</span></code> or <code class="docutils literal notranslate"><span class="pre">\</span></code> (<code class="docutils literal notranslate"><span class="pre">data/</span></code> in the first
+example, the whole bucket for a pattern that starts with a wildcard) and matches their keys itself, so patterns work
+the same on every storage backend. The matching objects are then partitioned like any other input:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">()</span>
+<span class="n">fexec</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">my_map_function</span><span class="p">,</span> <span class="p">[</span><span class="s1">'my-bucket/data/2024-*.csv'</span><span class="p">],</span> <span class="n">obj_chunk_size</span><span class="o">=</span><span class="mi">64</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">fexec</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
@@ -521,7 +618,7 @@
 <section id="processing-data-from-public-urls">
 <h1>Processing Data from Public URLs<a class="headerlink" href="#processing-data-from-public-urls" title="Link to this heading">#</a></h1>
 <p>Lithops also supports processing data directly from <strong>public URLs</strong>. The input can be a single URL or a list of URLs.</p>
-<p>If you set <code class="docutils literal notranslate"><span class="pre">obj_chunk_size</span></code> or <code class="docutils literal notranslate"><span class="pre">obj_chunk_number</span></code>, Lithops activates its internal partitioner to split each file into smaller chunks—<strong>provided that the remote server supports HTTP range requests</strong>. If range requests are not supported, each URL is processed as a single object.</p>
+<p>If you set <code class="docutils literal notranslate"><span class="pre">obj_chunk_size</span></code> or <code class="docutils literal notranslate"><span class="pre">obj_chunk_number</span></code>, Lithops activates its internal partitioner to split each file into smaller chunks—<strong>provided that the remote server supports HTTP range requests</strong> (its <code class="docutils literal notranslate"><span class="pre">Accept-Ranges</span></code> header is <code class="docutils literal notranslate"><span class="pre">bytes</span></code>). If range requests are not supported, each URL is processed as a single object. Each URL is sized with a <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> request that follows redirects; a URL that answers with an error status raises an error instead of being processed.</p>
 <p>As with other backends, the special <code class="docutils literal notranslate"><span class="pre">obj</span></code> parameter gives you access to metadata and the content of the chunk being processed.</p>
 <p>Example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">lithops</span>
@@ -547,7 +644,7 @@
 
     <span class="k">return</span> <span class="n">final_result</span>
 
-<span class="n">iterdata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;http://example.com/file1.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;http://example.com/file2.csv&#39;</span><span class="p">]</span>
+<span class="n">iterdata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'http://example.com/file1.csv'</span><span class="p">,</span> <span class="s1">'http://example.com/file2.csv'</span><span class="p">]</span>
 <span class="n">chunk_number</span> <span class="o">=</span> <span class="mi">2</span>
 
 <span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">()</span>
@@ -572,7 +669,7 @@
 <li><p>A directory path</p></li>
 <li><p>A list of directory paths</p></li>
 </ul>
-<p>As in other cases, if you set <code class="docutils literal notranslate"><span class="pre">obj_chunk_size</span></code> or <code class="docutils literal notranslate"><span class="pre">obj_chunk_number</span></code>, the file(s) will be split into chunks and processed in parallel. If not set, each file is processed as a single object.</p>
+<p>As in other cases, if you set <code class="docutils literal notranslate"><span class="pre">obj_chunk_size</span></code> or <code class="docutils literal notranslate"><span class="pre">obj_chunk_number</span></code>, the file(s) will be split into chunks and processed in parallel. If not set, each file is processed as a single object. A path that does not exist raises <code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code>, and directories that contain no files raise an error, as an empty bucket or prefix does.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">obj</span></code> parameter again exposes the metadata and content of the chunk.</p>
 <p>Example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">lithops</span>
@@ -598,7 +695,7 @@
 
     <span class="k">return</span> <span class="n">final_result</span>
 
-<span class="n">iterdata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;/home/user/file1.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/user/file2.csv&#39;</span><span class="p">]</span>
+<span class="n">iterdata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'/home/user/file1.csv'</span><span class="p">,</span> <span class="s1">'/home/user/file2.csv'</span><span class="p">]</span>
 <span class="n">chunk_number</span> <span class="o">=</span> <span class="mi">2</span>
 
 <span class="n">fexec</span> <span class="o">=</span> <span class="n">lithops</span><span class="o">.</span><span class="n">FunctionExecutor</span><span class="p">()</span>
@@ -668,7 +765,7 @@
 <span class="c1"># Load the COPC file from S3 using Dataplug</span>
 <span class="n">co</span> <span class="o">=</span> <span class="n">CloudObject</span><span class="o">.</span><span class="n">from_s3</span><span class="p">(</span>
     <span class="n">CloudOptimizedPointCloud</span><span class="p">,</span>
-    <span class="s2">&quot;s3://geospatial/copc/CA_YosemiteNP_2019/USGS_LPC_CA_YosemiteNP_2019_D19_11SKB6892.laz&quot;</span><span class="p">,</span>
+    <span class="s2">"s3://geospatial/copc/CA_YosemiteNP_2019/USGS_LPC_CA_YosemiteNP_2019_D19_11SKB6892.laz"</span><span class="p">,</span>
     <span class="n">s3_config</span><span class="o">=</span><span class="n">local_minio</span><span class="p">,</span>
 <span class="p">)</span>
 
@@ -731,21 +828,22 @@
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Processing Data from the Cloud</a><ul class="visible nav section-nav flex-column">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Processing Data from the Cloud</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-partitioning">Data Partitioning</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-object-storage-integration">Cloud Object Storage Integration</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-object-metadata">Accessing Object Metadata</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accepted-input-formats">Accepted Input Formats</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glob-patterns">Glob Patterns</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-it-all-together">Putting It All Together</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-data-from-public-urls">Processing Data from Public URLs</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-data-from-localhost-files">Processing Data from Localhost Files</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-data-from-localhost-files">Processing Data from Localhost Files</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reducer-granularity">Reducer Granularity</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#elastic-data-processing-and-cloud-optimized-formats">Elastic Data Processing and Cloud-Optimized Formats</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#elastic-data-processing-and-cloud-optimized-formats">Elastic Data Processing and Cloud-Optimized Formats</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud-optimized-formats">Cloud-Optimized Formats</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partitioning-non-optimized-formats-with-dataplug">Partitioning Non-Optimized Formats with Dataplug</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-parallel-processing-of-a-cloud-hosted-lidar-file">Example: Parallel Processing of a Cloud-Hosted LIDAR File</a></li>
@@ -800,8 +898,8 @@ By The Lithops Team
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -27,18 +27,18 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=4418a689" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
@@ -47,14 +47,25 @@
     <script src="../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-7YKZHZYDCR"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){ dataLayer.push(arguments); }
+                gtag('consent', 'default', {
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied',
+                    'analytics_storage': 'denied'
+                });
+            </script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-7YKZHZYDCR"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
                 gtag('config', 'G-7YKZHZYDCR');
             </script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'source/compute_config/openwhisk';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -63,20 +74,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -102,7 +119,51 @@
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -145,7 +206,7 @@
     <img src="../../_static/lithops_logo_readme.png" class="logo__image only-dark pst-js-only" alt=""/>
   
   
-    <p class="title logo__title">Lithops v3.8.0</p>
+    <p class="title logo__title">Lithops v3.9.0</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -367,11 +428,18 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div>
 
 
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -399,8 +467,9 @@
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-openwhisk">Local OpenWhisk</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-openwhisk">Summary of configuration keys for Openwhisk:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-lithops">Test Lithops</a></li>
@@ -426,10 +495,10 @@
 <li><p>Make sure you can run an end-to-end <a class="reference external" href="https://github.com/apache/openwhisk/blob/master/docs/actions-python.md#creating-and-invoking-python-actions">Python example</a>.</p>
 <p>For example, create a file named <code class="docutils literal notranslate"><span class="pre">hello.py</span></code> with the next content:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;stranger&quot;</span><span class="p">)</span>
-    <span class="n">greeting</span> <span class="o">=</span> <span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;!&quot;</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"name"</span><span class="p">,</span> <span class="s2">"stranger"</span><span class="p">)</span>
+    <span class="n">greeting</span> <span class="o">=</span> <span class="s2">"Hello "</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">"!"</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">greeting</span><span class="p">)</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;greeting&quot;</span><span class="p">:</span> <span class="n">greeting</span><span class="p">}</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"greeting"</span><span class="p">:</span> <span class="n">greeting</span><span class="p">}</span>
 </pre></div>
 </div>
 <p>Now issue the <code class="docutils literal notranslate"><span class="pre">wsk</span></code> command to deploy the python action:</p>
@@ -442,6 +511,41 @@
 </div>
 </li>
 </ol>
+</section>
+<section id="local-openwhisk">
+<h2>Local OpenWhisk<a class="headerlink" href="#local-openwhisk" title="Link to this heading">#</a></h2>
+<p>The current standalone build is published on Docker Hub as <code class="docutils literal notranslate"><span class="pre">openwhisk/standalone:nightly</span></code> (the same image as the <code class="docutils literal notranslate"><span class="pre">7ef091c</span></code> tag). It serves the API over plain HTTP, so the endpoint keeps the <code class="docutils literal notranslate"><span class="pre">http://</span></code> scheme:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>openwhisk<span class="w"> </span>-h<span class="w"> </span>openwhisk<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">DOCKER_API_VERSION</span><span class="o">=</span><span class="m">1</span>.40<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-p<span class="w"> </span><span class="m">3233</span>:3233<span class="w"> </span>-p<span class="w"> </span><span class="m">3232</span>:3232<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-v<span class="w"> </span>/var/run/docker.sock:/var/run/docker.sock<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>openwhisk/standalone:nightly
+</pre></div>
+</div>
+<p>The image carries Docker 18.06 to launch action containers. <code class="docutils literal notranslate"><span class="pre">DOCKER_API_VERSION=1.40</span></code> lets that client talk to a current Docker daemon, which otherwise rejects it. Its Python runtimes are <code class="docutils literal notranslate"><span class="pre">python:3.10</span></code> and <code class="docutils literal notranslate"><span class="pre">python:3.11</span></code>, and an action is limited to 128–512 MB and 300 seconds.</p>
+<p>On an Apple Silicon Mac that image is amd64 and its JVM crashes once invocations pile up. Run the same server jar on an arm64 Java container, with a Linux <code class="docutils literal notranslate"><span class="pre">docker</span></code> CLI. The Mac <code class="docutils literal notranslate"><span class="pre">docker</span></code> binary cannot run inside the container:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>ow-jar<span class="w"> </span>openwhisk/standalone:nightly
+docker<span class="w"> </span>cp<span class="w"> </span>ow-jar:/openwhisk-standalone.jar<span class="w"> </span>.
+docker<span class="w"> </span>rm<span class="w"> </span>ow-jar
+curl<span class="w"> </span>-sL<span class="w"> </span>https://download.docker.com/linux/static/stable/aarch64/docker-27.5.1.tgz<span class="w"> </span><span class="p">|</span><span class="w"> </span>tar<span class="w"> </span>xz<span class="w"> </span>docker/docker
+
+docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>openwhisk<span class="w"> </span>-h<span class="w"> </span>openwhisk<span class="w"> </span>-p<span class="w"> </span><span class="m">3233</span>:3233<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-v<span class="w"> </span>/var/run/docker.sock:/var/run/docker.sock<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-v<span class="w"> </span><span class="s2">"</span><span class="nv">$PWD</span><span class="s2">/openwhisk-standalone.jar:/ow/openwhisk-standalone.jar:ro"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-v<span class="w"> </span><span class="s2">"</span><span class="nv">$PWD</span><span class="s2">/docker/docker:/usr/local/bin/docker:ro"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-w<span class="w"> </span>/ow<span class="w"> </span>eclipse-temurin:11-jre<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s1">'exec java -Dwhisk.standalone.host.name=$(hostname) -Dwhisk.standalone.host.internal=$(hostname -i) -Dwhisk.standalone.host.external=localhost -jar openwhisk-standalone.jar --no-browser'</span>
+</pre></div>
+</div>
+<p>The guest key below is the same. Lithops picks <code class="docutils literal notranslate"><span class="pre">docker.io/lithopscloud/openwhisk-python-v310</span></code> through <code class="docutils literal notranslate"><span class="pre">v314</span></code> from the client Python version. Those images are built for amd64 and arm64. <code class="docutils literal notranslate"><span class="pre">lithops</span> <span class="pre">runtime</span> <span class="pre">build</span></code> builds for the machine it runs on; pass <code class="docutils literal notranslate"><span class="pre">--platform</span> <span class="pre">linux/amd64</span></code> when the cluster is amd64.</p>
+<p>The playground is at <a class="reference external" href="http://localhost:3232">http://localhost:3232</a>. The guest namespace and its key are printed at startup (<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">logs</span> <span class="pre">openwhisk</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">'wsk</span> <span class="pre">property'</span></code>) and are, by default:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">openwhisk</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">endpoint    </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://localhost:3233</span>
+<span class="w">    </span><span class="nt">namespace   </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">guest</span>
+<span class="w">    </span><span class="nt">api_key     </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">23bc46b1-71f6-4ed5-8c54-816aa4f8c502:123zO3xZCLrMN6v2BKK1dXYFpXlPkccOFqm12CdAsMgRU4VrNZ9lyGVCGuMDGIwP</span>
+</pre></div>
+</div>
+<p>Shut it down with <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">exec</span> <span class="pre">openwhisk</span> <span class="pre">stop</span></code>, which also removes the action containers it started.</p>
 </section>
 <section id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">#</a></h2>
@@ -510,15 +614,15 @@
 </tr>
 <tr class="row-odd"><td><p>openwhisk</p></td>
 <td><p>insecure</p></td>
-<td><p></p></td>
-<td><p>yes</p></td>
-<td><p>Insecure access</p></td>
+<td><p>False</p></td>
+<td><p>no</p></td>
+<td><p>Skip TLS verification. Leave false for an <code class="docutils literal notranslate"><span class="pre">http://</span></code> endpoint</p></td>
 </tr>
 <tr class="row-even"><td><p>openwhisk</p></td>
 <td><p>max_workers</p></td>
 <td><p>100</p></td>
 <td><p>no</p></td>
-<td><p>Max number of workers per <code class="docutils literal notranslate"><span class="pre">FunctionExecutor()</span></code></p></td>
+<td><p>Max number of workers per <code class="docutils literal notranslate"><span class="pre">FunctionExecutor()</span></code>. Keep it within the concurrent invocations the namespace allows: the invocations over that limit are rejected and retried</p></td>
 </tr>
 <tr class="row-odd"><td><p>openwhisk</p></td>
 <td><p>worker_processes</p></td>
@@ -540,13 +644,13 @@
 </tr>
 <tr class="row-even"><td><p>openwhisk</p></td>
 <td><p>runtime_timeout</p></td>
-<td><p>600</p></td>
+<td><p>300</p></td>
 <td><p>no</p></td>
-<td><p>Runtime timeout in seconds. Default 10 minutes</p></td>
+<td><p>Runtime timeout in seconds. Default 5 minutes</p></td>
 </tr>
 <tr class="row-odd"><td><p>openwhisk</p></td>
 <td><p>invoke_pool_threads</p></td>
-<td><p>500</p></td>
+<td><p>100</p></td>
 <td><p>no</p></td>
 <td><p>Number of concurrent threads used for invocation</p></td>
 </tr>
@@ -622,8 +726,9 @@
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-openwhisk">Local OpenWhisk</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-configuration-keys-for-openwhisk">Summary of configuration keys for Openwhisk:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-lithops">Test Lithops</a></li>
@@ -676,8 +781,8 @@ By The Lithops Team
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -15,7 +15,7 @@ Lithops includes an integrated **data partitioner** that allows you to automatic
 Partitioning is supported directly within the :meth:`map()` and :meth:`map_reduce()` APIs and can be controlled via:
 
 - **`obj_chunk_size`**: The size (in bytes) of each chunk to split the object into.
-- **`obj_chunk_number`**: The total number of chunks to split each object into.
+- **`obj_chunk_number`**: The total number of chunks to split each object into. An object with fewer bytes than that is split into fewer chunks, none of them empty (with ``obj_newline`` set, each chunk holds at least one byte more than the newline).
 
 Currently, the partitioner supports **text-based files** where rows are separated by newline characters (`\n`), such as `.txt` and `.csv`. Support for additional data types is planned in future releases.
 
@@ -27,6 +27,7 @@ When processing data from cloud object storage, your input must be one of the fo
 1. A single bucket or a list of buckets  
 2. A bucket prefix (e.g., a folder path)  
 3. A list of specific object keys
+4. A glob pattern over the object keys (see :ref:`glob-patterns`)
 
 Based on your configuration:
 
@@ -86,6 +87,39 @@ Lithops accepts **only one type** of input format per execution. Do not mix form
     # This will raise an error
     iterdata = ['my-bucket', 'my-bucket/file2.csv']
 
+.. _glob-patterns:
+
+Glob Patterns
+-------------
+
+An object key can also be a glob pattern, so that only the objects whose keys match it are processed. An entry is a
+pattern only when it contains ``*``: any other entry is a literal key, even if it holds ``?`` or ``\``.
+
+- ``*`` matches any sequence of characters within one path component, never a ``/``.
+- ``?`` matches exactly one character within one path component.
+- ``**``, as a whole path component, matches zero or more components.
+- ``\`` makes the next character literal, e.g. ``\*`` matches a ``*``.
+- Every other character is literal: there are no ``[...]`` classes nor ``{a,b}`` alternatives.
+
+The pattern must match the whole key, with ``/`` as the separator, and the bucket name cannot hold wildcards. A pattern
+ending in ``/`` selects every object, at any depth, inside the folders it matches.
+
+.. code-block:: python
+
+    iterdata = ['my-bucket/data/*.csv']         # the .csv objects directly in data/
+    iterdata = ['my-bucket/data/**/*.csv']      # the .csv objects at any depth in data/
+    iterdata = ['my-bucket/logs/2024-0?-*/']    # every object inside logs/2024-01-01/, logs/2024-02-15/, ...
+
+Lithops lists the objects under the part of the pattern before its first ``*``, ``?`` or ``\`` (``data/`` in the first
+example, the whole bucket for a pattern that starts with a wildcard) and matches their keys itself, so patterns work
+the same on every storage backend. The matching objects are then partitioned like any other input:
+
+.. code-block:: python
+
+    fexec = lithops.FunctionExecutor()
+    fexec.map(my_map_function, ['my-bucket/data/2024-*.csv'], obj_chunk_size=64 * 1024 ** 2)
+    result = fexec.get_result()
+
 Putting It All Together
 ------------------------
 
@@ -107,7 +141,7 @@ Processing Data from Public URLs
 
 Lithops also supports processing data directly from **public URLs**. The input can be a single URL or a list of URLs.
 
-If you set ``obj_chunk_size`` or ``obj_chunk_number``, Lithops activates its internal partitioner to split each file into smaller chunks—**provided that the remote server supports HTTP range requests**. If range requests are not supported, each URL is processed as a single object.
+If you set ``obj_chunk_size`` or ``obj_chunk_number``, Lithops activates its internal partitioner to split each file into smaller chunks—**provided that the remote server supports HTTP range requests** (its ``Accept-Ranges`` header is ``bytes``). If range requests are not supported, each URL is processed as a single object. Each URL is sized with a ``HEAD`` request that follows redirects; a URL that answers with an error status raises an error instead of being processed.
 
 As with other backends, the special ``obj`` parameter gives you access to metadata and the content of the chunk being processed.
 
@@ -162,7 +196,7 @@ Lithops can also process files stored on the local filesystem. The input can be:
 - A directory path
 - A list of directory paths
 
-As in other cases, if you set ``obj_chunk_size`` or ``obj_chunk_number``, the file(s) will be split into chunks and processed in parallel. If not set, each file is processed as a single object.
+As in other cases, if you set ``obj_chunk_size`` or ``obj_chunk_number``, the file(s) will be split into chunks and processed in parallel. If not set, each file is processed as a single object. A path that does not exist raises ``FileNotFoundError``, and directories that contain no files raise an error, as an empty bucket or prefix does.
 
 The ``obj`` parameter again exposes the metadata and content of the chunk.
 

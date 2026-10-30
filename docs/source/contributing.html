@@ -27,18 +27,18 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=4418a689" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
   
   <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
@@ -47,14 +47,25 @@
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-7YKZHZYDCR"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){ dataLayer.push(arguments); }
+                gtag('consent', 'default', {
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied',
+                    'analytics_storage': 'denied'
+                });
+            </script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-7YKZHZYDCR"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
                 gtag('config', 'G-7YKZHZYDCR');
             </script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'source/contributing';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -62,20 +73,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -101,7 +118,51 @@
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -144,7 +205,7 @@
     <img src="../_static/lithops_logo_readme.png" class="logo__image only-dark pst-js-only" alt=""/>
   
   
-    <p class="title logo__title">Lithops v3.8.0</p>
+    <p class="title logo__title">Lithops v3.9.0</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -366,11 +427,18 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div>
 
 
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -398,7 +466,7 @@
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-bugs-and-ideas">Questions, bugs and ideas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#development-setup">Development setup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-tests">Running the tests</a></li>
@@ -443,8 +511,8 @@ or discussion first, so we can agree on the approach before you write the code.<
 <h2>Development setup<a class="headerlink" href="#development-setup" title="Link to this heading">#</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/&lt;your-user&gt;/lithops<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>lithops<span class="w">    </span><span class="c1"># your fork</span>
 python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>.venv/bin/activate<span class="w">                  </span><span class="c1"># optional, recommended</span>
-pip3<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;.[tests,dev]&#39;</span><span class="w">      </span><span class="c1"># editable install + test deps + ruff and pre-commit</span>
-pip3<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;.[aws]&#39;</span><span class="w">            </span><span class="c1"># add the extras of the backends you work on</span>
+pip3<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s1">'.[tests,dev]'</span><span class="w">      </span><span class="c1"># editable install + test deps + ruff and pre-commit</span>
+pip3<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s1">'.[aws]'</span><span class="w">            </span><span class="c1"># add the extras of the backends you work on</span>
 <span class="w">                                    </span><span class="c1"># (aws, gcp, azure, ibm, aliyun, oracle, ... or all)</span>
 pre-commit<span class="w"> </span>install<span class="w">                  </span><span class="c1"># optional: run ruff on every commit</span>
 </pre></div>
@@ -492,7 +560,10 @@ behaviour. Tests must pass on the localhost backend; code that only runs in a cl
 backend is tested with fakes or mocks.</p></li>
 <li><p><strong>Backends:</strong> backend-specific code stays in its package (<code class="docutils literal notranslate"><span class="pre">lithops/serverless/backends/</span></code>,
 <code class="docutils literal notranslate"><span class="pre">lithops/standalone/backends/</span></code>, <code class="docutils literal notranslate"><span class="pre">lithops/storage/backends/</span></code>). Import the provider SDKs
-there, not in the core modules, so Lithops keeps working without the extras installed.</p></li>
+there, not in the core modules, so Lithops keeps working without the extras installed.
+Each backend is self-contained: to implement a new one, start from the code of a similar
+backend and adapt it. Duplicating logic between backends is fine; do not factor it out into
+shared modules or base classes, so that a change in one backend cannot break another.</p></li>
 <li><p><strong>Configuration keys:</strong> document new or changed keys in <code class="docutils literal notranslate"><span class="pre">config/config_template.yaml</span></code> and
 in the backend’s page under <code class="docutils literal notranslate"><span class="pre">docs/source/compute_config/</span></code> or <code class="docutils literal notranslate"><span class="pre">docs/source/storage_config/</span></code>
 (general <code class="docutils literal notranslate"><span class="pre">lithops</span></code> keys in <code class="docutils literal notranslate"><span class="pre">docs/source/lithops_config_keys.csv</span></code>).</p></li>
@@ -508,13 +579,21 @@ together with any user-visible change.</p>
 </section>
 <section id="changelog">
 <h2>Changelog<a class="headerlink" href="#changelog" title="Link to this heading">#</a></h2>
-<p>Add an entry for every user-visible change to <a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/CHANGELOG.md">CHANGELOG.md</a>, under the
+<p>Add an entry for every functional change (API, backends, behaviour, bug fixes in the library)
+to <a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/CHANGELOG.md">CHANGELOG.md</a>, under the
 topmost (development) version, in the <em>Added</em>, <em>Changed</em>, <em>Fixed</em> or <em>Removed</em> section, prefixed
-with the component:</p>
+with the component. Docs fixes, packaging metadata and repository tooling need no entry, since
+that section becomes the release notes:</p>
 <div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">### Fixed</span>
 <span class="k">-</span><span class="w"> </span>[AWS Lambda] Short description of the fix.
 </pre></div>
 </div>
+<p>Entries describe what changed compared to the latest release, not the history of the
+development cycle. If you fix or change something that was added after the latest release, update
+its existing <em>Added</em> entry instead of adding a <em>Fixed</em> or <em>Changed</em> one: users of the release
+never had the broken version. Likewise, if something is added and removed again before a
+release, remove its entry. For example, a bug found in a backend added in this cycle is fixed
+without a <em>Fixed</em> entry, since the backend is still listed under <em>Added</em>.</p>
 </section>
 <section id="pull-requests">
 <h2>Pull requests<a class="headerlink" href="#pull-requests" title="Link to this heading">#</a></h2>
@@ -531,12 +610,14 @@ pull request template.</p></li>
 </section>
 <section id="releasing-maintainers">
 <h2>Releasing (maintainers)<a class="headerlink" href="#releasing-maintainers" title="Link to this heading">#</a></h2>
-<p>Releases are made by the <a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/.github/workflows/release.yml">Release workflow</a>:
-<em>Actions</em> -&gt; <em>Release</em> -&gt; <em>Run workflow</em>, with the version to release (e.g. <code class="docutils literal notranslate"><span class="pre">3.7.1</span></code>). Before
+<p>Releases are made by the <a class="reference external" href="https://github.com/lithops-cloud/lithops/blob/master/.github/workflows/release.yml">Publish release workflow</a>:
+<em>Actions</em> -&gt; <em>Publish release</em> -&gt; <em>Run workflow</em>, with the version to release (e.g. <code class="docutils literal notranslate"><span class="pre">3.8.1</span></code>). Before
 running it, review the development section at the top of <code class="docutils literal notranslate"><span class="pre">CHANGELOG.md</span></code>, which becomes the
 release notes. The workflow sets the version, tags it, publishes the sdist and wheel to PyPI,
-creates the GitHub release and bumps <code class="docutils literal notranslate"><span class="pre">master</span></code> to the next development version. Check
-<em>dry run</em> to build and check a release without pushing or publishing anything.</p>
+creates the GitHub release, publishes the docs to the website repository and bumps <code class="docutils literal notranslate"><span class="pre">master</span></code>
+to the next development version. Check <em>dry run</em> to build and check a release without pushing
+or publishing anything. To republish the docs without a release, run the <em>Publish docs</em>
+workflow: it builds <code class="docutils literal notranslate"><span class="pre">master</span></code> and publishes it as the docs of the latest release.</p>
 </section>
 <section id="ai-coding-agents">
 <h2>AI coding agents<a class="headerlink" href="#ai-coding-agents" title="Link to this heading">#</a></h2>
@@ -588,7 +669,7 @@ other: you are responsible for reviewing, testing and understanding the code you
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-bugs-and-ideas">Questions, bugs and ideas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#development-setup">Development setup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-tests">Running the tests</a></li>
@@ -647,8 +728,8 @@ By The Lithops Team
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
 
   <footer class="bd-footer">
   </footer>

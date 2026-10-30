@@ -27,18 +27,18 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=4418a689" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
   
   <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
@@ -47,14 +47,25 @@
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-7YKZHZYDCR"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){ dataLayer.push(arguments); }
+                gtag('consent', 'default', {
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied',
+                    'analytics_storage': 'denied'
+                });
+            </script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-7YKZHZYDCR"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
                 gtag('config', 'G-7YKZHZYDCR');
             </script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'source/metrics';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -63,20 +74,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -102,7 +119,51 @@
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -145,7 +206,7 @@
     <img src="../_static/lithops_logo_readme.png" class="logo__image only-dark pst-js-only" alt=""/>
   
   
-    <p class="title logo__title">Lithops v3.8.0</p>
+    <p class="title logo__title">Lithops v3.9.0</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -367,11 +428,18 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div>
 
 
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -399,7 +467,7 @@
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-works">How it works</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enabling-it">Enabling it</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prometheus">Prometheus</a><ul class="nav section-nav flex-column">
@@ -414,6 +482,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#through-a-collector">Through a collector</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-instance-identity">The instance identity</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-exported">What is exported</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#querying-it">Querying it</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-ready-made-grafana-dashboard">A ready-made Grafana dashboard</a></li>
@@ -533,14 +602,14 @@ Pushgateway group with it on every push.</p>
 <span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">pushgateway</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prom/pushgateway</span>
-<span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;9091:9091&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">"9091:9091"</span><span class="p p-Indicator">]</span>
 <span class="w">  </span><span class="nt">prometheus</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prom/prometheus</span>
-<span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;9090:9090&quot;</span><span class="p p-Indicator">]</span>
-<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;./prometheus.yml:/etc/prometheus/prometheus.yml&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">"9090:9090"</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">"./prometheus.yml:/etc/prometheus/prometheus.yml"</span><span class="p p-Indicator">]</span>
 <span class="w">  </span><span class="nt">grafana</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">grafana/grafana</span>
-<span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;3000:3000&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">"3000:3000"</span><span class="p p-Indicator">]</span>
 </pre></div>
 </div>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># prometheus.yml</span>
@@ -550,7 +619,7 @@ Pushgateway group with it on every push.</p>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pushgateway</span>
 <span class="w">    </span><span class="nt">honor_labels</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">          </span><span class="c1"># keep the job/instance labels Lithops pushes</span>
 <span class="w">    </span><span class="nt">static_configs</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">targets</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;pushgateway:9091&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">targets</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">"pushgateway:9091"</span><span class="p p-Indicator">]</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">honor_labels:</span> <span class="pre">true</span></code> matters: without it Prometheus overwrites the <code class="docutils literal notranslate"><span class="pre">job</span></code>
@@ -595,7 +664,7 @@ the gateway itself.</p>
 <td><p>instance</p></td>
 <td><p>the hostname</p></td>
 <td><p>The <code class="docutils literal notranslate"><span class="pre">instance</span></code> label of the pushed group. See the note below before
-changing it.</p></td>
+changing it, and <a class="reference internal" href="#telemetry-instance"><span class="std std-ref">The instance identity</span></a> for the default.</p></td>
 </tr>
 <tr class="row-odd"><td><p>prometheus</p></td>
 <td><p>username</p></td>
@@ -669,8 +738,8 @@ a development image, not a production one.</p>
 <span class="w">  </span><span class="nt">lgtm</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">grafana/otel-lgtm</span>
 <span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;4318:4318&quot;</span><span class="w">   </span><span class="c1"># OTLP/HTTP, where Lithops pushes</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;3000:3000&quot;</span><span class="w">   </span><span class="c1"># Grafana</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"4318:4318"</span><span class="w">   </span><span class="c1"># OTLP/HTTP, where Lithops pushes</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"3000:3000"</span><span class="w">   </span><span class="c1"># Grafana</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">lithops</span><span class="p">[</span><span class="n">telemetry</span><span class="p">]</span>
@@ -713,8 +782,8 @@ ran in.</p>
 <span class="w">    </span><span class="nt">command</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--config.file=/etc/prometheus/prometheus.yml</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--web.enable-otlp-receiver</span>
-<span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;9090:9090&quot;</span><span class="p p-Indicator">]</span>
-<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;./prometheus.yml:/etc/prometheus/prometheus.yml&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">"9090:9090"</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">"./prometheus.yml:/etc/prometheus/prometheus.yml"</span><span class="p p-Indicator">]</span>
 </pre></div>
 </div>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># prometheus.yml</span>
@@ -794,7 +863,8 @@ appended if it is not already there.</p></td>
 <tr class="row-odd"><td><p>otlp</p></td>
 <td><p>instance</p></td>
 <td><p>the hostname</p></td>
-<td><p>The <code class="docutils literal notranslate"><span class="pre">host.name</span></code> resource attribute.</p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">service.instance.id</span></code> and <code class="docutils literal notranslate"><span class="pre">host.name</span></code> resource attributes. See
+<a class="reference internal" href="#telemetry-instance"><span class="std std-ref">The instance identity</span></a> for the default.</p></td>
 </tr>
 <tr class="row-even"><td><p>otlp</p></td>
 <td><p>headers</p></td>
@@ -807,10 +877,34 @@ goes.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">10</span></code></p></td>
 <td><p>Export timeout, in seconds.</p></td>
 </tr>
+<tr class="row-even"><td><p>otlp</p></td>
+<td><p>export_interval</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">3600</span></code></p></td>
+<td><p>Interval, in seconds, of the OpenTelemetry SDK’s own periodic export.
+Lithops already exports every <code class="docutils literal notranslate"><span class="pre">telemetry_interval</span></code> seconds and when
+the process exits, so this is only a fallback and rarely needs
+changing. A lower value adds exports on top of those.</p></td>
+</tr>
 </tbody>
 </table>
 </div>
 </section>
+</section>
+<section id="the-instance-identity">
+<span id="telemetry-instance"></span><h2>The instance identity<a class="headerlink" href="#the-instance-identity" title="Link to this heading">#</a></h2>
+<p>Both backends identify the process by <code class="docutils literal notranslate"><span class="pre">instance</span></code>: the <code class="docutils literal notranslate"><span class="pre">instance</span></code> label of
+the Pushgateway group for <code class="docutils literal notranslate"><span class="pre">prometheus</span></code>, the <code class="docutils literal notranslate"><span class="pre">service.instance.id</span></code> and
+<code class="docutils literal notranslate"><span class="pre">host.name</span></code> resource attributes for <code class="docutils literal notranslate"><span class="pre">otlp</span></code>. When the backend’s section does
+not set <code class="docutils literal notranslate"><span class="pre">instance</span></code>, it is filled in when the configuration is loaded from
+the <code class="docutils literal notranslate"><span class="pre">LITHOPS_TELEMETRY_INSTANCE</span></code> environment variable or, if that is unset
+or empty, from the hostname. An <code class="docutils literal notranslate"><span class="pre">instance</span></code> key in the configuration always
+takes precedence over the variable.</p>
+<p>The variable sets the identity without editing the configuration file, for
+example to give two Lithops clients running concurrently on the same host two
+different values:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LITHOPS_TELEMETRY_INSTANCE</span><span class="o">=</span><span class="n">nightly</span><span class="o">-</span><span class="n">etl</span> <span class="n">python</span> <span class="n">my_job</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
 </section>
 <section id="what-is-exported">
 <h2>What is exported<a class="headerlink" href="#what-is-exported" title="Link to this heading">#</a></h2>
@@ -1062,7 +1156,7 @@ meaningless for the rest. Read the counters as they stand instead —
 <span class="nb">sum</span><span class="p">(</span><span class="n">lithops_calls_invoked_total</span><span class="p">)</span> <span class="o">-</span> <span class="nb">sum</span><span class="p">(</span><span class="n">lithops_calls_completed_total</span><span class="p">)</span>
 
 <span class="c1"># Failure rate</span>
-<span class="nb">sum</span><span class="p">(</span><span class="n">lithops_calls_completed_total</span><span class="p">{</span><span class="n">outcome</span><span class="o">!=</span><span class="s2">&quot;success&quot;</span><span class="p">})</span>
+<span class="nb">sum</span><span class="p">(</span><span class="n">lithops_calls_completed_total</span><span class="p">{</span><span class="n">outcome</span><span class="o">!=</span><span class="s2">"success"</span><span class="p">})</span>
   <span class="o">/</span> <span class="nb">sum</span><span class="p">(</span><span class="n">lithops_calls_completed_total</span><span class="p">)</span>
 
 <span class="c1"># Cold start rate</span>
@@ -1081,14 +1175,14 @@ meaningless for the rest. Read the counters as they stand instead —
   <span class="nb">sum</span> <span class="n">by</span> <span class="p">(</span><span class="n">le</span><span class="p">,</span> <span class="n">backend</span><span class="p">)</span> <span class="p">(</span><span class="n">lithops_call_queue_delay_seconds_bucket</span><span class="p">))</span>
 
 <span class="c1"># Runtimes that are over-provisioned: p95 peak memory well under 1.</span>
-<span class="c1"># Use kind=&quot;peak&quot; — summing across the kinds mixes two distributions</span>
+<span class="c1"># Use kind="peak" — summing across the kinds mixes two distributions</span>
 <span class="n">histogram_quantile</span><span class="p">(</span><span class="mf">0.95</span><span class="p">,</span>
   <span class="nb">sum</span> <span class="n">by</span> <span class="p">(</span><span class="n">le</span><span class="p">,</span> <span class="n">runtime_name</span><span class="p">,</span> <span class="n">runtime_memory</span><span class="p">)</span>
-    <span class="p">(</span><span class="n">lithops_worker_memory_utilization_ratio_bucket</span><span class="p">{</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;peak&quot;</span><span class="p">}))</span>
+    <span class="p">(</span><span class="n">lithops_worker_memory_utilization_ratio_bucket</span><span class="p">{</span><span class="n">kind</span><span class="o">=</span><span class="s2">"peak"</span><span class="p">}))</span>
 
 <span class="c1"># What the runtime costs before any user code runs</span>
-<span class="nb">sum</span> <span class="n">by</span> <span class="p">(</span><span class="n">runtime_name</span><span class="p">)</span> <span class="p">(</span><span class="n">lithops_worker_memory_bytes_sum</span><span class="p">{</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;baseline&quot;</span><span class="p">})</span>
-  <span class="o">/</span> <span class="nb">sum</span> <span class="n">by</span> <span class="p">(</span><span class="n">runtime_name</span><span class="p">)</span> <span class="p">(</span><span class="n">lithops_worker_memory_bytes_count</span><span class="p">{</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;baseline&quot;</span><span class="p">})</span>
+<span class="nb">sum</span> <span class="n">by</span> <span class="p">(</span><span class="n">runtime_name</span><span class="p">)</span> <span class="p">(</span><span class="n">lithops_worker_memory_bytes_sum</span><span class="p">{</span><span class="n">kind</span><span class="o">=</span><span class="s2">"baseline"</span><span class="p">})</span>
+  <span class="o">/</span> <span class="nb">sum</span> <span class="n">by</span> <span class="p">(</span><span class="n">runtime_name</span><span class="p">)</span> <span class="p">(</span><span class="n">lithops_worker_memory_bytes_count</span><span class="p">{</span><span class="n">kind</span><span class="o">=</span><span class="s2">"baseline"</span><span class="p">})</span>
 
 <span class="c1"># Mean time per call in one phase, e.g. what the client spent preparing</span>
 <span class="nb">sum</span><span class="p">(</span><span class="n">lithops_job_create_seconds_sum</span><span class="p">)</span> <span class="o">/</span> <span class="nb">sum</span><span class="p">(</span><span class="n">lithops_job_create_seconds_count</span><span class="p">)</span>
@@ -1098,7 +1192,7 @@ meaningless for the rest. Read the counters as they stand instead —
 <span class="nb">sum</span><span class="p">(</span><span class="n">lithops_call_status_queries_sum</span><span class="p">)</span> <span class="o">/</span> <span class="nb">sum</span><span class="p">(</span><span class="n">lithops_call_status_queries_count</span><span class="p">)</span>
 
 <span class="c1"># How often a result was small enough to skip storage entirely</span>
-<span class="nb">sum</span><span class="p">(</span><span class="n">lithops_call_result_download_seconds_count</span><span class="p">{</span><span class="n">source</span><span class="o">=</span><span class="s2">&quot;inline&quot;</span><span class="p">})</span>
+<span class="nb">sum</span><span class="p">(</span><span class="n">lithops_call_result_download_seconds_count</span><span class="p">{</span><span class="n">source</span><span class="o">=</span><span class="s2">"inline"</span><span class="p">})</span>
   <span class="o">/</span> <span class="nb">sum</span><span class="p">(</span><span class="n">lithops_call_result_download_seconds_count</span><span class="p">)</span>
 
 <span class="c1"># Worker seconds, the billed part of a call, split by the memory the</span>
@@ -1107,7 +1201,7 @@ meaningless for the rest. Read the counters as they stand instead —
 <span class="nb">sum</span> <span class="n">by</span> <span class="p">(</span><span class="n">function_name</span><span class="p">,</span> <span class="n">runtime_memory</span><span class="p">)</span> <span class="p">(</span>
   <span class="n">lithops_call_total_duration_seconds_sum</span><span class="p">)</span>
 
-<span class="c1"># The execution environments in use, for an &quot;environment&quot; panel</span>
+<span class="c1"># The execution environments in use, for an "environment" panel</span>
 <span class="n">count</span> <span class="n">by</span> <span class="p">(</span><span class="n">backend</span><span class="p">,</span> <span class="n">runtime_name</span><span class="p">,</span> <span class="n">runtime_memory</span><span class="p">,</span> <span class="n">python_version</span><span class="p">,</span>
           <span class="n">lithops_version</span><span class="p">)</span> <span class="p">(</span><span class="n">lithops_worker_info</span><span class="p">)</span>
 </pre></div>
@@ -1123,10 +1217,10 @@ a table of the execution environments. It has <code class="docutils literal notr
 import.</p>
 <p>In Grafana: <strong>Dashboards → New → Import → Upload JSON file</strong>, then pick the
 Prometheus datasource. Or over the API:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">u</span> <span class="n">admin</span><span class="p">:</span><span class="n">admin</span> <span class="o">-</span><span class="n">H</span> <span class="s1">&#39;Content-Type: application/json&#39;</span> \
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">u</span> <span class="n">admin</span><span class="p">:</span><span class="n">admin</span> <span class="o">-</span><span class="n">H</span> <span class="s1">'Content-Type: application/json'</span> \
   <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">3000</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">dashboards</span><span class="o">/</span><span class="n">db</span> \
-  <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;{</span><span class="se">\&quot;</span><span class="s2">dashboard</span><span class="se">\&quot;</span><span class="s2">: $(cat docs/source/grafana/lithops-dashboard.json), </span><span class="se">\</span>
-<span class="s2">       </span><span class="se">\&quot;</span><span class="s2">overwrite</span><span class="se">\&quot;</span><span class="s2">: true}&quot;</span>
+  <span class="o">-</span><span class="n">d</span> <span class="s2">"{</span><span class="se">\"</span><span class="s2">dashboard</span><span class="se">\"</span><span class="s2">: $(cat docs/source/grafana/lithops-dashboard.json), </span><span class="se">\</span>
+<span class="s2">       </span><span class="se">\"</span><span class="s2">overwrite</span><span class="se">\"</span><span class="s2">: true}"</span>
 </pre></div>
 </div>
 <p>Two panels stay empty on the localhost backend, and correctly so: memory
@@ -1193,7 +1287,7 @@ doing nothing at all, <code class="docutils literal notranslate"><span class="pr
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-works">How it works</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enabling-it">Enabling it</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prometheus">Prometheus</a><ul class="nav section-nav flex-column">
@@ -1208,6 +1302,7 @@ doing nothing at all, <code class="docutils literal notranslate"><span class="pr
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#through-a-collector">Through a collector</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-instance-identity">The instance identity</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-exported">What is exported</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#querying-it">Querying it</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-ready-made-grafana-dashboard">A ready-made Grafana dashboard</a></li>
@@ -1260,8 +1355,8 @@ By The Lithops Team
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
 
   <footer class="bd-footer">
   </footer>

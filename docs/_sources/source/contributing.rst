@@ -88,6 +88,9 @@ Code conventions
 - **Backends:** backend-specific code stays in its package (``lithops/serverless/backends/``,
   ``lithops/standalone/backends/``, ``lithops/storage/backends/``). Import the provider SDKs
   there, not in the core modules, so Lithops keeps working without the extras installed.
+  Each backend is self-contained: to implement a new one, start from the code of a similar
+  backend and adapt it. Duplicating logic between backends is fine; do not factor it out into
+  shared modules or base classes, so that a change in one backend cannot break another.
 - **Configuration keys:** document new or changed keys in ``config/config_template.yaml`` and
   in the backend's page under ``docs/source/compute_config/`` or ``docs/source/storage_config/``
   (general ``lithops`` keys in ``docs/source/lithops_config_keys.csv``).
@@ -106,14 +109,23 @@ together with any user-visible change.
 Changelog
 ---------
 
-Add an entry for every user-visible change to `CHANGELOG.md <https://github.com/lithops-cloud/lithops/blob/master/CHANGELOG.md>`_, under the
+Add an entry for every functional change (API, backends, behaviour, bug fixes in the library)
+to `CHANGELOG.md <https://github.com/lithops-cloud/lithops/blob/master/CHANGELOG.md>`_, under the
 topmost (development) version, in the *Added*, *Changed*, *Fixed* or *Removed* section, prefixed
-with the component:
+with the component. Docs fixes, packaging metadata and repository tooling need no entry, since
+that section becomes the release notes:
 
 .. code:: markdown
 
    ### Fixed
    - [AWS Lambda] Short description of the fix.
+
+Entries describe what changed compared to the latest release, not the history of the
+development cycle. If you fix or change something that was added after the latest release, update
+its existing *Added* entry instead of adding a *Fixed* or *Changed* one: users of the release
+never had the broken version. Likewise, if something is added and removed again before a
+release, remove its entry. For example, a bug found in a backend added in this cycle is fixed
+without a *Fixed* entry, since the backend is still listed under *Added*.
 
 
 Pull requests
@@ -132,12 +144,14 @@ Pull requests
 Releasing (maintainers)
 -----------------------
 
-Releases are made by the `Release workflow <https://github.com/lithops-cloud/lithops/blob/master/.github/workflows/release.yml>`_:
-*Actions* -> *Release* -> *Run workflow*, with the version to release (e.g. ``3.7.1``). Before
+Releases are made by the `Publish release workflow <https://github.com/lithops-cloud/lithops/blob/master/.github/workflows/release.yml>`_:
+*Actions* -> *Publish release* -> *Run workflow*, with the version to release (e.g. ``3.8.1``). Before
 running it, review the development section at the top of ``CHANGELOG.md``, which becomes the
 release notes. The workflow sets the version, tags it, publishes the sdist and wheel to PyPI,
-creates the GitHub release and bumps ``master`` to the next development version. Check
-*dry run* to build and check a release without pushing or publishing anything.
+creates the GitHub release, publishes the docs to the website repository and bumps ``master``
+to the next development version. Check *dry run* to build and check a release without pushing
+or publishing anything. To republish the docs without a release, run the *Publish docs*
+workflow: it builds ``master`` and publishes it as the docs of the latest release.
 
 
 AI coding agents
